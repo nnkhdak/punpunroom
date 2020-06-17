@@ -81,7 +81,19 @@
                 footer
             </footer>
         </nav>
-        <main>git</main>
+        <main>
+            oracle
+            <ol>
+                <li>
+                    テーブルの完全削除<br/>
+                    DROP   TABLE T_AutoCoupon CASCADE CONSTRAINTS PURGE;
+                </li>
+                <li>
+                    XレコードのSELECT<br/>
+                    SELECT LEVEL AS cnt FROM DUAL CONNECT BY LEVEL &lt;= 3
+                </li>
+            </ol>
+        </main>
     </div>
 </body>
 
