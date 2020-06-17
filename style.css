@@ -7,17 +7,47 @@ body {
     background: #ee9ca7;
     background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7);
     background: linear-gradient(to right, #ffdde1, #ee9ca7);
+    min-height: 100vh;
 }
 
-div.container {
+.container {
+    display: block;
     margin: 0 auto;
     width: 1000px;
     min-height: 100vh;
 }
 
-div.container header {
+.container header {
     height: 100px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+div.head {
+    flex: 1;
+}
+
+nav.head {
+    height: 50px;
+}
+
+nav.head ul {
+    display: flex;
+}
+
+nav.head ul li {
+    flex: 1;
+    text-align: center;
+}
+
+nav.head div ul {
+    padding: 0;
+    display: none;
+}
+
+nav.head input:checked+ul {
+    display: flex;
 }
 
 div.contains {
@@ -32,14 +62,14 @@ div.contains div.main {
     flex: 1;
 }
 
-nav ul {
+nav.side>ul {
+    padding-left: 0;
+}
+
+nav.side ul ul {
     list-style: none;
     margin: 0 auto;
     padding-left: 2em;
-}
-
-nav>ul {
-    padding-left: 0;
 }
 
 nav label:hover {
@@ -51,10 +81,10 @@ nav input {
     left: -500px;
 }
 
-nav ul li ul {
+nav.side ul li ul {
     display: none;
 }
 
-nav input:checked~ul {
+nav.side input:checked+ul {
     display: list-item;
 }
