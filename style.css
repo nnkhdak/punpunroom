@@ -1,5 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background: #ee9ca7;
     background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7);
     background: linear-gradient(to right, #ffdde1, #ee9ca7);
+}
+
+div.container {
+    margin: 0 auto;
+    width: 1000px;
+    min-height: 100vh;
+}
+
+div.container header {
+    height: 100px;
+    width: 100%;
+}
+
+div.contains {
+    display: flex;
+}
+
+div.contains nav {
+    width: 200px;
+}
+
+div.contains div.main {
+    flex: 1;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0 auto;
+    padding-left: 2em;
+}
+
+nav>ul {
+    padding-left: 0;
+}
+
+nav input {
+    position: absolute;
+    left: -500px;
+}
+
+nav ul li ul {
+    display: none;
+}
+
+nav input:checked~ul {
+    display: list-item;
 }
