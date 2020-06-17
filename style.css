@@ -8,68 +8,15 @@ body {
     background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7);
     background: linear-gradient(to right, #ffdde1, #ee9ca7);
     min-height: 100vh;
-}
-
-.container {
-    display: block;
-    margin: 0 auto;
-    width: 1000px;
-    min-height: 100vh;
-}
-
-.container header {
-    height: 100px;
-    width: 100%;
     display: flex;
     flex-direction: column;
-}
-
-div.head {
-    flex: 1;
-}
-
-nav.head {
-    height: 50px;
-}
-
-nav.head ul {
-    display: flex;
-}
-
-nav.head ul li {
-    flex: 1;
-    text-align: center;
-}
-
-nav.head div ul {
-    padding: 0;
-    display: none;
-}
-
-nav.head input:checked+ul {
-    display: flex;
-}
-
-div.contains {
-    display: flex;
-}
-
-div.contains nav {
-    width: 200px;
-}
-
-div.contains div.main {
-    flex: 1;
-}
-
-nav.side>ul {
-    padding-left: 0;
-}
-
-nav.side ul ul {
-    list-style: none;
     margin: 0 auto;
-    padding-left: 2em;
+    width: 1000px;
+}
+
+nav ul {
+    list-style: none;
+    padding-left: 0;
 }
 
 nav label:hover {
@@ -78,13 +25,60 @@ nav label:hover {
 
 nav input {
     position: absolute;
-    left: -500px;
+    left: -9999px;
 }
 
-nav.side ul li ul {
+header {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header div.head {
+    flex: 1;
+}
+
+header nav {
+    height: 50px;
+}
+
+header nav ul {
+    display: flex;
+}
+
+header nav ul li {
+    flex: 1;
+    text-align: center;
+}
+
+header nav div ul {
+    padding: 0;
     display: none;
 }
 
-nav.side input:checked+ul {
+header nav input:checked+ul {
+    display: flex;
+}
+
+div.middle {
+    flex: 1;
+    display: flex;
+}
+
+div.middle nav {
+    width: 200px;
+}
+
+div.middle main {
+    flex: 1;
+}
+
+div.middle nav ul ul {
+    padding-left: 2em;
+    display: none;
+}
+
+div.middle nav input:checked+ul {
     display: list-item;
 }
