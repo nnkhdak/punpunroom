@@ -68,9 +68,15 @@ div.middle {
 
 div.middle nav {
     width: 200px;
+    display: flex;
+    flex-direction: column;
 }
 
 div.middle main {
+    flex: 1;
+}
+
+div.middle nav ul {
     flex: 1;
 }
 
@@ -81,4 +87,8 @@ div.middle nav ul ul {
 
 div.middle nav input:checked+ul {
     display: list-item;
+}
+
+main {
+    padding: 10px;
 }
