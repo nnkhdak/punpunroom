@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "genre": "tech",
+        "child": [
+            {
+                "id": 1,
+                "name": "git",
+                "url": "git.html"
+            },
+            {
+                "id": 2,
+                "name": "css",
+                "url": "css.html"
+            },
+            {
+                "id": 3,
+                "name": "php",
+                "url": "php.html"
+            },
+            {
+                "id": 4,
+                "name": "oracle",
+                "url": "oracle.html"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "genre": "dd35",
+        "child": [
+            {
+                "id": 1,
+                "name": "1Lv"
+            },
+            {
+                "id": 2,
+                "name": "6Lv"
+            },
+            {
+                "id": 3,
+                "name": "12Lv"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "genre": "other",
+        "child": [
+            {
+                "id": 1,
+                "name": "aaa"
+            },
+            {
+                "id": 2,
+                "name": "bbb"
+            },
+            {
+                "id": 3,
+                "name": "ccc"
+            },
+            {
+                "id": 4,
+                "name": "ddd"
+            },
+            {
+                "id": 5,
+                "name": "eee"
+            }
+        ]
+    }
+]
