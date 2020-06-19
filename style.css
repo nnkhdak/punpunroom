@@ -29,6 +29,11 @@ nav input {
     left: -9999px;
 }
 
+nav a:link, nav a:visited, nav a:hover, nav a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
 header {
     height: 100px;
     width: 100%;
@@ -41,7 +46,7 @@ header div:first-of-type {
     flex: 1;
 }
 
-header div:first-of-type > a {
+header div:first-of-type>a {
     display: inline-block;
     margin-left: 2em;
     padding: 0 10px;
@@ -86,6 +91,10 @@ body>div:nth-of-type(1)>div:nth-of-type(1) {
 
 body>div:nth-of-type(1) nav {
     flex: 1;
+}
+
+body>div:nth-of-type(1) nav li+li {
+    margin-top: 5px;
 }
 
 body>div:nth-of-type(1) nav ul ul {

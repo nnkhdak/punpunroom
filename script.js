@@ -11,13 +11,16 @@ $(function () {
     // console.log('Hello');
     // callApi();
 
+    document.querySelector("title").innerHTML = 'ぷんぷんる～む';
+    document.querySelector("header div a").innerHTML = 'ぷんぷんる～む';
+
     codingNavTag('radio', 'head').then(tag => {
-        const targetNode = document.querySelectorAll("header nav")[0];
+        const targetNode = document.querySelector("header nav");
         targetNode.parentNode.replaceChild(tag, targetNode);
     });
 
     codingNavTag('checkbox', 'side').then(tag => {
-        const targetNode = document.querySelectorAll("div div nav")[0];
+        const targetNode = document.querySelector("div div nav");
         targetNode.parentNode.replaceChild(tag, targetNode);
     });
 });
@@ -71,10 +74,8 @@ async function codingNavTag(type, prefix) {
                 li1.appendChild(a1);
             });
         });
-        return result;
-    }
 
-    if ('radio' == type) {
+    } else if ('radio' == type) {
 
         // nav ul
         const ul0 = document.createElement('ul');
@@ -122,9 +123,7 @@ async function codingNavTag(type, prefix) {
             lbl0.innerHTML = row0.name;
             lbl0.setAttribute('for', prefix + '_' + row0.name);
             li0.appendChild(lbl0);
-
         });
-        return result;
     }
-    return 'ddd';
+    return result;
 }
