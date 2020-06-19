@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "genre": "tech",
+        "name": "tech",
         "child": [
             {
                 "id": 1,
@@ -32,7 +32,7 @@
     },
     {
         "id": 2,
-        "genre": "dd35",
+        "name": "dd35",
         "child": [
             {
                 "id": 1,
@@ -50,7 +50,7 @@
     },
     {
         "id": 3,
-        "genre": "other",
+        "name": "other",
         "child": [
             {
                 "id": 1,
