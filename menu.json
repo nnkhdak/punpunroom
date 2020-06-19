@@ -36,15 +36,15 @@
         "child": [
             {
                 "id": 1,
-                "name": "1Lv"
+                "name": "1Lv呪文"
             },
             {
                 "id": 2,
-                "name": "6Lv"
+                "name": "6Lvキャラ"
             },
             {
                 "id": 3,
-                "name": "12Lv"
+                "name": "12Lvキャラ"
             }
         ]
     },
