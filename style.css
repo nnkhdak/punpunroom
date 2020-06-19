@@ -92,3 +92,7 @@ div.middle nav input:checked+ul {
 main {
     padding: 10px;
 }
+
+main li {
+    margin-top: 10px;
+}
