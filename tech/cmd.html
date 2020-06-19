@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta charset="UTF-8">
+    <base href="../">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>ぷんぷんる～む</title>
+</head>
+
+<body>
+    <header>
+        <div class="head">header</div>
+        <nav class="head">
+            <ul>
+                <li><label for="head_tech">tech</label></li>
+                <li><label for="head_dd35">D&D 3.5e</label></li>
+                <li><label for="head_other">Other</label></li>
+            </ul>
+            <div>
+                <input type="radio" name="head" id="head_tech">
+                <ul>
+                    <li><a href="tech/git.html">git</a></li>
+                    <li><a href="tech/css.html">css</a></li>
+                    <li><a href="tech/php.html">php</a></li>
+                    <li><a href="tech/oracle.html">oracle</a></li>
+                </ul>
+                <input type="radio" name="head" id="head_dd35">
+                <ul>
+                    <li>1レベル呪文</li>
+                    <li>6Lvキャラ</li>
+                    <li>12Lvキャラ</li>
+                </ul>
+                <input type="radio" name="head" id="head_other">
+                <ul>
+                    <li>aaaaaa</li>
+                    <li>bbbbbb</li>
+                    <li>cccccc</li>
+                    <li>dddddd</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="middle">
+        <nav>
+            <ul>
+                <li>
+                    <label for="side_tech">tech</label>
+                    <input type="checkbox" id="side_tech">
+                    <ul>
+                        <li><a href="tech/git.html">git</a></li>
+                        <li><a href="tech/css.html">css</a></li>
+                        <li><a href="tech/php.html">php</a></li>
+                        <li><a href="tech/oracle.html">oracle</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <label for="side_dd35">D&D 3.5e</label>
+                    <input type="checkbox" id="side_dd35">
+                    <ul>
+                        <li>1レベル呪文</li>
+                        <li>6Lvキャラ</li>
+                        <li>12Lvキャラ</li>
+                    </ul>
+                </li>
+                <li>
+                    <label for="side_other">Other</label>
+                    <input type="checkbox" id="side_other">
+                    <ul>
+                        <li>aaaaaa</li>
+                        <li>bbbbbb</li>
+                        <li>cccccc</li>
+                        <li>dddddd</li>
+                    </ul>
+                </li>
+            </ul>
+            <footer>
+                footer
+            </footer>
+        </nav>
+        <main>
+            cmd
+            <ol>
+                <li>
+                    ディレクトリ内のファイルの拡張子名を取得<br />
+                    <command>find $PWD -type f | grep . | awk -F. '{print $2}' | sort | uniq</command>
+                </li>
+                <li>
+                    検索したいワードを含む、アクセスログの3番目のフィールドを取得。<br />
+                    <command>grep -h 検索したいワード /ディレクトリ名/*.txt | awk '{print $3}' | sort | uniq</command>
+                </li>
+            </ol>
+        </main>
+    </div>
+</body>
+
+</html>
