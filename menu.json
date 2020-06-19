@@ -22,6 +22,11 @@
                 "id": 4,
                 "name": "oracle",
                 "href": "oracle.html"
+            },
+            {
+                "id": 5,
+                "name": "コマンド系",
+                "href": "cmd.html"
             }
         ]
     },
