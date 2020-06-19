@@ -1,18 +1,9 @@
-const USERS_API = "https://jsonplaceholder.typicode.com/users";
 const MENUS_API = "https://pun-pun-pun.github.io/punpunroom/menu.json";
 
-async function callApi() {
-    const res = await window.fetch(USERS_API);
-    const users = await res.json();
-    console.log(users);
-}
-
 $(function () {
-    // console.log('Hello');
-    // callApi();
-
     document.querySelector("title").innerHTML = 'ぷんぷんる～む';
     document.querySelector("header div a").innerHTML = 'ぷんぷんる～む';
+    document.querySelector("footer").innerHTML = 'footer';
 
     codingNavTag('radio', 'head').then(tag => {
         const targetNode = document.querySelector("header nav");
