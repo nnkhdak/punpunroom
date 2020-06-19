@@ -1,5 +1,4 @@
 @charset "utf-8";
-
 * {
     margin: 0;
     padding: 0;
@@ -37,7 +36,7 @@ header {
     flex-direction: column;
 }
 
-header div.head {
+header div:first-of-type(1) {
     flex: 1;
 }
 
@@ -63,35 +62,32 @@ header nav input:checked+ul {
     display: flex;
 }
 
-div.middle {
+body>div:nth-of-type(1) {
     flex: 1;
     display: flex;
 }
 
-div.middle nav {
+body>div:nth-of-type(1)>div:nth-of-type(1) {
     width: 200px;
     display: flex;
     flex-direction: column;
 }
 
-div.middle main {
+body>div:nth-of-type(1) nav {
     flex: 1;
 }
 
-div.middle nav ul {
-    flex: 1;
-}
-
-div.middle nav ul ul {
+body>div:nth-of-type(1) nav ul ul {
     padding-left: 2em;
     display: none;
 }
 
-div.middle nav input:checked+ul {
+body>div:nth-of-type(1) nav input:checked+ul {
     display: list-item;
 }
 
 main {
+    flex: 1;
     padding: 10px;
 }
 
