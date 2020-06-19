@@ -34,10 +34,24 @@ header {
     width: 100%;
     display: flex;
     flex-direction: column;
+    padding-top: 10px;
 }
 
-header div:first-of-type(1) {
+header div:first-of-type {
     flex: 1;
+}
+
+header div:first-of-type > a {
+    display: inline-block;
+    margin-left: 1em;
+    padding: 0 10px;
+    color: red;
+    border: 1px solid red;
+    border-radius: 12px;
+    text-decoration: none;
+}
+
+header div:first-of-type > a:hover {
 }
 
 header nav {
