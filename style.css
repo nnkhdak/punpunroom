@@ -43,15 +43,12 @@ header div:first-of-type {
 
 header div:first-of-type > a {
     display: inline-block;
-    margin-left: 1em;
+    margin-left: 2em;
     padding: 0 10px;
     color: red;
     border: 1px solid red;
-    border-radius: 12px;
+    border-radius: 5px;
     text-decoration: none;
-}
-
-header div:first-of-type > a:hover {
 }
 
 header nav {
