@@ -90,7 +90,8 @@
             <ol>
                 <li>
                     ディレクトリ内のファイルの拡張子名を取得<br />
-                    <command>find $PWD -type f | grep . | awk -F. '{print $2}' | sort | uniq</command>
+                    <command>find $PWD -type f | grep -F . | awk -F. '{print $NF}' | sort | uniq</command><br>
+                    <command>find $PWD -type f | grep -F . | sed 's/.*\.//' | sort | uniq</command>
                 </li>
                 <li>
                     検索したいワードを含む、アクセスログの3番目のフィールドを取得。<br />
