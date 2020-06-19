@@ -5,8 +5,8 @@
         "child": [
             {
                 "id": 1,
-                "name": "コマンド系",
-                "href": "cmd.html"
+                "name": "JavaScript",
+                "href": "javascript.html"
             },
             {
                 "id": 2,
@@ -15,16 +15,21 @@
             },
             {
                 "id": 3,
+                "name": "コマンド系",
+                "href": "cmd.html"
+            },
+            {
+                "id": 4,
                 "name": "git",
                 "href": "git.html"
             },
             {
-                "id": 4,
+                "id": 5,
                 "name": "php",
                 "href": "php.html"
             },
             {
-                "id": 5,
+                "id": 6,
                 "name": "oracle",
                 "href": "oracle.html"
             }
