@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<meta charset="UTF-8">
+	<base href="./">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		div.container {
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+			margin: 0 auto;
+			width: 1000px;
+		}
+
+		header {
+			height: 100px;
+			top: 0;
+		}
+
+		header>div {
+			height: 50px;
+			background-color: lavender;
+			display: flex;
+		}
+
+		header div.logo {
+			line-height: 50px;
+			padding-left: 2em;
+		}
+
+		header div.info {
+			line-height: 25px;
+			padding-right: 1em;
+		}
+
+		header>div>div:nth-of-type(2) {
+			flex: 1;
+		}
+
+		header nav {
+			height: 50px;
+			background-color: white;
+		}
+
+		div.container>div {
+			flex: 1;
+			display: flex;
+			background-color: white;
+		}
+
+		div.container>div nav {
+			top: 100px;
+			width: 200px;
+		}
+
+		div.container>div main {
+			flex: 1;
+			padding: 5px 0 0 5px;
+		}
+
+		div.container>div aside {
+			/* display: none; */
+			width: 150px;
+		}
+
+		footer {
+			display: flex;
+			height: 25px;
+			bottom: 0;
+			background-color: lavender;
+		}
+
+		footer>div {
+			flex: 1;
+		}
+
+		address {
+			margin: 0 10px;
+		}
+
+		.sticky {
+			position: sticky;
+		}
+
+
+
+		/* table設定 */
+
+		table.list {
+			border-collapse: separate;
+			border-spacing: 0px;
+			width: 100%;
+		}
+
+		table.list tr {
+			height: 48px;
+		}
+
+		table.list .sticky {
+			top: 100px;
+			background-color: lavender;
+			z-index: 100;
+		}
+
+		table.list th,
+		table.list td {
+			padding: 5px;
+		}
+
+		table.list th+th,
+		table.list td+td {
+			border-left: 1px solid silver;
+		}
+
+		table.list td  {
+			border-bottom: 1px solid silver;
+		}
+
+		table.list tr:nth-of-type(even)  {
+			background-color: whitesmoke;
+		}
+
+
+		/* 画面毎設定 */
+
+		.width1 {
+			width: 100px;
+		}
+
+		.width2 {
+			width: 150px;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script>
+		/*
+		$(window).scroll(function () {
+			var top = $(window).scrollTop();
+			if (top > 50) {
+				$('table.list thead tr').addClass('fixed');
+			} else {
+				$('table.list thead tr').removeClass('fixed');
+			}
+		});
+		*/
+		$(function () {
+			$('div.container').css('display', 'flex');
+		});
+	</script>
+	<title></title>
+</head>
+
+<body>
+	<noscript>
+		<p>JavaScriptがサポートされていないため表示できません。</p>
+	</noscript>
+	<div class="container" style="display: none;">
+		<header class="sticky">
+			<div>
+				<div class="logo">
+					<a href="index.html">たいとる</a>
+				</div>
+				<div></div>
+				<div class="info">
+					<span style="display: block;">XXXX さん</span>
+					<a href="index.html">ログアウト</a>
+				</div>
+			</div>
+			<nav>上なび</nav>
+		</header>
+		<div>
+			<nav>左なび</nav>
+			<main>
+				<h1>main</h1>
+				<table class="list">
+					<thead>
+						<tr>
+							<th class="sticky width1">aaa</th>
+							<th class="sticky width2">bbb</th>
+							<th class="sticky width3">ccc</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1aaa</td>
+							<td>1bbb</td>
+							<td>1ccc</td>
+						</tr>
+						<tr>
+							<td>2aaa</td>
+							<td>2bbb</td>
+							<td>2ccc</td>
+						</tr>
+						<tr>
+							<td>2aaa</td>
+							<td>2bbb</td>
+							<td>2ccc</td>
+						</tr>
+						<tr>
+							<td>2aaa</td>
+							<td>2bbb</td>
+							<td>2ccc</td>
+						</tr>
+						<tr>
+							<td>2aaa</td>
+							<td>2bbb</td>
+							<td>2ccc</td>
+						</tr>
+						<tr>
+							<td>2aaa</td>
+							<td>2bbb</td>
+							<td>2ccc</td>
+						</tr>
+						<tr>
+							<td>2aaa</td>
+							<td>2bbb</td>
+							<td>2ccc</td>
+						</tr>
+						<tr>
+							<td>2aaa</td>
+							<td>2bbb</td>
+							<td>2ccc</td>
+						</tr>
+						<tr>
+							<td>2aaa</td>
+							<td>2bbb</td>
+							<td>2ccc</td>
+						</tr>
+						<tr>
+							<td>2aaa</td>
+							<td>2bbb</td>
+							<td>2ccc</td>
+						</tr>
+						<tr>
+							<td>2aaa</td>
+							<td>2bbb</td>
+							<td>2ccc</td>
+						</tr>
+						<tr>
+							<td>3aaa</td>
+							<td>3bbb</td>
+							<td>3ccc</td>
+						</tr>
+						<tr>
+							<td>3aaa</td>
+							<td>3bbb</td>
+							<td>3ccc</td>
+						</tr>
+						<tr>
+							<td>3aaa</td>
+							<td>3bbb</td>
+							<td>3ccc</td>
+						</tr>
+						<tr>
+							<td>3aaa</td>
+							<td>3bbb</td>
+							<td>3ccc</td>
+						</tr>
+						<tr>
+							<td>3aaa</td>
+							<td>3bbb</td>
+							<td>3ccc</td>
+						</tr>
+						<tr>
+							<td>3aaa</td>
+							<td>3bbb</td>
+							<td>3ccc</td>
+						</tr>
+						<tr>
+							<td>3aaa</td>
+							<td>3bbb</td>
+							<td>3ccc</td>
+						</tr>
+						<tr>
+							<td>3aaa</td>
+							<td>3bbb</td>
+							<td>3ccc</td>
+						</tr>
+					</tbody>
+				</table>
+			</main>
+			<aside>あさいど</aside>
+		</div>
+		<footer class="sticky">
+			<div></div>
+			<address>株式会社ふったー</address>
+		</footer>
+	</div>
+</body>
+
+</html>

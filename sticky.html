@@ -8,8 +8,8 @@
 	<meta charset="UTF-8">
 	<base href="./">
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/2.1.0/stickyfill.min.js"></script>
 	<!--
-
 	<script src="script.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	-->
@@ -48,21 +48,21 @@
 			position: sticky;
 			bottom: 0;
 			z-index: 100;
-			background-color:white;
+			background-color: white;
 		}
 	</style>
 </head>
 
 <body>
-	<header>header</header>
+	<header class="sticky">header</header>
 	<main>
 		main<br />
 		<table>
-			<thead>
-				<tr>
-					<th>aaa</th>
-					<th>bbb</th>
-					<th>ccc</th>
+			<thead class="sticky">
+				<tr class="sticky">
+					<th class="sticky">aaa</th>
+					<th class="sticky">bbb</th>
+					<th class="sticky">ccc</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -163,10 +163,14 @@
 				</tr>
 			</tbody>
 		</table>
-		<br /> <input type="button" value="hehehe"/><br />
+		<br /><input type="button" value="hehehe" /><br />
 	</main>
-	<footer>footer</footer>
+	<footer class="sticky">footer</footer>
 </body>
+<script>
+	const elements = document.querySelectorAll('.sticky');
+	Stickyfill.add(elements);
+</script>
 
 </html>
 <!--

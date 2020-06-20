@@ -1,0 +1,99 @@
+<html lang="en" class="">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CodePen Demo</title>
+	<meta name="robots" content="noindex">
+	<link rel="shortcut icon" type="image/x-icon"
+		href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+	<link rel="mask-icon" type=""
+		href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+		color="#111">
+	<link rel="canonical"
+		href="https://codepen.io/lc-shimazaki/pen/LKGJXV?__cf_chl_jschl_tk__=8b1f23a13b8217fff40ed7d869871492d0390be5-1592633891-0-AW62mEt9SNTGQEJzrcDS9dkT5f1IkfQJ_4M0qfSwavuynt9hKU0QXteNsjvp-EItTfY4rdQwYVqwPqZv1oLV38KNrjqG2hFdbRPcFqJsGxFMoKv4P9WpMu_vGS2122MkTR8nZHSWFrGtZgrTjEP1dcNyCz_qyxlRnXLM4D8Y7fFPEC0zh8K89vulrzNKP08LUmV5A2WDZ0SeLnnyZGF0-JAmtq6mizZXll7_NjXjkyyUzmXfgJjWyR59LIXH5lTOURK2BtIo00cq71If8QiZL4-DFW5IkmSvZ_B5OFkYInSsluwPMiB7JkraBSMQhtDVWeLJ3pnQK2rawKfpYKy98m2tSYvD9FJMqQyV5mOzwAwV">
+	<style class="INLINE_PEN_STYLESHEET_ID">
+		body {
+			background-color: #fff;
+		}
+
+		.sticky-box-dummy {
+			float: left;
+			width: 0px;
+			height: 40px;
+			left: 0;
+			right: 0;
+			margin: 65px auto 0 auto;
+			z-index: 1;
+			background-color: red;
+		}
+
+		.sticky-box {
+			float: left;
+			background-color: lightblue;
+			width: 600px;
+			height: 40px;
+			text-align: center;
+			left: 0;
+			right: 0;
+			margin-top: 65px;
+			z-index: 0;
+		}
+
+		.fixed {
+			top: 24;
+			margin-top: 0;
+			margin-left: 8px;
+			position: fixed;
+		}
+
+		.content {
+			background: linear-gradient(#f0f8ff, #1E00FF);			
+			width: 600px;
+			height: 1200px;
+			z-index: -1;
+			left: 0;
+			right: 0;
+			clear: left;
+		}
+
+		#scroll_top {
+			position: fixed;
+			top: 0;
+			z-index: 2;
+		}
+	</style>
+
+<body>
+	<div id="scroll_top">scrollTop: 0</div>
+	<div class="sticky-box">コンテンツヘッダ</div>
+	<div class="content">
+		1<br>
+		2<br>
+		3<br>
+		4<br>
+		5<br>
+		6<br>
+		7<br>
+		8<br>
+		9<br>
+		10<br>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script id="INLINE_PEN_JS_ID">
+		$(window).scroll(function () {
+			var top = $(window).scrollTop();
+
+			// debug code: scrollTopを表示してるだけ
+			$('#scroll_top').text('scrollTop: ' + top);
+
+			if (top > 75 - 24) {
+				$('.sticky-box').addClass('fixed');
+			} else {
+				$('.sticky-box').removeClass('fixed');
+			}
+		});
+	</script>
+
+</body>
+
+</html>
