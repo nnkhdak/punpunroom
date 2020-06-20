@@ -27,7 +27,11 @@
             JavaScript
             <ol>
                 <li>
-					タグをまるまる置き換える。<br/>
+					現在ブラウザのUserAgent<br/>
+					<script>document.write(window.navigator.userAgent);</script>
+                </li>
+                <li>
+					タグをまるまる置き換える<br/>
 					<code>var targetNode = document.getElementById('hoge');
 var newNode = document.createElement('div');
 targetNode.parentNode.replaceChild(newNode, targetNode);</code>
