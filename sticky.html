@@ -47,6 +47,8 @@
 		footer {
 			position: sticky;
 			bottom: 0;
+			z-index: 100;
+			background-color:white;
 		}
 	</style>
 </head>
@@ -161,9 +163,20 @@
 				</tr>
 			</tbody>
 		</table>
-		<br /> <input type="button" value=""><br />
+		<br /> <input type="button" value="hehehe"/><br />
 	</main>
 	<footer>footer</footer>
 </body>
 
 </html>
+<!--
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/2.1.0/stickyfill.min.js" crossorigin></script>
+
+const elements = document.querySelectorAll('.sticky');
+Stickyfill.add(elements);
+
+const elements = $('.sticky');
+Stickyfill.add(elements);
+
+-->
