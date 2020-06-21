@@ -11,7 +11,7 @@ function codingNavRadio(json, prefix) {
     const div0 = document.createElement("div");
     result.appendChild(div0);
 
-    json.forEach((row0) => {
+    json.forEach(function (row0) {
         // nav div input
         const input0 = document.createElement("input");
         input0.setAttribute("id", prefix + "_" + row0.name);
@@ -25,7 +25,8 @@ function codingNavRadio(json, prefix) {
         div0.appendChild(ul1);
 
         const rows1 = row0.child;
-        rows1.forEach((row1) => {
+
+        rows1.forEach(function (row1) {
             // nav div ul li
             const li1 = document.createElement("li");
             ul1.appendChild(li1);
@@ -58,7 +59,7 @@ function codingNavCheck(json, prefix) {
     const ul0 = document.createElement("ul");
     result.appendChild(ul0);
 
-    json.forEach((row0) => {
+    json.forEach(function (row0) {
         // nav ul li
         const li0 = document.createElement("li");
         ul0.appendChild(li0);
@@ -81,7 +82,7 @@ function codingNavCheck(json, prefix) {
         li0.appendChild(ul1);
 
         const rows1 = row0.child;
-        rows1.forEach((row1) => {
+        rows1.forEach(function (row1) {
             // nav ul li ul
             const li1 = document.createElement("li");
             ul1.appendChild(li1);

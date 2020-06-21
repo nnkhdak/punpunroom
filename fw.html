@@ -1,124 +1,126 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Cache-Control" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <meta charset="UTF-8" />
+        <base href="./" />
+        <link rel="stylesheet" href="asset/style.css" />
+        <style>
+            div.container {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                margin: 0 auto;
+                width: 1000px;
+            }
 
-<head>
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="Cache-Control" content="no-cache">
-	<meta http-equiv="Expires" content="0">
-	<meta charset="UTF-8">
-	<base href="./">
-	<link rel="stylesheet" href="asset/style.css">
-	<style>
-		div.container {
-			display: flex;
-			flex-direction: column;
-			min-height: 100vh;
-			margin: 0 auto;
-			width: 1000px;
-		}
+            header {
+                height: 100px;
+                top: 0;
+            }
 
-		header {
-			height: 100px;
-			top: 0;
-		}
+            header > div {
+                height: 50px;
+                background-color: lavender;
+                display: flex;
+            }
 
-		header>div {
-			height: 50px;
-			background-color: lavender;
-			display: flex;
-		}
+            header div.logo {
+                line-height: 50px;
+                padding-left: 2em;
+            }
 
-		header div.logo {
-			line-height: 50px;
-			padding-left: 2em;
-		}
+            header div.info {
+                line-height: 25px;
+                padding-right: 1em;
+            }
 
-		header div.info {
-			line-height: 25px;
-			padding-right: 1em;
-		}
+            header > div > div:nth-of-type(2) {
+                flex: 1;
+            }
 
-		header>div>div:nth-of-type(2) {
-			flex: 1;
-		}
+            header nav {
+                height: 50px;
+                background-color: white;
+            }
 
-		header nav {
-			height: 50px;
-			background-color: white;
-		}
+            div.middle {
+                flex: 0 1 auto;
+                display: flex;
+                background-color: white;
+            }
 
-		div.middle {
-			flex: 0 1 auto;
-			display: flex;
-			background-color: white;
-		}
+            div.middle nav {
+                top: 100px;
+                width: 200px;
+            }
 
-		div.middle nav {
-			top: 100px;
-			width: 200px;
-		}
+            div.middle main {
+                flex: 1;
+                padding: 5px 0 0 5px;
+            }
 
-		div.middle main {
-			flex: 1;
-			padding: 5px 0 0 5px;
-		}
+            div.middle aside {
+                /* display: none; */
+                width: 150px;
+            }
 
-		div.middle aside {
-			/* display: none; */
-			width: 150px;
-		}
+            footer {
+                display: flex;
+                height: 25px;
+                line-height: 25px;
+                bottom: 0;
+                background-color: lavender;
+                font-size: smaller;
+            }
 
-		footer {
-			display: flex;
-			height: 25px;
-			line-height: 25px;
-			bottom: 0;
-			background-color: lavender;
-			font-size: smaller;
-		}
+            footer > div {
+                flex: 1;
+            }
 
-		footer>div {
-			flex: 1;
-		}
+            small {
+                margin: 0 10px;
+            }
 
-		small {
-			margin: 0 10px;
-		}
+            .sticky {
+                position: sticky;
+            }
 
-		.sticky {
-			position: sticky;
-		}
+            /* nav設定 */
+            nav input {
+                position: absolute;
+                left: -9999px;
+            }
 
-		/* nav設定 */
-		nav input {
-			position: absolute;
-			left: -9999px;
-		}
+            header nav ul {
+                display: flex;
+            }
 
-		header nav ul {
-			display: flex;
-		}
+            header nav ul li {
+                flex: 1;
+                list-style: none;
+                padding-left: 0;
+                text-align: center;
+            }
 
-		header nav ul li {
-			flex: 1;
-			list-style: none;
-			padding-left: 0;
-			text-align: center;
-		}
+            /* 画面毎設定 */
+            .width1 {
+                width: 100px;
+            }
 
-		/* 画面毎設定 */
-		.width1 {
-			width: 100px;
-		}
+            .width2 {
+                width: 150px;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!--
 
-		.width2 {
-			width: 150px;
-		}
-	</style>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="asset/script.js"></script>
-	<script>
-		/*
+-->
+        <script src="asset/script.js"></script>
+        <script>
+            /*
 		$(window).scroll(function () {
 			var top = $(window).scrollTop();
 			if (top > 50) {
@@ -128,40 +130,54 @@
 			}
 		});
 		*/
-		$(function () {
-			$('div.container').css('display', 'flex');
+            $(function () {
+                $("div.container").css("display", "flex");
 
-			const MENUS_API = "https://pun-pun-pun.github.io/punpunroom/menu.json";
+                const MENUS_API =
+                    "https://pun-pun-pun.github.io/punpunroom/menu.json";
 
-			$.ajax({
-				type: "GET",
-				url: MENUS_API,
-				cache: false,
-				dataType: 'json'
-			})
-				.done(function (response, textStatus, jqXHR) {
-					if (response.status === "err") {
-						alert("err: " + response.msg);
-					} else {
-						const newNavHead = codingNavRadio(response, 'head');
-						const nowNavHead = document.querySelector("header nav");
-						nowNavHead.parentNode.replaceChild(newNavHead, nowNavHead);
+                $.ajax({
+                    type: "GET",
+                    url: MENUS_API,
+                    cache: false,
+                    dataType: "json",
+                })
+                    .done(function (response, textStatus, jqXHR) {
+                        if (response.status === "err") {
+                            alert("err: " + response.msg);
+                        } else {
+                            const newNavHead = codingNavRadio(response, "head");
+                            const nowNavHead = document.querySelector(
+                                "header nav"
+                            );
+                            nowNavHead.parentNode.replaceChild(
+                                newNavHead,
+                                nowNavHead
+                            );
 
-						const newNavSide = codingNavRadio(response, 'side');
-						const nowNavSide = document.querySelector("div.container div nav");
-						nowNavSide.parentNode.replaceChild(newNavSide, nowNavSide);
-					}
-				})
-				.fail(function (jqXHR, textStatus, errorThrown) {
+                            const newNavSide = codingNavRadio(response, "side");
+                            const nowNavSide = document.querySelector(
+                                "div.container div nav"
+                            );
+                            nowNavSide.parentNode.replaceChild(
+                                newNavSide,
+                                nowNavSide
+                            );
+                        }
+                    })
+                    .fail(function (jqXHR, textStatus, errorThrown) {
+                        console.log(jqXHR);
+                        alert(
+                            "失敗: サーバー内でエラーがあったか、サーバーから応答がありませんでした。"
+                        );
+                    })
+                    .always(function (
+                        data_or_jqXHR,
+                        textStatus,
+                        jqXHR_or_errorThrown
+                    ) {});
 
-					console.log(jqXHR);
-					alert("失敗: サーバー内でエラーがあったか、サーバーから応答がありませんでした。");
-
-				})
-				.always(function (data_or_jqXHR, textStatus, jqXHR_or_errorThrown) {
-				});
-
-			/*
+                /*
 				const targetNode = document.querySelector("header nav");
 				targetNode.parentNode.replaceChild(tag, targetNode);
 			
@@ -170,188 +186,187 @@
 							targetNode.parentNode.replaceChild(tag, targetNode);
 						});
 			*/
-		});
-	</script>
-	<title></title>
-</head>
+            });
+        </script>
+        <title></title>
+    </head>
 
-<body>
-	<noscript>
-		<p>JavaScriptがサポートされていないため表示できません。</p>
-	</noscript>
-	<div class="container" style="display: none;">
-		<header class="sticky">
-			<div>
-				<div class="logo">
-					<a href="index.html">たいとる</a>
-				</div>
-				<div></div>
-				<div class="info">
-					<span style="display: block;">XXXX さん</span>
-					<a href="index.html">ログアウト</a>
-				</div>
-			</div>
-			<nav>
-				<ul>
-					<li>aaa</li>
-					<li>bbb</li>
-					<li>ccc</li>
-				</ul>
-			</nav>
-		</header>
-		<div class="middle">
-			<nav>左なび</nav>
-			<main>
-				<h1>main</h1>
+    <body>
+        <noscript>
+            <p>JavaScriptがサポートされていないため表示できません。</p>
+        </noscript>
+        <div class="container" style="display: none;">
+            <header class="sticky">
+                <div>
+                    <div class="logo">
+                        <a href="index.html">たいとる</a>
+                    </div>
+                    <div></div>
+                    <div class="info">
+                        <span style="display: block;">XXXX さん</span>
+                        <a href="index.html">ログアウト</a>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li>aaa</li>
+                        <li>bbb</li>
+                        <li>ccc</li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="middle">
+                <nav>左なび</nav>
+                <main>
+                    <h1>main</h1>
 
-				<div class="pagers">
-					<a class="pager" href="index.html">&lt;&lt;</a>
-					<a class="pager" href="index.html">&lt;</a>
-					<span>...</span>
-					<a class="pager" href="index.html">1</a>
-					<a class="pager" href="index.html">2</a>
-					<a class="pager" href="index.html">3</a>
-					<a class="pager" href="index.html">4</a>
-					<a class="pager" href="index.html">5</a>
-					<span>...</span>
-					<a class="pager" href="index.html">&gt;</a>
-					<a class="pager" href="index.html">&gt;&gt;</a>
-				</div>
+                    <div class="pagers">
+                        <a class="pager" href="index.html">&lt;&lt;</a>
+                        <a class="pager" href="index.html">&lt;</a>
+                        <span>...</span>
+                        <a class="pager" href="index.html">1</a>
+                        <a class="pager" href="index.html">2</a>
+                        <a class="pager" href="index.html">3</a>
+                        <a class="pager" href="index.html">4</a>
+                        <a class="pager" href="index.html">5</a>
+                        <span>...</span>
+                        <a class="pager" href="index.html">&gt;</a>
+                        <a class="pager" href="index.html">&gt;&gt;</a>
+                    </div>
 
-				<table class="list">
-					<thead>
-						<tr>
-							<th class="sticky width1">aaa</th>
-							<th class="sticky width2">bbb</th>
-							<th class="sticky width3">ccc</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1aaa</td>
-							<td>1bbb</td>
-							<td>1ccc</td>
-						</tr>
-						<tr>
-							<td>2aaa</td>
-							<td>2bbb</td>
-							<td>2ccc</td>
-						</tr>
-						<tr>
-							<td>2aaa</td>
-							<td>2bbb</td>
-							<td>2ccc</td>
-						</tr>
-						<tr>
-							<td>2aaa</td>
-							<td>2bbb</td>
-							<td>2ccc</td>
-						</tr>
-						<tr>
-							<td>2aaa</td>
-							<td>2bbb</td>
-							<td>2ccc</td>
-						</tr>
-						<tr>
-							<td>2aaa</td>
-							<td>2bbb</td>
-							<td>2ccc</td>
-						</tr>
-						<tr>
-							<td>2aaa</td>
-							<td>2bbb</td>
-							<td>2ccc</td>
-						</tr>
-						<tr>
-							<td>2aaa</td>
-							<td>2bbb</td>
-							<td>2ccc</td>
-						</tr>
-						<tr>
-							<td>2aaa</td>
-							<td>2bbb</td>
-							<td>2ccc</td>
-						</tr>
-						<tr>
-							<td>2aaa</td>
-							<td>2bbb</td>
-							<td>2ccc</td>
-						</tr>
-						<tr>
-							<td>2aaa</td>
-							<td>2bbb</td>
-							<td>2ccc</td>
-						</tr>
-						<tr>
-							<td>3aaa</td>
-							<td>3bbb</td>
-							<td>3ccc</td>
-						</tr>
-						<tr>
-							<td>3aaa</td>
-							<td>3bbb</td>
-							<td>3ccc</td>
-						</tr>
-						<tr>
-							<td>3aaa</td>
-							<td>3bbb</td>
-							<td>3ccc</td>
-						</tr>
-						<tr>
-							<td>3aaa</td>
-							<td>3bbb</td>
-							<td>3ccc</td>
-						</tr>
-						<tr>
-							<td>3aaa</td>
-							<td>3bbb</td>
-							<td>3ccc</td>
-						</tr>
-						<tr>
-							<td>3aaa</td>
-							<td>3bbb</td>
-							<td>3ccc</td>
-						</tr>
-						<tr>
-							<td>3aaa</td>
-							<td>3bbb</td>
-							<td>3ccc</td>
-						</tr>
-						<tr>
-							<td>3aaa</td>
-							<td>3bbb</td>
-							<td>3ccc</td>
-						</tr>
-					</tbody>
-				</table>
+                    <table class="list">
+                        <thead>
+                            <tr>
+                                <th class="sticky width1">aaa</th>
+                                <th class="sticky width2">bbb</th>
+                                <th class="sticky width3">ccc</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1aaa</td>
+                                <td>1bbb</td>
+                                <td>1ccc</td>
+                            </tr>
+                            <tr>
+                                <td>2aaa</td>
+                                <td>2bbb</td>
+                                <td>2ccc</td>
+                            </tr>
+                            <tr>
+                                <td>2aaa</td>
+                                <td>2bbb</td>
+                                <td>2ccc</td>
+                            </tr>
+                            <tr>
+                                <td>2aaa</td>
+                                <td>2bbb</td>
+                                <td>2ccc</td>
+                            </tr>
+                            <tr>
+                                <td>2aaa</td>
+                                <td>2bbb</td>
+                                <td>2ccc</td>
+                            </tr>
+                            <tr>
+                                <td>2aaa</td>
+                                <td>2bbb</td>
+                                <td>2ccc</td>
+                            </tr>
+                            <tr>
+                                <td>2aaa</td>
+                                <td>2bbb</td>
+                                <td>2ccc</td>
+                            </tr>
+                            <tr>
+                                <td>2aaa</td>
+                                <td>2bbb</td>
+                                <td>2ccc</td>
+                            </tr>
+                            <tr>
+                                <td>2aaa</td>
+                                <td>2bbb</td>
+                                <td>2ccc</td>
+                            </tr>
+                            <tr>
+                                <td>2aaa</td>
+                                <td>2bbb</td>
+                                <td>2ccc</td>
+                            </tr>
+                            <tr>
+                                <td>2aaa</td>
+                                <td>2bbb</td>
+                                <td>2ccc</td>
+                            </tr>
+                            <tr>
+                                <td>3aaa</td>
+                                <td>3bbb</td>
+                                <td>3ccc</td>
+                            </tr>
+                            <tr>
+                                <td>3aaa</td>
+                                <td>3bbb</td>
+                                <td>3ccc</td>
+                            </tr>
+                            <tr>
+                                <td>3aaa</td>
+                                <td>3bbb</td>
+                                <td>3ccc</td>
+                            </tr>
+                            <tr>
+                                <td>3aaa</td>
+                                <td>3bbb</td>
+                                <td>3ccc</td>
+                            </tr>
+                            <tr>
+                                <td>3aaa</td>
+                                <td>3bbb</td>
+                                <td>3ccc</td>
+                            </tr>
+                            <tr>
+                                <td>3aaa</td>
+                                <td>3bbb</td>
+                                <td>3ccc</td>
+                            </tr>
+                            <tr>
+                                <td>3aaa</td>
+                                <td>3bbb</td>
+                                <td>3ccc</td>
+                            </tr>
+                            <tr>
+                                <td>3aaa</td>
+                                <td>3bbb</td>
+                                <td>3ccc</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-				<div class="pagers">
-					<a class="pager" href="index.html">&lt;&lt;</a>
-					<a class="pager" href="index.html">&lt;</a>
-					<span>...</span>
-					<a class="pager" href="index.html">1</a>
-					<a class="pager" href="index.html">2</a>
-					<a class="pager" href="index.html">3</a>
-					<a class="pager" href="index.html">4</a>
-					<a class="pager" href="index.html">5</a>
-					<span>...</span>
-					<a class="pager" href="index.html">&gt;</a>
-					<a class="pager" href="index.html">&gt;&gt;</a>
-				</div>
+                    <div class="pagers">
+                        <a class="pager" href="index.html">&lt;&lt;</a>
+                        <a class="pager" href="index.html">&lt;</a>
+                        <span>...</span>
+                        <a class="pager" href="index.html">1</a>
+                        <a class="pager" href="index.html">2</a>
+                        <a class="pager" href="index.html">3</a>
+                        <a class="pager" href="index.html">4</a>
+                        <a class="pager" href="index.html">5</a>
+                        <span>...</span>
+                        <a class="pager" href="index.html">&gt;</a>
+                        <a class="pager" href="index.html">&gt;&gt;</a>
+                    </div>
 
-				<div class="buttons">
-					<a class="button main" href="index.html">検索</a>
-					<a class="button" href="index.html">戻る</a>
-					<a class="button" href="index.html">クリア</a>
-				</div>
-			</main>
-			<aside>あさいど</aside>
-		</div>
-		<footer class="sticky">
-			<div></div>
-			<small>株式会社ふったー</small>
-		</footer>
-	</div>
-</body>
-
+                    <div class="buttons">
+                        <a class="button main" href="index.html">検索</a>
+                        <a class="button" href="index.html">戻る</a>
+                        <a class="button" href="index.html">クリア</a>
+                    </div>
+                </main>
+                <aside>あさいど</aside>
+            </div>
+            <footer class="sticky">
+                <div></div>
+                <small>株式会社ふったー</small>
+            </footer>
+        </div>
+    </body>
 </html>
