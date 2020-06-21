@@ -1,0 +1,29 @@
+/* ボタン設定 */
+
+.buttons {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+    padding: 2px 10px;
+    color: inherit;
+    border: 1px solid silver;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.button.main {
+    color: red;
+    border: 1px solid red;
+}
+
+.button+.button {
+    margin-left: 1em;
+}
+
+.button a:link, .button a:visited, .button a:hover, .button a:active {
+    text-decoration: none;
+    color: inherit;
+}

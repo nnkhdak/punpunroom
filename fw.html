@@ -7,12 +7,8 @@
 	<meta http-equiv="Expires" content="0">
 	<meta charset="UTF-8">
 	<base href="./">
+	<link rel="stylesheet" href="import/style.css">
 	<style>
-		* {
-			margin: 0;
-			padding: 0;
-		}
-
 		div.container {
 			display: flex;
 			flex-direction: column;
@@ -51,23 +47,23 @@
 			background-color: white;
 		}
 
-		div.container>div {
+		div.middle {
 			flex: 0 1 auto;
 			display: flex;
 			background-color: white;
 		}
 
-		div.container>div nav {
+		div.middle nav {
 			top: 100px;
 			width: 200px;
 		}
 
-		div.container>div main {
+		div.middle main {
 			flex: 1;
 			padding: 5px 0 0 5px;
 		}
 
-		div.container>div aside {
+		div.middle aside {
 			/* display: none; */
 			width: 150px;
 		}
@@ -93,102 +89,6 @@
 			position: sticky;
 		}
 
-
-
-		/* 一覧表示 設定 */
-
-		table.list {
-			border-collapse: separate;
-			border-spacing: 0px;
-			width: 100%;
-		}
-
-		table.list tr {
-			height: 48px;
-		}
-
-		table.list .sticky {
-			top: 100px;
-			background-color: lavender;
-			z-index: 100;
-		}
-
-		table.list th,
-		table.list td {
-			padding: 5px;
-		}
-
-		table.list th+th,
-		table.list td+td {
-			border-left: 1px solid silver;
-		}
-
-		table.list td {
-			border-bottom: 1px solid silver;
-		}
-
-		table.list tr:nth-of-type(even) {
-			background-color: whitesmoke;
-		}
-
-		.pagers {
-			margin: 10px auto;
-			text-align: right;
-		}
-
-		.pagers>* {
-			display: inline-block;
-			padding: 1px 5px;
-			color: inherit;
-			font-size: 0.7em;
-		}
-
-		.pagers>span {
-			padding: 0;
-		}
-
-		.pager {
-			border: 1px solid silver;
-			text-decoration: none;
-		}
-
-
-
-		/* ボタン設定 */
-
-		.buttons {
-			margin: 10px auto;
-			text-align: center;
-		}
-
-		.button {
-			display: inline-block;
-			padding: 2px 10px;
-			color: inherit;
-			border: 1px solid silver;
-			border-radius: 5px;
-			text-decoration: none;
-		}
-
-		.button.main {
-			color: red;
-			border: 1px solid red;
-		}
-
-		.button+.button {
-			margin-left: 1em;
-		}
-
-		.button a:link,
-		.button a:visited,
-		.button a:hover,
-		.button a:active {
-			text-decoration: none;
-			color: inherit;
-		}
-
-
-
 		/* 画面毎設定 */
 		.width1 {
 			width: 100px;
@@ -199,6 +99,7 @@
 		}
 	</style>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="import/script.js"></script>
 	<script>
 		/*
 		$(window).scroll(function () {
@@ -212,6 +113,18 @@
 		*/
 		$(function () {
 			$('div.container').css('display', 'flex');
+
+/*
+			codingNavTag('radio', 'head').then(tag => {
+				const targetNode = document.querySelector("header nav");
+				targetNode.parentNode.replaceChild(tag, targetNode);
+			});
+
+			codingNavTag('checkbox', 'side').then(tag => {
+				const targetNode = document.querySelector("div.container div nav");
+				targetNode.parentNode.replaceChild(tag, targetNode);
+			});
+*/
 		});
 	</script>
 	<title></title>
@@ -235,7 +148,7 @@
 			</div>
 			<nav>上なび</nav>
 		</header>
-		<div>
+		<div class="middle">
 			<nav>左なび</nav>
 			<main>
 				<h1>main</h1>
