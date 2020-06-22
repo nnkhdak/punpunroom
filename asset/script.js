@@ -122,8 +122,6 @@ $(function () {
 				const newNavSide = codingNavCheck(response, "side");
 				const nowNavSide = document.querySelector("div.container div nav");
 				nowNavSide.parentNode.replaceChild(newNavSide, nowNavSide);
-				/*
-				 */
 			}
 		})
 		.fail(function (jqXHR, textStatus, errorThrown) {
