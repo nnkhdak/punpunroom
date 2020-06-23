@@ -21,11 +21,13 @@ class EnvChecker {
 		const key = "cookiecheck";
 		document.cookie = key + "=" + escape(true);
 		document.cookie = "hoge=foobar";
+		document.cookie = "key=value; path=/; domain:127.0.0.1;";
 		var c = document.cookie;
 		console.log("-------------");
 		console.log(c);
 		console.log("-------------");
-		c.split(";").forEach(function (value) {
+		c = "key=value; cookiecheck=true";
+		c.split("; ").forEach(function (value) {
 			console.log(value);
 		});
 		/*
