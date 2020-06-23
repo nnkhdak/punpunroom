@@ -28,10 +28,6 @@ class EnvChecker {
 		return matches != null && matches.length >= 2 && matches[1] === escape(val);
 	}
 
-	canUseFlash() {
-		return false;
-	}
-
 	getBrowser() {
 		var ua = navigator.userAgent + " ";
 		if (ua.match(/Trident\/([0-9.]+)/i)) {
