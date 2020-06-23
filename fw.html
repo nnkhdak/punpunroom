@@ -47,12 +47,27 @@
 					<h1>main</h1>
 
 					<script>
-						const uaa = new EnvChecker();
-						document.write(uaa.getOsName());
+						const ec = new EnvChecker();
+						document.write(ec.getOsName());
 						document.write("<br>");
-						document.write(uaa.getBrowser().name);
+						document.write(ec.getBrowser().name);
 						document.write("<br>");
-						document.write(uaa.getBrowser().ver);
+						document.write(ec.getBrowser().ver);
+						document.write("<hr>");
+						tmp = "cookiecheck=" + escape("true") + "; ";
+						document.write(tmp);
+						document.cookie = "key=value;";
+						let cookies_get = document.cookie;
+						document.write("<br>");
+						document.write(cookies_get);
+						document.write("<hr>");
+						cookiecheck = getCookie("cookiecheck");
+						document.write("<br>");
+						document.write(cookiecheck);
+						document.write("<br>");
+						document.write(ec.canUseCookie());
+						document.write("<br>");
+						document.write(ec.canUseFlash());
 					</script>
 
 					<div class="pagers">

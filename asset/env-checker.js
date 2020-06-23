@@ -1,4 +1,38 @@
+function getCookie(key, tmp1, tmp2, xx1, xx2, xx3) {
+	tmp1 = " " + document.cookie + ";";
+	console.log(tmp1);
+	xx1 = xx2 = 0;
+	len = tmp1.length;
+	while (xx1 < len) {
+		console.log("aaaaaa");
+		xx2 = tmp1.indexOf(";", xx1);
+		tmp2 = tmp1.substring(xx1 + 1, xx2);
+		xx3 = tmp2.indexOf("=");
+		if (tmp2.substring(0, xx3) == key) {
+			return unescape(tmp2.substring(xx3 + 1, xx2 - xx1 - 1));
+		}
+		xx1 = xx2 + 1;
+	}
+	return "";
+}
+
 class EnvChecker {
+	canUseCookie() {
+		/*
+		const k = "cookiecheck";
+		const s = k + "=" + escape("true") + "; ";
+		console.log(s);
+		document.cookie = s;
+		const v = getCookie(k);
+		console.log(v);
+		*/
+		return false;
+	}
+
+	canUseFlash() {
+		return false;
+	}
+
 	getBrowser() {
 		var ua = navigator.userAgent + " ";
 		if (ua.match(/Trident\/([0-9.]+)/i)) {
@@ -77,7 +111,7 @@ class EnvChecker {
 		} else if (ua.match(/Linux/)) {
 			return "Linux"; // Linux
 		} else if (ua.match(/(Free|Net|Open)BSD/)) {
-			return RegExp.$1 + "BSD"; // BSD 系の処理
+			return RegExp.$1 + "BSD"; // BSD系
 		} else if (ua.match(/SunOS/)) {
 			return "Solaris"; // Solaris
 		}
