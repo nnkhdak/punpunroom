@@ -1,21 +1,3 @@
-function getCookie(key, tmp1, tmp2, xx1, xx2, xx3) {
-	tmp1 = " " + document.cookie + ";";
-	console.log(tmp1);
-	xx1 = xx2 = 0;
-	len = tmp1.length;
-	while (xx1 < len) {
-		console.log("aaaaaa");
-		xx2 = tmp1.indexOf(";", xx1);
-		tmp2 = tmp1.substring(xx1 + 1, xx2);
-		xx3 = tmp2.indexOf("=");
-		if (tmp2.substring(0, xx3) == key) {
-			return unescape(tmp2.substring(xx3 + 1, xx2 - xx1 - 1));
-		}
-		xx1 = xx2 + 1;
-	}
-	return "";
-}
-
 class EnvChecker {
 	canUseCookie() {
 		const key = "cookiecheck";
