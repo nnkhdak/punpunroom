@@ -19,8 +19,12 @@ function getCookie(key, tmp1, tmp2, xx1, xx2, xx3) {
 class EnvChecker {
 	canUseCookie() {
 		const k = "cookiecheck";
-		document.cookie = k + "=" + escape("true") + "; ";
-		document.cookie.split(";").forEach(function (value) {
+		document.cookie = k + "=" + escape("true");
+		var c = document.cookie;
+		console.log("-------------");
+		console.log(c);
+		console.log("-------------");
+		c.split(";").forEach(function (value) {
 			console.log(value);
 		});
 		/*
