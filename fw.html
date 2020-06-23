@@ -57,6 +57,7 @@
 						tmp = "cookiecheck=" + escape("true") + "; ";
 						document.write(tmp);
 						document.cookie = "key=value;";
+						document.cookie = tmp;
 						let cookies_get = document.cookie;
 						document.write("<br>");
 						document.write(cookies_get);

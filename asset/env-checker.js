@@ -18,14 +18,13 @@ function getCookie(key, tmp1, tmp2, xx1, xx2, xx3) {
 
 class EnvChecker {
 	canUseCookie() {
-		/*
 		const k = "cookiecheck";
-		const s = k + "=" + escape("true") + "; ";
-		console.log(s);
-		document.cookie = s;
-		const v = getCookie(k);
-		console.log(v);
-		*/
+		document.cookie = k + "=" + escape("true") + "; ";
+		document.cookie.split(";").forEach(function (value) {
+			console.log(value);
+		});
+		/*
+		 */
 		return false;
 	}
 
