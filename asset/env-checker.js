@@ -19,20 +19,13 @@ function getCookie(key, tmp1, tmp2, xx1, xx2, xx3) {
 class EnvChecker {
 	canUseCookie() {
 		const key = "cookiecheck";
-		document.cookie = key + "=" + escape(true);
-		document.cookie = "hoge=foobar";
-		document.cookie = "key1=value1; path=/; domain:127.0.0.1;";
+		const val = true;
+		document.cookie = key + "=" + escape(val);
 		var c = document.cookie;
-		console.log("-------------");
-		console.log(c);
-		console.log("-------------");
-		c = "key=value; cookiecheck=true";
-		c.split("; ").forEach(function (value) {
-			console.log(value);
-		});
-		/*
-		 */
-		return false;
+		const match = key + "=([^;]+); ";
+		const regexp = new RegExp(match);
+		const matches = c.match(regexp);
+		return matches != null && matches.length >= 2 && matches[1] === escape(val);
 	}
 
 	canUseFlash() {
