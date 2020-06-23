@@ -19,6 +19,7 @@
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="asset/script.js"></script>
+		<script src="asset/env-checker.js"></script>
 		<title></title>
 	</head>
 
@@ -44,6 +45,15 @@
 				<nav></nav>
 				<main>
 					<h1>main</h1>
+
+					<script>
+						const uaa = new EnvChecker();
+						document.write(uaa.getOsName());
+						document.write("<br>");
+						document.write(uaa.getBrowser().name);
+						document.write("<br>");
+						document.write(uaa.getBrowser().ver);
+					</script>
 
 					<div class="pagers">
 						<a class="pager" href="index.html">&lt;&lt;</a>
