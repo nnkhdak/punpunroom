@@ -18,8 +18,9 @@ function getCookie(key, tmp1, tmp2, xx1, xx2, xx3) {
 
 class EnvChecker {
 	canUseCookie() {
-		const k = "cookiecheck";
-		document.cookie = k + "=" + escape("true");
+		const key = "cookiecheck";
+		document.cookie = key + "=" + escape(true);
+		document.cookie = "hoge=foobar";
 		var c = document.cookie;
 		console.log("-------------");
 		console.log(c);
