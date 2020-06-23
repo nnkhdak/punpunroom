@@ -21,7 +21,7 @@ class EnvChecker {
 		const key = "cookiecheck";
 		document.cookie = key + "=" + escape(true);
 		document.cookie = "hoge=foobar";
-		document.cookie = "key=value; path=/; domain:127.0.0.1;";
+		document.cookie = "key1=value1; path=/; domain:127.0.0.1;";
 		var c = document.cookie;
 		console.log("-------------");
 		console.log(c);
