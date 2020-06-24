@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="hamburger.css" />
+
+</head>
+
+<body>
+    <!-- 🍔 -->
+    <input id="menu" type="checkbox" />
+    <label for="menu" class="open">
+        <style type="text/css">
+            span {
+                height: 24px;
+                width: 24px;
+                display: block;
+                position: relative;
+            }
+
+            .demoSpan1 {
+                width: 24px;
+                height: 24px;
+            }
+
+            .demoSpan1:before {
+                content: '';
+                height: 4px;
+                width: 24px;
+                background: #333;
+                border-radius: 2px;
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+                display: block;
+                position: absolute;
+                top: 5px;
+                left: 0;
+                box-shadow: 0 7px #333, 0 14px #333;
+                -webkit-box-shadow: 0 7px #333, 0 14px #333;
+                -moz-box-shadow: 0 7px #333, 0 14px #333;
+            }
+        </style>
+        <span class="demoSpan1"></span>
+    </label>
+    <label for="menu" class="back"></label>
+    <!-- 🍔 -->
+
+    <aside>
+        <!-- 🍔 -->
+        <label for="menu" class="close">×</label>
+        <!-- 🍔 -->
+
+        <nav>
+            <ul>
+                <li>list1</li>
+                <li>list2</li>
+                <li>list3</li>
+                <li>list4</li>
+                <li>list5</li>
+            </ul>
+        </nav>
+        <div>
+            side footer
+        </div>
+    </aside>
+
+    <main>
+        Main
+    </main>
+</body>
+
+</html>
