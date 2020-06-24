@@ -1,5 +1,5 @@
 .icon {
-	top: 2px;
+	top: 1px;
 	left: 0;
 	height: 15px;
 	width: 15px;
@@ -39,9 +39,9 @@
 	left: 12px;
 }
 
-.button.main .search:before {
-	border: 2px red solid;
+.button.main .icon:before {
+	border-color: red;
 }
-.button.main .search:after {
+.button.main .icon:after {
 	background: red;
 }
