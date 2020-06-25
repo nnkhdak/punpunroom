@@ -48,15 +48,15 @@
 					<ol>
 						<li>
 							テーブルの完全削除<br />
-							DROP TABLE T_AutoCoupon CASCADE CONSTRAINTS PURGE;
+							<source>DROP TABLE <i>テーブル名</i> CASCADE CONSTRAINTS PURGE;</source>
 						</li>
 						<li>
 							XレコードのSELECT<br />
-							SELECT LEVEL AS cnt FROM DUAL CONNECT BY LEVEL &lt;= 3
+							<source>SELECT LEVEL AS cnt FROM DUAL CONNECT BY LEVEL &lt;= 3</source>
 						</li>
 						<li>
 							sqlplusで接続<br />
-							sqlplus64 <i>ユーザ名</i>@<i>サーバ名</i>
+							<source>sqlplus64 <i>ユーザ名</i>@<i>サーバ名</i></source>
 						</li>
 					</ol>
 				</main>
