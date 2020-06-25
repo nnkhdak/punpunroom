@@ -85,6 +85,10 @@ class EnvChecker {
 			ua.match(/CrOS [\w]+ ([0-9._]+)/g);
 			var v = RegExp.$1;
 			return "ChromeOS " + v; // Chrome OS
+		} else if (ua.match(/CrOS/)) {
+			ua.match(/CrOS [\w]+ ([0-9._]+)/g);
+			var v = RegExp.$1;
+			return "ChromeOS " + v; // Chrome OS
 		} else if (ua.match(/Linux/)) {
 			return "Linux"; // Linux
 		} else if (ua.match(/(Free|Net|Open)BSD/)) {
