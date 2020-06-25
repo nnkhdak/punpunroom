@@ -17,6 +17,42 @@
 		.width2 {
 			width: 150px;
 		}
+
+		.tabs label:nth-of-type(1) {
+			border-color: red;
+			background-color: red;
+		}
+
+		.tabs label:nth-of-type(2) {
+			border-color: blue;
+			background-color: blue;
+		}
+
+		.tabs label:nth-of-type(3) {
+			border-color: yellow;
+			background-color: yellow;
+		}
+
+		.tabs label:nth-of-type(4) {
+			border-color: green;
+			background-color: green;
+		}
+
+		.tabs .tab-body:nth-of-type(1) {
+			border-color: red;
+		}
+
+		.tabs .tab-body:nth-of-type(2) {
+			border-color: blue;
+		}
+
+		.tabs .tab-body:nth-of-type(3) {
+			border-color: yellow;
+		}
+
+		.tabs .tab-body:nth-of-type(4) {
+			border-color: green;
+		}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="asset/script.js"></script>
@@ -46,91 +82,19 @@
 			<nav></nav>
 			<main>
 				<h2>D&D 3.5e</h2>
-				<style>
-					.tabs {
-						width: 100%;
-					}
-
-					.tabs label {
-						display: inline-block;
-						width: 100px;
-						text-align: center;
-						padding: 2px 5px 2px 5px;
-						border-width: 1px 1px 0px 1px;
-						border-top-left-radius: 5px;
-						border-top-right-radius: 5px;
-					}
-
-					.tabs label:nth-of-type(1) {
-						border-color: red;
-						background-color: red;
-					}
-
-					.tabs label:nth-of-type(2) {
-						border-color: blue;
-						background-color: blue;
-					}
-
-					.tabs label:nth-of-type(3) {
-						border-color: yellow;
-						background-color: yellow;
-					}
-
-					.tabs label:nth-of-type(4) {
-						border-color: green;
-						background-color: green;
-					}
-
-					.tabs .tab-body {
-						border-top: 1px;
-					}
-
-					.tabs .tab-body:nth-of-type(1) {
-						border-color: red;
-					}
-
-					.tabs .tab-body:nth-of-type(2) {
-						border-color: blue;
-					}
-
-					.tabs .tab-body:nth-of-type(3) {
-						border-color: yellow;
-					}
-
-					.tabs .tab-body:nth-of-type(4) {
-						border-color: green;
-					}
-
-					.tabs {
-						flex: 1;
-					}
-
-					.tabs input {
-						position: absolute;
-						left: -9999px;
-					}
-
-					.tabs .tab-body {
-						border-top: 2px solid;
-						display: none;
-					}
-
-					.tabs input:checked+.tab-body {
-						display: block;
-					}
-				</style>
-				<div class="tab-container">
-				</div>
 				<div class="tabs">
 					<label id="1lv_label" for="1lv">1Lv呪文</label>
 					<label id="6lv_label" for="6lv">6Lvキャラ</label>
 					<label id="12lv_label" for="12lv">12Lvキャラ</label>
+					<label id="prerolled_label" for="prerolled">プレロールド</label>
 					<input type="radio" name="tab" value="1lv" id="1lv" checked>
 					<div class="tab-body">1</div>
 					<input type="radio" name="tab" value="6lv" id="6lv">
 					<div class="tab-body">6</div>
 					<input type="radio" name="tab" value="12lv" id="12lv">
 					<div class="tab-body">12</div>
+					<input type="radio" name="tab" value="prerolled" id="prerolled">
+					<div class="tab-body">プレロールド</div>
 				</div>
 			</main>
 			<aside></aside>
