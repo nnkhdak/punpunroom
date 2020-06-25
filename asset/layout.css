@@ -37,7 +37,8 @@ header nav {
 }
 
 div.middle {
-	flex: 0 1 auto;
+	flex: 1 1 auto;
+	min-height: 300px;
 	display: flex;
 	background-color: white;
 }

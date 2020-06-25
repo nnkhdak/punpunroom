@@ -1,42 +1,71 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<meta charset="UTF-8" />
+		<base href="../" />
+		<link rel="stylesheet" href="asset/style.css" />
+		<style>
+			/* 画面毎設定 */
+			.width1 {
+				width: 100px;
+			}
 
-<head>
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="Cache-Control" content="no-cache">
-	<meta http-equiv="Expires" content="0">
-	<meta charset="UTF-8">
-	<base href="../">
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-	<script src="script.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>ぷんぷんる～む</title>
-</head>
+			.width2 {
+				width: 150px;
+			}
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="asset/script.js"></script>
+		<script src="asset/env-checker.js"></script>
+		<title></title>
+	</head>
 
-<body>
-	<header>
-		<div><a href="index.html"></a></div>
-		<nav></nav>
-	</header>
-    <div>
-		<div>
-			<nav></nav>
-			<footer></footer>
+	<body>
+		<noscript>
+			<p>JavaScriptがサポートされていないため表示できません。</p>
+		</noscript>
+		<div class="container" style="display: none;">
+			<header class="sticky">
+				<div>
+					<div class="logo">
+						<a href="index.html">たいとる</a>
+					</div>
+					<div></div>
+					<div class="info">
+						<span style="display: block;">XXXX さん</span>
+						<a href="index.html">ログアウト</a>
+					</div>
+				</div>
+				<nav></nav>
+			</header>
+			<div class="middle">
+				<nav></nav>
+				<main>
+					Oracle
+					<ol>
+						<li>
+							テーブルの完全削除<br />
+							DROP TABLE T_AutoCoupon CASCADE CONSTRAINTS PURGE;
+						</li>
+						<li>
+							XレコードのSELECT<br />
+							SELECT LEVEL AS cnt FROM DUAL CONNECT BY LEVEL &lt;= 3
+						</li>
+						<li>
+							sqlplusで接続<br />
+							sqlplus64 <i>ユーザ名</i>@<i>サーバ名</i>
+						</li>
+					</ol>
+				</main>
+				<aside></aside>
+			</div>
+			<footer class="sticky">
+				<div></div>
+				<small>株式会社ふったー</small>
+			</footer>
 		</div>
-        <main>
-            Oracle
-            <ol>
-                <li>
-                    テーブルの完全削除<br/>
-                    DROP   TABLE T_AutoCoupon CASCADE CONSTRAINTS PURGE;
-                </li>
-                <li>
-                    XレコードのSELECT<br/>
-                    SELECT LEVEL AS cnt FROM DUAL CONNECT BY LEVEL &lt;= 3
-                </li>
-            </ol>
-        </main>
-	</div>
-</body>
-
+	</body>
 </html>
