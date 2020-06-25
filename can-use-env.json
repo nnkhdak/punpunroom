@@ -1,0 +1,68 @@
+[
+	{
+		"os": "Windows",
+		"version": ["7", "8.1", "10"],
+		"browser": [
+			{
+				"name": "Internet Exploror",
+				"version": ["11"]
+			},
+			{
+				"name": "Google Chrome"
+			}
+		]
+	},
+	{
+		"os": "MacOS",
+		"version": ["X"],
+		"browser": [
+			{
+				"name": "Google Chrome"
+			}
+		]
+	},
+	{
+		"id": 2,
+		"name": "dd35",
+		"child": [
+			{
+				"id": 1,
+				"name": "1Lv呪文"
+			},
+			{
+				"id": 2,
+				"name": "6Lvキャラ"
+			},
+			{
+				"id": 3,
+				"name": "12Lvキャラ"
+			}
+		]
+	},
+	{
+		"id": 3,
+		"name": "other",
+		"child": [
+			{
+				"id": 1,
+				"name": "aaa"
+			},
+			{
+				"id": 2,
+				"name": "bbb"
+			},
+			{
+				"id": 3,
+				"name": "ccc"
+			},
+			{
+				"id": 4,
+				"name": "ddd"
+			},
+			{
+				"id": 5,
+				"name": "eee"
+			}
+		]
+	}
+]
