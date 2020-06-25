@@ -16,6 +16,7 @@
 .tabarea li {
 	display: inline-block;
 	width: 120px;
+	height: 24px;
 	text-align: center;
 }
 
