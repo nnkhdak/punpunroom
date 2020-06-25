@@ -12,24 +12,20 @@
 	border-top-right-radius: 5px;
 }
 
-.tabs .tab-body {
-	border-top: 1px;
-}
-
 .tabs {
 	flex: 1;
 }
 
-.tabs input {
-	position: absolute;
-	left: -9999px;
-}
-
-.tabs .tab-body {
+.tabs .tab {
 	border-top: 2px solid;
 	display: none;
 }
 
-.tabs input:checked + .tab-body {
+.tabs > input {
+	position: absolute;
+	left: -9999px;
+}
+
+.tabs > input:checked + .tab {
 	display: block;
 }
