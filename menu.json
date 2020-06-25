@@ -41,15 +41,23 @@
         "child": [
             {
                 "id": 1,
-                "name": "1Lv呪文"
+                "name": "プレロールド",
+                "href": "dd35.html?tab=prerolled"
             },
             {
                 "id": 2,
-                "name": "6Lvキャラ"
+                "name": "1Lv呪文",
+                "href": "dd35.html?tab=1lv"
             },
             {
                 "id": 3,
-                "name": "12Lvキャラ"
+                "name": "6Lvキャラ",
+                "href": "dd35.html?tab=6lv"
+            },
+            {
+                "id": 4,
+                "name": "12Lvキャラ",
+                "href": "dd35.html?tab=12lv"
             }
         ]
     },

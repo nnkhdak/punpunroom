@@ -10,48 +10,38 @@
 	<link rel="stylesheet" href="asset/style.css" />
 	<style>
 		/* 画面毎設定 */
-		.width1 {
-			width: 100px;
+		main {
+			display: flex;
+			flex-direction: column;
 		}
 
-		.width2 {
-			width: 150px;
+		.tabarea {
+			color: white;
 		}
 
-		.tabs label:nth-of-type(1) {
+		.tabarea li:nth-of-type(1) label,
+		.tabarea div.tab:nth-of-type(1) {
 			border-color: red;
 			background-color: red;
 		}
 
-		.tabs label:nth-of-type(2) {
+		.tabarea li:nth-of-type(2) label,
+		.tabarea div.tab:nth-of-type(2) {
 			border-color: blue;
 			background-color: blue;
 		}
 
-		.tabs label:nth-of-type(3) {
+		.tabarea li:nth-of-type(3) label,
+		.tabarea div.tab:nth-of-type(3) {
 			border-color: yellow;
 			background-color: yellow;
+			color: black;
 		}
 
-		.tabs label:nth-of-type(4) {
+		.tabarea li:nth-of-type(4) label,
+		.tabarea div.tab:nth-of-type(4) {
 			border-color: green;
 			background-color: green;
-		}
-
-		.tabs .tab-body:nth-of-type(1) {
-			border-color: red;
-		}
-
-		.tabs .tab-body:nth-of-type(2) {
-			border-color: blue;
-		}
-
-		.tabs .tab-body:nth-of-type(3) {
-			border-color: yellow;
-		}
-
-		.tabs .tab-body:nth-of-type(4) {
-			border-color: green;
 		}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -82,19 +72,22 @@
 			<nav></nav>
 			<main>
 				<h2>D&D 3.5e</h2>
-				<div class="tabs">
-					<label id="1lv_label" for="1lv">1Lv呪文</label>
-					<label id="6lv_label" for="6lv">6Lvキャラ</label>
-					<label id="12lv_label" for="12lv">12Lvキャラ</label>
-					<label id="prerolled_label" for="prerolled">プレロールド</label>
-					<input type="radio" name="tab" value="1lv" id="1lv" checked>
-					<div class="tab-body">1</div>
+				<div class="tabarea">
+					<ul class="tabs">
+						<li><label id="prerolled_label" for="prerolled">プレロールド</label></li>
+						<li><label id="1lv_label" for="1lv">1Lv呪文</label></li>
+						<li><label id="6lv_label" for="6lv">6Lvキャラ</label></li>
+						<li><label id="12lv_label" for="12lv">12Lvキャラ</label></li>
+					</ul>
+
+					<input type="radio" name="tab" value="prerolled" id="prerolled" checked>
+					<div class="tab">プレロールド</div>
+					<input type="radio" name="tab" value="1lv" id="1lv">
+					<div class="tab">1</div>
 					<input type="radio" name="tab" value="6lv" id="6lv">
-					<div class="tab-body">6</div>
+					<div class="tab">6</div>
 					<input type="radio" name="tab" value="12lv" id="12lv">
-					<div class="tab-body">12</div>
-					<input type="radio" name="tab" value="prerolled" id="prerolled">
-					<div class="tab-body">プレロールド</div>
+					<div class="tab">12</div>
 				</div>
 			</main>
 			<aside></aside>
