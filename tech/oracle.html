@@ -58,6 +58,26 @@
 							sqlplusで接続<br />
 							<source>sqlplus64 <i>ユーザ名</i>@<i>サーバ名</i></source>
 						</li>
+						<li>
+							折り返し行？を設定<br />
+							<source>SET LINE <i>行数</i>;</source>
+						</li>
+						<li>
+							テーブル名を表示<br />
+							<source>SELECT * FROM all_tables ORDER BY TABLE_NAME;</source><br />
+							<source>SELECT * FROM user_tables ORDER BY TABLE_NAME;</source>
+						</li>
+						<li>
+							テーブル構造を表示<br />
+							<source>DESC <i>テーブル名</i></source><br />
+							<source>SELECT * FROM all_tab_columns</source><br />
+							<source>SELECT * FROM user_tab_columns</source>
+						</li>
+						<li>
+							シノニムを表示<br />
+							<source>SELECT * FROM all_synonyms</source><br />
+							<source>SELECT * FROM user_synonyms</source>
+						</li>
 					</ol>
 				</main>
 				<aside></aside>
