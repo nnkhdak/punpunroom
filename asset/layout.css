@@ -6,6 +6,12 @@ div.container {
 	max-width: 1260px;
 }
 
+header > div,
+footer {
+	display: flex;
+	background-color: pink; /* lavender */
+}
+
 header {
 	height: 100px;
 	top: 0;
@@ -13,8 +19,6 @@ header {
 
 header > div {
 	height: 50px;
-	background-color: lavender;
-	display: flex;
 }
 
 header div.logo {
@@ -59,11 +63,9 @@ div.middle aside {
 }
 
 footer {
-	display: flex;
 	height: 25px;
 	line-height: 25px;
 	bottom: 0;
-	background-color: lavender;
 	font-size: smaller;
 }
 
