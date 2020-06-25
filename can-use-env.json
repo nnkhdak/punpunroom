@@ -1,67 +1,58 @@
 [
 	{
-		"os": "Windows",
-		"version": ["7", "8.1", "10"],
+		"mix": [
+			{
+				"os": 1,
+				"browser": [1, 2]
+			},
+			{
+				"os": 2,
+				"browser": [2]
+			},
+			{
+				"os": 3,
+				"browser": [2]
+			},
+			{
+				"os": 4,
+				"browser": [2]
+			}
+		],
+		"os": [
+			{
+				"id": 1,
+				"os": "Windows",
+				"version": ["7", "8.1", "10"],
+				"short": null
+			},
+			{
+				"id": 2,
+				"os": "MacOS",
+				"version": ["X"],
+				"short": null
+			},
+			{
+				"id": 3,
+				"os": "Android",
+				"version": ["5", "6", "7", "8", "9", "10"],
+				"short": "Android 5.0以上"
+			},
+			{
+				"id": 4,
+				"os": "iOS",
+				"version": ["10", "11", "12", "13"],
+				"short": null
+			}
+		],
 		"browser": [
 			{
+				"id": 1,
 				"name": "Internet Exploror",
 				"version": ["11"]
 			},
 			{
-				"name": "Google Chrome"
-			}
-		]
-	},
-	{
-		"os": "MacOS",
-		"version": ["X"],
-		"browser": [
-			{
-				"name": "Google Chrome"
-			}
-		]
-	},
-	{
-		"id": 2,
-		"name": "dd35",
-		"child": [
-			{
-				"id": 1,
-				"name": "1Lv呪文"
-			},
-			{
 				"id": 2,
-				"name": "6Lvキャラ"
-			},
-			{
-				"id": 3,
-				"name": "12Lvキャラ"
-			}
-		]
-	},
-	{
-		"id": 3,
-		"name": "other",
-		"child": [
-			{
-				"id": 1,
-				"name": "aaa"
-			},
-			{
-				"id": 2,
-				"name": "bbb"
-			},
-			{
-				"id": 3,
-				"name": "ccc"
-			},
-			{
-				"id": 4,
-				"name": "ddd"
-			},
-			{
-				"id": 5,
-				"name": "eee"
+				"name": "Google Chrome"
 			}
 		]
 	}
