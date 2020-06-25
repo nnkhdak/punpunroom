@@ -1,0 +1,35 @@
+.tabs {
+	width: 100%;
+}
+
+.tabs label {
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+	padding: 2px 5px 2px 5px;
+	border-width: 1px 1px 0px 1px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.tabs .tab-body {
+	border-top: 1px;
+}
+
+.tabs {
+	flex: 1;
+}
+
+.tabs input {
+	position: absolute;
+	left: -9999px;
+}
+
+.tabs .tab-body {
+	border-top: 2px solid;
+	display: none;
+}
+
+.tabs input:checked + .tab-body {
+	display: block;
+}
