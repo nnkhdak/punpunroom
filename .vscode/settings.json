@@ -4,6 +4,5 @@
 	"html.format.extraLiners": "",
 	"html.format.unformatted": null,
 	"prettier.useTabs": true,
-	"prettier.printWidth": 200,
-	"editor.codeActionsOnSave": null
+	"prettier.printWidth": 200
 }
