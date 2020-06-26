@@ -3,13 +3,28 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>LogScore ExamTimes</title>
+	<style>
+		div.code {
+			border: 1px solid black;
+			padding: 0.5em 1em;
+		}
+
+		code {
+			white-space: pre;
+		}
+
+		strong {
+			color: red;
+		}
+	</style>
 </head>
 <body>
 	<h1>LogScore ExamTimes</h1>
 	<ul>
 		<li>
 			<h2>create table (Oracle)</h2>
-			<pre>CREATE TABLE log_score (
+			<div class="code">
+				<code>CREATE TABLE log_score (
 	  test_id           NUMBER(4)     NOT NULL
 	, group_id          VARCHAR2(30)
 	, member_id         VARCHAR2(30)
@@ -20,12 +35,14 @@
 	, section3          NUMBER(4)
 	, section4          NUMBER(4)
 	, PRIMARY KEY (test_id)
-)</pre>
+)</code>
+			</div>
 		</li>
 
 		<li>
 			<h2>insert record (Oracle)</h2>
-			<pre>INSERT INTO log_score 
+			<div class="code">
+				<code>INSERT INTO log_score 
 	SELECT
 		  cnt
 		, TRUNC(cnt / 30)
@@ -41,12 +58,14 @@
 			LEVEL AS cnt
 		FROM
 			DUAL CONNECT BY LEVEL <= 90
-	) tmp</pre>
+	) tmp</code>
+			</div>
 		</li>
 
 		<li>
 			<h2>SQL (Final)</h2>
-			<pre>SELECT
+			<div class="code">
+				<code>SELECT
       ls.test_id
     , ls.group_id
     , ls.member_id
@@ -75,25 +94,44 @@ FROM
               ls1.test_id
             , ls1.group_id
             , ls1.member_id
-    ) ls0 ON ls.test_id = ls0.test_id
+	) ls0 ON ls.test_id = ls0.test_id
+	JOIN
+		mst_user mu 
+		ON ls.member_id = mu.member_id AND <strong>...</strong>
+WHERE
+	ls.group_id = '900010001002'
+	AND lscore.end_time &gt; '2020-01-16 00:00:00'
+	AND lscore.end_time &lt; '2020-01-23 00:00:00'
+	AND <strong>...</strong>
 ORDER BY
-      ls.group_id
-    , ls.member_id
-    , ls.end_time</pre>
+	  ls.group_id
+	, ls.member_id
+	, ls.end_time</code>
+			</div>
+			<ul>
+				<li>*1 [WHERE] Conditions for filtering rows</li>
+				<li>*2 [JOIN ON] Conditions for joining tables and tables</li>
+			</ul>
 		</li>
 
 		<li>
 			<h2>SQL (1st)</h2>
-			<pre>SELECT
+			<div class="code">
+				<code>SELECT
 	*
 FROM
 	log_score ls1
-</pre>
+ORDER BY
+	  ls1.group_id
+	, ls1.member_id
+	, ls1.end_time</code>
+			</div>
 		</li>
 
 		<li>
 			<h2>SQL (2nd)</h2>
-			<pre>SELECT
+			<div class="code">
+				<code>SELECT
 	*
 FROM
 	log_score ls1
@@ -101,12 +139,17 @@ FROM
 		 ON ls1.group_id  = ls2.group_id
 		AND ls1.member_id = ls2.member_id
 		AND ls1.end_time >= ls2.end_time
-</pre>
+ORDER BY
+	  ls1.group_id
+	, ls1.member_id
+	, ls1.end_time</code>
+			</div>
 		</li>
 
 		<li>
 			<h2>SQL (3rd)</h2>
-			<pre>SELECT
+			<div class="code">
+				<code>SELECT
 	  ls1.test_id
 	, ls1.group_id
 	, ls1.member_id
@@ -115,12 +158,18 @@ FROM
 	JOIN log_score ls2
 		ON ls1.group_id  = ls2.group_id
 		AND ls1.member_id = ls2.member_id
-		AND ls1.end_time >= ls2.end_time</pre>
+		AND ls1.end_time >= ls2.end_time
+ORDER BY
+	  ls1.group_id
+	, ls1.member_id
+	, ls1.end_time</code>
+			</div>
 		</li>
 
 		<li>
 			<h2>SQL (4th)</h2>
-			<pre>SELECT
+			<div class="code">
+				<code>SELECT
 	  ls1.test_id
 	, ls1.group_id
 	, ls1.member_id
@@ -134,7 +183,8 @@ FROM
 GROUP BY
 	  ls1.test_id
 	, ls1.group_id
-	, ls1.member_id</pre>
+	, ls1.member_id</code>
+			</div>
 		</li>
 	</ul>
 </body>
