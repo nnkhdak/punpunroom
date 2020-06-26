@@ -94,7 +94,7 @@
     , ls.section4
 FROM
     log_score ls
-    JOIN (
+	<strong>JOIN (</strong>
         SELECT
               ls1.test_id
             , ls1.group_id
@@ -110,11 +110,11 @@ FROM
               ls1.test_id
             , ls1.group_id
             , ls1.member_id
-	) ls0 ON ls.test_id = ls0.test_id
-	JOIN
-		mst_user mu 
-		ON ls.member_id = mu.member_id AND <strong>...</strong>
-WHERE
+	) ls0 <strong>ON</strong> ls.test_id = ls0.test_id
+	<strong>JOIN</strong>
+		mst_user mu
+		<strong>ON</strong> ls.member_id = mu.member_id AND <strong>...</strong>
+<strong>WHERE</strong>
 	ls.group_id = '900010001002'
 	AND lscore.end_time &gt; '2020-01-16 00:00:00'
 	AND lscore.end_time &lt; '2020-01-23 00:00:00'
@@ -125,8 +125,8 @@ ORDER BY
 	, ls.end_time</code>
 			</div>
 			<ul>
-				<li>*1 [WHERE] Conditions for filtering rows</li>
-				<li>*2 [JOIN ON] Conditions for joining tables and tables</li>
+				<li>*1 [WHERE] Conditions for filtering rows.</li>
+				<li>*2 [JOIN ON] Conditions for joining tables and tables.</li>
 			</ul>
 		</li>
 
@@ -143,6 +143,7 @@ ORDER BY
 	, ls1.member_id
 	, ls1.end_time</code>
 			</div>
+			<p><strong>90 rows found.</strong></p>
 		</li>
 
 		<li>
@@ -162,6 +163,7 @@ ORDER BY
 	, ls1.member_id
 	, ls1.end_time</code>
 			</div>
+			<p><strong>266 rows found.</strong></p>
 		</li>
 
 		<li>
@@ -183,6 +185,7 @@ ORDER BY
 	, ls1.member_id
 	, ls1.end_time</code>
 			</div>
+			<p><strong>266 rows found.</strong></p>
 		</li>
 
 		<li>
@@ -205,6 +208,7 @@ GROUP BY
 	, ls1.group_id
 	, ls1.member_id</code>
 			</div>
+			<p><strong>90 rows found.</strong></p>
 		</li>
 	</ul>
 </body>
