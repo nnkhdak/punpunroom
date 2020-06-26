@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>LogScore ExamTimes</title>
-  </head>
-  <body>
-    <pre>
-CREATE TABLE log_score (
-		test_id           NUMBER(4)     NOT NULL
+<head>
+	<meta charset="UTF-8" />
+	<title>LogScore ExamTimes</title>
+</head>
+<body>
+	<h1>LogScore ExamTimes</h1>
+	<ul>
+		<li>
+			<h2>create table (Oracle)</h2>
+			<pre>CREATE TABLE log_score (
+	  test_id           NUMBER(4)     NOT NULL
 	, group_id          VARCHAR2(30)
 	, member_id         VARCHAR2(30)
 	, start_time        DATE
@@ -17,7 +20,122 @@ CREATE TABLE log_score (
 	, section3          NUMBER(4)
 	, section4          NUMBER(4)
 	, PRIMARY KEY (test_id)
-)</pre
-    >
-  </body>
+)</pre>
+		</li>
+
+		<li>
+			<h2>insert record (Oracle)</h2>
+			<pre>INSERT INTO log_score 
+	SELECT
+		  cnt
+		, TRUNC(cnt / 30)
+		, TRUNC(cnt / 5)
+		, CURRENT_DATE - MOD(TRUNC(cnt / 5), 4) - MOD(cnt, 7)
+		, CURRENT_DATE - MOD(TRUNC(cnt / 5), 4) - MOD(cnt, 7)
+		, MOD((cnt+1) + TRUNC(cnt / 30) + TRUNC(cnt / 5), 13)
+		, MOD((cnt+1) * TRUNC(cnt / 30) + TRUNC(cnt / 5), 12)
+		, MOD((cnt+1) + TRUNC(cnt / 30) * TRUNC(cnt / 5), 11)
+		, MOD((cnt+1) * TRUNC(cnt / 30) * TRUNC(cnt / 5), 17)
+	FROM (
+		SELECT
+			LEVEL AS cnt
+		FROM
+			DUAL CONNECT BY LEVEL <= 90
+	) tmp</pre>
+		</li>
+
+		<li>
+			<h2>SQL (Final)</h2>
+			<pre>SELECT
+      ls.test_id
+    , ls.group_id
+    , ls.member_id
+    , ls0.times
+    , ls.start_time
+    , ls.end_time
+    , ls.section1
+    , ls.section2
+    , ls.section3
+    , ls.section4
+FROM
+    log_score ls
+    JOIN (
+        SELECT
+              ls1.test_id
+            , ls1.group_id
+            , ls1.member_id
+            , COUNT(1) AS times
+        FROM
+            log_score ls1
+            JOIN log_score ls2
+                 ON ls1.group_id  = ls2.group_id
+                AND ls1.member_id = ls2.member_id
+                AND ls1.end_time >= ls2.end_time
+        GROUP BY
+              ls1.test_id
+            , ls1.group_id
+            , ls1.member_id
+    ) ls0 ON ls.test_id = ls0.test_id
+ORDER BY
+      ls.group_id
+    , ls.member_id
+    , ls.end_time</pre>
+		</li>
+
+		<li>
+			<h2>SQL (1st)</h2>
+			<pre>SELECT
+	*
+FROM
+	log_score ls1
+</pre>
+		</li>
+
+		<li>
+			<h2>SQL (2nd)</h2>
+			<pre>SELECT
+	*
+FROM
+	log_score ls1
+	JOIN log_score ls2
+		 ON ls1.group_id  = ls2.group_id
+		AND ls1.member_id = ls2.member_id
+		AND ls1.end_time >= ls2.end_time
+</pre>
+		</li>
+
+		<li>
+			<h2>SQL (3rd)</h2>
+			<pre>SELECT
+	  ls1.test_id
+	, ls1.group_id
+	, ls1.member_id
+FROM
+	log_score ls1
+	JOIN log_score ls2
+		ON ls1.group_id  = ls2.group_id
+		AND ls1.member_id = ls2.member_id
+		AND ls1.end_time >= ls2.end_time</pre>
+		</li>
+
+		<li>
+			<h2>SQL (4th)</h2>
+			<pre>SELECT
+	  ls1.test_id
+	, ls1.group_id
+	, ls1.member_id
+	, COUNT(1) AS times
+FROM
+	log_score ls1
+	JOIN log_score ls2
+		 ON ls1.group_id  = ls2.group_id
+		AND ls1.member_id = ls2.member_id
+		AND ls1.end_time >= ls2.end_time
+GROUP BY
+	  ls1.test_id
+	, ls1.group_id
+	, ls1.member_id</pre>
+		</li>
+	</ul>
+</body>
 </html>
