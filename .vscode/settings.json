@@ -1,7 +1,9 @@
 {
 	"editor.formatOnSave": true,
-	"html.format.contentUnformatted": "pre,code,textarea",
-	"prettier.tabWidth": 4,
+	"html.format.contentUnformatted": "pre, code, textarea, title, h1, h2, h3, h4, h5, h6, p",
+	"html.format.extraLiners": "",
+	"html.format.unformatted": null,
 	"prettier.useTabs": true,
-	"prettier.printWidth": 200
+	"prettier.printWidth": 200,
+	"editor.codeActionsOnSave": null
 }
