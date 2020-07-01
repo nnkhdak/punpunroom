@@ -12,7 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    width: 1000px;
+    width: 980px;
 }
 
 nav ul {
@@ -29,7 +29,10 @@ nav input {
     left: -9999px;
 }
 
-nav a:link, nav a:visited, nav a:hover, nav a:active {
+nav a:link,
+nav a:visited,
+nav a:hover,
+nav a:active {
     text-decoration: none;
     color: inherit;
 }
@@ -46,7 +49,7 @@ header div:first-of-type {
     flex: 1;
 }
 
-header div:first-of-type>a {
+header div:first-of-type > a {
     display: inline-block;
     margin-left: 2em;
     padding: 0 10px;
@@ -74,35 +77,35 @@ header nav div ul {
     display: none;
 }
 
-header nav input:checked+ul {
+header nav input:checked + ul {
     display: flex;
 }
 
-body>div:nth-of-type(1) {
+body > div:nth-of-type(1) {
     flex: 1;
     display: flex;
 }
 
-body>div:nth-of-type(1)>div:nth-of-type(1) {
+body > div:nth-of-type(1) > div:nth-of-type(1) {
     width: 200px;
     display: flex;
     flex-direction: column;
 }
 
-body>div:nth-of-type(1) nav {
+body > div:nth-of-type(1) nav {
     flex: 1;
 }
 
-body>div:nth-of-type(1) nav li+li {
+body > div:nth-of-type(1) nav li + li {
     margin-top: 5px;
 }
 
-body>div:nth-of-type(1) nav ul ul {
+body > div:nth-of-type(1) nav ul ul {
     padding-left: 2em;
     display: none;
 }
 
-body>div:nth-of-type(1) nav input:checked+ul {
+body > div:nth-of-type(1) nav input:checked + ul {
     display: list-item;
 }
 
