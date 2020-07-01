@@ -58,12 +58,9 @@ EOS
 				<li>
 					ヒアドキュメントでコマンドを連続実行<br />
 					<command>
-						<pre>sftp -oPort=2222 -oIdentityFile=hoge hoge@hogehoge.hogehoge.hoge &lt;&lt; EOS
+						<pre>sftp -oPort=22 -oIdentityFile=hoge hoge@hogehoge.com &lt;&lt; EOS
 cd /tmp
-put hoge1
-cd /home
-put hoge2
-put hoge3
+put foo
 quit
 EOS</pre>
 					</command>
@@ -71,6 +68,18 @@ EOS</pre>
 				<li>
 					crontab内で日付<br />
 					$(date "+\%Y\%m\%d")
+				</li>
+				<li>
+					標準出力もエラー出力も同じところにリダイレクト<br />
+					<i>foo</i> &gt; <i>bar.log</i> 2&gt;&amp;1
+				</li>
+				<li>
+					ls -la 結果のうちスペース区切りで8番目を抜き出す<br />
+					ls -la | awk '{print $8}'
+				</li>
+				<li>
+					ls -la 結果のうちスペース区切りで8番目を抜き出し、コロンの前を抜き出す<br />
+					ls -la | awk '{print $8}' | awk -F ":" '{print $1}'
 				</li>
 			</ol>
 		</main>
