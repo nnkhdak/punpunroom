@@ -20,6 +20,10 @@
 		code {
 			white-space: pre;
 		}
+
+		main ol li {
+			margin-top: 1em;
+		}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="asset/script.js"></script>
@@ -84,25 +88,21 @@
 					</li>
 					<li>
 						tnsnames.ora<br />
-						<code>HOGEHOGE =
-	( DESCRIPTION =
-		( ADDRESS_LIST =
-			( ADDRESS =
-					(PROTOCOL = TCP)
-					(HOST = 127.0.0.1)
-					(PORT = 1521)
-			)
-		)
-		( CONNECT_DATA =
-			(SERVICE_NAME = hogehoge)
-		)
-	)</code>
+						<code>alias =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = myserver.mycompany.com)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = orcl)
+    )
+  )</code>
+
 					</li>
 					<li>
 						tnsnames.oraに定義を複数<br />
-						<code>HOGEHOGE =
+						<code>alias1 =
 	(DESCRIPTION = ......)
-FOOBAR =
+alias2 =
 	(DESCRIPTION = ......)</code>
 					</li>
 				</ol>
