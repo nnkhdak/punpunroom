@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<meta charset="UTF-8">
+	<base href="../">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="script.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>ぷんぷんる～む</title>
+</head>
+
+<body>
+	<header>
+		<div><a href="index.html"></a></div>
+		<nav></nav>
+	</header>
+	<div>
+		<div>
+			<nav></nav>
+			<footer></footer>
+		</div>
+		<main>
+			<h2>Windows Subsystem for Linux 関連</h2>
+			<ol>
+				<li>
+					WSL1をインストール
+					<ol>
+						<li>
+							<p>管理者でPowerShellを起動し以下を実行します。実行後に再起動を求められるので再起動します。</p>
+							<code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux</code><br>
+						</li>
+					</ol>
+				</li>
+				<li>
+					WSL2にアップデート
+					<ol>
+						<li>
+							<p>管理者でPowerShellを起動し以下を実行します。</p>
+							<code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code><br>
+							<code>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</code><br>
+						</li>
+						<li>
+							<p><a href="https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel">https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel</a>からアップデートパッケージをダウンロードします。</p>
+							<p>ダウンロードしたexeファイルを実行します。</p>
+						</li>
+					</ol>
+				</li>
+				<li>
+					Linuxをインストール
+					<ol>
+						<li>
+							<p>Microsoft Storeを起動します。検索ボックスに「wsl」を入力し検索します。</p>
+						</li>
+						<li>
+							<p>今回は「Ubuntu 20.04 LTS」を選択しインストールします。インストール後は「起動」ボタンを押下して起動します。</p>
+							<p>しばらく待つと「コマンドプロンプト」のような画面が表示(Installing, this may...)されます。</p>
+							<p>そちらでusernameとpasswordを求められますので決定し設定します。</p>
+						</li>
+						<li>
+							<p>「\\wsl$\Ubuntu-20.04」でLinux上の「/」ディレクトリにアクセスできます。</p>
+						</li>
+					</ol>
+				</li>
+			</ol>
+		</main>
+	</div>
+</body>
+
+</html>
