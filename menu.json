@@ -32,6 +32,16 @@
                 "id": 6,
                 "name": "oracle",
                 "href": "oracle.html"
+            },
+            {
+                "id": 7,
+                "name": "wsl",
+                "href": "wsl.html"
+            },
+            {
+                "id": 8,
+                "name": "vscode",
+                "href": "vscode.html"
             }
         ]
     },
