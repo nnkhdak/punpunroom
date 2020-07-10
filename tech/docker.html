@@ -30,6 +30,10 @@
 					<span>コンテナとか一括削除系</span>
 					<ol>
 						<li>
+							<p>不要なリソースすべて削除</p>
+							<code>echo y | docker system prune</code>
+						</li>
+						<li>
 							<p>停止コンテナ一括削除</p>
 							<code>echo y | docker container prune && docker ps -a</code>
 						</li>
