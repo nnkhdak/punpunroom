@@ -25,10 +25,10 @@
 		</div>
 		<main>
 			<h2>Docker 関連</h2>
-			<ol>
+			<ul>
 				<li>
 					<span>コンテナとか一括削除系(使用はローカルだけにしてね)</span>
-					<ol>
+					<ul>
 						<li>
 							<p>不要なリソース一括削除</p>
 							<code>echo y | docker system prune</code>
@@ -41,11 +41,11 @@
 							<p>未使用イメージ一括削除</p>
 							<code>echo y | docker image prune && docker images</code>
 						</li>
-					</ol>
+					</ul>
 				</li>
 				<li>
 					<span>中でコマンド打ちたい系</span>
-					<ol>
+					<ul>
 						<li>
 							<p>イメージを指定して起動&bash&終了時コンテナ削除</p>
 							<code>docker run --rm -it <i>imagename</i> bash</code>
@@ -55,10 +55,10 @@
 							<code>docker ps -a</code>
 							<code>docker exec -it <i>CONTAINER ID</i> bash</code>
 						</li>
-					</ol>
+					</ul>
 				</li>
 				<li>
-					<span>Windowsにインストール</span>
+					<span>Windowsで使いたい</span>
 					<ol>
 						<li>
 							<span>WSL1をインストール</span>
@@ -116,7 +116,7 @@
 						</li>
 					</ol>
 				</li>
-			</ol>
+			</ul>
 		</main>
 	</div>
 </body>
