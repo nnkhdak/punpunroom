@@ -31,15 +31,15 @@
 					<ul>
 						<li>
 							<p>不要なリソース一括削除</p>
-							<code>echo y | docker system prune</code>
+							<code>docker system prune</code>
 						</li>
 						<li>
 							<p>停止コンテナ一括削除</p>
-							<code>echo y | docker container prune && docker ps -a</code>
+							<code>docker container prune && docker ps -a</code>
 						</li>
 						<li>
 							<p>未使用イメージ一括削除</p>
-							<code>echo y | docker image prune && docker images</code>
+							<code>docker image prune && docker images</code>
 						</li>
 					</ul>
 				</li>
