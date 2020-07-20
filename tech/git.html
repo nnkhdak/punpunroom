@@ -41,6 +41,16 @@ git push origin <i>ブランチ名</i></code>
 						</li>
 					</ul>
 				</li>
+				<li>
+					<span>その他</span>
+					<ul>
+						<li>
+							<p>空ディレクトリに.gitkeepを置く</p>
+							<code>cd <i>置きたいディレクトリのルート</i>
+find . -type d -name .git -prune -o -type d -empty -exec touch {}/.gitkeep \;</code>
+						</li>
+					</ul>
+				</li>
 			</ul>
 		</main>
 	</div>
