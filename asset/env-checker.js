@@ -15,9 +15,12 @@ class EnvChecker {
 		if (ua.match(/Trident\/([0-9.]+)/i)) {
 			// IE 8-11
 			return { name: "Internet Explorer", ver: parseInt(RegExp.$1) + 4 };
-		} else if (ua.match(/Edg[e]{0,1}([0-9.]+)\//i)) {
-			// Edge(HTML,Chromium)
-			return { name: "Microsoft Edge", ver: RegExp.$1 };
+		} else if (ua.match(/Edge\/([0-9.]+)/i)) {
+			// Edge(HTML)
+			return { name: "Microsoft Edge HTML", ver: RegExp.$1 };
+		} else if (ua.match(/Edg\/([0-9.]+)/i)) {
+			// Edge(Chromium)
+			return { name: "Microsoft Edge Chronium", ver: RegExp.$1 };
 		} else if (ua.match(/Chrome\/([0-9.]+)/i)) {
 			// Chrome
 			return { name: "Chrome", ver: RegExp.$1 };
@@ -37,7 +40,7 @@ class EnvChecker {
 		return null;
 	}
 
-	getOsName() {
+	getOs() {
 		const ua = navigator.userAgent;
 		if (ua.match(/Win(dows )?NT 10\.0/)) {
 			return "Windows 10"; // Windows 10
