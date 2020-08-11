@@ -126,3 +126,7 @@ main {
 main li {
     margin-top: 10px;
 }
+
+code {
+    white-space: pre;
+}
