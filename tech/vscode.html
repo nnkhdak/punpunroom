@@ -41,10 +41,26 @@
 						<li>サイドバーにある[Extensions]をクリック(もしくはCtrl+Shift+X)</li>
 						<li>[Search Extensions in Marketplace]のテキスト入力欄に[remote development]と入力し検索</li>
 						<li>[Remote Development]の[Install]をクリック</li>
+						<li>同じく[php debug]をInstall</li>
+						<li>同じく[php intellisense]をInstall</li>
 					</ol>
 				</li>
 				<li>
 					<span>WSLとのPHPのリモートデバッグ</span>
+					<ol>
+						<li>Xdebugをインストール</li>
+						<li>
+							<code>pecl install xdebug</code><br />
+							<code>xdebug.ini
+zend_extension=/usr/lib/php/20170718/xdebug.so
+xdebug.remote_autostart = 1
+xdebug.remote_enable = 1
+xdebug.remote_host = 127.0.0.1</code>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<span>WSLとのPHP5.4のリモートデバッグ</span>
 					<ol>
 						<li>Xdebugをインストール</li>
 						<li>
