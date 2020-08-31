@@ -4,6 +4,11 @@
         "name": "tech",
         "child": [
             {
+                "id": 10,
+                "name": "Selenium IDE",
+                "href": "side.html"
+            },
+            {
                 "id": 1,
                 "name": "JavaScript",
                 "href": "javascript.html"
