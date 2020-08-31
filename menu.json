@@ -4,47 +4,47 @@
         "name": "tech",
         "child": [
             {
-                "id": 10,
+                "id": 1,
                 "name": "Selenium IDE",
                 "href": "side.html"
             },
             {
-                "id": 1,
+                "id": 2,
                 "name": "JavaScript",
                 "href": "javascript.html"
             },
             {
-                "id": 9,
+                "id": 3,
                 "name": "docker",
                 "href": "docker.html"
             },
             {
-                "id": 2,
+                "id": 4,
                 "name": "css",
                 "href": "css.html"
             },
             {
-                "id": 3,
+                "id": 5,
                 "name": "command",
                 "href": "cmd.html"
             },
             {
-                "id": 4,
+                "id": 6,
                 "name": "git",
                 "href": "git.html"
             },
             {
-                "id": 5,
+                "id": 7,
                 "name": "php",
                 "href": "php.html"
             },
             {
-                "id": 6,
+                "id": 8,
                 "name": "oracle",
                 "href": "oracle.html"
             },
             {
-                "id": 8,
+                "id": 9,
                 "name": "vscode",
                 "href": "vscode.html"
             }
