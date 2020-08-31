@@ -76,22 +76,13 @@
 								<td>タグ内テキストの完全一致</td>
 								<td>//*[<span class="strong">text()</span>="一致したい文字列"]</td>
 							</tr>
+							<tr>
+								<th>10</th>
+								<td>タグ内テキストの部分一致</td>
+								<td>//*[<span class="strong">contains</span>(text(), '一致したい文字列')]</td>
+							</tr>
 						</tbody>
 					</table>
-					<ul>
-						<li>
-							<p>不要なリソース一括削除</p>
-							<code>docker system prune</code>
-						</li>
-						<li>
-							<p>停止コンテナ一括削除</p>
-							<code>docker container prune && docker ps -a</code>
-						</li>
-						<li>
-							<p>未使用イメージ一括削除</p>
-							<code>docker image prune && docker images</code>
-						</li>
-					</ul>
 				</li>
 				<li>
 					<span>コマンドいろいろ</span>
@@ -99,14 +90,6 @@
 						<li>
 							<p>不要なリソース一括削除</p>
 							<code>docker system prune</code>
-						</li>
-						<li>
-							<p>停止コンテナ一括削除</p>
-							<code>docker container prune && docker ps -a</code>
-						</li>
-						<li>
-							<p>未使用イメージ一括削除</p>
-							<code>docker image prune && docker images</code>
 						</li>
 					</ul>
 				</li>
