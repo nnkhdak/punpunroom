@@ -5,7 +5,7 @@
         "child": [
             {
                 "id": 1,
-                "name": "Selenium IDE",
+                "name": "SeleniumIDE",
                 "href": "side.html"
             },
             {

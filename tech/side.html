@@ -27,7 +27,57 @@
 			<h2>Selenium IDE 関連</h2>
 			<ul>
 				<li>
-					<span>コンテナとか一括削除系(使用はローカルだけにしてね)</span>
+					<span>ロケータいろいろ</span>
+					<table class="list">
+						<caption>XPathの例</caption>
+						<tbody>
+							<tr>
+								<th>1</th>
+								<td>htmlの中のbodyの中のdivタグ</td>
+								<td>/html/body/div</td>
+							</tr>
+							<tr>
+								<th>2</th>
+								<td>階層は不明なdivタグ</td>
+								<td><span class="strong">//</span>div</td>
+							</tr>
+							<tr>
+								<th>3</th>
+								<td>３個目のdivタグ</td>
+								<td>//div<span class="strong">[3]</span></td>
+							</tr>
+							<tr>
+								<th>4</th>
+								<td>idがfooのdivタグ</td>
+								<td>//div[<span class="strong">@id</span>='foo']</td>
+							</tr>
+							<tr>
+								<th>5</th>
+								<td>タグ名を指定しない</td>
+								<td>//<span class="strong">*</span>[@id='foo']</td>
+							</tr>
+							<tr>
+								<th>6</th>
+								<td>type属性がbuttonである<span class="strong">(完全一致)</span></td>
+								<td>//input[<span class="strong">@type</span>='button']</td>
+							</tr>
+							<tr>
+								<th>7</th>
+								<td>class属性にXXXを含む<span class="strong">(部分一致)</span></td>
+								<td>//input[<span class="strong">contains</span>(@class, 'XXX')]</td>
+							</tr>
+							<tr>
+								<th>8</th>
+								<td>AND</td>
+								<td>//input[contains(@class, 'XXX') <span class="strong">and</span> @type='button']</td>
+							</tr>
+							<tr>
+								<th>9</th>
+								<td>タグ内テキストの完全一致</td>
+								<td>//*[<span class="strong">text()</span>="一致したい文字列"]</td>
+							</tr>
+						</tbody>
+					</table>
 					<ul>
 						<li>
 							<p>不要なリソース一括削除</p>
@@ -44,76 +94,21 @@
 					</ul>
 				</li>
 				<li>
-					<span>中でコマンド打ちたい系</span>
+					<span>コマンドいろいろ</span>
 					<ul>
 						<li>
-							<p>イメージを指定して起動&bash&終了時コンテナ削除</p>
-							<code>docker run --rm -it <i>imagename</i> bash</code>
+							<p>不要なリソース一括削除</p>
+							<code>docker system prune</code>
 						</li>
 						<li>
-							<p>起動しているコンテナにbash</p>
-							<code>docker ps -a</code>
-							<code>docker exec -it <i>CONTAINER ID</i> bash</code>
+							<p>停止コンテナ一括削除</p>
+							<code>docker container prune && docker ps -a</code>
+						</li>
+						<li>
+							<p>未使用イメージ一括削除</p>
+							<code>docker image prune && docker images</code>
 						</li>
 					</ul>
-				</li>
-				<li>
-					<span>Windowsで使いたい</span>
-					<ol>
-						<li>
-							<span>WSL1をインストール</span>
-							<ol>
-								<li>
-									<p>管理者でPowerShellを起動し以下を実行します。実行後に再起動を求められるので再起動します。</p>
-									<code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux</code><br>
-								</li>
-							</ol>
-						</li>
-						<li>
-							<span>WSL2にアップデート</span>
-							<ol>
-								<li>
-									<p>管理者でPowerShellを起動し以下を実行します。</p>
-									<code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code><br>
-									<code>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</code><br>
-								</li>
-								<li>
-									<p><a
-											href="https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel">https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel</a>からアップデートパッケージをダウンロードします。
-									</p>
-									<p>ダウンロードしたexeファイルを実行します。</p>
-									<p>エラーになることがありました(エラーの内容をメモし忘れた)。その場合は「C:\Windows\System32\lxss\tools」にダウンロードしたexeファイルをコピーし実行します。</p>
-								</li>
-							</ol>
-						</li>
-						<li>
-							<span>Linuxをインストール</span>
-							<ol>
-								<li>
-									<p>Microsoft Storeを起動します。検索ボックスに「wsl」を入力し検索します。</p>
-								</li>
-								<li>
-									<p>今回は「Ubuntu 20.04 LTS」を選択しインストールします。インストール後は「起動」ボタンを押下して起動します。</p>
-									<p>しばらく待つと「コマンドプロンプト」のような画面が表示(Installing, this may...)されます。</p>
-									<p>そちらでusernameとpasswordを求められますので決定し設定します。</p>
-								</li>
-								<li>
-									<p>「\\wsl$\Ubuntu-20.04」でLinux上の「/」ディレクトリにアクセスできます。</p>
-								</li>
-							</ol>
-						</li>
-						<li>
-							<span>Docker Desktop WSL2 Backend をインストール</span>
-							<ol>
-								<li>
-									<p><a
-											href="https://docs.docker.com/docker-for-windows/wsl">https://docs.docker.com/docker-for-windows/wsl</a>からDocker
-										Desktop for Windowsをダウンロードします。</p>
-									<p>ダウンロードしたexeファイルを実行しインストールします。</p>
-								</li>
-							</ol>
-						</li>
-					</ol>
 				</li>
 			</ul>
 		</main>
