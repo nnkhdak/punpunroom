@@ -25,11 +25,55 @@
 		</div>
 		<main>
 			<h2>Visual Studio Code 関連</h2>
-			<ol>
+			<ul>
+				<li>
+					<span>日本語化</span>
+					<ol>
+						<li>上部メニューの[View]-&gt;[Command Palette...]をクリック</li>
+						<li>[configure]と入力し[Configure Display Language]をクリック</li>
+						<li>[Install additional languages...]をクリック</li>
+						<li>[Japanes Language Pack]の[日本語]の[Install]をクリック</li>
+					</ol>
+				</li>
 				<li>
 					<span>WSLとのリモートデバッグ</span>
+					<ol>
+						<li>サイドバーにある[Extensions]をクリック(もしくはCtrl+Shift+X)</li>
+						<li>[Search Extensions in Marketplace]のテキスト入力欄に[remote development]と入力し検索</li>
+						<li>[Remote Development]の[Install]をクリック</li>
+						<li>同じく[php debug]をInstall</li>
+						<li>同じく[php intellisense]をInstall</li>
+					</ol>
 				</li>
-			</ol>
+				<li>
+					<span>WSLとのPHPのリモートデバッグ</span>
+					<ol>
+						<li>Xdebugをインストール</li>
+						<li>
+							<code>pecl install xdebug</code><br />
+							<code>xdebug.ini
+zend_extension=/usr/lib/php/20170718/xdebug.so
+xdebug.remote_autostart = 1
+xdebug.remote_enable = 1
+xdebug.remote_host = 127.0.0.1</code>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<span>WSLとのPHP5.4のリモートデバッグ</span>
+					<ol>
+						<li>Xdebugをインストール</li>
+						<li>
+							<code>pecl install xdebug</code><br />
+							<code>xdebug.ini
+zend_extension=/usr/lib/php/20170718/xdebug.so
+xdebug.remote_autostart = 1
+xdebug.remote_enable = 1
+xdebug.remote_host = 127.0.0.1</code>
+						</li>
+					</ol>
+				</li>
+			</ul>
 		</main>
 	</div>
 </body>

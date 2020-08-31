@@ -22,31 +22,32 @@ class CanUseEnv {
 				console.log(jqXHR);
 				alert("失敗: サーバーとの通信に失敗しました。");
 			})
-			.always(function (data_or_jqXHR, textStatus, jqXHR_or_errorThrown) {});
+			.always(function (data_or_jqXHR, textStatus, jqXHR_or_errorThrown) { });
 	}
 
 	canUseBrowser() {
-		console.log(this.json);
 		return true;
 	}
 
 	canUseCookie() {
-		console.log(this.json);
 		return this.checker.canUseCookie();
 	}
 
 	canUseOs() {
-		console.log(this.json);
 		return true;
 	}
 
 	getOsName() {
-		console.log(this.json);
-		return this.checker.getOsName();
+		return this.checker.getOs();
 	}
 
 	getBrowserFullName() {
-		console.log(this.json);
-		return true;
+		const browser = this.checker.getBrowser();
+		if (browser == null) {
+			return '不明';
+		}
+		const n = browser['name'] == null ? '' : browser['name'];
+		const v = browser['ver'] == null ? '' : browser['ver'];
+		return (n + ' ' + v).trim();
 	}
 }
