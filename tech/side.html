@@ -59,12 +59,17 @@
 							<tr>
 								<th>6</th>
 								<td>type属性がbuttonである<span class="strong">(完全一致)</span></td>
-								<td>//input[<span class="strong">@type</span>='button']</td>
+								<td>//*[<span class="strong">@type</span>='button']</td>
 							</tr>
 							<tr>
 								<th>7</th>
 								<td>class属性にXXXを含む<span class="strong">(部分一致)</span></td>
-								<td>//input[<span class="strong">contains</span>(@class, 'XXX')]</td>
+								<td>//*[<span class="strong">contains</span>(@class, 'XXX')]</td>
+							</tr>
+							<tr>
+								<th>11</th>
+								<td>タグ内値の部分一致</td>
+								<td>//*[contains(<span class="strong">@value</span>, '文字列')]</td>
 							</tr>
 							<tr>
 								<th>8</th>
@@ -80,11 +85,6 @@
 								<th>10</th>
 								<td>タグ内テキストの部分一致</td>
 								<td>//*[<span class="strong">contains</span>(text(), '文字列')]</td>
-							</tr>
-							<tr>
-								<th>11</th>
-								<td>タグ内値の部分一致</td>
-								<td>//*[<span class="strong">contains</span>(@value, '文字列')]</td>
 							</tr>
 						</tbody>
 					</table>
