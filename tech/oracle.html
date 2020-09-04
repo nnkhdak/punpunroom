@@ -57,15 +57,16 @@
 					<li>
 						自分のテーブルにMERGE<br />
 						<code>MERGE INTO <i>テーブル名</i> USING dual
-ON <strong>(</strong><i>項目名</i> = <i>値</i><strong>)</strong>
+ON <strong>(</strong><i>項目</i> = <i>値</i><strong>)</strong>
+WHEN MATCHED THEN UPDATE SET
+	  項目1</i> = <i>値1</i>
+	, 項目2</i> = <i>値2</i>
 WHEN NOT MATCHED THEN INSERT (
-	  <i>項目名1</i>
-	, <i>項目名2</i>
-	, <i>項目名3</i>
+	  <i>項目1</i>
+	, <i>項目2</i>
 ) VALUES (
 	  <i>値1</i>
-	, <i>値名2</i>
-	, <i>値名3</i>
+	, <i>値2</i>
 )</code>
 					</li>
 					<li>
