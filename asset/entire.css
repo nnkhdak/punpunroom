@@ -1,17 +1,25 @@
 * {
-	margin: 0;
-	padding: 0;
-	font-family: -apple-system, blinkMacSystemFont, "Helvetica Neue", "Segoe UI", YuGothicM, YuGothic, Meiryo, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, blinkMacSystemFont, "Helvetica Neue", "Segoe UI", YuGothicM, YuGothic, Meiryo, sans-serif;
 }
 
 /* Windows */
 @font-face {
-	font-family: YuGothicM;
-	font-weight: normal;
-	src: local("YuGothic-Medium"), local("Yu Gothic Medium"), local("YuGothic-Regular");
+    font-family: YuGothicM;
+    font-weight: normal;
+    src: local("YuGothic-Medium"), local("Yu Gothic Medium"), local("YuGothic-Regular");
 }
 @font-face {
-	font-family: YuGothicM;
-	font-weight: bold;
-	src: local("YoGothic-Bold"), local("Yu Gothic");
+    font-family: YuGothicM;
+    font-weight: bold;
+    src: local("YoGothic-Bold"), local("Yu Gothic");
+}
+
+strong {
+    font-weight: bold;
+    color: red;
+}
+i {
+    font-style: italic;
 }
