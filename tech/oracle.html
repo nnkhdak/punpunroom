@@ -55,6 +55,20 @@
 				<h3>Oracle</h3>
 				<ol>
 					<li>
+						自分のテーブルにMERGE<br />
+						<code>MERGE INTO <i>テーブル名</i> USING dual
+ON <strong>(</strong><i>項目名</i> = <i>値</i><strong>)</strong>
+WHEN NOT MATCHED THEN INSERT (
+	  <i>項目名1</i>
+	, <i>項目名2</i>
+	, <i>項目名3</i>
+) VALUES (
+	  <i>値1</i>
+	, <i>値名2</i>
+	, <i>値名3</i>
+)</code>
+					</li>
+					<li>
 						テーブルの完全削除<br />
 						<source>DROP TABLE <i>テーブル名</i> CASCADE CONSTRAINTS PURGE;</source>
 					</li>
