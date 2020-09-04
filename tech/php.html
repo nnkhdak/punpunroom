@@ -18,21 +18,30 @@
 		<div><a href="index.html"></a></div>
 		<nav></nav>
 	</header>
-    <div>
+	<div>
 		<div>
 			<nav></nav>
 			<footer></footer>
 		</div>
-        <main>
-            PHP
-            <ol>
-                <li>
-                    ファイルの先頭の方にいれるとFatalエラーとかでるようになる<br />
-                    error_reporting(E_ALL);
-                </li>
-            </ol>
-        </main>
-    </div>
+		<main>
+			PHP
+			<ol>
+				<li>
+					ヒアドキュメント<br />
+					<code>const SQL = <<<'EOT'
+SELECT
+	*
+FROM
+	dual
+EOT;</code>
+				</li>
+				<li>
+					ファイルの先頭の方にいれるとFatalエラーとかでるようになる<br />
+					<code>error_reporting(E_ALL);</code>
+				</li>
+			</ol>
+		</main>
+	</div>
 </body>
 
 </html>
