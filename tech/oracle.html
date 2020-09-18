@@ -120,6 +120,23 @@ WHEN NOT MATCHED THEN INSERT (
 alias2 =
 	(DESCRIPTION = ......)</code>
 					</li>
+					<li>
+						AmazonLinux2にインストールし設定<br />
+						<br />
+						/etc/environmentに以下を追記<br />
+						<code>LANG=ja_JP.UTF-8
+NLS_LANG=Japanese_Japan.AL32UTF8
+ENVIRONMENT=development<strong> &lt;- これは違う目的</strong></code><br />
+						<br />
+						/etc/profile.d/oracle.shを作成(ココに配置することで/etc/profileに記述したときと同じ扱い)<br />
+						<code>export NLS_LANG=Japanese_Japan.AL32UTF8
+export LD_LIBRARY_PATH=/opt/oracle/instantclient_19_6
+export PATH=$PATH:$LD_LIBRARY_PATH</code><br />
+						<br />
+						systemctl edit httpd.service(コレで保存するとcat /etc/systemd/system/httpd.service.d/override.confに保存した扱い)<br />
+						<code>[Service]
+EnvironmentFile=/etc/environment</code>
+					</li>
 				</ol>
 			</main>
 			<aside></aside>
