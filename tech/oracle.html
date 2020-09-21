@@ -18,6 +18,7 @@
 		}
 
 		code {
+			display: block;
 			white-space: pre;
 		}
 
@@ -71,39 +72,20 @@ WHEN NOT MATCHED THEN INSERT (
 					</li>
 					<li>
 						テーブルの完全削除<br />
-						<source>DROP TABLE <i>テーブル名</i> CASCADE CONSTRAINTS PURGE;</source>
+						<code>DROP TABLE <i>テーブル名</i> CASCADE CONSTRAINTS PURGE;</code>
 					</li>
 					<li>
 						XレコードのSELECT<br />
-						<source>SELECT LEVEL AS cnt FROM DUAL CONNECT BY LEVEL &lt;= 3</source>
+						<code>SELECT LEVEL AS cnt FROM DUAL CONNECT BY LEVEL &lt;= 3</code>
 					</li>
 					<li>
 						sqlplusで接続<br />
-						<source>sqlplus64 <i>ユーザ名</i>@<i>サーバ名</i></source>
-					</li>
-					<li>
-						折り返し行？を設定<br />
-						<source>SET LINE <i>行数</i>;</source>
-					</li>
-					<li>
-						テーブル名を表示<br />
-						<source>SELECT * FROM all_tables ORDER BY TABLE_NAME;</source><br />
-						<source>SELECT * FROM user_tables ORDER BY TABLE_NAME;</source>
-					</li>
-					<li>
-						テーブル構造を表示<br />
-						<source>DESC <i>テーブル名</i></source><br />
-						<source>SELECT * FROM all_tab_columns</source><br />
-						<source>SELECT * FROM user_tab_columns</source>
-					</li>
-					<li>
-						シノニムを表示<br />
-						<source>SELECT * FROM all_synonyms</source><br />
-						<source>SELECT * FROM user_synonyms</source>
+						<code>sqlplus <i>ユーザ名</i>@<i>サーバ名</i></code>
+						<code>sqlplus <i>ユーザ名</i>@<i>net_service_name</i></code>
 					</li>
 					<li>
 						tnsnames.ora<br />
-						<code>alias =
+						<code>net_service_name =
   (DESCRIPTION =
     (ADDRESS = (PROTOCOL = TCP)(HOST = myserver.mycompany.com)(PORT = 1521))
     (CONNECT_DATA =
@@ -111,14 +93,33 @@ WHEN NOT MATCHED THEN INSERT (
       (SERVICE_NAME = orcl)
     )
   )</code>
-
 					</li>
 					<li>
 						tnsnames.oraに定義を複数<br />
-						<code>alias1 =
+						<code>net_service_name1 =
 	(DESCRIPTION = ......)
-alias2 =
+net_service_name2 =
 	(DESCRIPTION = ......)</code>
+					</li>
+					<li>
+						折り返し行？を設定<br />
+						<code>SET LINE <i>行数</i>;</code>
+					</li>
+					<li>
+						テーブル名を表示<br />
+						<code>SELECT * FROM all_tables ORDER BY TABLE_NAME;</code>
+						<code>SELECT * FROM user_tables ORDER BY TABLE_NAME;</code>
+					</li>
+					<li>
+						テーブル構造を表示<br />
+						<code>DESC <i>テーブル名</i></code>
+						<code>SELECT * FROM all_tab_columns</code>
+						<code>SELECT * FROM user_tab_columns</code>
+					</li>
+					<li>
+						シノニムを表示<br />
+						<code>SELECT * FROM all_synonyms</code>
+						<code>SELECT * FROM user_synonyms</code>
 					</li>
 					<li>
 						AmazonLinux2にインストールし設定<br />
@@ -126,12 +127,12 @@ alias2 =
 						/etc/environmentに以下を追記<br />
 						<code>LANG=ja_JP.UTF-8
 NLS_LANG=Japanese_Japan.AL32UTF8
-ENVIRONMENT=development<strong> &lt;- これは違う目的</strong></code><br />
+ENVIRONMENT=development<strong> &lt;- これは違う目的</strong></code>
 						<br />
 						/etc/profile.d/oracle.shを作成(ココに配置することで/etc/profileに記述したときと同じ扱い)<br />
 						<code>export NLS_LANG=Japanese_Japan.AL32UTF8
 export LD_LIBRARY_PATH=/opt/oracle/instantclient_19_6
-export PATH=$PATH:$LD_LIBRARY_PATH</code><br />
+export PATH=$PATH:$LD_LIBRARY_PATH</code>
 						<br />
 						systemctl edit httpd.service(コレで保存するとcat /etc/systemd/system/httpd.service.d/override.confに保存した扱い)<br />
 						<code>[Service]
