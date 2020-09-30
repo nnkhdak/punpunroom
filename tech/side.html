@@ -11,6 +11,30 @@
 	<script src="script.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>ぷんぷんる～む</title>
+	<style>
+		table.side_cmd {
+			width: 100%;
+			margin-top: 1em;
+		}
+
+		table.side_cmd,
+		table.side_cmd th,
+		table.side_cmd td {
+			border: black 1px solid;
+		}
+
+		table.side_cmd th {
+			text-align: center;
+		}
+
+		table.side_cmd td:first-child {
+			width: 150px;
+		}
+
+		table.side_cmd td:last-child {
+			width: 100px;
+		}
+	</style>
 </head>
 
 <body>
@@ -67,24 +91,29 @@
 								<td>//*[<span class="strong">contains</span>(@class, 'XXX')]</td>
 							</tr>
 							<tr>
-								<th>11</th>
+								<th>8</th>
 								<td>タグ内値の部分一致</td>
 								<td>//*[contains(<span class="strong">@value</span>, '文字列')]</td>
 							</tr>
 							<tr>
-								<th>8</th>
+								<th>9</th>
 								<td>AND</td>
 								<td>//input[contains(@class, 'XXX') <span class="strong">and</span> @type='button']</td>
 							</tr>
 							<tr>
-								<th>9</th>
+								<th>10</th>
 								<td>タグ内テキストの完全一致</td>
 								<td>//*[<span class="strong">text()</span>="文字列"]</td>
 							</tr>
 							<tr>
-								<th>10</th>
+								<th>11</th>
 								<td>タグ内テキストの部分一致</td>
 								<td>//*[<span class="strong">contains</span>(text(), '文字列')]</td>
+							</tr>
+							<tr>
+								<th>12</th>
+								<td>class=tblの最後 in trの最後 in tdの最後</td>
+								<td>xpath=//*[contains(@class, 'tbl')][last()]/<span class="strong">/</span>tr[last()]/td[last()]</td>
 							</tr>
 						</tbody>
 					</table>
@@ -92,10 +121,61 @@
 				<li>
 					<span>コマンドいろいろ</span>
 					<ul>
-						<li>
-							<p>不要なリソース一括削除</p>
-							<code>docker system prune</code>
-						</li>
+						<table class="side_cmd">
+							<caption>年月日</caption>
+							<tbody>
+								<tr>
+									<th>Command</th>
+									<th>Target</th>
+									<th>Value</th>
+								</tr>
+								<tr>
+									<td>execute script</td>
+									<td>var now = new Date(); return now.getFullYear() + ('0' + (1 + now.getMonth())).slice(-2) + ('0' + now.getDate()).slice(-2);</td>
+									<td>tmp</td>
+								</tr>
+							</tbody>
+						</table>
+						<table class="side_cmd">
+							<caption>ユニーク数値</caption>
+							<tbody>
+								<tr>
+									<th>Command</th>
+									<th>Target</th>
+									<th>Value</th>
+								</tr>
+								<tr>
+									<td>execute script</td>
+									<td>return (new Date().getTime() + '000000000000').substring(2,10);</td>
+									<td>tmp</td>
+								</tr>
+							</tbody>
+						</table>
+						<table class="side_cmd">
+							<caption>タイトルが変わるまでのClick&Wait</caption>
+							<tbody>
+								<tr>
+									<th>Command</th>
+									<th>Target</th>
+									<th>Value</th>
+								</tr>
+								<tr>
+									<td>store title</td>
+									<td></td>
+									<td>tmp</td>
+								</tr>
+								<tr>
+									<td>click</td>
+									<td>ロケータ</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>wait for element not present</td>
+									<td>xpath=//*[text()='${tmp}']</td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
 					</ul>
 				</li>
 			</ul>
