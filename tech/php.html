@@ -36,12 +36,12 @@ FROM
 EOT;</code>
 				</li>
 				<li>
-					ファイルの先頭の方にいれるとFatalエラーとかでるようになる<br />
-					<code>error_reporting(E_ALL);</code>
-				</li>
-				<li>
 					連続する空白文字(改行なども含む)を1つのスペースに置き換える<br />
 					<code>trim(preg_replace("/[ \r\n\t]+/", ' ', 文字列));</code>
+				</li>
+				<li>
+					ファイルの先頭の方にいれるとFatalエラーとかでるようになる<br />
+					<code>error_reporting(E_ALL);</code>
 				</li>
 			</ol>
 		</main>
