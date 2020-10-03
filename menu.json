@@ -62,15 +62,20 @@
             {
                 "id": 2,
                 "name": "1Lv呪文",
-                "href": "dd35.html?tab=1lv"
+                "href": "dd35.html?tab=01lv"
             },
             {
                 "id": 3,
-                "name": "6Lvキャラ",
-                "href": "dd35.html?tab=6lv"
+                "name": "3Lvキャラ",
+                "href": "dd35.html?tab=03lv"
             },
             {
                 "id": 4,
+                "name": "6Lvキャラ",
+                "href": "dd35.html?tab=06lv"
+            },
+            {
+                "id": 5,
                 "name": "12Lvキャラ",
                 "href": "dd35.html?tab=12lv"
             }
