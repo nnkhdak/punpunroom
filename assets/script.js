@@ -99,3 +99,9 @@ async function codingNav() {
 	});
 	return ul0;
 }
+
+/* main show by javascript */
+document.querySelectorAll('main')
+	.forEach((ele) => {
+		ele.setAttribute('style', 'display: block;');
+	});
