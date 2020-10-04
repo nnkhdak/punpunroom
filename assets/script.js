@@ -60,3 +60,43 @@ document.querySelectorAll('header')
 		name.innerHTML = 'name';
 		waku.appendChild(name);
 	});
+
+// ナビをコーディング
+codingNav().then(tag => {
+	const nav = document.getElementById('nav');
+	nav.appendChild(tag);
+});
+
+async function codingNav() {
+	const res = await window.fetch(MENUS_API);
+	const rows0 = await res.json();
+
+	// ul
+	const ul0 = document.createElement('ul');
+
+	rows0.forEach(row0 => {
+		// ul li
+		const li0 = document.createElement('li');
+		li0.innerHTML = row0.name;
+		ul0.appendChild(li0);
+
+		// ul li ul
+		const ul1 = document.createElement('ul');
+		li0.appendChild(ul1);
+
+		const rows1 = row0.child;
+		rows1.forEach(row1 => {
+			const a = document.createElement('a');
+			if (row1.href && row1.href.length > 0) {
+				a.href = row0.name + '/' + row1.href;
+			}
+			ul1.appendChild(a);
+
+			// ul li ul li
+			const li1 = document.createElement('li');
+			li1.innerHTML = row1.name;
+			a.appendChild(li1);
+		});
+	});
+	return ul0;
+}
