@@ -15,27 +15,27 @@
             },
             {
                 "id": 8,
-                "name": "oracle",
+                "name": "Oracle",
                 "href": "oracle.html"
             },
             {
                 "id": 7,
-                "name": "php",
+                "name": "PHP",
                 "href": "php.html"
             },
             {
                 "id": 4,
-                "name": "css",
+                "name": "CSS",
                 "href": "css.html"
             },
             {
                 "id": 3,
-                "name": "docker",
+                "name": "Docker",
                 "href": "docker.html"
             },
             {
                 "id": 5,
-                "name": "command",
+                "name": "Command",
                 "href": "cmd.html"
             },
             {
@@ -45,7 +45,7 @@
             },
             {
                 "id": 9,
-                "name": "vscode",
+                "name": "VSCode",
                 "href": "vscode.html"
             }
         ]
