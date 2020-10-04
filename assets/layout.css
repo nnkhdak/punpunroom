@@ -1,125 +1,147 @@
-div.container {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-	margin: 0 auto;
-	max-width: 1260px;
+* {
+	margin: 0;
+	padding: 0;
 }
 
-header > div,
-footer {
-	display: flex;
-	background-color: pink; /* lavender */
+html,
+body {
+	height: 100%;
+	width: 100%;
 }
 
 header {
-	height: 100px;
+	position: fixed;
 	top: 0;
+	left: 0;
+	height: 2.5em;
+	line-height: 2.5em;
+	width: 100%;
+	background: linear-gradient(to top, #ffdde1, #ee9ca7);
 }
 
-header > div {
-	height: 50px;
+header>div {
+	margin: 0 auto;
+	max-width: 1280px;
 }
 
-header div.logo {
-	line-height: 50px;
-	padding-left: 2em;
+header>div>* {
+	margin: 0 0.5em;
 }
 
-header div.info {
-	line-height: 25px;
-	padding-right: 1em;
+menu {
+	display: inline-block;
+	height: 2.5em;
+	width: 2.5em;
 }
 
-header > div > div:nth-of-type(2) {
-	flex: 1;
+div.page {
+	display: inline-block;
+	height: 2.5em;
+	width: 20em;
 }
 
-header nav {
-	height: 50px;
-	background-color: white;
+div.page>a {
+	padding: 0 8px;
+	color: red;
+	border: 1px solid red;
+	border-radius: 8px;
+	text-decoration: none;
 }
 
-div.middle {
-	flex: 1 1 auto;
-	min-height: 300px;
-	display: flex;
-	background-color: white;
+div.sign {
+	float: right;
+	display: block;
+	height: 2.5em;
 }
 
-div.middle nav {
-	top: 100px;
-	width: 200px;
+div.name {
+	float: right;
+	display: block;
+	height: 2.5em;
 }
 
-div.middle main {
-	flex: 1;
-	padding: 5px 0 0 5px;
+main {
+	margin: 2.5em auto 0;
+	max-width: 1280px;
+	padding: 0.5em;
 }
 
-div.middle aside {
-	/* display: none; */
-	width: 150px;
-}
 
-footer {
-	height: 25px;
-	line-height: 25px;
-	bottom: 0;
-	font-size: smaller;
-}
 
-footer > div {
-	flex: 1;
-}
 
-small {
-	margin: 0 10px;
+/* navigation */
+#nav_div {
+	position: relative;
 }
-
-.sticky {
-	position: sticky;
-}
-
-/* nav設定 */
-nav input {
-	position: absolute;
-	left: -9999px;
-}
-
-nav ul {
-	list-style: none;
-	padding-left: 0;
-}
-
-nav div ul,
-nav ul li ul {
+.nav_none {
 	display: none;
 }
-
-header nav > ul {
-	display: flex;
+#nav_open {
+	display: inline-block;
+	width: 30px;
+	height: 22px;
+	vertical-align: middle;
 }
-
-header nav ul li {
-	flex: 1;
-	list-style: none;
-	padding-left: 0;
-	text-align: center;
+#nav_open span,
+#nav_open span:before,
+#nav_open span:after {
+	position: absolute;
+	height: 3px;
+	width: 25px;
+	border-radius: 3px;
+	background: #555;
+	display: block;
+	content: '';
+	cursor: pointer;
 }
-
-header nav input:checked + ul {
-	display: flex;
+#nav_open span:before {
+	bottom: -8px;
 }
-
-nav ul li ul {
+#nav_open span:after {
+	bottom: -16px;
+}
+#nav_close {
+	display: none;
+	position: fixed;
+	z-index: 99;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: black;
+	opacity: 0;
+	transition: .3s ease-in-out;
+}
+#nav {
+	overflow: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	width: 90%;
+	max-width: 400px;
+	height: 100%;
+	background: #fff;
+	transition: .2s ease-in-out;
+	-webkit-transform: translateX(-105%);
+	transform: translateX(-105%);
+}
+#nav_input:checked~#nav_close {
+	display: block;
+	opacity: .5;
+}
+#nav_input:checked~#nav {
+	-webkit-transform: translateX(0%);
+	transform: translateX(0%);
+	box-shadow: 6px 0 25px rgba(0, 0, 0, .15);
+}
+nav{
+	line-height: 1.5em;
+}
+nav ul {
 	padding-left: 1em;
 }
-
-.middle nav > ul > li + li {
-	padding-top: 0.5em;
-}
-
-nav ul li input:checked + ul {
-	display: block;
+nav li {
+	list-style: none;
+	padding: 0;
 }
