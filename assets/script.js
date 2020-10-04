@@ -1,13 +1,11 @@
 const MENUS_API = "https://pun-pun-pun.github.io/punpunroom/menu.json";
 
-// header clear
+// header coding
 document.querySelectorAll('header')
 	.forEach((ele) => {
 		const clone = ele.cloneNode(false);
 		ele.parentNode.replaceChild(clone, ele);
 	});
-
-// header coding
 document.querySelectorAll('header')
 	.forEach((ele) => {
 		const waku = document.createElement('div');
@@ -100,7 +98,21 @@ async function codingNav() {
 	return ul0;
 }
 
-/* main show by javascript */
+// title
+document.querySelectorAll('title')
+	.forEach((ele) => {
+		const clone = ele.cloneNode(false);
+		ele.parentNode.replaceChild(clone, ele);
+	});
+document.querySelectorAll('head')
+	.forEach((ele) => {
+		const title = document.createElement('title');
+		title.innerHTML = 'ぷんぷんる～む';
+		ele.appendChild(title);
+	});
+
+
+// main show
 document.querySelectorAll('main')
 	.forEach((ele) => {
 		ele.setAttribute('style', 'display: block;');
