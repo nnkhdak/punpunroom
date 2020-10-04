@@ -2,15 +2,15 @@
 <html>
 
 <head>
-	<meta http-equiv="Pragma" content="no-cache" />
-	<meta http-equiv="Cache-Control" content="no-cache" />
-	<meta http-equiv="Expires" content="0" />
-	<meta charset="UTF-8" />
-	<base href="../" />
-	<link rel="stylesheet" href="asset/style.css" />
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<meta charset="utf-8" />
+	<base href="../">
+	<link rel="stylesheet" type="text/css" href="assets/style.css" />
 	<style>
 		/* 画面毎設定 */
-		main {
+		#mainCenter {
 			display: flex;
 			flex-direction: column;
 		}
@@ -50,53 +50,33 @@
 			background-color: orange;
 		}
 	</style>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="asset/script.js"></script>
-	<script src="asset/env-checker.js"></script>
-	<title></title>
 </head>
 
 <body>
-	<noscript>
-		<p>JavaScriptがサポートされていないため表示できません。</p>
-	</noscript>
-	<div class="container" style="display: none;">
-		<header class="sticky">
-			<div>
-				<div class="logo">
-					<a href="index.html">たいとる</a>
-				</div>
-				<div></div>
-				<div class="info">
-					<span style="display: block;">XXXX さん</span>
-					<a href="index.html">ログアウト</a>
-				</div>
-			</div>
-			<nav></nav>
-		</header>
-		<div class="middle">
-			<nav></nav>
-			<main>
-				<h2>D&D 3.5e</h2>
-				<div class="tabarea">
-					<ul class="tabs">
-						<li><label id="prerolled_label" for="prerolled">プレロールド</label></li>
-						<li><label id="01lv_label" for="01lv">1Lv呪文</label></li>
-						<li><label id="03lv_label" for="03lv">3Lvキャラ</label></li>
-						<li><label id="06lv_label" for="06lv">6Lvキャラ</label></li>
-						<li><label id="12lv_label" for="12lv">12Lvキャラ</label></li>
-					</ul>
+	<header></header>
+	<main>
+		<div id="mainLeft"></div>
+		<div id="mainCenter">
+			<h2>D&D 3.5e</h2>
+			<div class="tabarea">
+				<ul class="tabs">
+					<li><label id="prerolled_label" for="prerolled">プレロールド</label></li>
+					<li><label id="01lv_label" for="01lv">1Lv呪文</label></li>
+					<li><label id="03lv_label" for="03lv">3Lvキャラ</label></li>
+					<li><label id="06lv_label" for="06lv">6Lvキャラ</label></li>
+					<li><label id="12lv_label" for="12lv">12Lvキャラ</label></li>
+				</ul>
 
-					<input type="radio" name="tab" value="prerolled" id="prerolled" checked>
-					<div class="tab">
-						プレロールド1
-					</div>
-					<input type="radio" name="tab" value="01lv" id="01lv">
-					<div class="tab">1</div>
-					<input type="radio" name="tab" value="03lv" id="03lv">
-					<div class="tab">
-						<code>
-							<p>ストーム・セントリ見習い</p>
+				<input type="radio" name="tab" value="prerolled" id="prerolled" checked>
+				<div class="tab">
+					プレロールド1
+				</div>
+				<input type="radio" name="tab" value="01lv" id="01lv">
+				<div class="tab">1</div>
+				<input type="radio" name="tab" value="03lv" id="03lv">
+				<div class="tab">
+					<code>
+						<p>ストーム・セントリ見習い</p>
 ハーフエルフ、中型の人型生物(エルフ)
 スワッシュバックラー3
 ヒット・ダイス：3d10+12 (hp 33)
@@ -112,21 +92,18 @@
 技能：〈隠れ身〉+6, 〈軽業〉+11, 〈視認〉+2, 〈忍び足〉+6, 〈知識：神秘学〉+3, 〈跳躍〉+9, 〈平衡感覚〉+10
 特技：《強化版追加ｈｐ》《最下級ドラゴンマーク》《武器の妙技》
 主な装備：レイピア,ミスラル製シャツ
-						</code>
-					</div>
-					<input type="radio" name="tab" value="06lv" id="06lv">
-					<div class="tab">6</div>
-					<input type="radio" name="tab" value="12lv" id="12lv">
-					<div class="tab">12</div>
+					</code>
 				</div>
-			</main>
-			<aside></aside>
+				<input type="radio" name="tab" value="06lv" id="06lv">
+				<div class="tab">6</div>
+				<input type="radio" name="tab" value="12lv" id="12lv">
+				<div class="tab">12</div>
+			</div>
 		</div>
-		<footer class="sticky">
-			<div></div>
-			<small>株式会社ふったー</small>
-		</footer>
-	</div>
+		<div id="mainRight"></div>
+	</main>
+	<footer></footer>
 </body>
+<script src="assets/script.js"></script>
 
 </html>
