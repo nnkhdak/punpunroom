@@ -5,12 +5,9 @@
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Cache-Control" content="no-cache">
 	<meta http-equiv="Expires" content="0">
-	<meta charset="UTF-8">
+	<meta charset="utf-8" />
 	<base href="../">
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-	<script src="script.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>ぷんぷんる～む</title>
+	<link rel="stylesheet" type="text/css" href="assets/style.css" />
 	<style>
 		table.side_cmd {
 			width: 100%;
@@ -38,16 +35,10 @@
 </head>
 
 <body>
-	<header>
-		<div><a href="index.html"></a></div>
-		<nav></nav>
-	</header>
-	<div>
-		<div>
-			<nav></nav>
-			<footer></footer>
-		</div>
-		<main>
+	<header></header>
+	<main>
+		<div id="mainLeft"></div>
+		<div id="mainCenter">
 			<h2>Selenium IDE 関連</h2>
 			<ul>
 				<li>
@@ -113,7 +104,8 @@
 							<tr>
 								<th>12</th>
 								<td>class=tblの最後 in trの最後 in tdの最後</td>
-								<td>xpath=//*[contains(@class, 'tbl')][last()]/<span class="strong">/</span>tr[last()]/td[last()]</td>
+								<td>xpath=//*[contains(@class, 'tbl')][last()]/<span
+										class="strong">/</span>tr[last()]/td[last()]</td>
 							</tr>
 						</tbody>
 					</table>
@@ -131,7 +123,8 @@
 								</tr>
 								<tr>
 									<td>execute script</td>
-									<td>var now = new Date(); return now.getFullYear() + ('0' + (1 + now.getMonth())).slice(-2) + ('0' + now.getDate()).slice(-2);</td>
+									<td>var now = new Date(); return now.getFullYear() + ('0' + (1 +
+										now.getMonth())).slice(-2) + ('0' + now.getDate()).slice(-2);</td>
 									<td>tmp</td>
 								</tr>
 							</tbody>
@@ -203,8 +196,11 @@
 					</ul>
 				</li>
 			</ul>
-		</main>
-	</div>
+		</div>
+		<div id="mainRight"></div>
+	</main>
+	<footer></footer>
 </body>
+<script src="assets/script.js"></script>
 
 </html>

@@ -1,13 +1,13 @@
 const MENUS_API = "https://pun-pun-pun.github.io/punpunroom/menu.json";
 
-// ヘッダを初期化
+// header clear
 document.querySelectorAll('header')
 	.forEach((ele) => {
 		const clone = ele.cloneNode(false);
 		ele.parentNode.replaceChild(clone, ele);
 	});
 
-// ヘッダをコーディング
+// header coding
 document.querySelectorAll('header')
 	.forEach((ele) => {
 		const waku = document.createElement('div');
@@ -61,12 +61,11 @@ document.querySelectorAll('header')
 		waku.appendChild(name);
 	});
 
-// ナビをコーディング
+// nav coding
 codingNav().then(tag => {
 	const nav = document.getElementById('nav');
 	nav.appendChild(tag);
 });
-
 async function codingNav() {
 	const res = await window.fetch(MENUS_API);
 	const rows0 = await res.json();
