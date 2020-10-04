@@ -65,6 +65,11 @@ main {
 #mainCenter {
 	padding: 0.5em;
 }
+#mainCenter>ul>li, #mainCenter>ol>li {
+	border-top: 1px solid silver;
+	list-style: none;
+	padding: 0.5em;
+}
 
 
 

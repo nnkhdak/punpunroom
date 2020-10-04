@@ -16,7 +16,7 @@
 		<div id="mainLeft"></div>
 		<div id="mainCenter">
 			<h2>コマンド系</h2>
-			<ol>
+			<ul>
 				<li>
 					ディレクトリ内のファイルの拡張子名を取得<br />
 					<command>find $PWD -type f | grep -F . | awk -F. '{print $NF}' | sort | uniq</command><br>
@@ -76,7 +76,7 @@ EOS</pre>
 					ls -la 結果のうちスペース区切りで8番目を抜き出し、コロンの前を抜き出す<br />
 					ls -la | awk '{print $8}' | awk -F ":" '{print $1}'
 				</li>
-			</ol>
+			</ul>
 		</div>
 		<div id="mainRight"></div>
 	</main>
