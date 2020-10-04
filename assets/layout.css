@@ -9,6 +9,7 @@ body {
 	width: 100%;
 }
 
+/* header */
 header {
 	position: fixed;
 	top: 0;
@@ -18,28 +19,23 @@ header {
 	width: 100%;
 	background: linear-gradient(to top, #ffdde1, #ee9ca7);
 }
-
 header>div {
 	margin: 0 auto;
 	max-width: 1280px;
 }
-
 header>div>* {
 	margin: 0 0.5em;
 }
-
 menu {
 	display: inline-block;
 	height: 2.5em;
 	width: 2.5em;
 }
-
 div.page {
 	display: inline-block;
 	height: 2.5em;
 	width: 20em;
 }
-
 div.page>a {
 	padding: 0 8px;
 	color: red;
@@ -47,25 +43,25 @@ div.page>a {
 	border-radius: 8px;
 	text-decoration: none;
 }
-
 div.sign {
 	float: right;
 	display: block;
 	height: 2.5em;
 }
-
 div.name {
 	float: right;
 	display: block;
 	height: 2.5em;
 }
 
+
+
+/* main */
 main {
 	margin: 2.5em auto 0;
 	max-width: 1280px;
 	padding: 0.5em;
 }
-
 
 
 
