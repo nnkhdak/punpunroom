@@ -21,6 +21,18 @@
 			<h2>コマンド系</h2>
 			<ul>
 				<li>
+					改行コードの違いを表示しないdiff<br />
+					diff --strip-trailing-cr foo.txt bar.txt
+				</li>
+				<li>
+					ls -la 結果のうちスペース区切りで8番目を抜き出す<br />
+					ls -la | awk '{print $8}'
+				</li>
+				<li>
+					ls -la 結果のうちスペース区切りで8番目を抜き出し、コロンの前を抜き出す<br />
+					ls -la | awk '{print $8}' | awk -F ":" '{print $1}'
+				</li>
+				<li>
 					ディレクトリ内のファイルの拡張子名を取得<br />
 					<command>find $PWD -type f | grep -F . | awk -F. '{print $NF}' | sort | uniq</command><br>
 				</li>
@@ -69,18 +81,6 @@ EOS</pre>
 				<li>
 					echoで改行を出力したい<br />
 					echo -n -e "\n"
-				</li>
-				<li>
-					ls -la 結果のうちスペース区切りで8番目を抜き出す<br />
-					ls -la | awk '{print $8}'
-				</li>
-				<li>
-					ls -la 結果のうちスペース区切りで8番目を抜き出し、コロンの前を抜き出す<br />
-					ls -la | awk '{print $8}' | awk -F ":" '{print $1}'
-				</li>
-				<li>
-					改行コードの違いを表示しないdiff<br />
-					diff --strip-trailing-cr foo.txt bar.txt
 				</li>
 			</ul>
 		</div>
