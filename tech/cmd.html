@@ -21,8 +21,11 @@
 			<h2>コマンド系</h2>
 			<ul>
 				<li>
-					改行コードの違いを表示しないdiff<br />
-					diff --strip-trailing-cr foo.txt bar.txt
+					改行コードの違いを表示しないdiff(とbashrcに書くとき)<br />
+					<code>diff --strip-trailing-cr foo.txt bar.txt</code>
+					<code>function diffcr() {
+	command diff --strip-trailing-cr $1 $2
+}</code>
 				</li>
 				<li>
 					ls -la 結果のうちスペース区切りで8番目を抜き出す<br />
