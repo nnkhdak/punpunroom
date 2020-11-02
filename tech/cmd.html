@@ -85,6 +85,10 @@ EOS</pre>
 					echoで改行を出力したい<br />
 					echo -n -e "\n"
 				</li>
+				<li>
+					exportのついていないkey=value形式のファイルを環境変数として読み込みたい<br />
+					export $(cat $KEYVALUE_FILE | grep -v "#" | xargs);
+				</li>
 			</ul>
 		</div>
 		<div id="mainRight"></div>
