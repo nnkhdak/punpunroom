@@ -21,6 +21,29 @@
 			<h2>JavaScript</h2>
 			<ol>
 				<li>
+					QueryStringを使いやすく<br />
+					<code>$.urlParam = function (name) {
+	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.search);
+	return (results !== null) ? results[1] || 0 : false;
+}
+type = $.urlParam('hoge');
+					</code>
+				</li>
+				<li>
+					タグをまるまる置き換える<br />
+					<code>var targetNode = document.getElementById('hoge');
+var newNode = document.createElement('div');
+targetNode.parentNode.replaceChild(newNode, targetNode);</code>
+				</li>
+				<li>
+					タグ内の子要素を削除<br />
+					<code>document.querySelectorAll('header')
+.forEach((ele) => {
+	var clone = ele.cloneNode(false);
+	ele.parentNode.replaceChild(clone, ele);
+});</code>
+				</li>
+				<li>
 					現在ブラウザのUserAgent<br />
 					<script>
 						document.write(navigator.userAgent);
@@ -37,20 +60,6 @@
 					<script>
 						document.write(navigator.appVersion);
 					</script>
-				</li>
-				<li>
-					タグをまるまる置き換える<br />
-					<code>var targetNode = document.getElementById('hoge');
-var newNode = document.createElement('div');
-targetNode.parentNode.replaceChild(newNode, targetNode);</code>
-				</li>
-				<li>
-					タグ内の子要素を削除<br />
-					<code>document.querySelectorAll('header')
-	.forEach((ele) => {
-		var clone = ele.cloneNode(false);
-		ele.parentNode.replaceChild(clone, ele);
-	});</code>
 				</li>
 			</ol>
 		</div>
