@@ -21,15 +21,26 @@
 			<h2>自動再生</h2>
 			<iframe src="https://pun-pun-pun.github.io/punpunroom/audio.html" allow="autoplay"
 				style="display:none"></iframe>
-			<iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
-			<audio id="player" autoplay loop controls>
+			<iframe src="https://pun-pun-pun.github.io/punpunroom/silence.mp3" allow="autoplay" id="audio"
+				style="display:none"></iframe>
+			<audio id="player" controls>
 				<source src="https://pun-pun-pun.github.io/punpunroom/piko.mp3" type="audio/mp3">
 			</audio>
+			<ul>
+				<li>aaa</li>
+				<li>bbb</li>
+				<li>ccc</li>
+			</ul>
 		</div>
 		<div id="mainRight"></div>
 	</main>
 	<footer></footer>
 </body>
 <script src="assets/script.js"></script>
+<script>
+	document.querySelector('li').onmouseover = function () {
+		console.log(111);
+	};
+</script>
 
 </html>
