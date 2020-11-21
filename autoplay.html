@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<meta charset="utf-8" />
+	<base href="../">
+	<link rel="stylesheet" type="text/css" href="assets/style.css" />
+</head>
+
+<body>
+	<noscript>
+		<p>JavaScriptがサポートされていないため表示できません。</p>
+	</noscript>
+	<header></header>
+	<main style="display: none;">
+		<div id="mainLeft"></div>
+		<div id="mainCenter">
+			<h2>自動再生</h2>
+			<iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+			<audio id="player" autoplay loop>
+				<source src="piko.mp3" type="audio/mp3">
+			</audio>
+		</div>
+		<div id="mainRight"></div>
+	</main>
+	<footer></footer>
+</body>
+<script src="assets/script.js"></script>
+
+</html>
