@@ -19,10 +19,7 @@
 		<div id="mainLeft"></div>
 		<div id="mainCenter">
 			<h2>自動再生</h2>
-			<iframe src="https://pun-pun-pun.github.io/punpunroom/audio.html" allow="autoplay"
-				style="display:none"></iframe>
-			<iframe src="https://pun-pun-pun.github.io/punpunroom/silence.mp3" allow="autoplay" id="audio"
-				style="display:none"></iframe>
+			<iframe src="https://pun-pun-pun.github.io/punpunroom/silence.mp3" allow="autoplay"></iframe>
 			<audio id="player" controls>
 				<source src="https://pun-pun-pun.github.io/punpunroom/piko.mp3" type="audio/mp3">
 			</audio>
@@ -40,7 +37,6 @@
 <script>
 	document.querySelectorAll('li').onmouseover = function (event) {
 		console.log(event);
-		document.querySelector('#player').play();
 	};
 </script>
 
