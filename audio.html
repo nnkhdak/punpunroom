@@ -3,9 +3,19 @@
 
 <body>
 	<iframe src="piko.mp3" allow="autoplay"></iframe>
-	<audio id="player" autoplay loop>
+	<audio id="player" autoplay>
 		<source src="piko.mp3" type="audio/mp3">
 	</audio>
+	<ul>
+		<li>1111</li>
+		<li>2222</li>
+		<li>3333</li>
+	</ul>
+	<script>
+		document.querySelectorAll("li").forEach(function (row) {
+			console.log(row.innerHTML);
+		});
+	</script>
 </body>
 
 </html>
