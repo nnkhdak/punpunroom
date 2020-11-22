@@ -15,6 +15,7 @@
 		document.querySelectorAll("li").forEach(function (row) {
 			row.onmouseover = function () {
 				console.log(row.innerHTML);
+				document.getElementById('player').play();
 			};
 		});
 	</script>
