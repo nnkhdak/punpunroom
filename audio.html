@@ -2,8 +2,8 @@
 <html>
 
 <body>
-	<iframe src="piko.mp3" allow="autoplay"></iframe>
-	<audio id="player" autoplay>
+	<iframe src="silence.mp3" allow="autoplay"></iframe>
+	<audio id="player">
 		<source src="piko.mp3" type="audio/mp3">
 	</audio>
 	<ul>
@@ -13,7 +13,9 @@
 	</ul>
 	<script>
 		document.querySelectorAll("li").forEach(function (row) {
-			console.log(row.innerHTML);
+			row.onmouseover = function () {
+				console.log(row.innerHTML);
+			};
 		});
 	</script>
 </body>
