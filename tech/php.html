@@ -37,6 +37,12 @@ EOT;</code>
 					ファイルの先頭の方にいれるとFatalエラーとかでるようになる<br />
 					<code>error_reporting(E_ALL);</code>
 				</li>
+				<li>
+					ファイルの拡張子をhtmlでPHPコードを埋め込みたい(.htaccess)<br />
+					<code>&lt;FilesMatch "\.html$"&gt;
+	AddType application/x-httpd-php .html
+&lt;/FilesMatch&gt;</code>
+				</li>
 			</ol>
 		</div>
 		<div id="mainRight"></div>
