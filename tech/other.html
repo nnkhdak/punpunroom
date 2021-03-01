@@ -27,6 +27,15 @@
 						<li>Get-AppxPackage *Microsoft.WebMediaExtensions* | remove-appxpackage</li>
 					</ol>
 				</li>
+				<li>
+					<p>Linuxのホスト名を変えたい</p>
+					sudo vim /etc/hosts
+					<code>127.0.0.1   localhost   localhost.localdomain
+REPLACE_WITH_NEW_HOST</code>
+					sudo vim /etc/sysconfig/network
+					<code>HOSTNAME=REPLACE_WITH_NEW_HOST</code>
+					上記を対応後、サーバー再起動が必要
+				</li>
 			</ul>
 		</div>
 		<div id="mainRight"></div>
