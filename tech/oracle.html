@@ -121,6 +121,30 @@ export PATH=$PATH:$LD_LIBRARY_PATH</code>
 					<code>[Service]
 EnvironmentFile=/etc/environment</code>
 				</li>
+				<li>
+					Select結果を使ってUPDATE<br />
+					<br />
+					Mergeを使う<br />
+					<code>MERGE INTO
+	更新したいテーブル名 t0
+USING (
+	SELECT
+		  t1.name
+		, t2.association
+	FROM
+		テーブル１ t1
+		JOIN テーブル２	t2 ON 結合条件
+	WHERE
+		検索条件(1行になるように)
+	) tmp
+ON (
+	更新したい条件
+)
+WHEN MATCHED THEN UPDATE
+SET
+	initialdate = current_date
+	, expirationdate = ( current_date + 10 )</code>
+				</li>
 			</ul>
 		</div>
 		<div id="mainRight"></div>
