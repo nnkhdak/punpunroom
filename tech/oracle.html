@@ -55,6 +55,29 @@ WHEN NOT MATCHED THEN INSERT (
 )</code>
 				</li>
 				<li>
+					Select結果を使ってUPDATE(Mergeを使う)<br />
+					<br />
+					<code>MERGE INTO
+	更新したいテーブル名 t0
+USING (
+	SELECT
+		  取得する項目1
+		, 取得する項目2
+	FROM
+		テーブル１ t1
+		JOIN テーブル２	t2 ON 結合条件
+	WHERE
+		検索条件(1行になるように)
+	) tmp
+ON (
+	更新したい条件
+)
+WHEN MATCHED THEN UPDATE
+SET
+	  更新する項目1 = 取得する項目1
+	, 更新する項目2 = 取得する項目2</code>
+				</li>
+				<li>
 					テーブルの完全削除<br />
 					<code>DROP TABLE <i><strong>table_name</strong></i> CASCADE CONSTRAINTS PURGE;</code>
 				</li>
@@ -120,30 +143,6 @@ export PATH=$PATH:$LD_LIBRARY_PATH</code>
 					httpd.service(コレで保存すると/etc/systemd/system/httpd.service.d/override.confに保存したときと同じ扱い)
 					<code>[Service]
 EnvironmentFile=/etc/environment</code>
-				</li>
-				<li>
-					Select結果を使ってUPDATE<br />
-					<br />
-					Mergeを使う<br />
-					<code>MERGE INTO
-	更新したいテーブル名 t0
-USING (
-	SELECT
-		  t1.name
-		, t2.association
-	FROM
-		テーブル１ t1
-		JOIN テーブル２	t2 ON 結合条件
-	WHERE
-		検索条件(1行になるように)
-	) tmp
-ON (
-	更新したい条件
-)
-WHEN MATCHED THEN UPDATE
-SET
-	initialdate = current_date
-	, expirationdate = ( current_date + 10 )</code>
 				</li>
 			</ul>
 		</div>
