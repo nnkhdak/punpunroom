@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<meta charset="utf-8">
+	<base href="../">
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
+	<style>
+		/* 画面毎設定 */
+		#mainCenter {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.tabarea {
+			color: white;
+		}
+
+		.tabarea li:nth-of-type(1) label,
+		.tabarea div.tab:nth-of-type(1) {
+			border-color: red;
+			background-color: red;
+		}
+
+		.tabarea li:nth-of-type(2) label,
+		.tabarea div.tab:nth-of-type(2) {
+			border-color: blue;
+			background-color: blue;
+		}
+
+		.tabarea li:nth-of-type(3) label,
+		.tabarea div.tab:nth-of-type(3) {
+			border-color: yellow;
+			background-color: yellow;
+			color: black;
+		}
+
+		.tabarea li:nth-of-type(4) label,
+		.tabarea div.tab:nth-of-type(4) {
+			border-color: green;
+			background-color: green;
+		}
+
+		.tabarea li:nth-of-type(5) label,
+		.tabarea div.tab:nth-of-type(5) {
+			border-color: orange;
+			background-color: orange;
+		}
+	</style>
+</head>
+
+<body>
+	<noscript>
+		<p>JavaScriptがサポートされていないため表示できません。</p>
+	</noscript>
+	<header></header>
+	<main style="display: none;">
+		<div id="mainLeft"></div>
+		<div id="mainCenter">
+			<h2>D&D 3.5e</h2>
+			<div>
+				コーヴェア南部<br />
+				<a href="dd35/コーヴェア南部印.jpg"><img src="dd35/コーヴェア南部印.jpg" width="640" /></a>
+				<hr />
+				ジャイアント・アウルの手紙<br />
+				<img src="dd35/ladyE1.jpg" width="640" />
+				<hr />
+				HHHの手紙<br />
+				<img src="dd35/LadyE2.jpg" width="640" />
+				<hr />
+				飛空艇<br />
+				<a href="dd35/飛空艇.png"><img src="dd35/飛空艇.png" width="640" /></a>
+				<hr />
+				ライトニング・レイル<br />
+				<a href="dd35/ライトニング・レイル.png"><img src="dd35/ライトニング・レイル.png" width="640" /></a>
+			</div>
+		</div>
+		<div id="mainRight"></div>
+	</main>
+	<footer></footer>
+</body>
+<script src="assets/script.js"></script>
+
+</html>
