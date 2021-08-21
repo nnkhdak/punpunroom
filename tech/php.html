@@ -42,6 +42,14 @@ EOT;</code>
 					<code>get_class_methods('クラス名');</code>
 				</li>
 				<li>
+					ダブルクオートの文字列連結中にfunctionの実行結果を混ぜる<br />
+					<code>$msg = "$msg\t{$e->getCode()}\t{$e->getMessage()}";</code>
+				</li>
+				<li>
+					クラスが定義(読み込まれていない場合も)されているか判定<br />
+					<code>class_exists</code>
+				</li>
+				<li>
 					ファイルの先頭の方にいれるとFatalエラーとかでるようになるかも<br />
 					<code>error_reporting(E_ALL);</code>
 				</li>
