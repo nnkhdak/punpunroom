@@ -44,6 +44,10 @@
 					<command>find $PWD -type f | grep -F . | awk -F. '{print $NF}' | sort | uniq</command>
 				</li>
 				<li>
+					特定の拡張子のファイルを削除する<br>
+					find ディレクトリパス -name "*.txt" -type f | xargs rm
+				</li>
+				<li>
 					検索したいワードを含む行を対象とし、*.txtをスペース区切りの3番目のフィールドを取得<br />
 					<command>grep -h 検索したいワード /ディレクトリ名/*.txt | awk '{print $3}' | sort | uniq</command>
 				</li>
@@ -92,10 +96,6 @@ EOS</pre>
 				<li>
 					ディスク使用量を知りたい<br>
 					du -hc
-				</li>
-				<li>
-					特定の拡張子のファイルを削除する<br>
-					find ディレクトリパス -name "*.txt" -type f | xargs rm
 				</li>
 			</ul>
 		</div>
