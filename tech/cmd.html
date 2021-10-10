@@ -28,6 +28,10 @@
 }</code>
 				</li>
 				<li>
+					当日日付のログファイルなどをtail<br />
+					<code>tail -f /tmp/log_`date '+%Y%m%d'`.txt</code>
+				</li>
+				<li>
 					ls -la 結果のうちスペース区切りで8番目を抜き出す<br />
 					ls -la | awk '{print $8}'
 				</li>
