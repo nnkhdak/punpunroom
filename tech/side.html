@@ -127,7 +127,7 @@
 					<span>コマンドいろいろ</span>
 					<ul>
 						<table class="side_cmd">
-							<caption>selectを改ざん(ポイントはcheckedと値を戻すときに''が不要)</caption>
+							<caption>radioを選択なし状態に</caption>
 							<tbody>
 								<tr>
 									<th>Command</th>
@@ -137,29 +137,73 @@
 								</tr>
 								<tr>
 									<td>store value</td>
-									<td>css=select[name=prefecture_code]</td>
+									<td>css=input[name=sex]:checked</td>
 									<td>keep</td>
 									<td>値をとっておく</td>
 								</tr>
 								<tr>
-									<td>execute script</td>
-									<td>document.querySelector("#prefecture_code option:<span style="color:red;">checked</span>").value = '99';</td>
+									<td>uncheck</td>
+									<td>id=sex1</td>
 									<td></td>
-									<td>値を変更する</td>
+									<td>チェックをはずす</td>
+								</tr>
+								<tr>
+									<td>uncheck</td>
+									<td>id=sex2</td>
+									<td></td>
+									<td>ぜんぶをはずす</td>
 								</tr>
 								<tr>
 									<td colspan="4">やりたいことやる</td>
 								</tr>
 								<tr>
-									<td>execute script</td>
-									<td>document.querySelector("#prefecture_code option:checked").value = <span style="color:red;">${keep}</span>;</td>
+									<td>click</td>
+									<td>css=[name='sex'][value='${keep}']</td>
 									<td></td>
 									<td>値を元に戻す</td>
 								</tr>
 							</tbody>
 						</table>
 						<table class="side_cmd">
-							<caption>radioを改ざん</caption>
+							<caption>radioで選択肢にない値にする</caption>
+							<tbody>
+								<tr>
+									<th>Command</th>
+									<th>Target</th>
+									<th>Value</th>
+									<th>Description</th>
+								</tr>
+								<tr>
+									<td>store value</td>
+									<td>css=input[name=sex]:checked</td>
+									<td>keep</td>
+									<td>値をとっておく</td>
+								</tr>
+								<tr>
+									<td>type</td>
+									<td>css=input[name=sex]:checked</td>
+									<td>99</td>
+									<td>チェックされているinputの値を99に変更</td>
+								</tr>
+								<tr>
+									<td>uncheck</td>
+									<td>id=sex2</td>
+									<td></td>
+									<td>ぜんぶをはずす</td>
+								</tr>
+								<tr>
+									<td colspan="4">やりたいことやる</td>
+								</tr>
+								<tr>
+									<td>type</td>
+									<td>css=input[name=sex]:checked</td>
+									<td>${keep}</td>
+									<td>値を元に戻す</td>
+								</tr>
+							</tbody>
+						</table>
+						<table class="side_cmd">
+							<caption>selectで選択肢にない値にする</caption>
 							<tbody>
 								<tr>
 									<th>Command</th>
@@ -177,7 +221,7 @@
 									<td>execute script</td>
 									<td>document.querySelector("#prefecture_code option:<span style="color:red;">checked</span>").value = '99';</td>
 									<td></td>
-									<td>値を変更する</td>
+									<td>値を変更する(selectedではなくchecked)</td>
 								</tr>
 								<tr>
 									<td colspan="4">やりたいことやる</td>
@@ -186,7 +230,7 @@
 									<td>execute script</td>
 									<td>document.querySelector("#prefecture_code option:checked").value = <span style="color:red;">${keep}</span>;</td>
 									<td></td>
-									<td>値を元に戻す</td>
+									<td>値を元に戻す(''でかこまない)</td>
 								</tr>
 							</tbody>
 						</table>
