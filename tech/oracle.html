@@ -78,6 +78,15 @@ SET
 	, 更新する項目2 = 取得する項目2</code>
 				</li>
 				<li>
+					まとめて複数INSERTを書く<br />
+					<br />
+					<code>INSERT ALL
+INTO <i><strong>table_name</strong></i> (<i><strong>項目１</strong></i>,<i><strong>項目２</strong></i>) VALUES (<i><strong>値１</strong></i>,<i><strong>値２</strong></i>)
+INTO <i><strong>table_name</strong></i> (<i><strong>項目１</strong></i>,<i><strong>項目２</strong></i>) VALUES (<i><strong>値１</strong></i>,<i><strong>値２</strong></i>)
+INTO <i><strong>table_name</strong></i> (<i><strong>項目１</strong></i>,<i><strong>項目２</strong></i>) VALUES (<i><strong>値１</strong></i>,<i><strong>値２</strong></i>)
+SELECT * FROM DUAL;</code>
+				</li>
+				<li>
 					日付フォーマット<br />
 					<code>TO_CHAR(CURRENT_DATE, 'YYYY/MM/DD HH24:MI:SS')</code>
 				</li>
