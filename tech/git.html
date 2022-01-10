@@ -24,6 +24,10 @@
 					<span>ブランチ</span>
 					<ul>
 						<li>
+							<p>直前のコミットを取り消す</p>
+							<code>git reset --soft HEAD^</code>
+						</li>
+						<li>
 							<p>clone</p>
 							<code>git clone https://github.com/リポジトリ名</code>
 						</li>
@@ -43,20 +47,16 @@ git commit
 git push</code>
 						</li>
 						<li>
-							<p>ローカルの変更を全て破棄する</p>
-							<code>cd /var/www/ && git checkout .</code>
-						</li>
-						<li>
 							<p>ブランチの変更</p>
-							<code>cd /var/www/ && git fetch && git checkout <i>branchname</i></code>
+							<code>git fetch && git checkout <i>branchname</i></code>
 						</li>
 						<li>
 							<p>ローカルの状態をキレイにする</p>
-							<code>cd /var/www/ && git clean -df</code>
+							<code>git clean -df</code>
 						</li>
 						<li>
 							<p>現在のブランチ名を表示</p>
-							<code>cd /var/www/ && git branch --contains=HEAD</code>
+							<code>git branch --contains=HEAD</code>
 						</li>
 						<li>
 							<p>実行権限の付与、除外</p>

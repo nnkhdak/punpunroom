@@ -21,13 +21,8 @@
 			<h2>PHP</h2>
 			<ol>
 				<li>
-					ヒアドキュメント<br />
-					<code>const SQL = &lt;&lt;&lt;'EOT'
-SELECT
-	*
-FROM
-	dual
-EOT;</code>
+					連想配列のキーを小文字にする<br />
+					<code>$row = array_change_key_case($row, CASE_LOWER);</code>
 				</li>
 				<li>
 					連続する空白文字(改行なども含む)を1つのスペースに置き換える<br />
@@ -36,6 +31,13 @@ EOT;</code>
 				<li>
 					2021/04/25 12:34:56<br />
 					<code>date('Y/m/d H:i:s');</code>
+				</li>
+				<li>
+					ファイルに値を書き込む<br />
+					<code>$s = 'hehe';
+$h = fopen('/var/log/log_' . date('Ymd') . '.txt'  , 'a');
+fwrite($h, $s);
+fclose($h);</code>
 				</li>
 				<li>
 					クラスの定義済みfunction<br />
@@ -67,6 +69,19 @@ EOT;</code>
 	&lt;/script&gt;
 {/literal}
 </code>
+				</li>
+				<li>
+					smartyで { や } のエスケープ<br />
+					<code>{ldelim},{rdelim}</code>
+				</li>
+				<li>
+					ヒアドキュメント<br />
+					<code>const SQL = &lt;&lt;&lt;'EOT'
+SELECT
+	*
+FROM
+	dual
+EOT;</code>
 				</li>
 			</ol>
 		</div>
