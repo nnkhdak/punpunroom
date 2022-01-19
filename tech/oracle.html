@@ -87,6 +87,27 @@ INTO <i><strong>table_name</strong></i> (<i><strong>項目１</strong></i>,<i><s
 SELECT * FROM DUAL;</code>
 				</li>
 				<li>
+					カンマ区切りを行にする<br />
+					<br />
+					<code>SELECT
+	regexp_substr(t1.nums, '[^,]+', 1, t2.arr_num) AS val
+,	t2.arr_num									   AS seq
+FROM (
+	SELECT
+		'001,002,003' nums
+	FROM
+		dual
+) t1
+,	LATERAL (
+	SELECT
+		level AS arr_num
+	FROM
+		dual
+	CONNECT BY
+		instr(t1.nums, ',', 1, level - 1) > 0
+) t2</code>
+				</li>
+				<li>
 					日付フォーマット<br />
 					<code>TO_CHAR(CURRENT_DATE, 'YYYY/MM/DD HH24:MI:SS')</code>
 				</li>
