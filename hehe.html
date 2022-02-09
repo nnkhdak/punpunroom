@@ -11,14 +11,14 @@
       "model",
       "uaFullVersion"
     ]).then(res => console.log(res));
-    let res = navigator.userAgentData.getHighEntropyValues([
+    let resp = navigator.userAgentData.getHighEntropyValues([
       "platform",
       "platformVersion",
       "architecture",
       "model",
       "uaFullVersion"
-    ]).then(res);
-    document.write(res);
+    ]).then(resp);
+    document.write(resp);
   } else {
     document.write(1111);
   }
