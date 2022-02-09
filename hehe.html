@@ -1,0 +1,11 @@
+<script>
+if (window.navigator.userAgentData) {
+  const brands = navigator.userAgentData.brands;
+  const browserName = "Chrome";
+  const brand = brands.find(item => item.brand.includes(browserName)).brand;
+document.write(brand);
+} else {
+document.write(1111);
+}
+document.write(2222);
+</script>
