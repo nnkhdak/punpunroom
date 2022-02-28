@@ -1,0 +1,26 @@
+<script>
+  if (window.navigator.userAgentData) {
+    const brands = navigator.userAgentData.brands;
+    const browserName = "Chrome";
+    const brand = brands.find(item => item.brand.includes(browserName)).brand;
+    document.write(brand);
+    navigator.userAgentData.getHighEntropyValues([
+      "platform",
+      "platformVersion",
+      "architecture",
+      "model",
+      "uaFullVersion"
+    ]).then(res => console.log(res));
+    let resp = navigator.userAgentData.getHighEntropyValues([
+      "platform",
+      "platformVersion",
+      "architecture",
+      "model",
+      "uaFullVersion"
+    ]).then(resp);
+    document.write(resp);
+  } else {
+    document.write(1111);
+  }
+  document.write(2222);
+</script>
