@@ -1,4 +1,4 @@
-const MENUS_API = "https://pun-pun-pun.github.io/punpunroom/menu.json";
+const MENUS_API = "https://nnkhdak.github.io/punpunroom/menu.json";
 
 $(function () {
     document.querySelector("title").innerHTML = 'ぷんぷんる～む';
