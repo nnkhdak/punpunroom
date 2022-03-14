@@ -17,6 +17,7 @@ $(function () {
 });
 
 async function codingNavTag(type, prefix) {
+
     const res = await window.fetch(MENUS_API);
     const rows0 = await res.json();
     const result = document.createElement('nav');
