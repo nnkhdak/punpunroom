@@ -28,10 +28,14 @@
 			<ol>
 				<li>
 					remiを使えるように
-					<code>sudo rpm -Uvh http://mirror.centos.org/centos/7/os/x86_64/Packages/scl-utils-20130529-19.el7.x86_64.rpm
+					<code>yum repolist all		← 作業前に使用できないことを確認
+yum repolist all		← 作業前にremiつかえないことを確認
+sudo rpm -Uvh http://mirror.centos.org/centos/7/os/x86_64/Packages/scl-utils-20130529-19.el7.x86_64.rpm
 sudo yum install -y http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 sudo yum install -y yum-utils
-sudo yum-config-manager --enable remi</code>
+sudo yum-config-manager --enable remi
+yum repolist all		← 使えるようになったか確認
+</code>
 				</li>
 				<li>
 					php73のfpmをインストールし自動起動
