@@ -9,8 +9,9 @@
 	<link rel="stylesheet" type="text/css" href="assets/style.css" />
 	<style type="text/css">
 		code {
-			background: navy;
+			background: skyblue;
 			color: white;
+			white-space: pre-wrap;
 		}
 	</style>
 </head>
@@ -35,7 +36,7 @@ sudo yum-config-manager --enable remi</code>
 				<li>
 					php73のfpmをインストールし自動起動
 					<code>sudo yum install -y php73-php-fpm
-sudo chkconfig php73-php-fpm on
+sudo chkconfig php73-php-fpm on				← 自動起動の設定
 chkconfig --list						← 自動起動されるか確認できる
 sudo service php73-php-fpm restart && sudo service httpd restart			← サービス再起動</code>
 				</li>
@@ -65,9 +66,7 @@ FastCgiExternalServer /var/www/fcgi-bin/php-fpm73 -host 127.0.0.1:9000 -pass-hea
 				</li>
 				<li>
 					fastで起動させる対象を指定する(/etc/httpd/conf.d/php-handler.conf)
-					<code>
-
-&lt;DirectoryMatch "/var/www/html/(aaa|bbb)"&gt;
+					<code>&lt;DirectoryMatch "/var/www/html/(aaa|bbb)"&gt;
 	&lt;Files "*.php"&gt;
 		SetHandler php-fastcgi73
 	&lt;/Files&gt;
@@ -76,77 +75,11 @@ FastCgiExternalServer /var/www/fcgi-bin/php-fpm73 -host 127.0.0.1:9000 -pass-hea
 	&lt;Files "index.php"&gt;
 		SetHandler php-fastcgi73
 	&lt;/Files&gt;
-&lt;/DirectoryMatch&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-</code>
+&lt;/DirectoryMatch&gt;</code>
 				</li>
 				<li>
-					<code>
-</code>
-				</li>
-				<li>
-					<code>
-</code>
-				</li>
-				<li>
-					<code>
-</code>
-				</li>
-				<li>
-					<code>
-</code>
-				</li>
-				<li>
-					<code>
-</code>
-				</li>
-				<li>
-					クラスが定義(読み込まれていない場合も)されているか判定<br />
-					<code>class_exists</code>
-				</li>
-				<li>
-					ファイルの先頭の方にいれるとFatalエラーとかでるようになるかも<br />
-					<code>error_reporting(E_ALL);</code>
-				</li>
-				<li>
-					ファイルの拡張子をhtmlでPHPコードを埋め込みたい(.htaccess)<br />
-					<code>&lt;FilesMatch "\.html$"&gt;
-	AddType application/x-httpd-php .html
-&lt;/FilesMatch&gt;</code>
-				</li>
-				<li>
-					smartyでscriptタグ<br />
-					<code>{literal}
-	&lt;script&gt;
-		alert();
-	&lt;/script&gt;
-{/literal}
-</code>
-				</li>
-				<li>
-					smartyで { や } のエスケープ<br />
-					<code>{ldelim},{rdelim}</code>
-				</li>
-				<li>
-					ヒアドキュメント<br />
-					<code>const SQL = &lt;&lt;&lt;'EOT'
-SELECT
-	*
-FROM
-	dual
-EOT;</code>
+					phpinfoファイルを作成
+					<code>echo '&lt;?php phpinfo();' &lt; /var/www/html/aaa/aaa.php</code>
 				</li>
 			</ol>
 		</div>
