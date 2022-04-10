@@ -61,6 +61,33 @@ targetNode.parentNode.replaceChild(newNode, targetNode);</code>
 						document.write(navigator.appVersion);
 					</script>
 				</li>
+				<li>
+					ウェーブダッシュ<br />
+					<script>
+String.fromCharCode(0x301C);
+					</script>
+				</li>
+				<li>
+					fetchでダウンロード<br />
+					<script>
+						fetch("http://example.com/ExportExcel", {
+							method: 'GET',
+							headers: new Headers({
+								"Authorization": "Bearer " + token
+							})
+						})
+							.then(response => response.blob())
+							.then(blob => {
+								var url = window.URL.createObjectURL(blob);
+								var a = document.createElement('a');
+								a.href = url;
+								a.download = "filename.xlsx";
+								document.body.appendChild(a);
+								a.click();
+								a.remove();
+							});
+					</script>
+				</li>
 			</ol>
 		</div>
 		<div id="mainRight"></div>

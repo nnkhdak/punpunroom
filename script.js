@@ -1,4 +1,4 @@
-const MENUS_API = "https://pun-pun-pun.github.io/punpunroom/menu.json";
+const MENUS_API = "https://nnkhdak.github.io/punpunroom/menu.json";
 
 $(function () {
     document.querySelector("title").innerHTML = 'ぷんぷんる～む';
@@ -17,6 +17,7 @@ $(function () {
 });
 
 async function codingNavTag(type, prefix) {
+
     const res = await window.fetch(MENUS_API);
     const rows0 = await res.json();
     const result = document.createElement('nav');
