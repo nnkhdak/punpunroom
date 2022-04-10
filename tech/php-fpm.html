@@ -65,7 +65,7 @@ FastCgiExternalServer /var/www/fcgi-bin/php-fpm73 -host 127.0.0.1:9000 -pass-hea
 					<code>/etc/opt/remi/php73/php-fpm.d/www.conf の「listen = 127.0.0.1:9000」と↑のFastCgiExternalServerの「-host」を一致させる。ここのポートを変えたりすればPHP-FPMの同居もできる</code>
 				</li>
 				<li>
-					fastで起動させる対象を指定する(/etc/httpd/conf.d/php-handler.conf)
+					FPMで起動させる対象を指定する(/etc/httpd/conf.d/php-handler.conf)
 					<code>&lt;DirectoryMatch "/var/www/html/(aaa|bbb)"&gt;
 	&lt;Files "*.php"&gt;
 		SetHandler php-fastcgi73
