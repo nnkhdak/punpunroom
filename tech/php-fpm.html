@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<meta charset="utf-8" />
+	<base href="../">
+	<link rel="stylesheet" type="text/css" href="assets/style.css" />
+</head>
+
+<body>
+	<noscript>
+		<p>JavaScriptがサポートされていないため表示できません。</p>
+	</noscript>
+	<header></header>
+	<main style="display: none;">
+		<div id="mainLeft"></div>
+		<div id="mainCenter">
+			<h2>PHP-FPM</h2>
+			<p>Apache2.2にPHP5.3が入っているがPHP7.3をインストールしFPM化</p>
+			<ol>
+				<li>
+					remiを使えるように
+					<code>sudo rpm -Uvh http://mirror.centos.org/centos/7/os/x86_64/Packages/scl-utils-20130529-19.el7.x86_64.rpm
+sudo yum install -y http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+sudo yum install -y yum-utils
+sudo yum-config-manager --enable remi</code>
+				</li>
+				<li>
+					php73のfpmをインストールし自動起動
+					<code>
+sudo yum install -y php73-php-fpm
+sudo chkconfig php73-php-fpm on
+chkconfig --list						← 自動起動されるか確認できる
+sudo service php73-php-fpm restart && sudo service httpd restart			← サービス再起動</code>
+				</li>
+				<li>
+					fastcgiをインストール
+					<code>cd /tmp/
+wget http://ftp.tu-chemnitz.de/pub/linux/dag/redhat/el6/en/x86_64/rpmforge/RPMS/mod_fastcgi-2.4.6-2.el6.rf.x86_64.rpm
+sudo yum install -y mod_fastcgi-2.4.6-2.el6.rf.x86_64.rpm
+rpm -ql mod_fastcg						← インストールされたファイルが確認できる
+mkdir /var/www/fcgi-bin/
+chmod +x /var/www/fcgi-bin/</code>
+				</li>
+				<li>
+					ファイルに値を書き込む<br />
+					<code>$s = 'hehe';
+$h = fopen('/var/log/log_' . date('Ymd') . '.txt'  , 'a');
+fwrite($h, $s);
+fclose($h);</code>
+				</li>
+				<li>
+					クラスの定義済みfunction<br />
+					<code>get_class_methods('クラス名');</code>
+				</li>
+				<li>
+					ダブルクオートの文字列連結中にfunctionの実行結果を混ぜる<br />
+					<code>$msg = "$msg\t{$e->getCode()}\t{$e->getMessage()}";</code>
+				</li>
+				<li>
+					クラスが定義(読み込まれていない場合も)されているか判定<br />
+					<code>class_exists</code>
+				</li>
+				<li>
+					ファイルの先頭の方にいれるとFatalエラーとかでるようになるかも<br />
+					<code>error_reporting(E_ALL);</code>
+				</li>
+				<li>
+					ファイルの拡張子をhtmlでPHPコードを埋め込みたい(.htaccess)<br />
+					<code>&lt;FilesMatch "\.html$"&gt;
+	AddType application/x-httpd-php .html
+&lt;/FilesMatch&gt;</code>
+				</li>
+				<li>
+					smartyでscriptタグ<br />
+					<code>{literal}
+	&lt;script&gt;
+		alert();
+	&lt;/script&gt;
+{/literal}
+</code>
+				</li>
+				<li>
+					smartyで { や } のエスケープ<br />
+					<code>{ldelim},{rdelim}</code>
+				</li>
+				<li>
+					ヒアドキュメント<br />
+					<code>const SQL = &lt;&lt;&lt;'EOT'
+SELECT
+	*
+FROM
+	dual
+EOT;</code>
+				</li>
+			</ol>
+		</div>
+		<div id="mainRight"></div>
+	</main>
+	<footer></footer>
+</body>
+<script src="assets/script.js"></script>
+
+</html>
