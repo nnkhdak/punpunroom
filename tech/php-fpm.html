@@ -40,7 +40,7 @@ yum repolist all		← 使えるようになったか確認
 				</li>
 				<li>
 					php73のfpmをインストールし自動起動
-					<code>sudo yum install -y php73-php-fpm
+					<code>sudo yum install -y php73-php php73-php-oci8 php73-php-pdo php73-php-mbstring php73-php-fpm
 sudo chkconfig php73-php-fpm on				← 自動起動の設定
 chkconfig --list						← 自動起動されるか確認できる
 </code>
