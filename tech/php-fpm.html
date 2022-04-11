@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Cache-Control" content="no-cache">
@@ -15,6 +16,7 @@
 		}
 	</style>
 </head>
+
 <body>
 	<noscript>
 		<p>JavaScriptがサポートされていないため表示できません。</p>
@@ -28,8 +30,7 @@
 			<ol>
 				<li>
 					remiを使えるように
-					<code>
-yum repolist all		← 作業前に使用できないことを確認
+					<code>yum repolist all		← 作業前に使用できないことを確認
 sudo rpm -Uvh http://mirror.centos.org/centos/7/os/x86_64/Packages/scl-utils-20130529-19.el7.x86_64.rpm
 sudo yum install -y http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 sudo yum install -y yum-utils
@@ -39,17 +40,14 @@ yum repolist all		← 使えるようになったか確認
 				</li>
 				<li>
 					php73のfpmをインストールし自動起動
-					<code>
-sudo yum install -y php73-php-fpm
+					<code>sudo yum install -y php73-php-fpm
 sudo chkconfig php73-php-fpm on				← 自動起動の設定
 chkconfig --list						← 自動起動されるか確認できる
-sudo service php73-php-fpm restart && sudo service httpd restart			← サービス再起動
 </code>
 				</li>
 				<li>
 					fastcgiをインストール
-					<code>
-cd /tmp/
+					<code>cd /tmp/
 wget http://ftp.tu-chemnitz.de/pub/linux/dag/redhat/el6/en/x86_64/rpmforge/RPMS/mod_fastcgi-2.4.6-2.el6.rf.x86_64.rpm
 sudo yum install -y mod_fastcgi-2.4.6-2.el6.rf.x86_64.rpm
 rpm -ql mod_fastcgi						← インストールされたファイルが確認できる
@@ -59,8 +57,7 @@ chmod +x /var/www/fcgi-bin/
 				</li>
 				<li>
 					fastcgiの設定
-					<code>
-sudo cp -p /etc/httpd/conf.d/fastcgi.conf /etc/httpd/conf.d/fastcgi.conf.original
+					<code>sudo cp -p /etc/httpd/conf.d/fastcgi.conf /etc/httpd/conf.d/fastcgi.conf.original
 sudo sed -i -e 's/FastCgiWrapper On/FastCgiWrapper Off/' -e 's/FastCgiConfig/#FastCgiConfig/' -e '$aScriptAlias /fcgi-bin/ /var/www/fcgi-bin/' -e '$aAction php-fastcgi73 /fcgi-bin/php-fpm73' -e '$aFastCgiExternalServer /var/www/fcgi-bin/php-fpm73 -host 127.0.0.1:9000 -pass-header Authorization' /etc/httpd/conf.d/fastcgi.conf
 ↑「FastCgiWrapper On」を「Off」に変更
 ↑「FastCgiConfig」の行をコメント化
@@ -69,18 +66,16 @@ ScriptAlias /fcgi-bin/ /var/www/fcgi-bin/
 Action php-fastcgi73 /fcgi-bin/php-fpm73
 FastCgiExternalServer /var/www/fcgi-bin/php-fpm73 -host 127.0.0.1:9000 -pass-header Authorization' /etc/httpd/conf.d/fastcgi.conf
 diff /etc/httpd/conf.d/fastcgi.conf.original /etc/httpd/conf.d/fastcgi.conf
+sudo service php73-php-fpm restart && sudo service httpd restart			← サービス再起動
 </code>
 				</li>
 				<li>
 					fastcgiの設定の余談<br />
-					<code>
-/etc/opt/remi/php73/php-fpm.d/www.conf の「listen = 127.0.0.1:9000」と↑のFastCgiExternalServerの「-host」を一致させる。ここのポートを変えたりすればPHP-FPMの同居もできる
-</code>
+					<code>/etc/opt/remi/php73/php-fpm.d/www.conf の「listen = 127.0.0.1:9000」と↑のFastCgiExternalServerの「-host」を一致させる。ここのポートを変えたりすればPHP-FPMの同居もできる</code>
 				</li>
 				<li>
 					FPMで起動させる対象を指定する(/etc/httpd/conf.d/php-handler.conf)
-					<code>
-&lt;DirectoryMatch "/var/www/html/(aaa|bbb)"&gt;
+					<code>&lt;DirectoryMatch "/var/www/html/(aaa|bbb)"&gt;
 	&lt;Files "*.php"&gt;
 		SetHandler php-fastcgi73
 	&lt;/Files&gt;
@@ -94,9 +89,7 @@ diff /etc/httpd/conf.d/fastcgi.conf.original /etc/httpd/conf.d/fastcgi.conf
 				</li>
 				<li>
 					phpinfoファイルを作成
-					<code>
-echo '&lt;?php phpinfo();' &gt; /var/www/html/aaa/phpinfo.php
-</code>
+					<code>echo '&lt;?php phpinfo();' &gt; /var/www/html/aaa/phpinfo.php</code>
 				</li>
 			</ol>
 		</div>
