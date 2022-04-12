@@ -30,19 +30,19 @@
 			<ol>
 				<li>
 					remiを使えるように
-					<code>yum repolist all		← 作業前に使用できないことを確認
+					<code>yum repolist all						<strong>← 作業前に使用できないことを確認</strong>
 sudo rpm -Uvh http://mirror.centos.org/centos/7/os/x86_64/Packages/scl-utils-20130529-19.el7.x86_64.rpm
 sudo yum install -y http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 sudo yum install -y yum-utils
 sudo yum-config-manager --enable remi
-yum repolist all		← 使えるようになったか確認
+yum repolist all						<strong>← 使えるようになったか確認</strong>
 </code>
 				</li>
 				<li>
 					php73のfpmをインストールし自動起動
 					<code>sudo yum install -y php73-php php73-php-oci8 php73-php-pdo php73-php-mbstring php73-php-fpm
-sudo chkconfig php73-php-fpm on				← 自動起動の設定
-chkconfig --list						← 自動起動されるか確認できる
+sudo chkconfig php73-php-fpm on			<strong>← 自動起動の設定</strong>
+chkconfig --list						<strong>← 自動起動されるか確認できる</strong>
 </code>
 				</li>
 				<li>
@@ -50,7 +50,7 @@ chkconfig --list						← 自動起動されるか確認できる
 					<code>cd /tmp/
 wget http://ftp.tu-chemnitz.de/pub/linux/dag/redhat/el6/en/x86_64/rpmforge/RPMS/mod_fastcgi-2.4.6-2.el6.rf.x86_64.rpm
 sudo yum install -y mod_fastcgi-2.4.6-2.el6.rf.x86_64.rpm
-rpm -ql mod_fastcgi						← インストールされたファイルが確認できる
+rpm -ql mod_fastcgi						<strong>← インストールされたファイルが確認できる</strong>
 mkdir /var/www/fcgi-bin/
 chmod +x /var/www/fcgi-bin/
 </code>
@@ -59,14 +59,14 @@ chmod +x /var/www/fcgi-bin/
 					fastcgiの設定
 					<code>sudo cp -p /etc/httpd/conf.d/fastcgi.conf /etc/httpd/conf.d/fastcgi.conf.original
 sudo sed -i -e 's/FastCgiWrapper On/FastCgiWrapper Off/' -e 's/FastCgiConfig/#FastCgiConfig/' -e '$aScriptAlias /fcgi-bin/ /var/www/fcgi-bin/' -e '$aAction php-fastcgi73 /fcgi-bin/php-fpm73' -e '$aFastCgiExternalServer /var/www/fcgi-bin/php-fpm73 -host 127.0.0.1:9000 -pass-header Authorization' /etc/httpd/conf.d/fastcgi.conf
-↑「FastCgiWrapper On」を「Off」に変更
+<strong>↑「FastCgiWrapper On」を「Off」に変更
 ↑「FastCgiConfig」の行をコメント化
 ↑行末に以下を追加
 ScriptAlias /fcgi-bin/ /var/www/fcgi-bin/
 Action php-fastcgi73 /fcgi-bin/php-fpm73
-FastCgiExternalServer /var/www/fcgi-bin/php-fpm73 -host 127.0.0.1:9000 -pass-header Authorization' /etc/httpd/conf.d/fastcgi.conf
+FastCgiExternalServer /var/www/fcgi-bin/php-fpm73 -host 127.0.0.1:9000 -pass-header Authorization' /etc/httpd/conf.d/fastcgi.conf</strong>
 diff /etc/httpd/conf.d/fastcgi.conf.original /etc/httpd/conf.d/fastcgi.conf
-sudo service php73-php-fpm restart && sudo service httpd restart			← サービス再起動
+sudo service php73-php-fpm restart && sudo service httpd restart			<strong>← サービス再起動</strong>
 </code>
 				</li>
 				<li>
@@ -94,7 +94,7 @@ sudo service php73-php-fpm restart && sudo service httpd restart			← サービ
 				<li>
 					php73が起動するか確認
 					<code>$ php73 -v
-PHP Warning:  PHP Startup: Unable to load dynamic library 'oci8' (tried: /opt/remi/php73/root/usr/lib64/php/modules/oci8 (/opt/remi/php73/root/usr/lib64/php/modules/oci8: cannot open shared object file: No such file or directory), /opt/remi/php73/root/usr/lib64/php/modules/oci8.so (libclntsh.so.18.1: cannot open shared object file: No such file or directory)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'oci8' (tried: /opt/remi/php73/root/usr/lib64/php/modules/oci8 (/opt/remi/php73/root/usr/lib64/php/modules/oci8: cannot open shared object file: No such file or directory), /opt/remi/php73/root/usr/lib64/php/modules/oci8.so (<strong>libclntsh.so.18.1</strong>: cannot open shared object file: No such file or directory)) in Unknown on line 0
 PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_oci' (tried: /opt/remi/php73/root/usr/lib64/php/modules/pdo_oci (/opt/remi/php73/root/usr/lib64/php/modules/pdo_oci: cannot open shared object file: No such file or directory), /opt/remi/php73/root/usr/lib64/php/modules/pdo_oci.so (libclntsh.so.18.1: cannot open shared object file: No such file or directory)) in Unknown on line 0
 PHP 7.3.25 (cli) (built: Nov 24 2020 14:22:04) ( NTS )
 Copyright (c) 1997-2018 The PHP Group
@@ -112,7 +112,7 @@ unzip instantclient-sqlplus-linux.x64-18.5.0.0.0dbru.zip
 unzip instantclient-basic-linux.x64-18.5.0.0.0dbru.zip
 cd instantclient_18_5/
 la *so*
-rm libclntsh.so libocci.so
+rm <strong>libclntsh.so libocci.so</strong>
 sudo mv *so* /usr/lib64/</code>
 					libclntsh.so libocci.so は<strong>シンボリックリンク</strong>のため削除
 				</li>
@@ -121,13 +121,12 @@ sudo mv *so* /usr/lib64/</code>
 					<code>$ php73 -v
 PHP 7.3.25 (cli) (built: Nov 24 2020 14:22:04) ( NTS )
 Copyright (c) 1997-2018 The PHP Group
-Zend Engine v3.3.25, Copyright (c) 1998-2018 Zend Technologies
-$</code>
+Zend Engine v3.3.25, Copyright (c) 1998-2018 Zend Technologies</code>
 				</li>
 				<li>
 					pdo確認
 					<code>vi /tmp/pdo.php
-<?php
+&lt;?php
 $dbhost = 'ipaddress';
 $dbport = '1521';
 $dbname = 'database';
