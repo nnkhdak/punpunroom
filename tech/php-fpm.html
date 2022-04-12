@@ -116,6 +116,37 @@ rm libclntsh.so libocci.so
 sudo mv *so* /usr/lib64/</code>
 					libclntsh.so libocci.so は<strong>シンボリックリンク</strong>のため削除
 				</li>
+				<li>
+					php73が起動するか再確認
+					<code>$ php73 -v
+PHP 7.3.25 (cli) (built: Nov 24 2020 14:22:04) ( NTS )
+Copyright (c) 1997-2018 The PHP Group
+Zend Engine v3.3.25, Copyright (c) 1998-2018 Zend Technologies
+$</code>
+				</li>
+				<li>
+					pdo確認
+					<code>vi /tmp/pdo.php
+<?php
+$dbhost = 'ipaddress';
+$dbport = '1521';
+$dbname = 'database';
+$dsn  = 'oci:dbname='.$dbhost.':'.$dbport.'/'.$dbname;
+$user = 'user';
+$pass = 'password';
+
+try {
+  $dbh = new PDO($dsn, $user, $pass);
+  echo "OK";
+} catch (PDOException $e) {
+  echo $e->getMessage()."\n";
+}
+echo "\n";</code>
+					<code>$ php /tmp/pdo.php
+OK
+$ php73 /tmp/pdo.php
+OK</code>
+				</li>
 			</ol>
 		</div>
 		<div id="mainRight"></div>
