@@ -61,7 +61,7 @@ chmod +x /var/www/fcgi-bin/
 sudo sed -i -e 's/FastCgiWrapper On/FastCgiWrapper Off/' -e 's/FastCgiConfig/#FastCgiConfig/' -e '$aScriptAlias /fcgi-bin/ /var/www/fcgi-bin/' -e '$aAction php-fastcgi73 /fcgi-bin/php-fpm73' -e '$aFastCgiExternalServer /var/www/fcgi-bin/php-fpm73 -host 127.0.0.1:9000 -pass-header Authorization' /etc/httpd/conf.d/fastcgi.conf
 <strong>↑「FastCgiWrapper On」を「Off」に変更
 ↑「FastCgiConfig」の行をコメント化
-↑行末に以下を追加
+↑行末に以下の3行を追加
 ScriptAlias /fcgi-bin/ /var/www/fcgi-bin/
 Action php-fastcgi73 /fcgi-bin/php-fpm73
 FastCgiExternalServer /var/www/fcgi-bin/php-fpm73 -host 127.0.0.1:9000 -pass-header Authorization' /etc/httpd/conf.d/fastcgi.conf</strong>
@@ -98,8 +98,7 @@ PHP Warning:  PHP Startup: Unable to load dynamic library 'oci8' (tried: /opt/re
 PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_oci' (tried: /opt/remi/php73/root/usr/lib64/php/modules/pdo_oci (/opt/remi/php73/root/usr/lib64/php/modules/pdo_oci: cannot open shared object file: No such file or directory), /opt/remi/php73/root/usr/lib64/php/modules/pdo_oci.so (libclntsh.so.18.1: cannot open shared object file: No such file or directory)) in Unknown on line 0
 PHP 7.3.25 (cli) (built: Nov 24 2020 14:22:04) ( NTS )
 Copyright (c) 1997-2018 The PHP Group
-Zend Engine v3.3.25, Copyright (c) 1998-2018 Zend Technologies
-$</code>
+Zend Engine v3.3.25, Copyright (c) 1998-2018 Zend Technologies</code>
 					<strong>libclntsh.so.18.1</strong> と表示されていたのでOracle18を導入する
 				</li>
 				<li>
@@ -123,6 +122,7 @@ PHP 7.3.25 (cli) (built: Nov 24 2020 14:22:04) ( NTS )
 Copyright (c) 1997-2018 The PHP Group
 Zend Engine v3.3.25, Copyright (c) 1998-2018 Zend Technologies</code>
 				</li>
+				<br /><br />
 				<li>
 					pdo確認
 					<code>vi /tmp/pdo.php
