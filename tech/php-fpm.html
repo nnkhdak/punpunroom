@@ -26,7 +26,7 @@
 		<div id="mainLeft"></div>
 		<div id="mainCenter">
 			<h2>PHP-FPM</h2>
-			<p>Apache2.2にPHP5.3が入っているがPHP7.3をインストールしFPM化</p>
+			<p>AmazonLinux1にApache2.2にPHP5.3が入っているがPHP7.3をインストールしFPM化</p>
 			<ol>
 				<li>
 					remiを使えるように
@@ -90,6 +90,31 @@ sudo service php73-php-fpm restart && sudo service httpd restart			← サービ
 				<li>
 					phpinfoファイルを作成
 					<code>echo '&lt;?php phpinfo();' &gt; /var/www/html/aaa/phpinfo.php</code>
+				</li>
+				<li>
+					php73が起動するか確認
+					<code>$ php73 -v
+PHP Warning:  PHP Startup: Unable to load dynamic library 'oci8' (tried: /opt/remi/php73/root/usr/lib64/php/modules/oci8 (/opt/remi/php73/root/usr/lib64/php/modules/oci8: cannot open shared object file: No such file or directory), /opt/remi/php73/root/usr/lib64/php/modules/oci8.so (libclntsh.so.18.1: cannot open shared object file: No such file or directory)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_oci' (tried: /opt/remi/php73/root/usr/lib64/php/modules/pdo_oci (/opt/remi/php73/root/usr/lib64/php/modules/pdo_oci: cannot open shared object file: No such file or directory), /opt/remi/php73/root/usr/lib64/php/modules/pdo_oci.so (libclntsh.so.18.1: cannot open shared object file: No such file or directory)) in Unknown on line 0
+PHP 7.3.25 (cli) (built: Nov 24 2020 14:22:04) ( NTS )
+Copyright (c) 1997-2018 The PHP Group
+Zend Engine v3.3.25, Copyright (c) 1998-2018 Zend Technologies
+$</code>
+					libclntsh.so.18.1 と表示されていたのでOracle18を導入する
+				</li>
+				<li>
+					zipをダウンロードし解凍、その後soファイルを/usr/lib64にコピー
+					<code>wget https://download.oracle.com/otn_software/linux/instantclient/185000/instantclient-basic-linux.x64-18.5.0.0.0dbru.zip
+wget https://download.oracle.com/otn_software/linux/instantclient/185000/instantclient-sqlplus-linux.x64-18.5.0.0.0dbru.zip
+wget https://download.oracle.com/otn_software/linux/instantclient/185000/instantclient-sdk-linux.x64-18.5.0.0.0dbru.zip
+unzip instantclient-sdk-linux.x64-18.5.0.0.0dbru.zip
+unzip instantclient-sqlplus-linux.x64-18.5.0.0.0dbru.zip
+unzip instantclient-basic-linux.x64-18.5.0.0.0dbru.zip
+cd instantclient_18_5/
+la *so*
+rm libclntsh.so libocci.so
+sudo mv *so* /usr/lib64/</code>
+					libclntsh.so libocci.so はシンボリックリンクのため削除
 				</li>
 			</ol>
 		</div>
