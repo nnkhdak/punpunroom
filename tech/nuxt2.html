@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<meta charset="utf-8" />
+	<base href="../">
+	<link rel="stylesheet" type="text/css" href="assets/style.css" />
+	<style type="text/css">
+		code {
+			background: pink;
+			color: black;
+			white-space: pre-wrap;
+		}
+	</style>
+</head>
+
+<body>
+	<noscript>
+		<p>JavaScriptがサポートされていないため表示できません。</p>
+	</noscript>
+	<header></header>
+	<main style="display: none;">
+		<div id="mainLeft"></div>
+		<div id="mainCenter">
+			<h2>Nuxt.js(version.2)</h2>
+			<ol>
+				<li>
+					バージョンを指定してyarnをインストール
+					<code>$ npm install -g yarn@[version]</code>
+				</li>
+				<li>
+					ENOLOCAL エラー
+					<p>
+						原因：<br/>
+						package-lock.json で指定されたモジュールがローカルの node_modules 以下に存在しない。
+					</p>
+					<p>
+						対処法：<br/>
+						package-lock.json を削除して npm モジュールを再インストールする。
+						<code>$ rm package-lock.json
+$ npm install</code>
+					</p>
+				</li>
+			</ol>
+		</div>
+		<div id="mainRight"></div>
+	</main>
+	<footer></footer>
+</body>
+<script src="assets/script.js"></script>
+
+</html>
