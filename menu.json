@@ -39,6 +39,11 @@
                 "href": "docker.html"
             },
             {
+                "id": 12,
+                "name": "Nuxt.js(version2)",
+                "href": "nuxt2.html"
+            },
+            {
                 "id": 5,
                 "name": "Command",
                 "href": "cmd.html"
