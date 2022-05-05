@@ -15,7 +15,7 @@
 
 .tabarea li {
 	display: inline-block;
-	width: clamp(120px, 120px, 200px);
+	width: clamp(120px, 120px + 3vw, 200px);
 	height: 24px;
 	text-align: center;
 }
