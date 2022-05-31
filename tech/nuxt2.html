@@ -29,6 +29,21 @@
 			<h2>Nuxt.js(version.2)</h2>
 			<ol>
 				<li>
+					JavaScriptを用いてvueの遷移
+					<code>this.$router.push("/hoge")</code>
+				</li>
+				<li>
+					変数を出力する際にエスケープしない
+					<code>v-html</code>
+				</li>
+				<li>
+					nuxt内の他ページに遷移
+					<code>
+						&lt;router-link :to="variable"&gt;foo&lt;/router-link&gt;
+						&lt;router-link  to="consturl"&gt;bar&lt;/router-link&gt;
+					</code>
+				</li>
+				<li>
 					バージョンを指定してyarnをインストール
 					<code>$ npm install -g yarn@[version]</code>
 				</li>
