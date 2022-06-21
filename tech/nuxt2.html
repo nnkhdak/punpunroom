@@ -29,25 +29,22 @@
 			<h2>Nuxt.js(version.2)</h2>
 			<ol>
 				<li>
-					JavaScriptを用いてvueの遷移
-					<code>this.$router.push("/hoge")</code>
-				</li>
-				<li>
-					変数を出力する際にエスケープしない
-					<code>v-html</code>
-				</li>
-				<li>
 					nuxt内の他ページに遷移()
 					<code>&lt;router-link :to="変数名"&gt;foo&lt;/router-link&gt;
 &lt;router-link to="実URL"&gt;bar&lt;/router-link&gt;
 this.$router.push(アプリ内URL);</code>
 				</li>
 				<li>
-					URLを知りたい
+					URLなどを知りたい
 					<code>console.log(this.$route.fullPath);
 console.log(this.$route.name);
 console.log(this.$route.params);
-console.log(this.$route.path);</code>
+console.log(this.$route.path);
+console.log(this.$route.query);</code>
+				</li>
+				<li>
+					変数を出力する際にエスケープしない
+					<code>v-html</code>
 				</li>
 				<li>
 					バージョンを指定してyarnをインストール
