@@ -25,6 +25,20 @@
 					<span>ブランチ</span>
 					<ul>
 						<li>
+							<p>タグを打つ</p>
+							<code>git tag -a <i>tagname</i> <i>commit</i>
+git push origin <i>tagname</i></code>
+						</li>
+						<li>
+							<p>ローカルブランチを削除</p>
+							<code>git branch -d <i>ブランチ名</i></code>
+						</li>
+						<li>
+							<p>リモート追跡ブランチを全削除</p>
+							<code>git fetch -p
+git remote prune origin</code>
+						</li>
+						<li>
 							<p>直前のコミットを取り消す</p>
 							<code>git reset --soft HEAD^</code>
 						</li>
@@ -71,11 +85,6 @@ git update-index --add --chmod=-x <i>filename</i></code>
 						<li>
 							<p>ブランチ同士の比較</p>
 							<code>git diff ブランチA..ブランチB</code>
-						</li>
-						<li>
-							<p>タグを打つ</p>
-							<code>git tag -a <i>tagname</i> <i>commit</i>
-git push origin <i>tagname</i></code>
 						</li>
 					</ul>
 				</li>
