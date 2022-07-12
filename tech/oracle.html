@@ -41,6 +41,10 @@
 			<h2>Oracle</h2>
 			<ul>
 				<li>
+					通算秒(エポック秒)<br />
+					<code>select (<i>調べたいdate</i> - to_date('19700101', 'YYYYMMDD')) * 24 * 60 * 60 from dual;</code>
+				</li>
+				<li>
 					自分のテーブルにMERGE<br />
 					<code>MERGE INTO <i>テーブル名</i> USING dual
 ON <strong>(</strong><i>項目</i> = <i>値</i><strong>)</strong>
