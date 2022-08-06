@@ -41,6 +41,29 @@
 			<h2>Oracle</h2>
 			<ul>
 				<li>
+					10秒以上のスロークエリ<br />
+					<code>
+	SELECT DISTINCT
+	s.sid
+,	s.status
+,	s.program
+,	q.module
+,	q.sql_id
+,	dbms_lob.substr(q.sql_fulltext, 3000, 1)	AS sql
+,	s.last_call_et								AS 実行時間
+,	q.parsing_schema_name
+,	q.first_load_time
+,	q.last_load_time
+,	s.osuser
+,	s.machine
+FROM
+	v$session s
+,	v$sql     q
+WHERE
+	s.sql_id = q.sql_id AND s.last_call_et > 10
+</code>
+				</li>
+				<li>
 					通算秒(エポック秒)<br />
 					<code>select (<i>調べたいdate</i> - to_date('19700101', 'YYYYMMDD')) * 24 * 60 * 60 from dual;</code>
 				</li>
