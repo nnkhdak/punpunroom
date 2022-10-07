@@ -26,6 +26,23 @@
 					<code>throw new Error('ErrorMessage',{ cause: 404 });</code>
 				</li>
 				<li>
+					fetchでstatusコードとresponseボディを返す<br />
+					<code>fetch(url, opt)
+.then(function(response) {
+	if (response.ok) {
+		return response.text();
+	}
+
+	return response.text().then(function(message){
+		return Promise.reject({status: response.status, message: message});
+	});
+}).then(function(data) {
+	// 正常終了の際のコード
+}).catch(function(error) {
+	// 異常終了の際のコード
+});</code>
+				</li>
+				<li>
 					連想配列のディープコピー<br />
 					<code>var cloned = Object.assign(original);</code>
 				</li>
