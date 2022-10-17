@@ -43,6 +43,14 @@
 });</code>
 				</li>
 				<li>
+					連想配列かどうか<br />
+					<code>return ((value instanceof Object) && !(value instanceof Array)) ? true : false;</code>
+				</li>
+				<li>
+					連想配列の長さ<br />
+					<code>Object.keys(value).length;</code>
+				</li>
+				<li>
 					連想配列のディープコピー<br />
 					<code>var cloned = Object.assign(original);</code>
 				</li>
