@@ -44,7 +44,7 @@ console.log(this.$route.query);</code>
 				</li>
 				<li>
 					親コンポーネントから子コンポーネントのmethodを呼ぶ
-					<code>&lt;template&gt;
+					<br>親コンポーネント<code>&lt;template&gt;
 	&lt;ChildComponent ref="child1" /&gt;
 &lt;/template&gt;
 &lt;script&gt;
@@ -61,7 +61,7 @@ console.log(this.$route.query);</code>
 	});
 &lt;/script&gt;
 </code>
-					<code>&lt;script&gt;
+					<br>子コンポーネント<code>&lt;script&gt;
 import Vue from 'vue';
 export default Vue.extend({
 	methods: {
