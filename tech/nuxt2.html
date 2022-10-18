@@ -43,8 +43,32 @@ console.log(this.$route.path);
 console.log(this.$route.query);</code>
 				</li>
 				<li>
-					変数を出力する際にエスケープしない
-					<code>v-html</code>
+					親コンポーネントから子コンポーネントのmethodを呼ぶ
+					<code>&lt;template&gt;
+	&lt;ChildComponent ref="child1" /&gt;
+&lt;/template&gt;
+&lt;script&gt;
+	import Vue from 'vue';
+	export default Vue.extend({
+		methods: {
+			parent_method() {
+				const r = this.$router;
+				this.$refs.child1.child_method().then(function (data) {
+					console.log(data);
+				});
+			},
+		},
+	});
+&lt;/script&gt;
+</code>
+					<code>&lt;script&gt;
+import Vue from 'vue';
+export default Vue.extend({
+	methods: {
+		child_method() { console.log('child_method'); return { id: 111, name: 'hehe' }; },
+	},
+});
+&lt;/script&gt;</code>
 				</li>
 				<li>
 					v-for構文
@@ -73,6 +97,10 @@ head() {
 					DOMに直接アクセス
 					<code>this.$el</code>
 					<code>this.$refs</code>
+				</li>
+				<li>
+					変数を出力する際にエスケープしない
+					<code>v-html</code>
 				</li>
 				<li>
 					バージョンを指定してyarnをインストール
