@@ -71,10 +71,6 @@ export default Vue.extend({
 &lt;/script&gt;</code>
 				</li>
 				<li>
-					v-for構文
-					<code>v-for="(val, key) in ぐるぐるするやつでthisは不要" :key="key" :value="val"</code>
-				</li>
-				<li>
 					特定のvueファイルでだけJavaScriptを読み込みたい
 					<code>export default Vue.extend({
 head() {
@@ -97,6 +93,10 @@ head() {
 					DOMに直接アクセス
 					<code>this.$el</code>
 					<code>this.$refs</code>
+				</li>
+				<li>
+					v-for構文
+					<code>v-for="(val, key) in ぐるぐるするやつでthisは不要" :key="key" :value="val"</code>
 				</li>
 				<li>
 					変数を出力する際にエスケープしない
