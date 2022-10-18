@@ -52,7 +52,6 @@ console.log(this.$route.query);</code>
 	export default Vue.extend({
 		methods: {
 			parent_method() {
-				const r = this.$router;
 				this.$refs.child1.child_method().then(function (data) {
 					console.log(data);
 				});
