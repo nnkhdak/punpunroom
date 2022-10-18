@@ -47,6 +47,29 @@ console.log(this.$route.query);</code>
 					<code>v-html</code>
 				</li>
 				<li>
+					v-for構文
+					<code>v-for="(val, key) in ぐるぐるするやつでthisは不要" :key="key" :value="val"</code>
+				</li>
+				<li>
+					特定のvueファイルでだけJavaScriptを読み込みたい
+					<code>export default Vue.extend({
+head() {
+	return {
+		script: [
+			{
+				src: 'https://aaa.com/bbb.ccc.js',
+				body: true,
+				defer: true,
+				hid: 'abc',
+				callback: () => {
+					console.log('abc loaded');
+				},
+			},
+		],
+	};
+},</code>
+				</li>
+				<li>
 					DOMに直接アクセス
 					<code>this.$el</code>
 					<code>this.$refs</code>
