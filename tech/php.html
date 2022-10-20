@@ -34,6 +34,12 @@
 					<code>date('Y/m/d H:i:s');</code>
 				</li>
 				<li>
+					array_filterのcallbackにパラメータを渡す<br />
+					<code>$rows = array_filter($rows, function($row) use ($by) {
+	return $row['by'] == $by;
+});</code>
+				</li>
+				<li>
 					ファイルに値を書き込む<br />
 					<code>$s = 'hehe';
 $h = fopen('/var/log/log_' . date('Ymd') . '.txt'  , 'a');
