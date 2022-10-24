@@ -29,7 +29,20 @@
 			<h2>Nuxt.js(version.2)</h2>
 			<ol>
 				<li>
-					nuxt内の他ページに遷移()
+					リファラ
+					<code>export default Vue.extend({
+	beforeRouteEnter(to, from, next) {
+		next(vm => {
+			vm.$router.referrer = from.path;
+		});
+	},
+	mounted() {
+			console.log(this.$router.referrer);
+	},
+});</code>
+				</li>
+				<li>
+					nuxt内の他ページに遷移
 					<code>&lt;router-link :to="変数名"&gt;foo&lt;/router-link&gt;
 &lt;router-link to="実URL"&gt;bar&lt;/router-link&gt;
 this.$router.push(アプリ内URL);</code>
