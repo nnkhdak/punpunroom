@@ -29,6 +29,16 @@
 			<h2>Nuxt.js(version.2)</h2>
 			<ol>
 				<li>
+					isDevの取得
+					<code>export default Vue.extend({
+	computed: {
+		isDev() {
+			return this.$root.context.isDev;
+		},
+	},
+});</code>
+				</li>
+				<li>
 					リファラ
 					<code>export default Vue.extend({
 	beforeRouteEnter(to, from, next) {
