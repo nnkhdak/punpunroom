@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Cache-Control" content="no-cache">
@@ -17,7 +16,6 @@
 		}
 	</style>
 </head>
-
 <body>
 	<noscript>
 		<p>JavaScriptがサポートされていないため表示できません。</p>
@@ -28,19 +26,20 @@
 		<div id="mainCenter">
 			<h2>Nuxt.js(version.2)</h2>
 			<ol>
-				<li><details open><summary>
-					isDevの取得</summary>
-					<code>export default Vue.extend({
+				<li>
+					<details open>
+						<summary> isDevの取得</summary> <code>export default Vue.extend({
 	computed: {
 		isDev() {
 			return this.$root.context.isDev;
 		},
 	},
 });</code>
-				</details></li>
-				<li><details open><summary>
-					リファラ</summary>
-					<code>export default Vue.extend({
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary> リファラ</summary> <code>export default Vue.extend({
 	beforeRouteEnter(to, from, next) {
 		next(vm => {
 			vm.$router.referrer = from.path;
@@ -50,24 +49,27 @@
 			console.log(this.$router.referrer);
 	},
 });</code>
-				</details></li>
-				<li><details open><summary>
-					nuxt内の他ページに遷移</summary>
-					<code>&lt;router-link :to="変数名"&gt;foo&lt;/router-link&gt;
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary> nuxt内の他ページに遷移</summary> <code>&lt;router-link :to="変数名"&gt;foo&lt;/router-link&gt;
 &lt;router-link to="実URL"&gt;bar&lt;/router-link&gt;
 this.$router.push(アプリ内URL);</code>
-				</details></li>
-				<li><details open><summary>
-					URLなどを知りたい</summary>
-					<code>console.log(this.$route.fullPath);
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary> URLなどを知りたい</summary> <code>console.log(this.$route.fullPath);
 console.log(this.$route.name);
 console.log(this.$route.params);
 console.log(this.$route.path);
 console.log(this.$route.query);</code>
-				</details></li>
-				<li><details open><summary>
-					親コンポーネントから子コンポーネントのmethodを呼ぶ</summary>
-					<br>親コンポーネント<code>&lt;template&gt;
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary> 親コンポーネントから子コンポーネントのmethodを呼ぶ</summary> <br>親コンポーネント<code>&lt;template&gt;
 	&lt;ChildComponent ref="child1" /&gt;
 &lt;/template&gt;
 &lt;script&gt;
@@ -82,8 +84,7 @@ console.log(this.$route.query);</code>
 		},
 	});
 &lt;/script&gt;
-</code>
-					<br>子コンポーネント<code>&lt;script&gt;
+</code> <br>子コンポーネント<code>&lt;script&gt;
 import Vue from 'vue';
 export default Vue.extend({
 	methods: {
@@ -91,10 +92,11 @@ export default Vue.extend({
 	},
 });
 &lt;/script&gt;</code>
-				</details></li>
-				<li><details open><summary>
-					特定のvueファイルでだけJavaScriptを読み込みたい</summary>
-					<code>export default Vue.extend({
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary> 特定のvueファイルでだけJavaScriptを読み込みたい</summary> <code>export default Vue.extend({
 head() {
 	return {
 		script: [
@@ -110,15 +112,18 @@ head() {
 		],
 	};
 },</code>
-				</details></li>
-				<li><details open><summary>
-					DOMに直接アクセス</summary>
-					<code>this.$el</code>
-					<code>this.$refs</code>
-				</details></li>
-				<li><details open><summary>
-					複数を同時watch</summary>
-					<code>created() {
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary> DOMに直接アクセス</summary>
+						<code>this.$el</code>
+						<code>this.$refs</code>
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary> 複数を同時watch</summary> <code>created() {
 	this.$watch(
 		() => [this.$data.text1, this.$data.text2],
 		(value, oldValue) => {
@@ -126,40 +131,45 @@ head() {
 		}
 	);
 }</code>
-				</details></li>
-				<li><details open><summary>
-					DTOの中身をwatch</summary>
-					<code>watch: {
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary> DTOの中身をwatch</summary> <code>watch: {
 	'dto.value': function (newValue, oldValue) {
 		console.log(newValue);
 	},
 },</code>
-				</details></li>
-				<li><details open><summary>
-					v-for構文</summary>
-					<code>v-for="(val, key) in ぐるぐるするやつでthisは不要" :key="key" :value="val"</code>
-				</details></li>
-				<li><details open><summary>
-					変数を出力する際にエスケープしない</summary>
-					<code>v-html</code>
-				</details></li>
-				<li><details open><summary>
-					バージョンを指定してyarnをインストール</summary>
-					<code>$ npm install -g yarn@[version]</code>
-				</details></li>
-				<li><details open><summary>
-					ENOLOCAL エラー</summary>
-					<p>
-						原因：<br />
-						package-lock.json で指定されたモジュールがローカルの node_modules 以下に存在しない。
-					</p>
-					<p>
-						対処法：<br />
-						package-lock.json を削除して npm モジュールを再インストールする。
-						<code>$ rm package-lock.json
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary> v-for構文</summary>
+						<code>v-for="(val, key) in ぐるぐるするやつでthisは不要" :key="key" :value="val"</code>
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary> 変数を出力する際にエスケープしない</summary>
+						<code>v-html</code>
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary> バージョンを指定してyarnをインストール</summary>
+						<code>$ npm install -g yarn@[version]</code>
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary> ENOLOCAL エラー</summary>
+						<p> 原因：<br /> package-lock.json で指定されたモジュールがローカルの node_modules 以下に存在しない。 </p>
+						<p> 対処法：<br /> package-lock.json を削除して npm モジュールを再インストールする。
+							<code>$ rm package-lock.json
 $ npm install</code>
-					</p>
-				</details></li>
+						</p>
+					</details>
+				</li>
 			</ol>
 		</div>
 		<div id="mainRight"></div>
@@ -167,5 +177,4 @@ $ npm install</code>
 	<footer></footer>
 </body>
 <script src="assets/script.js"></script>
-
 </html>
