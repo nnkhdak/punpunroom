@@ -117,6 +117,25 @@ head() {
 					<code>this.$refs</code>
 				</li>
 				<li>
+					複数を同時watch
+					<code>created() {
+	this.$watch(
+		() => [this.$data.text1, this.$data.text2],
+		(value, oldValue) => {
+			console.log('[text1, text2] change:', oldValue, '->', value);
+		}
+	);
+}</code>
+				</li>
+				<li>
+					DTOの中身をwatch
+					<code>watch: {
+	'dto.value': function (newValue, oldValue) {
+		console.log(newValue);
+	},
+},</code>
+				</li>
+				<li>
 					v-for構文
 					<code>v-for="(val, key) in ぐるぐるするやつでthisは不要" :key="key" :value="val"</code>
 				</li>
