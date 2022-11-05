@@ -1,171 +1,180 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<base href="../" />
+		<link rel="stylesheet" type="text/css" href="assets/style.css" />
+		<style type="text/css">
+			code {
+				background: pink;
+				color: black;
+				white-space: pre-wrap;
+			}
+		</style>
+	</head>
 
-<head>
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="Cache-Control" content="no-cache">
-	<meta http-equiv="Expires" content="0">
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<base href="../">
-	<link rel="stylesheet" type="text/css" href="assets/style.css" />
-	<style type="text/css">
-		code {
-			background: pink;
-			color: black;
-			white-space: pre-wrap;
-		}
-	</style>
-</head>
-
-<body>
-	<noscript>
-		<p>JavaScriptがサポートされていないため表示できません。</p>
-	</noscript>
-	<header></header>
-	<main style="display: none;">
-		<div id="mainLeft"></div>
-		<div id="mainCenter">
-			<h2>Nuxt.js(version.2)</h2>
-			<ol>
-				<li>
-					isDevの取得
-					<code>export default Vue.extend({
-	computed: {
-		isDev() {
-			return this.$root.context.isDev;
-		},
-	},
-});</code>
-				</li>
-				<li>
-					リファラ
-					<code>export default Vue.extend({
-	beforeRouteEnter(to, from, next) {
-		next(vm => {
-			vm.$router.referrer = from.path;
-		});
-	},
-	mounted() {
-			console.log(this.$router.referrer);
-	},
-});</code>
-				</li>
-				<li>
-					nuxt内の他ページに遷移
-					<code>&lt;router-link :to="変数名"&gt;foo&lt;/router-link&gt;
-&lt;router-link to="実URL"&gt;bar&lt;/router-link&gt;
-this.$router.push(アプリ内URL);</code>
-				</li>
-				<li>
-					URLなどを知りたい
-					<code>console.log(this.$route.fullPath);
-console.log(this.$route.name);
-console.log(this.$route.params);
-console.log(this.$route.path);
-console.log(this.$route.query);</code>
-				</li>
-				<li>
-					親コンポーネントから子コンポーネントのmethodを呼ぶ
-					<br>親コンポーネント<code>&lt;template&gt;
-	&lt;ChildComponent ref="child1" /&gt;
-&lt;/template&gt;
-&lt;script&gt;
-	import Vue from 'vue';
-	export default Vue.extend({
-		methods: {
-			parent_method() {
-				this.$refs.child1.child_method().then(function (data) {
-					console.log(data);
-				});
-			},
-		},
-	});
-&lt;/script&gt;
-</code>
-					<br>子コンポーネント<code>&lt;script&gt;
-import Vue from 'vue';
-export default Vue.extend({
-	methods: {
-		child_method() { console.log('child_method'); return { id: 111, name: 'hehe' }; },
-	},
-});
-&lt;/script&gt;</code>
-				</li>
-				<li>
-					特定のvueファイルでだけJavaScriptを読み込みたい
-					<code>export default Vue.extend({
-head() {
-	return {
-		script: [
-			{
-				src: 'https://aaa.com/bbb.ccc.js',
-				body: true,
-				defer: true,
-				hid: 'abc',
-				callback: () => {
-					console.log('abc loaded');
-				},
-			},
-		],
-	};
-},</code>
-				</li>
-				<li>
-					DOMに直接アクセス
-					<code>this.$el</code>
-					<code>this.$refs</code>
-				</li>
-				<li>
-					複数を同時watch
-					<code>created() {
-	this.$watch(
-		() => [this.$data.text1, this.$data.text2],
-		(value, oldValue) => {
-			console.log('[text1, text2] change:', oldValue, '->', value);
-		}
-	);
-}</code>
-				</li>
-				<li>
-					DTOの中身をwatch
-					<code>watch: {
-	'dto.value': function (newValue, oldValue) {
-		console.log(newValue);
-	},
-},</code>
-				</li>
-				<li>
-					v-for構文
-					<code>v-for="(val, key) in ぐるぐるするやつでthisは不要" :key="key" :value="val"</code>
-				</li>
-				<li>
-					変数を出力する際にエスケープしない
-					<code>v-html</code>
-				</li>
-				<li>
-					バージョンを指定してyarnをインストール
-					<code>$ npm install -g yarn@[version]</code>
-				</li>
-				<li>
-					ENOLOCAL エラー
-					<p>
-						原因：<br />
-						package-lock.json で指定されたモジュールがローカルの node_modules 以下に存在しない。
-					</p>
-					<p>
-						対処法：<br />
-						package-lock.json を削除して npm モジュールを再インストールする。
-						<code>$ rm package-lock.json
-$ npm install</code>
-					</p>
-				</li>
-			</ol>
-		</div>
-		<div id="mainRight"></div>
-	</main>
-	<footer></footer>
-</body>
-<script src="assets/script.js"></script>
-
+	<body>
+		<noscript>
+			<p>JavaScriptがサポートされていないため表示できません。</p>
+		</noscript>
+		<header></header>
+		<main style="display: none">
+			<div id="mainLeft"></div>
+			<div id="mainCenter">
+				<h2>Nuxt.js(version.2)</h2>
+				<ul>
+					<li>
+						<details>
+							<summary>title</summary>
+							<code>aaaa bbbb </code>
+						</details>
+					</li>
+					<li>
+						<details>
+							<summary>title</summary>
+							<code>aaaa bbbb </code>
+						</details>
+					</li>
+					<li>
+						<details>
+							<summary>title</summary>
+							<code>aaaa bbbb </code>
+						</details>
+					</li>
+					<li>
+						<details>
+							<summary>title</summary>
+							<code>aaaa bbbb </code>
+						</details>
+					</li>
+					<li>
+						<details>
+							<summary>title</summary>
+							<code>aaaa bbbb </code>
+						</details>
+					</li>
+					<li>
+						<details>
+							<summary>title</summary>
+							<code>aaaa bbbb </code>
+						</details>
+					</li>
+					<li>
+						<details>
+							<summary>title</summary>
+							<code>aaaa bbbb </code>
+						</details>
+					</li>
+					<li>
+						<details>
+							<summary>title</summary>
+							<code>aaaa bbbb </code>
+						</details>
+					</li>
+					<li>
+						<details>
+							<summary>title</summary>
+							<code>aaaa bbbb </code>
+						</details>
+					</li>
+					<li>
+						<details>
+							<summary>title</summary>
+							<code>aaaa bbbb </code>
+						</details>
+					</li>
+					<li>
+						<details>
+							<summary>title</summary>
+							<code>aaaa bbbb </code>
+						</details>
+					</li>
+					<li>
+						<details>
+							<summary>title</summary>
+							<code>aaaa bbbb </code>
+						</details>
+					</li>
+					<li>
+						<details>
+							<summary>title</summary>
+							<code>aaaa bbbb </code>
+						</details>
+					</li>
+				</ul>
+				<ol>
+					<li>
+						isDevの取得
+						<code>export default Vue.extend({ computed: { isDev() { return this.$root.context.isDev; }, }, });</code>
+					</li>
+					<li>
+						リファラ
+						<code>export default Vue.extend({ beforeRouteEnter(to, from, next) { next(vm => { vm.$router.referrer = from.path; }); }, mounted() { console.log(this.$router.referrer); }, });</code>
+					</li>
+					<li>
+						nuxt内の他ページに遷移
+						<code>&lt;router-link :to="変数名"&gt;foo&lt;/router-link&gt; &lt;router-link to="実URL"&gt;bar&lt;/router-link&gt; this.$router.push(アプリ内URL);</code>
+					</li>
+					<li>
+						URLなどを知りたい
+						<code>console.log(this.$route.fullPath); console.log(this.$route.name); console.log(this.$route.params); console.log(this.$route.path); console.log(this.$route.query);</code>
+					</li>
+					<li>
+						親コンポーネントから子コンポーネントのmethodを呼ぶ
+						<br />親コンポーネント<code>&lt;template&gt; &lt;ChildComponent ref="child1" /&gt; &lt;/template&gt; &lt;script&gt; import Vue from 'vue'; export default Vue.extend({ methods: { parent_method() { this.$refs.child1.child_method().then(function (data) { console.log(data); }); }, }, }); &lt;/script&gt; </code> <br />子コンポーネント<code
+							>&lt;script&gt; import Vue from 'vue'; export default Vue.extend({ methods: { child_method() { console.log('child_method'); return { id: 111, name: 'hehe' }; }, }, }); &lt;/script&gt;</code
+						>
+					</li>
+					<li>
+						特定のvueファイルでだけJavaScriptを読み込みたい
+						<code>export default Vue.extend({ head() { return { script: [ { src: 'https://aaa.com/bbb.ccc.js', body: true, defer: true, hid: 'abc', callback: () => { console.log('abc loaded'); }, }, ], }; },</code>
+					</li>
+					<li>
+						DOMに直接アクセス
+						<code>this.$el</code>
+						<code>this.$refs</code>
+					</li>
+					<li>
+						複数を同時watch
+						<code>created() { this.$watch( () => [this.$data.text1, this.$data.text2], (value, oldValue) => { console.log('[text1, text2] change:', oldValue, '->', value); } ); }</code>
+					</li>
+					<li>
+						DTOの中身をwatch
+						<code>watch: { 'dto.value': function (newValue, oldValue) { console.log(newValue); }, },</code>
+					</li>
+					<li>
+						v-for構文
+						<code>v-for="(val, key) in ぐるぐるするやつでthisは不要" :key="key" :value="val"</code>
+					</li>
+					<li>
+						変数を出力する際にエスケープしない
+						<code>v-html</code>
+					</li>
+					<li>
+						バージョンを指定してyarnをインストール
+						<code>$ npm install -g yarn@[version]</code>
+					</li>
+					<li>
+						ENOLOCAL エラー
+						<p>
+							原因：<br />
+							package-lock.json で指定されたモジュールがローカルの node_modules 以下に存在しない。
+						</p>
+						<p>
+							対処法：<br />
+							package-lock.json を削除して npm モジュールを再インストールする。
+							<code>$ rm package-lock.json $ npm install</code>
+						</p>
+					</li>
+				</ol>
+			</div>
+			<div id="mainRight"></div>
+		</main>
+		<footer></footer>
+	</body>
+	<script src="assets/script.js"></script>
 </html>
