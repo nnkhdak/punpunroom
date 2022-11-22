@@ -41,9 +41,9 @@
 			<h2>Oracle</h2>
 			<ul>
 				<li>
-					10秒以上のスロークエリ<br />
-					<code>
-SELECT DISTINCT
+					<details open>
+						<summary>10秒以上のスロークエリ</summary>
+						<code>SELECT DISTINCT
 	s.sid
 ,	s.status
 ,	s.program
@@ -60,32 +60,36 @@ FROM
 	v$session s
 ,	v$sql     q
 WHERE
-	s.sql_id = q.sql_id AND s.last_call_et > 10
-</code>
+	s.sql_id = q.sql_id AND s.last_call_et > 10</code>
+					</details>
 				</li>
 				<li>
-					通算秒(エポック秒)<br />
-					<code>select (<i>調べたいdate</i> - to_date('19700101', 'YYYYMMDD')) * 24 * 60 * 60 from dual;</code>
+					<details open>
+						<summary>通算秒(エポック秒)</summary>
+						<code>select (<i>調べたいdate</i> - to_date('19700101', 'YYYYMMDD')) * 24 * 60 * 60 from dual</code>
+					</details>
 				</li>
 				<li>
-					自分のテーブルにMERGE<br />
-					<code>MERGE INTO <i>テーブル名</i> USING dual
+					<details open>
+						<summary>自分のテーブルにMERGE</summary>
+						<code>MERGE INTO <i>テーブル名</i> USING dual
 ON <strong>(</strong><i>項目</i> = <i>値</i><strong>)</strong>
 WHEN MATCHED THEN UPDATE SET
-  項目1</i> = <i>値1</i>
-, 項目2</i> = <i>値2</i>
+	項目1</i> = <i>値1</i>
+,	項目2</i> = <i>値2</i>
 WHEN NOT MATCHED THEN INSERT (
-  <i>項目1</i>
-, <i>項目2</i>
+	<i>項目1</i>
+,	<i>項目2</i>
 ) VALUES (
-  <i>値1</i>
-, <i>値2</i>
+	<i>値1</i>
+,	<i>値2</i>
 )</code>
+					</details>
 				</li>
 				<li>
-					Select結果を使ってUPDATE(Mergeを使う)<br />
-					<br />
-					<code>MERGE INTO
+					<details open>
+						<summary>Select結果を使ってUPDATE(Mergeを使う)</summary>
+						<code>MERGE INTO
 	更新したいテーブル名 t0
 USING (
 	SELECT
@@ -104,20 +108,22 @@ WHEN MATCHED THEN UPDATE
 SET
 	  更新する項目1 = 取得する項目1
 	, 更新する項目2 = 取得する項目2</code>
+					</details>
 				</li>
 				<li>
-					まとめて複数INSERTを書く<br />
-					<br />
-					<code>INSERT ALL
+					<details open>
+						<summary>まとめて複数INSERTを書く</summary>
+						<code>INSERT ALL
 INTO <i><strong>table_name</strong></i> (<i><strong>項目１</strong></i>,<i><strong>項目２</strong></i>) VALUES (<i><strong>値１</strong></i>,<i><strong>値２</strong></i>)
 INTO <i><strong>table_name</strong></i> (<i><strong>項目１</strong></i>,<i><strong>項目２</strong></i>) VALUES (<i><strong>値１</strong></i>,<i><strong>値２</strong></i>)
 INTO <i><strong>table_name</strong></i> (<i><strong>項目１</strong></i>,<i><strong>項目２</strong></i>) VALUES (<i><strong>値１</strong></i>,<i><strong>値２</strong></i>)
 SELECT * FROM DUAL;</code>
+					</details>
 				</li>
 				<li>
-					カンマ区切りを行にする<br />
-					<br />
-					<code>SELECT
+					<details open>
+						<summary>カンマ区切りを行にする</summary>
+						<code>SELECT
 	regexp_substr(t1.nums, '[^,]+', 1, t2.arr_num) AS val
 ,	t2.arr_num									   AS seq
 FROM (
@@ -134,45 +140,63 @@ FROM (
 	CONNECT BY
 		instr(t1.nums, ',', 1, level - 1) > 0
 ) t2</code>
+					</details>
 				</li>
 				<li>
-					日付フォーマット<br />
-					<code>TO_CHAR(CURRENT_DATE, 'YYYY/MM/DD HH24:MI:SS')</code>
+					<details open>
+						<summary>日付フォーマット</summary>
+						<code>TO_CHAR(CURRENT_DATE, 'YYYY/MM/DD HH24:MI:SS')</code>
+					</details>
 				</li>
 				<li>
-					テーブル構造が同じテーブルを作成＆データのコピー<br />
-					<code>CREATE TABLE <i><strong>新table_name</strong></i> AS SELECT * FROM <i><strong>旧table_name</strong></i></code>
+					<details open>
+						<summary>テーブル構造が同じテーブルを作成＆データのコピー</summary>
+						<code>CREATE TABLE <i><strong>新table_name</strong></i> AS SELECT * FROM <i><strong>旧table_name</strong></i></code>
+					</details>
 				</li>
 				<li>
-					テーブルの完全削除<br />
-					<code>DROP TABLE <i><strong>table_name</strong></i> CASCADE CONSTRAINTS PURGE;</code>
+					<details open>
+						<summary>テーブルの完全削除</summary>
+						<code>DROP TABLE <i><strong>table_name</strong></i> CASCADE CONSTRAINTS PURGE;</code>
+					</details>
 				</li>
 				<li>
-					?件数の架空のテーブルをSELECT<br />
-					<code>SELECT <strong>LEVEL</strong> AS lv FROM DUAL <strong>CONNECT BY LEVEL</strong> &lt;= 3;</code>
+					<details open>
+						<summary>?件数の架空のテーブルをSELECT</summary>
+						<code>SELECT <strong>LEVEL</strong> AS lv FROM DUAL <strong>CONNECT BY LEVEL</strong> &lt;= 3;</code>
+					</details>
 				</li>
 				<li>
-					テーブル名を表示<br />
-					<code>SELECT <strong>table_name</strong> FROM all_tables ORDER BY <strong>table_name</strong>;</code>
-					<code>SELECT <strong>table_name</strong> FROM user_tables ORDER BY <strong>table_name</strong>;</code>
+					<details open>
+						<summary>テーブル名を表示</summary>
+						<code>SELECT <strong>table_name</strong> FROM all_tables ORDER BY <strong>table_name</strong>;</code>
+						<code>SELECT <strong>table_name</strong> FROM user_tables ORDER BY <strong>table_name</strong>;</code>
+					</details>
 				</li>
 				<li>
-					テーブル構造を表示<br />
-					<code>DESC <i><strong>table_name</strong></i>;</code>
+					<details open>
+						<summary>テーブル構造を表示</summary>
+						<code>DESC <i><strong>table_name</strong></i>;</code>
+					</details>
 				</li>
 				<li>
-					シノニムを表示<br />
-					<code>SELECT * FROM all_synonyms;</code>
-					<code>SELECT * FROM user_synonyms;</code>
+					<details open>
+						<summary>シノニムを表示</summary>
+						<code>SELECT * FROM all_synonyms;</code>
+						<code>SELECT * FROM user_synonyms;</code>
+					</details>
 				</li>
 				<li>
-					sqlplusで接続<br />
-					<code>sqlplus <i>ユーザ名</i>@<i>サーバ名</i></code>
-					<code>sqlplus <i>ユーザ名</i>@<i><strong>net_service_name</strong></i></code>
+					<details open>
+						<summary>sqlplusで接続</summary>
+						<code>sqlplus <i>ユーザ名</i>@<i>サーバ名</i></code>
+						<code>sqlplus <i>ユーザ名</i>@<i><strong>net_service_name</strong></i></code>
+					</details>
 				</li>
 				<li>
-					tnsnames.ora<br />
-					<code><i><strong>net_service_name</strong></i> =
+					<details open>
+						<summary>tnsnames.ora</summary>
+						<code><i><strong>net_service_name</strong></i> =
 (DESCRIPTION =
 (ADDRESS = (PROTOCOL = TCP)(HOST = myserver.mycompany.com)(PORT = 1521))
 (CONNECT_DATA =
@@ -180,44 +204,52 @@ FROM (
   (SERVICE_NAME = orcl)
 )
 )</code>
+					</details>
 				</li>
 				<li>
-					tnsnames.oraに複数回定義する<br />
-					<code><i><strong>net_service_name1</strong></i> =
+					<details open>
+						<summary>tnsnames.oraに複数回定義する</summary>
+						<code><i><strong>net_service_name1</strong></i> =
 (DESCRIPTION = ......)
 <i><strong>net_service_name2</strong></i> =
 (DESCRIPTION = ......)</code>
+					</details>
 				</li>
 				<li>
-					折り返し行？を設定<br />
-					<code>SET LINE <i>行数</i>;</code>
+					<details open>
+						<summary>折り返し行？を設定</summary>
+						<code>SET LINE <i>行数</i>;</code>
+					</details>
 				</li>
 				<li>
-					SQL Developer<br />
-					<code>メニューバー ＞ ツール ＞ プリファレンスを選択
+					<details open>
+						<summary>SQL Developer</summary>
+						<code>メニューバー ＞ ツール ＞ プリファレンスを選択
 プリファレンスダイアログ　＞　データベース　＞　オブジェクト・ビューアを選択
 「データベース：オブジェクト・ビューア」　＞　「オブジェクト・ビューア・ウィンドウの自動固定」にチェックを入れる</code>
-					<code>メニューバー ＞ ツール ＞ プリファレンスを選択
+						<code>メニューバー ＞ ツール ＞ プリファレンスを選択
 プリファレンスダイアログ　＞　データベース　＞　オブジェクト・ビューアを選択
 「データベース：オブジェクト・ビューア」　＞　「シングル・クリックでオブジェクトをオープン」のチェックをはずす</code>
+					</details>
 				</li>
 				<li>
-					AmazonLinux2にインストールし設定<br />
-					<br />
-					/etc/environmentに以下を追記
-					<code>LANG=ja_JP.UTF-8
+					<details open>
+						<summary>AmazonLinux2にインストールし設定</summary>
+						/etc/environmentに以下を追記
+						<code>LANG=ja_JP.UTF-8
 NLS_LANG=Japanese_Japan.AL32UTF8
 ENVIRONMENT=development<strong> &lt;- これは違う目的</strong></code>
-					<br />
-					/etc/profile.d/oracle.shを作成(ココに配置することで/etc/profileに記述したときと同じ扱い)
-					<code>export NLS_LANG=Japanese_Japan.AL32UTF8
+						<br />
+						/etc/profile.d/oracle.shを作成(ココに配置することで/etc/profileに記述したときと同じ扱い)
+						<code>export NLS_LANG=Japanese_Japan.AL32UTF8
 export LD_LIBRARY_PATH=/opt/oracle/instantclient_19_6
 export PATH=$PATH:$LD_LIBRARY_PATH</code>
-					<br />
-					systemctl edit
-					httpd.service(コレで保存すると/etc/systemd/system/httpd.service.d/override.confに保存したときと同じ扱い)
-					<code>[Service]
+						<br />
+						systemctl edit
+						httpd.service(コレで保存すると/etc/systemd/system/httpd.service.d/override.confに保存したときと同じ扱い)
+						<code>[Service]
 EnvironmentFile=/etc/environment</code>
+					</details>
 				</li>
 			</ul>
 		</div>

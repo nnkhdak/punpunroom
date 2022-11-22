@@ -22,81 +22,105 @@
 			<h2>PHP</h2>
 			<ol>
 				<li>
-					連想配列のキーを小文字にする<br />
-					<code>$row = array_change_key_case($row, CASE_LOWER);</code>
+					<details open>
+						<summary>連想配列のキーを小文字にする</summary>
+						<code>$row = array_change_key_case($row, CASE_LOWER);</code>
+					</details>
 				</li>
 				<li>
-					連続する空白文字(改行なども含む)を1つのスペースに置き換える<br />
-					<code>trim(preg_replace("/[ \r\n\t]+/", ' ', 文字列));</code>
+					<details open>
+						<summary>連続する空白文字(改行なども含む)を1つのスペースに置き換える</summary>
+						<code>trim(preg_replace("/[ \r\n\t]+/", ' ', 文字列));</code>
+					</details>
 				</li>
 				<li>
-					2021/04/25 12:34:56<br />
-					<code>date('Y/m/d H:i:s');</code>
+					<details open>
+						<summary>2021/04/25 12:34:56</summary>
+						<code>date('Y/m/d H:i:s');</code>
+					</details>
 				</li>
 				<li>
-					array_filterのcallbackにパラメータを渡す<br />
-					<code>$rows = array_filter($rows, function($row) use ($by) {
+					<details open>
+						<summary>array_filterのcallbackにパラメータを渡す</summary>
+						<code>$rows = array_filter($rows, function($row) use ($by) {
 	return $row['by'] == $by;
 });</code>
+					</details>
 				</li>
 				<li>
-					ファイルに値を書き込む<br />
-					<code>$s = 'hehe';
+					<details open>
+						<summary>ファイルに値を書き込む</summary>
+						<code>$s = 'hehe';
 $h = fopen('/var/log/log_' . date('Ymd') . '.txt'  , 'a');
 fwrite($h, $s);
 fclose($h);</code>
+					</details>
 				</li>
 				<li>
-					クラスの定義済みfunction<br />
-					<code>get_class_methods('クラス名');</code>
+					<details open>
+						<summary>クラスの定義済みfunctionを知る</summary>
+						<code>get_class_methods('クラス名');</code>
+					</details>
 				</li>
 				<li>
-					ダブルクオートの文字列連結中にfunctionの実行結果を混ぜる<br />
-					<code>$msg = "$msg\t{$e->getCode()}\t{$e->getMessage()}";</code>
+					<details open>
+						<summary>ダブルクオートの文字列連結中にfunctionの実行結果を混ぜる</summary>
+						<code>$msg = "$msg\t{$e->getCode()}\t{$e->getMessage()}";</code>
+					</details>
 				</li>
 				<li>
-					クラスが定義(読み込まれていない場合も)されているか判定<br />
-					<code>class_exists</code>
+					<details open>
+						<summary>クラスが定義(読み込まれていない場合も)されているか判定</summary>
+						<code>class_exists</code>
+					</details>
 				</li>
 				<li>
-					ファイルの先頭の方にいれるとFatalエラーとかでるようになるかも<br />
-					<code>error_reporting(E_ALL);</code>
+					<details open>
+						<summary>ファイルの先頭の方にいれるとFatalエラーとかでるようになるかも</summary>
+						<code>error_reporting(E_ALL);</code>
+					</details>
 				</li>
 				<li>
-					ファイルの拡張子をhtmlでPHPコードを埋め込みたい(.htaccess)<br />
-					<code>&lt;FilesMatch "\.html$"&gt;
+					<details open>
+						<summary>ファイルの拡張子をhtmlでPHPコードを埋め込みたい(.htaccess)</summary>
+						<code>&lt;FilesMatch "\.html$"&gt;
 	AddType application/x-httpd-php .html
 &lt;/FilesMatch&gt;</code>
+					</details>
 				</li>
 				<li>
-					smartyでscriptタグ<br />
-					<code>{literal}
+					<details open>
+						<summary>smartyでscriptタグ</summary>
+						<code>{literal}
 	&lt;script&gt;
 		alert();
 	&lt;/script&gt;
 {/literal}
 </code>
+					</details>
 				</li>
 				<li>
-					smartyで { や } のエスケープ<br />
-					<code>{ldelim},{rdelim}</code>
+					<details open>
+						<summary>smartyで { や } のエスケープ</summary>
+						<code>{ldelim},{rdelim}</code>
+					</details>
 				</li>
 				<li>
-					smartyでjson_encode<br />
-					<code>{$sv.hensuu|@json_encode</code>
+					<details open>
+						<summary>smartyでjson_encode</summary>
+						<code>{$sv.hensuu|@json_encode</code>
+					</details>
 				</li>
 				<li>
-					ヒアドキュメント<br />
-					<code>const SQL = &lt;&lt;&lt;'EOT'
+					<details open>
+						<summary>ヒアドキュメント</summary>
+						<code>const SQL = &lt;&lt;&lt;'EOT'
 SELECT
 	*
 FROM
 	dual
 EOT;</code>
-				</li>
-				<li>
-					laravel 4.0 をインストール<br />
-					<code>composer create-project laravel/laravel your-project-name 4.0.*</code>
+					</details>
 				</li>
 			</ol>
 		</div>
