@@ -28,7 +28,8 @@
 			<ol>
 				<li>
 					<details open>
-						<summary> isDevの取得</summary> <code>export default Vue.extend({
+						<summary>isDevの取得</summary>
+						<code>export default Vue.extend({
 	computed: {
 		isDev() {
 			return this.$root.context.isDev;
@@ -39,7 +40,21 @@
 				</li>
 				<li>
 					<details open>
-						<summary> リファラ</summary> <code>export default Vue.extend({
+						<summary>titleにfetchで取得した値を設定する</summary>
+						<code>head: function() {
+	return {
+		title:`${this.$store.state.user.nickname}さんのプロフィール`
+	}
+},
+async fetch({ store }) {
+	await store.dispatch('user/getUser')
+}</code>
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary>リファラ</summary>
+						<code>export default Vue.extend({
 	beforeRouteEnter(to, from, next) {
 		next(vm => {
 			vm.$router.referrer = from.path;
@@ -53,14 +68,16 @@
 				</li>
 				<li>
 					<details open>
-						<summary> nuxt内の他ページに遷移</summary> <code>&lt;router-link :to="変数名"&gt;foo&lt;/router-link&gt;
+						<summary>nuxt内の他ページに遷移</summary>
+						<code>&lt;router-link :to="変数名"&gt;foo&lt;/router-link&gt;
 &lt;router-link to="実URL"&gt;bar&lt;/router-link&gt;
 this.$router.push(アプリ内URL);</code>
 					</details>
 				</li>
 				<li>
 					<details open>
-						<summary> URLなどを知りたい</summary> <code>console.log(this.$route.fullPath);
+						<summary>URLなどを知りたい</summary>
+						<code>console.log(this.$route.fullPath);
 console.log(this.$route.name);
 console.log(this.$route.params);
 console.log(this.$route.path);
@@ -69,7 +86,8 @@ console.log(this.$route.query);</code>
 				</li>
 				<li>
 					<details open>
-						<summary> 親コンポーネントから子コンポーネントのmethodを呼ぶ</summary> <br>親コンポーネント<code>&lt;template&gt;
+						<summary>親コンポーネントから子コンポーネントのmethodを呼ぶ</summary>
+						<br>親コンポーネント<code>&lt;template&gt;
 	&lt;ChildComponent ref="child1" /&gt;
 &lt;/template&gt;
 &lt;script&gt;
@@ -83,8 +101,8 @@ console.log(this.$route.query);</code>
 			},
 		},
 	});
-&lt;/script&gt;
-</code> <br>子コンポーネント<code>&lt;script&gt;
+&lt;/script&gt;</code>
+						<br>子コンポーネント<code>&lt;script&gt;
 import Vue from 'vue';
 export default Vue.extend({
 	methods: {
@@ -96,7 +114,8 @@ export default Vue.extend({
 				</li>
 				<li>
 					<details open>
-						<summary> 特定のvueファイルでだけJavaScriptを読み込みたい</summary> <code>export default Vue.extend({
+						<summary>特定のvueファイルでだけJavaScriptを読み込みたい</summary>
+						<code>export default Vue.extend({
 head() {
 	return {
 		script: [
@@ -116,14 +135,15 @@ head() {
 				</li>
 				<li>
 					<details open>
-						<summary> DOMに直接アクセス</summary>
+						<summary>DOMに直接アクセス</summary>
 						<code>this.$el</code>
 						<code>this.$refs</code>
 					</details>
 				</li>
 				<li>
 					<details open>
-						<summary> 複数を同時watch</summary> <code>created() {
+						<summary>複数を同時watch</summary>
+						<code>created() {
 	this.$watch(
 		() => [this.$data.text1, this.$data.text2],
 		(value, oldValue) => {
@@ -135,7 +155,8 @@ head() {
 				</li>
 				<li>
 					<details open>
-						<summary> DTOの中身をwatch</summary> <code>watch: {
+						<summary>DTOの中身をwatch</summary>
+						<code>watch: {
 	'dto.value': function (newValue, oldValue) {
 		console.log(newValue);
 	},
@@ -144,25 +165,25 @@ head() {
 				</li>
 				<li>
 					<details open>
-						<summary> v-for構文</summary>
+						<summary>v-for構文</summary>
 						<code>v-for="(val, key) in ぐるぐるするやつでthisは不要" :key="key" :value="val"</code>
 					</details>
 				</li>
 				<li>
 					<details open>
-						<summary> 変数を出力する際にエスケープしない</summary>
+						<summary>変数を出力する際にエスケープしない</summary>
 						<code>v-html</code>
 					</details>
 				</li>
 				<li>
 					<details open>
-						<summary> バージョンを指定してyarnをインストール</summary>
+						<summary>バージョンを指定してyarnをインストール</summary>
 						<code>$ npm install -g yarn@[version]</code>
 					</details>
 				</li>
 				<li>
 					<details open>
-						<summary> ENOLOCAL エラー</summary>
+						<summary>ENOLOCAL エラー</summary>
 						<p> 原因：<br /> package-lock.json で指定されたモジュールがローカルの node_modules 以下に存在しない。 </p>
 						<p> 対処法：<br /> package-lock.json を削除して npm モジュールを再インストールする。
 							<code>$ rm package-lock.json
