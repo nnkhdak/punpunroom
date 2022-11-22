@@ -3,3 +3,8 @@
 @import url("list.css");
 @import url("button.css");
 @import url("tab.css");
+code {
+    background: pink;
+    color: black;
+    white-space: pre-wrap;
+}
