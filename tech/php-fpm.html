@@ -30,35 +30,42 @@
 			<p>AmazonLinux1にApache2.2にPHP5.3が入っているがPHP7.3をインストールしFPM化</p>
 			<ol>
 				<li>
-					remiを使えるように
-					<code>yum repolist all						<strong>← 作業前に使用できないことを確認</strong>
+					<details open>
+						<summary>remiを使えるように</summary>
+						<code>yum repolist all						<strong>← 作業前に使用できないことを確認</strong>
 sudo rpm -Uvh http://mirror.centos.org/centos/7/os/x86_64/Packages/scl-utils-20130529-19.el7.x86_64.rpm
 sudo yum install -y http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 sudo yum install -y yum-utils
 sudo yum-config-manager --enable remi
 yum repolist all						<strong>← 使えるようになったか確認</strong>
 </code>
+					</details>
 				</li>
 				<li>
-					php73のfpmをインストールし自動起動
-					<code>sudo yum install -y php73-php php73-php-oci8 php73-php-pdo php73-php-mbstring php73-php-fpm
+					<details open>
+						<summary>php73のfpmをインストールし自動起動</summary>
+						<code>sudo yum install -y php73-php php73-php-oci8 php73-php-pdo php73-php-mbstring php73-php-fpm
 sudo chkconfig php73-php-fpm on			<strong>← 自動起動の設定</strong>
 chkconfig --list						<strong>← 自動起動されるか確認できる</strong>
 </code>
+					</details>
 				</li>
 				<li>
-					fastcgiをインストール
-					<code>cd /tmp/
+					<details open>
+						<summary>fastcgiをインストール</summary>
+						<code>cd /tmp/
 wget http://ftp.tu-chemnitz.de/pub/linux/dag/redhat/el6/en/x86_64/rpmforge/RPMS/mod_fastcgi-2.4.6-2.el6.rf.x86_64.rpm
 sudo yum install -y mod_fastcgi-2.4.6-2.el6.rf.x86_64.rpm
 rpm -ql mod_fastcgi						<strong>← インストールされたファイルが確認できる</strong>
 mkdir /var/www/fcgi-bin/
 chmod +x /var/www/fcgi-bin/
 </code>
+					</details>
 				</li>
 				<li>
-					fastcgiの設定
-					<code>sudo cp -p /etc/httpd/conf.d/fastcgi.conf /etc/httpd/conf.d/fastcgi.conf.original
+					<details open>
+						<summary>fastcgiの設定</summary>
+						<code>sudo cp -p /etc/httpd/conf.d/fastcgi.conf /etc/httpd/conf.d/fastcgi.conf.original
 sudo sed -i -e 's/FastCgiWrapper On/FastCgiWrapper Off/' -e 's/FastCgiConfig/#FastCgiConfig/' -e '$aScriptAlias /fcgi-bin/ /var/www/fcgi-bin/' -e '$aAction php-fastcgi73 /fcgi-bin/php-fpm73' -e '$aFastCgiExternalServer /var/www/fcgi-bin/php-fpm73 -host 127.0.0.1:9000 -pass-header Authorization' /etc/httpd/conf.d/fastcgi.conf
 <strong>↑「FastCgiWrapper On」を「Off」に変更
 ↑「FastCgiConfig」の行をコメント化
@@ -69,14 +76,18 @@ FastCgiExternalServer /var/www/fcgi-bin/php-fpm73 -host 127.0.0.1:9000 -pass-hea
 diff /etc/httpd/conf.d/fastcgi.conf.original /etc/httpd/conf.d/fastcgi.conf
 sudo service php73-php-fpm restart && sudo service httpd restart			<strong>← サービス再起動</strong>
 </code>
+					</details>
 				</li>
 				<li>
-					fastcgiの設定の余談<br />
-					<code>/etc/opt/remi/php73/php-fpm.d/www.conf の「listen = 127.0.0.1:9000」と↑のFastCgiExternalServerの「-host」を一致させる。ここのポートを変えたりすればPHP-FPMの同居もできる</code>
+					<details open>
+						<summary>fastcgiの設定の余談</summary>
+						<code>/etc/opt/remi/php73/php-fpm.d/www.conf の「listen = 127.0.0.1:9000」と↑のFastCgiExternalServerの「-host」を一致させる。ここのポートを変えたりすればPHP-FPMの同居もできる</code>
+					</details>
 				</li>
 				<li>
-					FPMで起動させる対象を指定する(/etc/httpd/conf.d/php-handler.conf)
-					<code>&lt;DirectoryMatch "/var/www/html/(aaa|bbb)"&gt;
+					<details open>
+						<summary>FPMで起動させる対象を指定する(/etc/httpd/conf.d/php-handler.conf)</summary>
+						<code>&lt;DirectoryMatch "/var/www/html/(aaa|bbb)"&gt;
 	&lt;Files "*.php"&gt;
 		SetHandler php-fastcgi73
 	&lt;/Files&gt;
@@ -87,24 +98,30 @@ sudo service php73-php-fpm restart && sudo service httpd restart			<strong>← �
 	&lt;/Files&gt;
 &lt;/DirectoryMatch&gt;
 </code>
+					</details>
 				</li>
 				<li>
-					phpinfoファイルを作成
-					<code>echo '&lt;?php phpinfo();' &gt; /var/www/html/aaa/phpinfo.php</code>
+					<details open>
+						<summary>phpinfoファイルを作成</summary>
+						<code>echo '&lt;?php phpinfo();' &gt; /var/www/html/aaa/phpinfo.php</code>
+					</details>
 				</li>
 				<li>
-					php73が起動するか確認
-					<code>$ php73 -v
+					<details open>
+						<summary>php73が起動するか確認</summary>
+						<code>$ php73 -v
 PHP Warning:  PHP Startup: Unable to load dynamic library 'oci8' (tried: /opt/remi/php73/root/usr/lib64/php/modules/oci8 (/opt/remi/php73/root/usr/lib64/php/modules/oci8: cannot open shared object file: No such file or directory), /opt/remi/php73/root/usr/lib64/php/modules/oci8.so (<strong>libclntsh.so.18.1</strong>: cannot open shared object file: No such file or directory)) in Unknown on line 0
 PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_oci' (tried: /opt/remi/php73/root/usr/lib64/php/modules/pdo_oci (/opt/remi/php73/root/usr/lib64/php/modules/pdo_oci: cannot open shared object file: No such file or directory), /opt/remi/php73/root/usr/lib64/php/modules/pdo_oci.so (libclntsh.so.18.1: cannot open shared object file: No such file or directory)) in Unknown on line 0
 PHP 7.3.25 (cli) (built: Nov 24 2020 14:22:04) ( NTS )
 Copyright (c) 1997-2018 The PHP Group
 Zend Engine v3.3.25, Copyright (c) 1998-2018 Zend Technologies</code>
-					<strong>libclntsh.so.18.1</strong> と表示されていたのでOracle18を導入する
+						<strong>libclntsh.so.18.1</strong> と表示されていたのでOracle18を導入する
+					</details>
 				</li>
 				<li>
-					zipをダウンロードし解凍、その後soファイルを/usr/lib64にコピー
-					<code>wget https://download.oracle.com/otn_software/linux/instantclient/185000/instantclient-basic-linux.x64-18.5.0.0.0dbru.zip
+					<details open>
+						<summary>zipをダウンロードし解凍、その後soファイルを/usr/lib64にコピー</summary>
+						<code>wget https://download.oracle.com/otn_software/linux/instantclient/185000/instantclient-basic-linux.x64-18.5.0.0.0dbru.zip
 wget https://download.oracle.com/otn_software/linux/instantclient/185000/instantclient-sqlplus-linux.x64-18.5.0.0.0dbru.zip
 wget https://download.oracle.com/otn_software/linux/instantclient/185000/instantclient-sdk-linux.x64-18.5.0.0.0dbru.zip
 unzip instantclient-sdk-linux.x64-18.5.0.0.0dbru.zip
@@ -114,18 +131,22 @@ cd instantclient_18_5/
 la *so*
 rm <strong>libclntsh.so libocci.so</strong>
 sudo mv *so* /usr/lib64/</code>
-					libclntsh.so libocci.so は<strong>シンボリックリンク</strong>のため削除
+						libclntsh.so libocci.so は<strong>シンボリックリンク</strong>のため削除
+					</details>
 				</li>
 				<li>
-					php73が起動するか再確認
-					<code>$ php73 -v
+					<details open>
+						<summary>php73が起動するか再確認</summary>
+						<code>$ php73 -v
 PHP 7.3.25 (cli) (built: Nov 24 2020 14:22:04) ( NTS )
 Copyright (c) 1997-2018 The PHP Group
 Zend Engine v3.3.25, Copyright (c) 1998-2018 Zend Technologies</code>
+					</details>
 				</li>
 				<li>
-					pdo確認
-					<code>vi /tmp/pdo.php
+					<details open>
+						<summary>pdo確認</summary>
+						<code>vi /tmp/pdo.php
 &lt;?php
 $dbhost = 'ipaddress';
 $dbport = '1521';
@@ -141,11 +162,12 @@ try {
   echo $e->getMessage()."\n";
 }
 echo "\n";</code>
-					<br />
-					<code>$ php /tmp/pdo.php
+						<br />
+						<code>$ php /tmp/pdo.php
 OK
 $ php73 /tmp/pdo.php
 OK</code>
+					</details>
 				</li>
 			</ol>
 		</div>
