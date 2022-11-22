@@ -25,66 +25,94 @@
 					<span>ブランチ</span>
 					<ul>
 						<li>
-							<p>タグを打つ</p>
-							<code>git tag -a <i>tagname</i> <i>commit</i>
+							<details open>
+								<summary>タグを打つ</summary>
+								<code>git tag -a <i>tagname</i> <i>commit</i>
 git push origin <i>tagname</i></code>
+							</details>
 						</li>
 						<li>
-							<p>ローカルブランチを削除</p>
-							<code>git branch -d <i>ブランチ名</i></code>
+							<details open>
+								<summary>ローカルブランチを削除</summary>
+								<code>git branch -d <i>ブランチ名</i></code>
+							</details>
 						</li>
 						<li>
-							<p>リモート追跡ブランチを全削除</p>
-							<code>git fetch -p
+							<details open>
+								<summary>リモート追跡ブランチを全削除</summary>
+								<code>git fetch -p
 git remote prune origin</code>
+							</details>
 						</li>
 						<li>
-							<p>直前のコミットを取り消す</p>
-							<code>git reset --soft HEAD^</code>
+							<details open>
+								<summary>直前のコミットを取り消す</summary>
+								<code>git reset --soft HEAD^</code>
+							</details>
 						</li>
 						<li>
-							<p>clone</p>
-							<code>git clone https://github.com/リポジトリ名</code>
+							<details open>
+								<summary>clone</summary>
+								<code>git clone https://github.com/リポジトリ名</code>
+							</details>
 						</li>
 						<li>
-							<p>ブランチをclone</p>
-							<code>git clone -b <i>ブランチ名</i> --single-branch https://github.com/リポジトリ名 .</code>
+							<details open>
+								<summary>ブランチをclone</summary>
+								<code>git clone -b <i>ブランチ名</i> --single-branch https://github.com/リポジトリ名 .</code>
+							</details>
 						</li>
 						<li>
-							<p>ブランチを作成しつつ変更＆push</p>
-							<code>git checkout -b <i>ブランチ名</i>
+							<details open>
+								<summary>ブランチを作成しつつ変更＆push</summary>
+								<code>git checkout -b <i>ブランチ名</i>
 git push --set-upstream origin <i>ブランチ名</i></code>
+							</details>
 						</li>
 						<li>
-							<p>commitとpush</p>
-							<code>git add -A
+							<details open>
+								<summary>commitとpush</summary>
+								<code>git add -A
 git commit
 git push</code>
+							</details>
 						</li>
 						<li>
-							<p>ブランチの変更</p>
-							<code>git fetch && git checkout <i>branchname</i></code>
+							<details open>
+								<summary>ブランチの変更</summary>
+								<code>git fetch && git checkout <i>branchname</i></code>
+							</details>
 						</li>
 						<li>
-							<p>ローカルの状態をキレイにする</p>
-							<code>git clean -df</code>
+							<details open>
+								<summary>ローカルの状態をキレイにする</summary>
+								<code>git clean -df</code>
+							</details>
 						</li>
 						<li>
-							<p>現在のブランチ名を表示</p>
-							<code>git branch --contains=HEAD</code>
+							<details open>
+								<summary>現在のブランチ名を表示</summary>
+								<code>git branch --contains=HEAD</code>
+							</details>
 						</li>
 						<li>
-							<p>実行権限の付与、除外</p>
-							<code>git update-index --add --chmod=+x <i>filename</i>
+							<details open>
+								<summary>実行権限の付与、除外</summary>
+								<code>git update-index --add --chmod=+x <i>filename</i>
 git update-index --add --chmod=-x <i>filename</i></code>
+							</details>
 						</li>
 						<li>
-							<p>git add を取り消す</p>
-							<code>git reset HEAD</code>
+							<details open>
+								<summary>git add を取り消す</summary>
+								<code>git reset HEAD</code>
+							</details>
 						</li>
 						<li>
-							<p>ブランチ同士の比較</p>
-							<code>git diff ブランチA..ブランチB</code>
+							<details open>
+								<summary>ブランチ同士の比較</summary>
+								<code>git diff ブランチA..ブランチB</code>
+							</details>
 						</li>
 					</ul>
 				</li>
@@ -92,9 +120,11 @@ git update-index --add --chmod=-x <i>filename</i></code>
 					<span>その他</span>
 					<ul>
 						<li>
-							<p>空ディレクトリに.gitkeepを置く</p>
-							<code>cd <i>置きたいディレクトリのルート</i>
+							<details open>
+								<summary>空ディレクトリに.gitkeepを置く</summary>
+								<code>cd <i>置きたいディレクトリのルート</i>
 find . -type d -name .git -prune -o -type d -empty -exec touch {}/.gitkeep \;</code>
+							</details>
 						</li>
 					</ul>
 				</li>
