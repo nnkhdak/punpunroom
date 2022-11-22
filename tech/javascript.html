@@ -22,21 +22,26 @@
 			<h2>JavaScript</h2>
 			<ol>
 				<li>
-					ヒアドキュメント<br />
-					<code>const HERE = `
+					<details open>
+						<summary>ヒアドキュメント</summary>
+						<code>const HERE = `
 select
 	*
 FROM
 	dual
 `;</code>
+					</details>
 				</li>
 				<li>
-					エラーでメッセージとコードを送信<br />
-					<code>throw new Error('ErrorMessage',{ cause: 404 });</code>
+					<details open>
+						<summary>エラーでメッセージとコードを送信</summary>
+						<code>throw new Error('ErrorMessage',{ cause: 404 });</code>
+					</details>
 				</li>
 				<li>
-					fetchでstatusコードとresponseボディを返す<br />
-					<code>fetch(url, opt)
+					<details open>
+						<summary>fetchでstatusコードとresponseボディを返す</summary>
+						<code>fetch(url, opt)
 .then(function(response) {
 	if (response.ok) {
 		return response.text();
@@ -50,97 +55,125 @@ FROM
 }).catch(function(error) {
 	// 異常終了の際のコード
 });</code>
+					</details>
 				</li>
 				<li>
-					連想配列かどうか<br />
-					<code>return ((value instanceof Object) && !(value instanceof Array)) ? true : false;</code>
+					<details open>
+						<summary>連想配列かどうか</summary>
+						<code>return ((value instanceof Object) && !(value instanceof Array)) ? true : false;</code>
+					</details>
 				</li>
 				<li>
-					連想配列の長さ<br />
-					<code>Object.keys(value).length;</code>
+					<details open>
+						<summary>連想配列の長さ</summary>
+						<code>Object.keys(value).length;</code>
+					</details>
 				</li>
 				<li>
-					連想配列のディープコピー<br />
-					<code>var cloned = Object.assign(original);</code>
+					<details open>
+						<summary>連想配列のディープコピー</summary>
+						<code>var cloned = Object.assign(original);</code>
+					</details>
 				</li>
 				<li>
-					配列の末尾に追加<br />
-					<code>const result = [];
+					<details open>
+						<summary>配列の末尾に追加</summary>
+						<code>const result = [];
 result.push(1);</code>
+					</details>
 				</li>
 				<li>
-					配列を結合<br />
-					<code>let array1 = [1, 2];
+					<details open>
+						<summary>配列を結合</summary>
+						<code>let array1 = [1, 2];
 let array2 = [3, 4];
 let array3 = array1.concat(array2);</code>
+					</details>
 				</li>
 				<li>
-					QueryStringを使いやすく<br />
-					<code>$.urlParam = function (name) {
+					<details open>
+						<summary>QueryStringを使いやすく</summary>
+						<code>$.urlParam = function (name) {
 	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.search);
 	return (results !== null) ? results[1] || 0 : false;
 }
-type = $.urlParam('hoge');
-					</code>
+type = $.urlParam('hoge');</code>
+					</details>
 				</li>
 				<li>
-					タグをまるまる置き換える<br />
-					<code>var targetNode = document.getElementById('hoge');
+					<details open>
+						<summary>タグをまるまる置き換える</summary>
+						<code>var targetNode = document.getElementById('hoge');
 var newNode = document.createElement('div');
 targetNode.parentNode.replaceChild(newNode, targetNode);</code>
+					</details>
 				</li>
 				<li>
-					タグ内の子要素を削除<br />
-					<code>document.querySelectorAll('header')
+					<details open>
+						<summary>タグ内の子要素を削除</summary>
+						<code>document.querySelectorAll('header')
 .forEach((ele) => {
 	var clone = ele.cloneNode(false);
 	ele.parentNode.replaceChild(clone, ele);
 });</code>
+					</details>
 				</li>
 				<li>
-					現在ブラウザのUserAgent<br />
-					<script>
-						document.write(navigator.userAgent);
-					</script>
+					<details open>
+						<summary>現在ブラウザのUserAgent</summary>
+						<code>document.write(navigator.userAgent);</code>
+						<script>
+							document.write(navigator.userAgent);
+						</script>
+					</details>
 				</li>
 				<li>
-					現在ブラウザのnavigator.appName<br />
-					<script>
-						document.write(navigator.appName);
-					</script>
+					<details open>
+						<summary>現在ブラウザのnavigator.appName</summary>
+						<code>document.write(navigator.appName);</code>
+						<script>
+							document.write(navigator.appName);
+						</script>
+					</details>
 				</li>
 				<li>
-					現在ブラウザのnavigator.appVersion<br />
-					<script>
-						document.write(navigator.appVersion);
-					</script>
+					<details open>
+						<summary>現在ブラウザのnavigator.appVersion</summary>
+						<code>document.write(navigator.appVersion);</code>
+						<script>
+							document.write(navigator.appVersion);
+						</script>
+					</details>
 				</li>
 				<li>
-					ウェーブダッシュ<br />
-					<script>
-						String.fromCharCode(0x301C);
-					</script>
+					<details open>
+						<summary>ウェーブダッシュ</summary>
+						<code>String.fromCharCode(0x301C);</code>
+						<script>
+							String.fromCharCode(0x301C);
+						</script>
+					</details>
 				</li>
 				<li>
-					fetchでダウンロード<br />
-					<script>
-						fetch("http://example.com/ExportExcel", {
-							method: 'GET',
-							headers: new Headers({
-								"Authorization": "Bearer " + token
-							})
-						})
-							.then(response => response.blob())
-							.then(blob => {
-								var url = window.URL.createObjectURL(blob);
-								var a = document.createElement('a');
-								a.href = url;
-								a.download = "filename.xlsx";
-								document.body.appendChild(a);
-								a.click();
-								a.remove();
-							});
-					</script>
+					<details open>
+						<summary>fetchでダウンロード</summary>
+						<code>fetch("http://example.com/ExportExcel", {
+	method: 'GET',
+	headers: new Headers({
+		"Authorization": "Bearer " + token
+	})
+})
+	.then(response => response.blob())
+	.then(blob => {
+		var url = window.URL.createObjectURL(blob);
+		var a = document.createElement('a');
+		a.href = url;
+		a.download = "filename.xlsx";
+		document.body.appendChild(a);
+		a.click();
+		a.remove();
+	});</code>
+					</details>
 				</li>
 			</ol>
 		</div>
