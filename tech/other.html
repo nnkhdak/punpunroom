@@ -22,28 +22,36 @@
 			<h2>なんでも</h2>
 			<ul>
 				<li>
-					<span>Windows10でoggファイルの操作が遅い</span>
-					<ol>
-						<li>WindowsPowerShell (管理者)を起動</li>
-						<li>Get-AppxPackage *Microsoft.WebMediaExtensions* | remove-appxpackage</li>
-					</ol>
+					<details open>
+						<summary>Windows10でoggファイルの操作が遅い</summary>
+						<ol>
+							<li>WindowsPowerShell (管理者)を起動</li>
+							<li>Get-AppxPackage *Microsoft.WebMediaExtensions* | remove-appxpackage</li>
+						</ol>
+					</details>
 				</li>
 				<li>
-					<p>Linuxのホスト名を変えたい</p>
-					<hr />sudo vim /etc/hosts
-					<code>127.0.0.1   localhost   localhost.localdomain
+					<details open>
+						<summary>Linuxのホスト名を変えたい</summary>
+						<hr />sudo vim /etc/hosts
+						<code>127.0.0.1   localhost   localhost.localdomain
 REPLACE_WITH_NEW_HOST</code>
-					<hr />sudo vim /etc/sysconfig/network
-					<code>HOSTNAME=REPLACE_WITH_NEW_HOST</code>
-					<hr />上記を対応後、サーバー再起動が必要
+						<hr />sudo vim /etc/sysconfig/network
+						<code>HOSTNAME=REPLACE_WITH_NEW_HOST</code>
+						<hr />上記を対応後、サーバー再起動が必要
+					</details>
 				</li>
 				<li>
-					<p>Linux上でjsonを整形したい</p>
-					<code>cat <i>整形前ファイル名</i> | python -m json.tool</code>
+					<details open>
+						<summary>Linux上でjsonを整形したい</summary>
+						<code>cat <i>整形前ファイル名</i> | python -m json.tool</code>
+					</details>
 				</li>
 				<li>
-					<p>GitHubのWebページでタブ幅</p>
-					<code>URL の末尾に ?ts=4</code>
+					<details open>
+						<summary>GitHubのWebページでタブ幅</summary>
+						<code>URL の末尾に ?ts=4</code>
+					</details>
 				</li>
 			</ul>
 		</div>
