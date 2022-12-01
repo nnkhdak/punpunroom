@@ -34,6 +34,18 @@ FROM
 				</li>
 				<li>
 					<details open>
+						<summary>文字列を配列として繰り返す</summary>
+						<code>Array(10).fill('abc')</code>
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary>文字列をユニーク</summary>
+						<code>Array.from(new Set(配列));</code>
+					</details>
+				</li>
+				<li>
+					<details open>
 						<summary>エラーでメッセージとコードを送信</summary>
 						<code>throw new Error('ErrorMessage',{ cause: 404 });</code>
 					</details>
