@@ -23,6 +23,13 @@
 			<ol>
 				<li>
 					<details open>
+						<summary>QueryStringを連想配列化</summary>
+						<code>const urlSearchParams = new URLSearchParams(window.location.search);
+const params = Object.fromEntries(urlSearchParams.entries());</code>
+					</details>
+				</li>
+				<li>
+					<details open>
 						<summary>ヒアドキュメント</summary>
 						<code>const HERE = `
 select
