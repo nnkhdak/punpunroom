@@ -30,6 +30,19 @@ const params = Object.fromEntries(urlSearchParams.entries());</code>
 				</li>
 				<li>
 					<details open>
+						<summary>QueryStringを連想配列から作りたい</summary>
+						<code>const params = new URLSearchParams({
+foo: 'bar',
+baz: 'boom',
+cow: 'milk',
+php: 'hypertext processor'
+});
+const str = params.toString();
+console.log(str);</code>
+					</details>
+				</li>
+				<li>
+					<details open>
 						<summary>ヒアドキュメント</summary>
 						<code>const HERE = `
 select
