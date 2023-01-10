@@ -23,6 +23,14 @@
 			<ul>
 				<li>
 					<details open>
+						<summary>ファイルの内容をつかってぐるぐる</summary>
+						<code>for i in $(cat ファイルパス); do
+    echo $i
+done</code>
+					</details>
+				</li>
+				<li>
+					<details open>
 						<summary>特定のポートを使用しているアプリを止める</summary>
 						<code>netstat -aon | find "[探したいポート番号]"
 taskkill /f /pid [終了させたいPID]</code>
