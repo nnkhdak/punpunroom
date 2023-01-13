@@ -23,6 +23,21 @@
 			<ol>
 				<li>
 					<details open>
+						<summary>文字列型日付の型変換</summary>
+						<code>$on = '20230102030405';
+$on = date_parse_from_format('YmdHis', $on);
+$on = sprintf('%04d/%02d/%02d %02d:%02d:%02d'
+	,	$on['year']
+	,	$on['month']
+	,	$on['day']
+	,	$on['hour']
+	,	$on['minute']
+	,	$on['second']
+	);</code>
+					</details>
+				</li>
+				<li>
+					<details open>
 						<summary>URL エンコードされたクエリ文字列を生成する</summary>
 						<code>http_build_query</code>
 					</details>
