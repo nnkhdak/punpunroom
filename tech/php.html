@@ -62,6 +62,21 @@ $on = sprintf('%04d/%02d/%02d %02d:%02d:%02d'
 				</li>
 				<li>
 					<details open>
+						<summary>私の好きな例外メッセージ</summary>
+						<code>$msg = sprintf('%s%s: %s in %s:%d %s%s%s%s', get_class($e), empty($msg) ? '' : "($msg)", $e->getMessage(), $e->getFile(), $e->getLine(), PHP_EOL, 'Stack trace:', PHP_EOL, $e->getTraceAsString());
+とか
+$msg = json_encode(array(
+		'class'		=> get_class($e)
+	,	'message'	=> $e->getMessage()
+	,	'code'		=> $e->getCode()
+	,	'file'		=> $e->getFile()
+	,	'line'		=> $e->getLine()
+	,	'trace'		=> explode("\n", $e->getTraceAsString())
+	));</code>
+					</details>
+				</li>
+				<li>
+					<details open>
 						<summary>array_filterのcallbackにパラメータを渡す</summary>
 						<code>$rows = array_filter($rows, function($row) use ($by) {
 	return $row['by'] == $by;
