@@ -64,7 +64,9 @@ $on = sprintf('%04d/%02d/%02d %02d:%02d:%02d'
 					<details open>
 						<summary>私の好きな例外メッセージ</summary>
 						<code>$msg = $e->getCode(); $msg = sprintf('%s%s: %s in %s:%d %s%s%s%s', get_class($e), empty($msg) ? '' : "($msg)", $e->getMessage(), $e->getFile(), $e->getLine(), PHP_EOL, 'Stack trace:', PHP_EOL, $e->getTraceAsString());
-とか
+
+							とか
+
 $msg = json_encode(array(
 		'class'		=> get_class($e)
 	,	'message'	=> $e->getMessage()
@@ -73,10 +75,12 @@ $msg = json_encode(array(
 	,	'line'		=> $e->getLine()
 	,	'trace'		=> explode("\n", $e->getTraceAsString())
 	));
+
 とか
+
 $e = new \Exception();
 $traces = explode("\n", $e->getTraceAsString());
-$msg = sprintf('%s,??? [%s] [%s] ERROR - %s', date('Y-m-d H:i:s'), self::getRemoteAddress(), session_id(), $traces[0]);</code>
+$msg = sprintf('%s,??? [%s] [%s] ERROR - %s %s', date('Y-m-d H:i:s'), self::getRemoteAddress(), session_id(), 'usr[??????????]', $traces[0]);</code>
 					</details>
 				</li>
 				<li>
