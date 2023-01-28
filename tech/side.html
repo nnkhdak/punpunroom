@@ -51,88 +51,43 @@
 			<ul>
 				<li>
 					<details open>
-						<summary>ロケータいろいろ</summary>
-						<table class="list">
-							<caption>XPathの例</caption>
-							<tbody>
-								<tr>
-									<th>1</th>
-									<td>htmlの中のbodyの中のdivタグ</td>
-									<td>/html/body/div</td>
-								</tr>
-								<tr>
-									<th>2</th>
-									<td>階層は不明なdivタグ</td>
-									<td><span class="strong">//</span>div</td>
-								</tr>
-								<tr>
-									<th>3</th>
-									<td>３個目のdivタグ</td>
-									<td>//div<span class="strong">[3]</span></td>
-								</tr>
-								<tr>
-									<th>4</th>
-									<td>idがfooのdivタグ</td>
-									<td>//div[<span class="strong">@id</span>='foo']</td>
-								</tr>
-								<tr>
-									<th>5</th>
-									<td>タグ名を指定しない</td>
-									<td>//<span class="strong">*</span>[@id='foo']</td>
-								</tr>
-								<tr>
-									<th>6</th>
-									<td>type属性がbuttonである<span class="strong">(完全一致)</span></td>
-									<td>//*[<span class="strong">@type</span>='button']</td>
-								</tr>
-								<tr>
-									<th>7</th>
-									<td>class属性にXXXを含む<span class="strong">(部分一致)</span></td>
-									<td>//*[<span class="strong">contains</span>(@class, 'XXX')]</td>
-								</tr>
-								<tr>
-									<th>8</th>
-									<td>タグ内値の部分一致</td>
-									<td>//*[contains(<span class="strong">@value</span>, '文字列')]</td>
-								</tr>
-								<tr>
-									<th>9</th>
-									<td>AND</td>
-									<td>//input[contains(@class, 'XXX') <span class="strong">and</span> @type='button']</td>
-								</tr>
-								<tr>
-									<th>10</th>
-									<td>タグ内テキストの完全一致</td>
-									<td>//*[<span class="strong">text()</span>="文字列"]</td>
-								</tr>
-								<tr>
-									<th>11</th>
-									<td>タグ内テキストの部分一致</td>
-									<td>//*[<span class="strong">contains</span>(text(), '文字列')]</td>
-								</tr>
-								<tr>
-									<th>12</th>
-									<td>class=tblの最後 in trの最後 in tdの最後</td>
-									<td>xpath=//*[contains(@class, 'tbl')][last()]/<span class="strong">/</span>tr[last()]/td[last()]</td>
-								</tr>
-							</tbody>
-						</table>
-						<table class="list">
-							<caption>cssの例</caption>
-							<tbody>
-								<tr>
-									<th>1</th>
-									<td>nameとvalueで指定</td>
-									<td>css=[name='gender'][value='2']</td>
-								</tr>
-							</tbody>
-						</table>
-					</details>
-				</li>
-				<li>
-					<details open>
 						<summary>コマンドいろいろ</summary>
 						<ul>
+							<table class="side_cmd">
+								<caption>JavaScriptのconfirmでOKをクリック</caption>
+								<tbody>
+									<tr>
+										<th>Command</th>
+										<th>Target</th>
+										<th>Value</th>
+										<th>Description</th>
+									</tr>
+									<tr>
+										<td>choose ok on next confirmation</td>
+										<td></td>
+										<td></td>
+										<td>まだconfirmが表示されていない状態で「OK」をクリックすることを予約</td>
+									</tr>
+									<tr>
+										<td>webdriver choose ok on visible confirmation</td>
+										<td></td>
+										<td></td>
+										<td>もうconfirmが表示されている状態で「OK」をクリックする？</td>
+									</tr>
+									<tr>
+										<td>click</td>
+										<td>XXXXXXXX</td>
+										<td></td>
+										<td>これをクリックするとconfirmが表示されるやつ</td>
+									</tr>
+									<tr>
+										<td>assert confirmation</td>
+										<td>テキスト</td>
+										<td></td>
+										<td>メッセージをassertできるらしいが成功したことはない</td>
+									</tr>
+								</tbody>
+							</table>
 							<table class="side_cmd">
 								<caption>radioを選択なし状態に</caption>
 								<tbody>
@@ -298,6 +253,86 @@
 								</tbody>
 							</table>
 						</ul>
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary>ロケータいろいろ</summary>
+						<table class="list">
+							<caption>XPathの例</caption>
+							<tbody>
+								<tr>
+									<th>1</th>
+									<td>htmlの中のbodyの中のdivタグ</td>
+									<td>/html/body/div</td>
+								</tr>
+								<tr>
+									<th>2</th>
+									<td>階層は不明なdivタグ</td>
+									<td><span class="strong">//</span>div</td>
+								</tr>
+								<tr>
+									<th>3</th>
+									<td>３個目のdivタグ</td>
+									<td>//div<span class="strong">[3]</span></td>
+								</tr>
+								<tr>
+									<th>4</th>
+									<td>idがfooのdivタグ</td>
+									<td>//div[<span class="strong">@id</span>='foo']</td>
+								</tr>
+								<tr>
+									<th>5</th>
+									<td>タグ名を指定しない</td>
+									<td>//<span class="strong">*</span>[@id='foo']</td>
+								</tr>
+								<tr>
+									<th>6</th>
+									<td>type属性がbuttonである<span class="strong">(完全一致)</span></td>
+									<td>//*[<span class="strong">@type</span>='button']</td>
+								</tr>
+								<tr>
+									<th>7</th>
+									<td>class属性にXXXを含む<span class="strong">(部分一致)</span></td>
+									<td>//*[<span class="strong">contains</span>(@class, 'XXX')]</td>
+								</tr>
+								<tr>
+									<th>8</th>
+									<td>タグ内値の部分一致</td>
+									<td>//*[contains(<span class="strong">@value</span>, '文字列')]</td>
+								</tr>
+								<tr>
+									<th>9</th>
+									<td>AND</td>
+									<td>//input[contains(@class, 'XXX') <span class="strong">and</span> @type='button']</td>
+								</tr>
+								<tr>
+									<th>10</th>
+									<td>タグ内テキストの完全一致</td>
+									<td>//*[<span class="strong">text()</span>="文字列"]</td>
+								</tr>
+								<tr>
+									<th>11</th>
+									<td>タグ内テキストの部分一致</td>
+									<td>//*[<span class="strong">contains</span>(text(), '文字列')]</td>
+								</tr>
+								<tr>
+									<th>12</th>
+									<td>class=tblの最後 in trの最後 in tdの最後</td>
+									<td>xpath=//*[contains(@class, 'tbl')][last()]/<span class="strong">/</span>tr[last()]/td[last()]</td>
+								</tr>
+							</tbody>
+						</table>
+						<table class="list">
+							<caption>cssの例</caption>
+							<tbody>
+								<tr>
+									<th>1</th>
+									<td>nameとvalueで指定</td>
+									<td>css=[name='gender'][value='2']</td>
+								</tr>
+							</tbody>
+						</table>
 					</details>
 				</li>
 				<li>
