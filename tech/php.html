@@ -72,7 +72,11 @@ $msg = json_encode(array(
 	,	'file'		=> $e->getFile()
 	,	'line'		=> $e->getLine()
 	,	'trace'		=> explode("\n", $e->getTraceAsString())
-	));</code>
+	));
+とか
+$e = new \Exception();
+$traces = explode("\n", $e->getTraceAsString());
+$msg = sprintf('%s,??? [%s] [%s] ERROR - %s', date('Y-m-d H:i:s'), self::getRemoteAddress(), session_id(), $traces[0]);</code>
 					</details>
 				</li>
 				<li>
