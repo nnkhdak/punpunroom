@@ -62,6 +62,12 @@ $on = sprintf('%04d/%02d/%02d %02d:%02d:%02d'
 				</li>
 				<li>
 					<details open>
+						<summary>15日前でフォーマット指定</summary>
+						<code>date('YmdHis', strtotime('-15 day'))</code>
+					</details>
+				</li>
+				<li>
+					<details open>
 						<summary>私の好きな例外メッセージ</summary>
 						<code>$msg = $e->getCode(); $msg = sprintf('%s%s: %s in %s:%d %s%s%s%s', get_class($e), empty($msg) ? '' : "($msg)", $e->getMessage(), $e->getFile(), $e->getLine(), PHP_EOL, 'Stack trace:', PHP_EOL, $e->getTraceAsString());
 
