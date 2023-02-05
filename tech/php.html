@@ -76,17 +76,13 @@ $on = sprintf('%04d/%02d/%02d %02d:%02d:%02d'
 $msg = json_encode(array(
 		'class'		=> get_class($e)
 	,	'message'	=> $e->getMessage()
+	,	'errors'	=> json_encode($e->getErrors())
 	,	'code'		=> $e->getCode()
 	,	'file'		=> $e->getFile()
 	,	'line'		=> $e->getLine()
 	,	'trace'		=> explode("\n", $e->getTraceAsString())
 	));
-
-とか
-
-$e = new \Exception();
-$traces = explode("\n", $e->getTraceAsString());
-$msg = sprintf('%s,??? [%s] [%s] ERROR - %s %s', date('Y-m-d H:i:s'), self::getRemoteAddress(), session_id(), 'usr[??????????]', $traces[0]);</code>
+</code>
 					</details>
 				</li>
 				<li>
