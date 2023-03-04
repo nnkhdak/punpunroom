@@ -171,6 +171,18 @@ head() {
 				</li>
 				<li>
 					<details open>
+						<summary>シンプルなプロジェクトを作成する</summary>
+						<p>https://nuxtjs.org/ja/docs/get-started/installation/を参照した</p>
+						<code>echo '{"name": "my-app","scripts": {"dev": "nuxt","build": "nuxt build","generate": "nuxt generate","start": "nuxt start"}}' &gt; package.json
+yarn add nuxt@2.15
+mkdir pages
+echo '&lt;template&gt;&lt;h1&gt;Hello world!&lt;/h1&gt;&lt;/template&gt;' &gt; pages/index.vue
+yarn dev</code>
+						<p>今、アプリケーションは <strong><a href="http://localhost:3000/" target="_blank">http://localhost:3000 </a></strong> で動作しています。</p>
+					</details>
+				</li>
+				<li>
+					<details open>
 						<summary>変数を出力する際にエスケープしない</summary>
 						<code>v-html</code>
 					</details>
