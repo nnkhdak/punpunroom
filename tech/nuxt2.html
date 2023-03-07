@@ -189,6 +189,16 @@ yarn dev</code>
 				</li>
 				<li>
 					<details open>
+						<summary>v-htmlで生成された要素にもスタイルを適用</summary>
+						<code>&lt;style scoped&gt;
+	:deep(.myclass) {
+	  font-size: 3rem;
+	}
+&lt;/style&gt;</code>
+					</details>
+				</li>
+				<li>
+					<details open>
 						<summary>バージョンを指定してyarnをインストール</summary>
 						<code>$ npm install -g yarn@[version]</code>
 					</details>
