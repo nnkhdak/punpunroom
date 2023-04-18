@@ -122,6 +122,99 @@ export default Vue.extend({
 				</li>
 				<li>
 					<details open>
+						<summary>子コンポーネントから親コンポーネントへ値を渡す</summary>
+						<br>親コンポーネント<code>&lt;template&gt;
+	&lt;ChildComponent :childID.sync="parentID" :childPW.sync="parentPW" /&gt;
+&lt;/template&gt;
+&lt;script&gt;
+	import Vue from 'vue';
+	export default Vue.extend({
+		data() {
+			return {
+				parentID: '',
+				parentPW: '',
+			};
+		},
+	});
+&lt;/script&gt;</code>
+						<br>子コンポーネント<code>&lt;template&gt;
+	&lt;div&gt;
+		&lt;input type="text" v-model="innerID" @input="onChangeID($event)" /&gt;
+		&lt;input type="text" v-model="innerPW" @input="onChangePW($event)" /&gt;
+	&lt;/div&gt;
+&lt;/template&gt;
+						
+&lt;script&gt;
+import Vue from 'vue';
+export default Vue.extend({
+	props: {
+		childID: {
+			type: String,
+			required: true,
+		},
+		childPW: {
+			type: String,
+			required: true,
+		},
+	},
+	data() {
+		return {
+			innerID: '',
+			innerPW: '',
+		};
+	},
+	mounted() {
+		this.innerID = this.childID;
+		this.innerPW = this.childPW;
+	},
+	methods: {
+		onChangeID(e) {
+			this.$emit('update:parentID', e.target.value);
+		},
+		onChangePW(e) {
+			this.$emit('update:parentPW', e.target.value);
+		}
+	},
+});
+&lt;/script&gt;</code>
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary>子コンポーネントから親コンポーネントのイベントを呼び出す</summary>
+						<br>親コンポーネント<code>&lt;template&gt;
+	&lt;ChildComponent @kickParent="kickParentFunction()" /&gt;
+&lt;/template&gt;
+&lt;script&gt;
+	import Vue from 'vue';
+	export default Vue.extend({
+		methods: {
+			kickParentFunction() {
+				console.log('called kickParentFunction!!!');
+			},
+		},	
+	});
+&lt;/script&gt;</code>
+						<br>子コンポーネント<code>&lt;template&gt;
+	&lt;div&gt;
+		&lt;a @click="kickChild()"&gt;kick&lt;/a&gt;
+	&lt;/div&gt;
+&lt;/template&gt;
+						
+&lt;script&gt;
+import Vue from 'vue';
+export default Vue.extend({
+	methods: {
+		kickChild() {
+			this.$emit('kickParent');
+		},
+	},
+});
+&lt;/script&gt;</code>
+					</details>
+				</li>
+				<li>
+					<details open>
 						<summary>特定のvueファイルでだけJavaScriptを読み込みたい</summary>
 						<code>export default Vue.extend({
 head() {
