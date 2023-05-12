@@ -14,6 +14,11 @@
 			color: black;
 			white-space: pre-wrap;
 		}
+
+		.strong {
+			font-weight: bold;
+			color: red;
+		}
 	</style>
 </head>
 <body>
@@ -28,9 +33,9 @@
 			<ol>
 				<li>
 					<details open>
-						<summary>要素がz-indexなどで重なった際のイベント</summary>
+						<summary>要素がz-indexなどで重なった際のイベント停止</summary>
 						<code>&lt;div class="overlay" @click="clickCancel()"&gt;
-	&lt;div class="window" @click.stop&gt;
+	&lt;div class="window" <span class="strong">@click.stop</span>&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 						<p><a href="https://v2.ja.vuejs.org/v2/guide/events#%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E4%BF%AE%E9%A3%BE%E5%AD%90">公式ページ</a></p>
@@ -289,7 +294,7 @@ yarn add nuxt@2.15
 mkdir pages
 echo '&lt;template&gt;&lt;h1&gt;Hello world!&lt;/h1&gt;&lt;/template&gt;' &gt; pages/index.vue
 yarn dev</code>
-						<p>今、アプリケーションは <strong><a href="http://localhost:3000/" target="_blank">http://localhost:3000 </a></strong> で動作しています。</p>
+						<p>上記アプリケーションは <strong><a href="http://localhost:3000/" target="_blank">http://localhost:3000 </a></strong> で動作しています。</p>
 					</details>
 				</li>
 				<li>
