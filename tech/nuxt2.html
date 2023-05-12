@@ -28,6 +28,16 @@
 			<ol>
 				<li>
 					<details open>
+						<summary>要素がz-indexなどで重なった際のイベント</summary>
+						<code>&lt;div class="overlay" @click="clickCancel()"&gt;
+	&lt;div class="window" @click.stop&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+						<p><a href="https://v2.ja.vuejs.org/v2/guide/events#%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E4%BF%AE%E9%A3%BE%E5%AD%90">公式ページ</a></p>
+					</details>
+				</li>
+				<li>
+					<details open>
 						<summary>子要素にスタイルを適用</summary>
 						<code>:deep(p) {
 	text-indent: 1em;
