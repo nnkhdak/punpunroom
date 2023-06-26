@@ -23,6 +23,12 @@
 			<ol>
 				<li>
 					<details open>
+						<summary>数値か判定</summary>
+						<code>(typeof value === 'number' && isFinite(value)</code>
+					</details>
+				</li>
+				<li>
+					<details open>
 						<summary>QueryStringを連想配列化</summary>
 						<code>const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());</code>
