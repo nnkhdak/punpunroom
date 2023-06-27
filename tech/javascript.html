@@ -30,69 +30,19 @@
 				<li>
 					<details open>
 						<summary>QueryStringを連想配列化</summary>
-						<code>const urlSearchParams = new URLSearchParams(window.location.search);
-const params = Object.fromEntries(urlSearchParams.entries());</code>
+						<code>const hash = Object.fromEntries(new URLSearchParams(location.search).entries());</code>
 					</details>
 				</li>
 				<li>
 					<details open>
-						<summary>QueryStringを連想配列から作りたい</summary>
-						<code>const params = new URLSearchParams({
+						<summary>連想配列をQueryString化</summary>
+						<code>const str = new URLSearchParams({
 foo: 'bar',
 baz: 'boom',
 cow: 'milk',
 php: 'hypertext processor'
-});
-const str = params.toString();
-console.log(str);</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>ヒアドキュメント</summary>
-						<code>const HERE = `
-select
-	*
-FROM
-	dual
-`;</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>文字列を配列として繰り返す</summary>
-						<code>Array(10).fill('abc')</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>文字列をユニーク</summary>
-						<code>Array.from(new Set(配列));</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>エラーでメッセージとコードを送信</summary>
-						<code>throw new Error('ErrorMessage',{ cause: 404 });</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>fetchでstatusコードとresponseボディを返す</summary>
-						<code>fetch(url, opt)
-.then(function(response) {
-	if (response.ok) {
-		return response.text();
-	}
-
-	return response.text().then(function(message){
-		return Promise.reject({status: response.status, message: message});
-	});
-}).then(function(data) {
-	// 正常終了の際のコード
-}).catch(function(error) {
-	// 異常終了の際のコード
-});</code>
+}).toString();
+</code>
 					</details>
 				</li>
 				<li>
@@ -130,12 +80,71 @@ let array3 = array1.concat(array2);</code>
 				</li>
 				<li>
 					<details open>
-						<summary>QueryStringを使いやすく</summary>
-						<code>$.urlParam = function (name) {
-	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.search);
-	return (results !== null) ? results[1] || 0 : false;
-}
-type = $.urlParam('hoge');</code>
+						<summary>文字列を配列として繰り返す</summary>
+						<code>Array(10).fill('abc')</code>
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary>文字列をユニーク</summary>
+						<code>Array.from(new Set(配列));</code>
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary>fetchでstatusコードとresponseボディを返す</summary>
+						<code>fetch(url, opt)
+.then(function(response) {
+	if (response.ok) {
+		return response.text();
+	}
+
+	return response.text().then(function(message){
+		return Promise.reject({status: response.status, message: message});
+	});
+}).then(function(data) {
+	// 正常終了の際のコード
+}).catch(function(error) {
+	// 異常終了の際のコード
+});</code>
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary>fetchでダウンロード</summary>
+						<code>fetch("http://example.com/ExportExcel", {
+	method: 'GET',
+	headers: new Headers({
+		"Authorization": "Bearer " + token
+	})
+})
+	.then(response => response.blob())
+	.then(blob => {
+		var url = window.URL.createObjectURL(blob);
+		var a = document.createElement('a');
+		a.href = url;
+		a.download = "filename.xlsx";
+		document.body.appendChild(a);
+		a.click();
+		a.remove();
+	});</code>
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary>エラーでメッセージとコードを送信</summary>
+						<code>throw new Error('ErrorMessage',{ cause: 404 });</code>
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary>ヒアドキュメント</summary>
+						<code>const HERE = `
+select
+	*
+FROM
+	dual
+`;</code>
 					</details>
 				</li>
 				<li>
@@ -190,27 +199,6 @@ targetNode.parentNode.replaceChild(newNode, targetNode);</code>
 						<script>
 							String.fromCharCode(0x301C);
 						</script>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>fetchでダウンロード</summary>
-						<code>fetch("http://example.com/ExportExcel", {
-	method: 'GET',
-	headers: new Headers({
-		"Authorization": "Bearer " + token
-	})
-})
-	.then(response => response.blob())
-	.then(blob => {
-		var url = window.URL.createObjectURL(blob);
-		var a = document.createElement('a');
-		a.href = url;
-		a.download = "filename.xlsx";
-		document.body.appendChild(a);
-		a.click();
-		a.remove();
-	});</code>
 					</details>
 				</li>
 			</ol>
