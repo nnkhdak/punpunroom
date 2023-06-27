@@ -26,16 +26,20 @@
 						<summary>URLをparseする</summary>
 						<code>var parse = new URL(location.href);</code>
 						<p>以下のような情報が取得できる</p>
-						<code>host: "www.hogehoge.com"
-hostname: "www.hogehoge.com"
-href: "https://www.hogehoge.com/abcd.html?name=abc&age=123"
-origin: "https://www.hogehoge.com"
-pathname: "/abcd.html"
-protocol: "https:"
-search: "?name=abc&age=123"
-searchParams: URLSearchParams
-size: 3
-username: ""</code>
+<table>
+	<thead>
+		<tr><th>host</th><td>www.hogehoge.com</td></tr>
+		<tr><th>hostname</th><td>www.hogehoge.com</td></tr>
+		<tr><th>href</th><td>https://www.hogehoge.com/abcd.html?name=abc&age=123</td></tr>
+		<tr><th>origin</th><td>https://www.hogehoge.com</td></tr>
+		<tr><th>pathname</th><td>/abcd.html</td></tr>
+		<tr><th>protocol</th><td>https:</td></tr>
+		<tr><th>search</th><td>?name=abc&age=123</td></tr>
+		<tr><th>searchParams</th><td>URLSearchParams</td></tr>
+		<tr><th>size</th><td>3</td></tr>
+		<tr><th>username</th><td></td></tr>
+	</thead>
+</table>
 					</details>
 				</li>
 				<li>
@@ -48,12 +52,11 @@ username: ""</code>
 					<details open>
 						<summary>連想配列をQueryString化</summary>
 						<code>const str = new URLSearchParams({
-foo: 'bar',
-baz: 'boom',
-cow: 'milk',
-php: 'hypertext processor'
-}).toString();
-</code>
+		foo: 'bar',
+		baz: 'boom',
+		cow: 'milk',
+		php: 'hypertext processor'
+	}).toString();</code>
 					</details>
 				</li>
 				<li>
