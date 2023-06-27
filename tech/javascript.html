@@ -23,8 +23,19 @@
 			<ol>
 				<li>
 					<details open>
-						<summary>数値か判定</summary>
-						<code>(typeof value === 'number' && isFinite(value)</code>
+						<summary>URLをparseする</summary>
+						<code>var parse = new URL(location.href);</code>
+						<p>以下のような情報が取得できる</p>
+						<code>host: "www.hogehoge.com"
+hostname: "www.hogehoge.com"
+href: "https://www.hogehoge.com/abcd.html?name=abc&age=123"
+origin: "https://www.hogehoge.com"
+pathname: "/abcd.html"
+protocol: "https:"
+search: "?name=abc&age=123"
+searchParams: URLSearchParams
+size: 3
+username: ""</code>
 					</details>
 				</li>
 				<li>
@@ -140,11 +151,17 @@ let array3 = array1.concat(array2);</code>
 					<details open>
 						<summary>ヒアドキュメント</summary>
 						<code>const HERE = `
-select
+SELECT
 	*
 FROM
 	dual
 `;</code>
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary>数値か判定</summary>
+						<code>(typeof value === 'number' && isFinite(value)</code>
 					</details>
 				</li>
 				<li>
