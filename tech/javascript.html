@@ -35,9 +35,6 @@
 		<tr><th>pathname</th><td>/abcd.html</td></tr>
 		<tr><th>protocol</th><td>https:</td></tr>
 		<tr><th>search</th><td>?name=abc&age=123</td></tr>
-		<tr><th>searchParams</th><td>URLSearchParams</td></tr>
-		<tr><th>size</th><td>3</td></tr>
-		<tr><th>username</th><td></td></tr>
 	</thead>
 </table>
 					</details>
@@ -178,8 +175,7 @@ targetNode.parentNode.replaceChild(newNode, targetNode);</code>
 				<li>
 					<details open>
 						<summary>タグ内の子要素を削除</summary>
-						<code>document.querySelectorAll('header')
-.forEach((ele) => {
+						<code>document.querySelectorAll('header').forEach((ele) => {
 	var clone = ele.cloneNode(false);
 	ele.parentNode.replaceChild(clone, ele);
 });</code>
@@ -219,6 +215,12 @@ targetNode.parentNode.replaceChild(newNode, targetNode);</code>
 						<script>
 							String.fromCharCode(0x301C);
 						</script>
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary>copyrightなど</summary>
+						<code>&amp;copy;</code>
 					</details>
 				</li>
 			</ol>
