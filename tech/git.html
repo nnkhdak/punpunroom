@@ -27,7 +27,23 @@
 						<li>
 							<details open>
 								<summary>操作を取り消したい</summary>
-								<code></code>
+								git reflog で一覧表示
+								<code>nnkhdak@mypc project % git reflog
+199b5386 (HEAD -> staging) HEAD@{0}: reset: moving to HEAD
+199b5386 (HEAD -> staging) HEAD@{1}: merge feature/zzzz: Merge made by the 'ort' strategy.
+b93e178b (origin/staging) HEAD@{2}: pull: Fast-forward
+d9b0428d HEAD@{3}: checkout: moving from develop to staging
+19d2f482 (origin/develop, develop) HEAD@{4}: merge feature/zzzz: Merge made by the 'ort' strategy.
+c926cd89 HEAD@{5}: checkout: moving from feature/zzzz to develop
+d9aa7082 (origin/feature/zzzz, feature/zzzz) HEAD@{6}: merge feature/yyyy: Merge made by the 'ort' strategy.
+39233983 HEAD@{7}: checkout: moving from feature/yyyy to feature/zzzz
+698c0a87 (origin/feature/yyyy, feature/yyyy) HEAD@{8}: merge feature/xxxx: Merge made by the 'ort' strategy.
+9918898e HEAD@{9}: checkout: moving from feature/xxxx to feature/yyyy
+b9ee3f88 (origin/feature/xxxx, feature/xxxx) HEAD@{10}: merge master: Merge made by the 'ort' strategy.</code>
+								戻したい状態へ reset
+								<code>nnkhdak@mypc project % git reset --hard b93e178b
+HEAD is now at b93e178b Merge pull request #163 from nnkhdak/origin/staging</code>
+								git log や git reflog で確認
 							</details>
 						</li>
 						<li>
