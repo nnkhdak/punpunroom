@@ -1,151 +1,152 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<base href="../" />
+		<link rel="stylesheet" type="text/css" href="assets/style.css" />
+	</head>
 
-<head>
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="Cache-Control" content="no-cache">
-	<meta http-equiv="Expires" content="0">
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<base href="../">
-	<link rel="stylesheet" type="text/css" href="assets/style.css" />
-</head>
-
-<body>
-	<noscript>
-		<p>JavaScriptがサポートされていないため表示できません。</p>
-	</noscript>
-	<header></header>
-	<main style="display: none;">
-		<div id="mainLeft"></div>
-		<div id="mainCenter">
-			<h2>Docker 関連</h2>
-			<ul>
-				<li>
-					<span>コンテナとか一括削除系(使用はローカルだけにしてね)</span>
-					<ul>
-						<li>
-							<details open>
-								<summary>不要なリソース一括削除</summary>
-								<code>docker system prune</code>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>停止コンテナ一括削除</summary>
-								<code>docker container prune && docker ps -a</code>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>未使用イメージ一括削除</summary>
-								<code>docker image prune && docker images</code>
-							</details>
-						</li>
-					</ul>
-				</li>
-				<li>
-					<span>イメージ関連</span>
-					<ul>
-						<li>
-							<details open>
-								<summary>イメージの作成</summary>
-								<code>docker build -t <i>imagename</i> <i>Dockerfileの場所</i></code>
-							</details>
-						</li>
-					</ul>
-				</li>
-				<li>
-					<span>中でコマンド打ちたい系</span>
-					<ul>
-						<li>
-							<details open>
-								<summary>イメージを指定して起動&bash&終了時コンテナ削除</summary>
-								<code>docker run --rm -it <i>imagename</i> bash</code>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>起動しているコンテナにbash</summary>
-								<code>docker ps -a</code>
-								<code>docker exec -it <i>CONTAINER ID</i> bash</code>
-							</details>
-						</li>
-					</ul>
-				</li>
-				<li>
-					<span>Windowsで使いたい</span>
-					<ol>
-						<li>
-							<details open>
-								<summary>WSL1をインストール</summary>
-								<ol>
-									<li>
-										<p>管理者でPowerShellを起動し以下を実行します。実行後に再起動を求められるので再起動します。</p>
-										<code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux</code><br>
-									</li>
-								</ol>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>WSL2にアップデート</summary>
-								<ol>
-									<li>
-										<p>管理者でPowerShellを起動し以下を実行します。</p>
-										<code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code><br>
-										<code>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</code><br>
-									</li>
-									<li>
-										<p><a
-											href="https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel">https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel</a>からアップデートパッケージをダウンロードします。
-									</p>
-										<p>ダウンロードしたexeファイルを実行します。</p>
-										<p>エラーになることがありました(エラーの内容をメモし忘れた)。その場合は「C:\Windows\System32\lxss\tools」にダウンロードしたexeファイルをコピーし実行します。
-									</p>
-									</li>
-								</ol>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>Linuxをインストール</summary>
-								<ol>
-									<li>
-										<p>Microsoft Storeを起動します。検索ボックスに「wsl」を入力し検索します。</p>
-									</li>
-									<li>
-										<p>今回は「Ubuntu 20.04 LTS」を選択しインストールします。インストール後は「起動」ボタンを押下して起動します。</p>
-										<p>しばらく待つと「コマンドプロンプト」のような画面が表示(Installing, this may...)されます。</p>
-										<p>そちらでusernameとpasswordを求められますので決定し設定します。</p>
-									</li>
-									<li>
-										<p>「\\wsl$\Ubuntu-20.04」でLinux上の「/」ディレクトリにアクセスできます。</p>
-									</li>
-								</ol>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>Docker Desktop WSL2 Backend をインストール</summary>
-								<ol>
-									<li>
-										<p><a
-											href="https://docs.docker.com/docker-for-windows/wsl">https://docs.docker.com/docker-for-windows/wsl</a>からDocker
-										Desktop for Windowsをダウンロードします。</p>
-										<p>ダウンロードしたexeファイルを実行しインストールします。</p>
-									</li>
-								</ol>
-							</details>
-						</li>
-					</ol>
-				</li>
-			</ul>
-		</div>
-		<div id="mainRight"></div>
-	</main>
-	<footer></footer>
-</body>
-<script src="assets/script.js"></script>
-
+	<body>
+		<noscript>
+			<p>JavaScriptがサポートされていないため表示できません。</p>
+		</noscript>
+		<header></header>
+		<main style="display: none">
+			<div id="mainLeft"></div>
+			<div id="mainCenter">
+				<h2>Docker 関連</h2>
+				<ul>
+					<li>
+						<details open>
+							<summary>the input device is not a TTY. If you are using mintty, try prefixing the command with 'winpty'</summary>
+							<code>exec winpty bash</code>
+						</details>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<span>コンテナとか一括削除系(使用はローカルだけにしてね)</span>
+						<ul>
+							<li>
+								<details open>
+									<summary>不要なリソース一括削除</summary>
+									<code>docker system prune</code>
+								</details>
+							</li>
+							<li>
+								<details open>
+									<summary>停止コンテナ一括削除</summary>
+									<code>docker container prune && docker ps -a</code>
+								</details>
+							</li>
+							<li>
+								<details open>
+									<summary>未使用イメージ一括削除</summary>
+									<code>docker image prune && docker images</code>
+								</details>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span>イメージ関連</span>
+						<ul>
+							<li>
+								<details open>
+									<summary>イメージの作成</summary>
+									<code>docker build -t <i>imagename</i> <i>Dockerfileの場所</i></code>
+								</details>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span>中でコマンド打ちたい系</span>
+						<ul>
+							<li>
+								<details open>
+									<summary>イメージを指定して起動&bash&終了時コンテナ削除</summary>
+									<code>docker run --rm -it <i>imagename</i> bash</code>
+								</details>
+							</li>
+							<li>
+								<details open>
+									<summary>起動しているコンテナにbash</summary>
+									<code>docker ps -a</code>
+									<code>docker exec -it <i>CONTAINER ID</i> bash</code>
+								</details>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span>Windowsで使いたい</span>
+						<ol>
+							<li>
+								<details open>
+									<summary>WSL1をインストール</summary>
+									<ol>
+										<li>
+											<p>管理者でPowerShellを起動し以下を実行します。実行後に再起動を求められるので再起動します。</p>
+											<code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux</code><br />
+										</li>
+									</ol>
+								</details>
+							</li>
+							<li>
+								<details open>
+									<summary>WSL2にアップデート</summary>
+									<ol>
+										<li>
+											<p>管理者でPowerShellを起動し以下を実行します。</p>
+											<code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code><br />
+											<code>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</code><br />
+										</li>
+										<li>
+											<p><a href="https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel">https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel</a>からアップデートパッケージをダウンロードします。</p>
+											<p>ダウンロードしたexeファイルを実行します。</p>
+											<p>エラーになることがありました(エラーの内容をメモし忘れた)。その場合は「C:\Windows\System32\lxss\tools」にダウンロードしたexeファイルをコピーし実行します。</p>
+										</li>
+									</ol>
+								</details>
+							</li>
+							<li>
+								<details open>
+									<summary>Linuxをインストール</summary>
+									<ol>
+										<li>
+											<p>Microsoft Storeを起動します。検索ボックスに「wsl」を入力し検索します。</p>
+										</li>
+										<li>
+											<p>今回は「Ubuntu 20.04 LTS」を選択しインストールします。インストール後は「起動」ボタンを押下して起動します。</p>
+											<p>しばらく待つと「コマンドプロンプト」のような画面が表示(Installing, this may...)されます。</p>
+											<p>そちらでusernameとpasswordを求められますので決定し設定します。</p>
+										</li>
+										<li>
+											<p>「\\wsl$\Ubuntu-20.04」でLinux上の「/」ディレクトリにアクセスできます。</p>
+										</li>
+									</ol>
+								</details>
+							</li>
+							<li>
+								<details open>
+									<summary>Docker Desktop WSL2 Backend をインストール</summary>
+									<ol>
+										<li>
+											<p><a href="https://docs.docker.com/docker-for-windows/wsl">https://docs.docker.com/docker-for-windows/wsl</a>からDocker Desktop for Windowsをダウンロードします。</p>
+											<p>ダウンロードしたexeファイルを実行しインストールします。</p>
+										</li>
+									</ol>
+								</details>
+							</li>
+						</ol>
+					</li>
+				</ul>
+			</div>
+			<div id="mainRight"></div>
+		</main>
+		<footer></footer>
+	</body>
+	<script src="assets/script.js"></script>
 </html>
