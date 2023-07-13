@@ -1,26 +1,14 @@
 version: '3'
 
 services:
-  web:
-    container_name: php8
-    build:
-      context: php8/
-      dockerfile: Dockerfile
-    privileged: true
-    ports:
-      - 80:80
-    networks:
-      - network1
-  old:
-    container_name: php5
-    build:
-      context: php8/
-      dockerfile: Dockerfile
-    privileged: true
-    ports:
-      - 8081:80
-    networks:
-      - network1
-networks:
-  network1:
-    driver: bridge
+    web:
+        container_name: php8
+        build:
+            context: php8/
+            dockerfile: Dockerfile
+        privileged: true
+        ports:
+            - 80:80
+        volumes:
+            - ./php8/tmp:/tmp
+            - ./php8/httpd.conf:/etc/httpd/conf/httpd.conf

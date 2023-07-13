@@ -1,4 +1,5 @@
 FROM amazonlinux:2023
+# FROM --platform=linux/x86_64 amazonlinux:2023
 
 # yum update & install
 RUN yum update -y \
