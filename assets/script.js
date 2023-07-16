@@ -117,3 +117,15 @@ document.querySelectorAll('main')
 	.forEach((ele) => {
 		ele.setAttribute('style', 'display: block;');
 	});
+
+
+
+function openclose(opn) {
+	document.querySelectorAll('details').forEach( function(details) {
+		if (opn) {
+			details.setAttribute('open', '');
+		} else {
+			details.removeAttribute('open');
+		}
+	});
+}

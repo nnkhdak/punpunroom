@@ -112,15 +112,11 @@ git update-index --add --chmod=-x <i>filename</i></code>
 				</li>
 				<li>
 					<span>その他</span>
-					<ul>
-						<li>
-							<details open>
-								<summary>空ディレクトリに.gitkeepを置く</summary>
-								<code>cd <i>置きたいディレクトリのルート</i>
+					<details open>
+						<summary>空ディレクトリに.gitkeepを置く</summary>
+						<code>cd <i>置きたいディレクトリのルート</i>
 find . -type d -name .git -prune -o -type d -empty -exec touch {}/.gitkeep \;</code>
-							</details>
-						</li>
-					</ul>
+					</details>
 				</li>
 			</ul>
 		</div>
