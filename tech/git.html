@@ -23,12 +23,10 @@
 			<ul>
 				<li>
 					<span>ブランチ</span>
-					<ul>
-						<li>
-							<details open>
-								<summary>操作を取り消したい</summary>
-								git reflog で一覧表示
-								<code>nnkhdak@mypc project % git reflog
+					<details open>
+						<summary>操作を取り消したい</summary>
+						git reflog で一覧表示
+						<code>nnkhdak@mypc project % git reflog
 199b5386 (HEAD -> staging) HEAD@{0}: reset: moving to HEAD
 199b5386 (HEAD -> staging) HEAD@{1}: merge feature/zzzz: Merge made by the 'ort' strategy.
 <strong>b93e178b</strong> (origin/staging) HEAD@{2}: pull: Fast-forward
@@ -40,109 +38,77 @@ d9aa7082 (origin/feature/zzzz, feature/zzzz) HEAD@{6}: merge feature/yyyy: Merge
 698c0a87 (origin/feature/yyyy, feature/yyyy) HEAD@{8}: merge feature/xxxx: Merge made by the 'ort' strategy.
 9918898e HEAD@{9}: checkout: moving from feature/xxxx to feature/yyyy
 b9ee3f88 (origin/feature/xxxx, feature/xxxx) HEAD@{10}: merge master: Merge made by the 'ort' strategy.</code>
-								戻したい状態へ reset
-								<code>nnkhdak@mypc project % git reset --hard <strong>b93e178b</strong>
+						戻したい状態へ reset
+						<code>nnkhdak@mypc project % git reset --hard <strong>b93e178b</strong>
 HEAD is now at <strong>b93e178b</strong> Merge pull request #163 from nnkhdak/origin/staging</code>
-								git log や git reflog で確認
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>githubでソース表示時に行数をハイライト</summary>
-								<code>https://....../../../ファイル名#L123</code>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>タグを打つ</summary>
-								<code>git tag -a <i>tagname</i> <i>commit</i>
+						git log や git reflog で確認
+					</details>
+					<details open>
+						<summary>githubでソース表示時に行数をハイライト</summary>
+						<code>https://....../../../ファイル名#L123</code>
+					</details>
+					<details open>
+						<summary>タグを打つ</summary>
+						<code>git tag -a <i>tagname</i> <i>commit</i>
 git push origin <i>tagname</i></code>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>ローカルブランチを削除</summary>
-								<code>git branch -d <i>ブランチ名</i></code>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>リモート追跡ブランチを全削除</summary>
-								<code>git fetch -p
+					</details>
+					<details open>
+						<summary>ローカルブランチを削除</summary>
+						<code>git branch -d <i>ブランチ名</i></code>
+					</details>
+					<details open>
+						<summary>リモート追跡ブランチを全削除</summary>
+						<code>git fetch -p
 git remote prune origin</code>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>直前のコミットを取り消す</summary>
-								<code>git reset --soft HEAD^</code>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>clone</summary>
-								<code>git clone https://github.com/リポジトリ名</code>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>ブランチをclone</summary>
-								<code>git clone -b <i>ブランチ名</i> --single-branch https://github.com/リポジトリ名 .</code>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>ブランチを作成しつつ変更＆push</summary>
-								<code>git checkout -b <i>ブランチ名</i>
+					</details>
+					<details open>
+						<summary>直前のコミットを取り消す</summary>
+						<code>git reset --soft HEAD^</code>
+					</details>
+					<details open>
+						<summary>clone</summary>
+						<code>git clone https://github.com/リポジトリ名</code>
+					</details>
+					<details open>
+						<summary>ブランチをclone</summary>
+						<code>git clone -b <i>ブランチ名</i> --single-branch https://github.com/リポジトリ名 .</code>
+					</details>
+					<details open>
+						<summary>ブランチを作成しつつ変更＆push</summary>
+						<code>git checkout -b <i>ブランチ名</i>
 git push --set-upstream origin <i>ブランチ名</i></code>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>commitとpush</summary>
-								<code>git add -A
+					</details>
+					<details open>
+						<summary>commitとpush</summary>
+						<code>git add -A
 git commit
 git push</code>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>ブランチの変更</summary>
-								<code>git fetch && git checkout <i>branchname</i></code>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>ローカルの状態をキレイにする</summary>
-								<code>git clean -df</code>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>現在のブランチ名を表示</summary>
-								<code>git branch --contains=HEAD</code>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>実行権限の付与、除外</summary>
-								<code>git update-index --add --chmod=+x <i>filename</i>
+					</details>
+					<details open>
+						<summary>ブランチの変更</summary>
+						<code>git fetch && git checkout <i>branchname</i></code>
+					</details>
+					<details open>
+						<summary>ローカルの状態をキレイにする</summary>
+						<code>git clean -df</code>
+					</details>
+					<details open>
+						<summary>現在のブランチ名を表示</summary>
+						<code>git branch --contains=HEAD</code>
+					</details>
+					<details open>
+						<summary>実行権限の付与、除外</summary>
+						<code>git update-index --add --chmod=+x <i>filename</i>
 git update-index --add --chmod=-x <i>filename</i></code>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>git add を取り消す</summary>
-								<code>git reset HEAD</code>
-							</details>
-						</li>
-						<li>
-							<details open>
-								<summary>ブランチ同士の比較</summary>
-								<code>git diff ブランチA..ブランチB</code>
-							</details>
-						</li>
-					</ul>
+					</details>
+					<details open>
+						<summary>git add を取り消す</summary>
+						<code>git reset HEAD</code>
+					</details>
+					<details open>
+						<summary>ブランチ同士の比較</summary>
+						<code>git diff ブランチA..ブランチB</code>
+					</details>
 				</li>
 				<li>
 					<span>その他</span>
