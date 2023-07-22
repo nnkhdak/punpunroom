@@ -10,6 +10,12 @@
 	<base href="../">
 	<link rel="stylesheet" type="text/css" href="assets/style.css" />
 	<style type="text/css">
+		h2 {
+			float: left;
+		}
+		h2 + * {
+			text-align: right;
+		}
 		.button {
 			background: white;
 			color: #ed3232;
@@ -25,13 +31,8 @@
 		details {
 			margin-bottom: 1em;
 		}
-		h2 {
-			float: left;
-		}
-		h2 + * {
-			text-align: right;
-		}
-		details code {
+		details > :not(summary) {
+			margin-left: 10px;
 		}
 	</style>
 </head>
