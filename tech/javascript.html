@@ -9,6 +9,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<base href="../">
 	<link rel="stylesheet" type="text/css" href="assets/style.css" />
+	<style type="text/css">
+		.button {
+			background: white;
+			color: #ed3232;
+			border: 1px solid #ed3232;
+			border-radius: 10px;
+			padding: 5px 10px;
+			text-decoration: none;
+		}
+		.button:hover {
+			background: #ed3232;
+			color: white;
+		}
+	</style>
 </head>
 
 <body>
@@ -20,19 +34,22 @@
 		<div id="mainLeft"></div>
 		<div id="mainCenter">
 			<h2>JavaScript</h2>
-			<ol>
-				<li>
-					<details open>
-						<summary>FormDataを連想配列に変換</summary>
-						<code>const btn = document.querySelector('button');
+			<div style="text-align: right;">
+				<a class="button" href="javascript:openclose(true);">全てを開く</a> <a class="button" href="javascript:openclose(false);">全てを閉じる</a>
+			</div>
+
+			<details open>
+				<summary>FormDataを連想配列に変換</summary>
+				<code>const btn = document.querySelector('button');
 const form = btn.closest('form');
 const formData = new FormData(form);
 const hash = Object.fromEntries(formData);</code>
-					</details>
-					<details open>
-						<summary>URLをparseする</summary>
-						<code>var parse = new URL(location.href);</code>
-						<p>以下のような情報が取得できる</p>
+			</details>
+
+			<details open>
+				<summary>URLをparseする</summary>
+				<code>var parse = new URL(location.href);</code>
+				<p>以下のような情報が取得できる</p>
 <table>
 	<thead>
 		<tr><th>host</th><td>www.hogehoge.com</td></tr>
@@ -44,74 +61,64 @@ const hash = Object.fromEntries(formData);</code>
 		<tr><th>search</th><td>?name=abc&age=123</td></tr>
 	</thead>
 </table>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>QueryStringを連想配列化</summary>
-						<code>const hash = Object.fromEntries(new URLSearchParams(location.search).entries());</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>連想配列をQueryString化</summary>
-						<code>const str = new URLSearchParams({
+			</details>
+
+			<details open>
+				<summary>QueryStringを連想配列化</summary>
+				<code>const hash = Object.fromEntries(new URLSearchParams(location.search).entries());</code>
+			</details>
+
+			<details open>
+				<summary>連想配列をQueryString化</summary>
+				<code>const str = new URLSearchParams({
 		foo: 'bar',
 		baz: 'boom',
 		cow: 'milk',
 		php: 'hypertext processor'
 	}).toString();</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>連想配列かどうか</summary>
-						<code>return ((value instanceof Object) && !(value instanceof Array)) ? true : false;</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>連想配列の長さ</summary>
-						<code>Object.keys(value).length;</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>連想配列のディープコピー</summary>
-						<code>var cloned = Object.assign({}, original);</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>配列の末尾に追加</summary>
-						<code>const result = [];
+			</details>
+
+			<details open>
+				<summary>連想配列かどうか</summary>
+				<code>return ((value instanceof Object) && !(value instanceof Array)) ? true : false;</code>
+			</details>
+
+			<details open>
+				<summary>連想配列の長さ</summary>
+				<code>Object.keys(value).length;</code>
+			</details>
+
+			<details open>
+				<summary>連想配列のディープコピー</summary>
+				<code>var cloned = Object.assign({}, original);</code>
+			</details>
+
+			<details open>
+				<summary>配列の末尾に追加</summary>
+				<code>const result = [];
 result.push(1);</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>配列を結合</summary>
-						<code>let array1 = [1, 2];
+			</details>
+
+			<details open>
+				<summary>配列を結合</summary>
+				<code>let array1 = [1, 2];
 let array2 = [3, 4];
 let array3 = array1.concat(array2);</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>文字列を配列として繰り返す</summary>
-						<code>Array(10).fill('abc')</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>文字列をユニーク</summary>
-						<code>Array.from(new Set(配列));</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>fetchでstatusコードとresponseボディを返す</summary>
-						<code>fetch(url, opt)
+			</details>
+
+			<details open>
+				<summary>文字列を配列として繰り返す</summary>
+				<code>Array(10).fill('abc')</code>
+			</details>
+
+			<details open>
+				<summary>文字列をユニーク</summary>
+				<code>Array.from(new Set(配列));</code>
+			</details>
+
+			<details open>
+				<summary>fetchでstatusコードとresponseボディを返す</summary>
+				<code>fetch(url, opt)
 .then(function(response) {
 	if (response.ok) {
 		return response.text();
@@ -125,12 +132,11 @@ let array3 = array1.concat(array2);</code>
 }).catch(function(error) {
 	// 異常終了の際のコード
 });</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>fetchでダウンロード</summary>
-						<code>fetch("http://example.com/ExportExcel", {
+			</details>
+
+			<details open>
+				<summary>fetchでダウンロード</summary>
+				<code>fetch("http://example.com/ExportExcel", {
 	method: 'GET',
 	headers: new Headers({
 		"Authorization": "Bearer " + token
@@ -146,93 +152,110 @@ let array3 = array1.concat(array2);</code>
 		a.click();
 		a.remove();
 	});</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>エラーでメッセージとコードを送信</summary>
-						<code>throw new Error('ErrorMessage',{ cause: 404 });</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>ヒアドキュメント</summary>
-						<code>const HERE = `
+			</details>
+
+			<details open>
+				<summary>エラーでメッセージとコードを送信</summary>
+				<code>throw new Error('ErrorMessage',{ cause: 404 });</code>
+			</details>
+
+			<details open>
+				<summary>ヒアドキュメント</summary>
+				<code>const HERE = `
 SELECT
 	*
 FROM
 	dual
 `;</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>数値か判定</summary>
-						<code>(typeof value === 'number' && isFinite(value)</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>タグをまるまる置き換える</summary>
-						<code>var targetNode = document.getElementById('hoge');
+			</details>
+
+			<details open>
+				<summary>数値か判定</summary>
+				<code>(typeof value === 'number' && isFinite(value)</code>
+			</details>
+
+			<details open>
+				<summary>タグをまるまる置き換える</summary>
+				<code>var targetNode = document.getElementById('hoge');
 var newNode = document.createElement('div');
 targetNode.parentNode.replaceChild(newNode, targetNode);</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>タグ内の子要素を削除</summary>
-						<code>document.querySelectorAll('header').forEach((ele) => {
+			</details>
+
+			<details open>
+				<summary>タグ内の子要素を削除</summary>
+				<code>document.querySelectorAll('header').forEach((ele) => {
 	var clone = ele.cloneNode(false);
 	ele.parentNode.replaceChild(clone, ele);
 });</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>現在ブラウザのUserAgent</summary>
-						<code>document.write(navigator.userAgent);</code>
-						<script>
-							document.write(navigator.userAgent);
-						</script>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>現在ブラウザのnavigator.appName</summary>
-						<code>document.write(navigator.appName);</code>
-						<script>
-							document.write(navigator.appName);
-						</script>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>現在ブラウザのnavigator.appVersion</summary>
-						<code>document.write(navigator.appVersion);</code>
-						<script>
-							document.write(navigator.appVersion);
-						</script>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>ウェーブダッシュ</summary>
-						<code>String.fromCharCode(0x301C);</code>
-						<script>
-							String.fromCharCode(0x301C);
-						</script>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>copyrightなど</summary>
-						<code>&amp;copy;</code>
-					</details>
-				</li>
-			</ol>
+			</details>
+
+			<details open>
+				<summary>現在ブラウザのUserAgent</summary>
+				<code>document.write(navigator.userAgent);</code>
+				<script>
+					document.write(navigator.userAgent);
+				</script>
+			</details>
+
+			<details open>
+				<summary>現在ブラウザのnavigator.appName</summary>
+				<code>document.write(navigator.appName);</code>
+				<script>
+					document.write(navigator.appName);
+				</script>
+			</details>
+
+			<details open>
+				<summary>現在ブラウザのnavigator.appVersion</summary>
+				<code>document.write(navigator.appVersion);</code>
+				<script>
+					document.write(navigator.appVersion);
+				</script>
+			</details>
+
+			<details open>
+				<summary>ウェーブダッシュ</summary>
+				<code>String.fromCharCode(0x301C);</code>
+				<script>
+					String.fromCharCode(0x301C);
+				</script>
+			</details>
+
+			<details open>
+				<summary>copyrightなど</summary>
+				<code>&amp;copy;</code>
+			</details>
 		</div>
 		<div id="mainRight"></div>
+
+		<script type="text/javascript">
+			document.querySelectorAll('a').forEach( function(anchor) {
+				const href = anchor.getAttribute('href');
+				if (href?.length) {
+					return;
+				}
+
+				const target = anchor.getAttribute('target');
+				if (target?.length) {
+					if (target !== '_blank') {
+						return;
+					}
+
+					const text = anchor.innerText?.length ? anchor.innerText : anchor.textContent;
+					anchor.setAttribute('href', text);
+				}
+			});
+
+			function openclose(opn) {
+				document.querySelectorAll('details').forEach( function(details) {
+					if (opn) {
+						details.setAttribute('open', '');
+					} else {
+						details.removeAttribute('open');
+					}
+				});
+			}
+		</script>
 	</main>
 	<footer></footer>
 </body>
