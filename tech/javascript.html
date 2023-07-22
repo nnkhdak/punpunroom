@@ -23,6 +23,13 @@
 			<ol>
 				<li>
 					<details open>
+						<summary>FormDataを連想配列に変換</summary>
+						<code>const btn = document.querySelector('button');
+const form = btn.closest('form');
+const formData = new FormData(form);
+const hash = Object.fromEntries(formData);</code>
+					</details>
+					<details open>
 						<summary>URLをparseする</summary>
 						<code>var parse = new URL(location.href);</code>
 						<p>以下のような情報が取得できる</p>
