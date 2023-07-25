@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Cache-Control" content="no-cache">
@@ -8,19 +9,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<base href="../">
 	<link rel="stylesheet" type="text/css" href="assets/style.css" />
-	<style type="text/css">
-		code {
-			background: pink;
-			color: black;
-			white-space: pre-wrap;
-		}
-
-		.strong {
-			font-weight: bold;
-			color: red;
-		}
-	</style>
 </head>
+
 <body>
 	<noscript>
 		<p>JavaScriptがサポートされていないため表示できません。</p>
@@ -30,6 +20,11 @@
 		<div id="mainLeft"></div>
 		<div id="mainCenter">
 			<h2>Nuxt.js(version.2)</h2>
+			<div>
+				<a class="button" href="javascript:openclose(true);">全てを開く</a>
+				<a class="button" href="javascript:openclose(false);">全てを閉じる</a>
+			</div>
+
 			<ol>
 				<li>
 					<details open>
@@ -336,4 +331,5 @@ $ npm install</code>
 	<footer></footer>
 </body>
 <script src="assets/script.js"></script>
+
 </html>

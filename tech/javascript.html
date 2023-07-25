@@ -20,8 +20,9 @@
 		<div id="mainLeft"></div>
 		<div id="mainCenter">
 			<h2>JavaScript</h2>
-			<div style="text-align: right;">
-				<a class="button" href="javascript:openclose(true);">全てを開く</a> <a class="button" href="javascript:openclose(false);">全てを閉じる</a>
+			<div>
+				<a class="button" href="javascript:openclose(true);">全てを開く</a>
+				<a class="button" href="javascript:openclose(false);">全てを閉じる</a>
 			</div>
 
 			<details open>
@@ -36,17 +37,38 @@ const hash = Object.fromEntries(formData);</code>
 				<summary>URLをparseする</summary>
 				<code>var parse = new URL(location.href);</code>
 				<p>以下のような情報が取得できる</p>
-<table>
-	<thead>
-		<tr><th>host</th><td>www.hogehoge.com</td></tr>
-		<tr><th>hostname</th><td>www.hogehoge.com</td></tr>
-		<tr><th>href</th><td>https://www.hogehoge.com/abcd.html?name=abc&age=123</td></tr>
-		<tr><th>origin</th><td>https://www.hogehoge.com</td></tr>
-		<tr><th>pathname</th><td>/abcd.html</td></tr>
-		<tr><th>protocol</th><td>https:</td></tr>
-		<tr><th>search</th><td>?name=abc&age=123</td></tr>
-	</thead>
-</table>
+				<table>
+					<thead>
+						<tr>
+							<th>host</th>
+							<td>www.hogehoge.com</td>
+						</tr>
+						<tr>
+							<th>hostname</th>
+							<td>www.hogehoge.com</td>
+						</tr>
+						<tr>
+							<th>href</th>
+							<td>https://www.hogehoge.com/abcd.html?name=abc&age=123</td>
+						</tr>
+						<tr>
+							<th>origin</th>
+							<td>https://www.hogehoge.com</td>
+						</tr>
+						<tr>
+							<th>pathname</th>
+							<td>/abcd.html</td>
+						</tr>
+						<tr>
+							<th>protocol</th>
+							<td>https:</td>
+						</tr>
+						<tr>
+							<th>search</th>
+							<td>?name=abc&age=123</td>
+						</tr>
+					</thead>
+				</table>
 			</details>
 
 			<details open>
@@ -215,7 +237,7 @@ targetNode.parentNode.replaceChild(newNode, targetNode);</code>
 		<div id="mainRight"></div>
 
 		<script type="text/javascript">
-			document.querySelectorAll('a').forEach( function(anchor) {
+			document.querySelectorAll('a').forEach(function (anchor) {
 				const href = anchor.getAttribute('href');
 				if (href?.length) {
 					return;
@@ -233,7 +255,7 @@ targetNode.parentNode.replaceChild(newNode, targetNode);</code>
 			});
 
 			function openclose(opn) {
-				document.querySelectorAll('details').forEach( function(details) {
+				document.querySelectorAll('details').forEach(function (details) {
 					if (opn) {
 						details.setAttribute('open', '');
 					} else {

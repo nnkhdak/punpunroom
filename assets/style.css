@@ -33,3 +33,30 @@ details {
 details > :not(summary) {
     margin-left: 10px;
 }
+
+code {
+    background: pink;
+    color: black;
+    white-space: pre-wrap;
+}
+
+.strong {
+    font-weight: bold;
+    color: red;
+}
+
+code {
+    display: block;
+    white-space: pre;
+}
+
+main ol li {
+    margin-top: 1em;
+}
+
+
+code {
+    background: pink;
+    color: black;
+    white-space: pre-wrap;
+}
