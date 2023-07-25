@@ -22,63 +22,55 @@
 				<ul>
 					<li>
 						<details open>
+							<summary>起動</summary>
+							<code>docker compose up -d</code>
+						</details>
+						<details open>
+							<summary>削除</summary>
+							<code>docker compose down</code>
+						</details>
+						<details open>
+							<summary>削除</summary>
+							<code>docker exec -it <i>コンテナ名</i> bash</code>
+						</details>
+						<details open>
 							<summary>the input device is not a TTY. If you are using mintty, try prefixing the command with 'winpty'</summary>
 							<code>exec winpty bash</code>
 						</details>
 					</li>
-				</ul>
-				<ul>
 					<li>
-						<span>コンテナとか一括削除系(使用はローカルだけにしてね)</span>
-						<ul>
-							<li>
-								<details open>
-									<summary>不要なリソース一括削除</summary>
-									<code>docker system prune</code>
-								</details>
-							</li>
-							<li>
-								<details open>
-									<summary>停止コンテナ一括削除</summary>
-									<code>docker container prune && docker ps -a</code>
-								</details>
-							</li>
-							<li>
-								<details open>
-									<summary>未使用イメージ一括削除</summary>
-									<code>docker image prune && docker images</code>
-								</details>
-							</li>
-						</ul>
+						<span>中でコマンド打ちたい系</span>
+						<details open>
+							<summary>イメージを指定して起動&bash&終了時コンテナ削除</summary>
+							<code>docker run --rm -it <i>imagename</i> bash</code>
+						</details>
+						<details open>
+							<summary>起動しているコンテナにbash</summary>
+							<code>docker ps -a</code>
+							<code>docker exec -it <i>CONTAINER ID</i> bash</code>
+						</details>
 					</li>
 					<li>
 						<span>イメージ関連</span>
-						<ul>
-							<li>
-								<details open>
-									<summary>イメージの作成</summary>
-									<code>docker build -t <i>imagename</i> <i>Dockerfileの場所</i></code>
-								</details>
-							</li>
-						</ul>
+						<details open>
+							<summary>イメージの作成</summary>
+							<code>docker build -t <i>imagename</i> <i>Dockerfileの場所</i></code>
+						</details>
 					</li>
 					<li>
-						<span>中でコマンド打ちたい系</span>
-						<ul>
-							<li>
-								<details open>
-									<summary>イメージを指定して起動&bash&終了時コンテナ削除</summary>
-									<code>docker run --rm -it <i>imagename</i> bash</code>
-								</details>
-							</li>
-							<li>
-								<details open>
-									<summary>起動しているコンテナにbash</summary>
-									<code>docker ps -a</code>
-									<code>docker exec -it <i>CONTAINER ID</i> bash</code>
-								</details>
-							</li>
-						</ul>
+						<span>コンテナとか一括削除系(使用はローカルだけにしてね)</span>
+						<details open>
+							<summary>不要なリソース一括削除</summary>
+							<code>docker system prune</code>
+						</details>
+						<details open>
+							<summary>停止コンテナ一括削除</summary>
+							<code>docker container prune && docker ps -a</code>
+						</details>
+						<details open>
+							<summary>未使用イメージ一括削除</summary>
+							<code>docker image prune && docker images</code>
+						</details>
 					</li>
 					<li>
 						<span>Windowsで使いたい</span>
