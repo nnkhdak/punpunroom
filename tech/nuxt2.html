@@ -25,29 +25,25 @@
 				<a class="button" href="javascript:openclose(false);">全てを閉じる</a>
 			</div>
 
-			<ol>
-				<li>
-					<details open>
-						<summary>要素がz-indexなどで重なった際のイベント停止</summary>
-						<code>&lt;div class="overlay" @click="clickCancel()"&gt;
+			<details open>
+				<summary>要素がz-indexなどで重なった際のイベント停止</summary>
+				<code>&lt;div class="overlay" @click="clickCancel()"&gt;
 	&lt;div class="window" <span class="strong">@click.stop</span>&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 						<p><a href="https://v2.ja.vuejs.org/v2/guide/events#%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E4%BF%AE%E9%A3%BE%E5%AD%90">公式ページ</a></p>
 					</details>
-				</li>
-				<li>
+
 					<details open>
 						<summary>子要素にスタイルを適用</summary>
 						<code>:deep(p) {
 	text-indent: 1em;
 }</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>isDevの取得</summary>
-						<code>export default Vue.extend({
+			</details>
+
+			<details open>
+				<summary>isDevの取得</summary>
+				<code>export default Vue.extend({
 	computed: {
 		isDev() {
 			return this.$root.context.isDev;
@@ -55,8 +51,7 @@
 	},
 });</code>
 					</details>
-				</li>
-				<li>
+
 					<details open>
 						<summary>titleにfetchで取得した値を設定する</summary>
 						<code>head: function() {
@@ -67,12 +62,11 @@
 async fetch({ store }) {
 	await store.dispatch('user/getUser')
 }</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>リファラ</summary>
-						<code>export default Vue.extend({
+			</details>
+
+			<details open>
+				<summary>リファラ</summary>
+				<code>export default Vue.extend({
 	beforeRouteEnter(to, from, next) {
 		next(vm => {
 			vm.$router.referrer = from.path;
@@ -82,31 +76,28 @@ async fetch({ store }) {
 			console.log(this.$router.referrer);
 	},
 });</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>nuxt内の他ページに遷移</summary>
-						<code>&lt;router-link :to="変数名"&gt;foo&lt;/router-link&gt;
+			</details>
+
+			<details open>
+				<summary>nuxt内の他ページに遷移</summary>
+				<code>&lt;router-link :to="変数名"&gt;foo&lt;/router-link&gt;
 &lt;router-link to="実URL"&gt;bar&lt;/router-link&gt;
 this.$router.push(アプリ内URL);
 this.$router.go(-1);</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>URLなどを知りたい</summary>
-						<code>console.log(this.$route.fullPath);
+			</details>
+
+			<details open>
+				<summary>URLなどを知りたい</summary>
+				<code>console.log(this.$route.fullPath);
 console.log(this.$route.name);
 console.log(this.$route.params);
 console.log(this.$route.path);
 console.log(this.$route.query);</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>親コンポーネントから子コンポーネントのmethodを呼ぶ</summary>
-						<br>親コンポーネント<code>&lt;template&gt;
+			</details>
+
+			<details open>
+				<summary>親コンポーネントから子コンポーネントのmethodを呼ぶ</summary>
+				<br>親コンポーネント<code>&lt;template&gt;
 	&lt;ChildComponent ref="child1" /&gt;
 &lt;/template&gt;
 &lt;script&gt;
@@ -129,12 +120,11 @@ export default Vue.extend({
 	},
 });
 &lt;/script&gt;</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>子コンポーネントから親コンポーネントへ値を渡す</summary>
-						<br>親コンポーネント<code>&lt;template&gt;
+			</details>
+
+			<details open>
+				<summary>子コンポーネントから親コンポーネントへ値を渡す</summary>
+				<br>親コンポーネント<code>&lt;template&gt;
 	&lt;ChildComponent :childID.sync="parentID" :childPW.sync="parentPW" /&gt;
 &lt;/template&gt;
 &lt;script&gt;
@@ -148,7 +138,7 @@ export default Vue.extend({
 		},
 	});
 &lt;/script&gt;</code>
-						<br>子コンポーネント<code>&lt;template&gt;
+				<br>子コンポーネント<code>&lt;template&gt;
 	&lt;div&gt;
 		&lt;input type="text" v-model="innerID" @input="onChangeID($event)" /&gt;
 		&lt;input type="text" v-model="innerPW" @input="onChangePW($event)" /&gt;
@@ -188,12 +178,11 @@ export default Vue.extend({
 	},
 });
 &lt;/script&gt;</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>子コンポーネントから親コンポーネントのイベントを呼び出す</summary>
-						<br>親コンポーネント<code>&lt;template&gt;
+			</details>
+
+			<details open>
+				<summary>子コンポーネントから親コンポーネントのイベントを呼び出す</summary>
+				<br>親コンポーネント<code>&lt;template&gt;
 	&lt;ChildComponent @kickParent="kickParentFunction()" /&gt;
 &lt;/template&gt;
 &lt;script&gt;
@@ -222,12 +211,11 @@ export default Vue.extend({
 	},
 });
 &lt;/script&gt;</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>特定のvueファイルでだけJavaScriptを読み込みたい</summary>
-						<code>export default Vue.extend({
+			</details>
+
+			<details open>
+				<summary>特定のvueファイルでだけJavaScriptを読み込みたい</summary>
+				<code>export default Vue.extend({
 head() {
 	return {
 		script: [
@@ -243,19 +231,17 @@ head() {
 		],
 	};
 },</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>DOMに直接アクセス</summary>
-						<code>this.$el</code>
-						<code>this.$refs</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>複数を同時watch</summary>
-						<code>created() {
+			</details>
+
+			<details open>
+				<summary>DOMに直接アクセス</summary>
+				<code>this.$el</code>
+				<code>this.$refs</code>
+			</details>
+
+			<details open>
+				<summary>複数を同時watch</summary>
+				<code>created() {
 	this.$watch(
 		() => [this.$data.text1, this.$data.text2],
 		(value, oldValue) => {
@@ -263,69 +249,60 @@ head() {
 		}
 	);
 }</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>DTOの中身をwatch</summary>
-						<code>watch: {
+			</details>
+
+			<details open>
+				<summary>DTOの中身をwatch</summary>
+				<code>watch: {
 	'dto.value': function (newValue, oldValue) {
 		console.log(newValue);
 	},
 },</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>v-for構文</summary>
-						<code>v-for="(val, key) in ぐるぐるするやつでthisは不要" :key="key" :value="val"</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>シンプルなプロジェクトを作成する</summary>
-						<p>https://nuxtjs.org/ja/docs/get-started/installation/を参照した</p>
-						<code>echo '{"name": "my-app","scripts": {"dev": "nuxt","build": "nuxt build","generate": "nuxt generate","start": "nuxt start"}}' &gt; package.json
+			</details>
+
+			<details open>
+				<summary>v-for構文</summary>
+				<code>v-for="(val, key) in ぐるぐるするやつでthisは不要" :key="key" :value="val"</code>
+			</details>
+
+			<details open>
+				<summary>シンプルなプロジェクトを作成する</summary>
+				<p>https://nuxtjs.org/ja/docs/get-started/installation/を参照した</p>
+				<code>echo '{"name": "my-app","scripts": {"dev": "nuxt","build": "nuxt build","generate": "nuxt generate","start": "nuxt start"}}' &gt; package.json
 yarn add nuxt@2.15
 mkdir pages
 echo '&lt;template&gt;&lt;h1&gt;Hello world!&lt;/h1&gt;&lt;/template&gt;' &gt; pages/index.vue
 yarn dev</code>
-						<p>上記アプリケーションは <strong><a href="http://localhost:3000/" target="_blank">http://localhost:3000 </a></strong> で動作しています。</p>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>変数を出力する際にエスケープしない</summary>
-						<code>v-html</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>v-htmlで生成された要素にもスタイルを適用</summary>
-						<code>&lt;style scoped&gt;
+				<p>上記アプリケーションは <strong><a href="http://localhost:3000/" target="_blank">http://localhost:3000 </a></strong> で動作しています。</p>
+			</details>
+
+			<details open>
+				<summary>変数を出力する際にエスケープしない</summary>
+				<code>v-html</code>
+			</details>
+
+			<details open>
+				<summary>v-htmlで生成された要素にもスタイルを適用</summary>
+				<code>&lt;style scoped&gt;
 	:deep(.myclass) {
 	  font-size: 3rem;
 	}
 &lt;/style&gt;</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>バージョンを指定してyarnをインストール</summary>
-						<code>$ npm install -g yarn@[version]</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>ENOLOCAL エラー</summary>
-						<p> 原因：<br /> package-lock.json で指定されたモジュールがローカルの node_modules 以下に存在しない。 </p>
-						<p> 対処法：<br /> package-lock.json を削除して npm モジュールを再インストールする。
-							<code>$ rm package-lock.json
+			</details>
+
+			<details open>
+				<summary>バージョンを指定してyarnをインストール</summary>
+				<code>$ npm install -g yarn@[version]</code>
+			</details>
+
+			<details open>
+				<summary>ENOLOCAL エラー</summary>
+				<p> 原因：<br /> package-lock.json で指定されたモジュールがローカルの node_modules 以下に存在しない。 </p>
+				<p> 対処法：<br /> package-lock.json を削除して npm モジュールを再インストールする。
+					<code>$ rm package-lock.json
 $ npm install</code>
-						</p>
-					</details>
-				</li>
-			</ol>
+				</p>
+			</details>
 		</div>
 		<div id="mainRight"></div>
 	</main>
