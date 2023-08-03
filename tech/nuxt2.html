@@ -50,11 +50,11 @@
 		},
 	},
 });</code>
-					</details>
+			</details>
 
-					<details open>
-						<summary>titleにfetchで取得した値を設定する</summary>
-						<code>head: function() {
+			<details open>
+				<summary>titleにfetchで取得した値を設定する</summary>
+				<code>head: function() {
 	return {
 		title:`${this.$store.state.user.nickname}さんのプロフィール`
 	}
@@ -73,7 +73,7 @@ async fetch({ store }) {
 		});
 	},
 	mounted() {
-			console.log(this.$router.referrer);
+		console.log(this.$router.referrer);
 	},
 });</code>
 			</details>
@@ -195,7 +195,7 @@ export default Vue.extend({
 		},	
 	});
 &lt;/script&gt;</code>
-						<br>子コンポーネント<code>&lt;template&gt;
+				<br>子コンポーネント<code>&lt;template&gt;
 	&lt;div&gt;
 		&lt;a @click="kickChild()"&gt;kick&lt;/a&gt;
 	&lt;/div&gt;
