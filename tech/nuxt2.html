@@ -89,7 +89,8 @@ async fetch({ store }) {
 						<summary>nuxt内の他ページに遷移</summary>
 						<code>&lt;router-link :to="変数名"&gt;foo&lt;/router-link&gt;
 &lt;router-link to="実URL"&gt;bar&lt;/router-link&gt;
-this.$router.push(アプリ内URL);</code>
+this.$router.push(アプリ内URL);
+this.$router.go(-1);</code>
 					</details>
 				</li>
 				<li>
