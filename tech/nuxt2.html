@@ -69,7 +69,8 @@ async fetch({ store }) {
 				<code>export default Vue.extend({
 	beforeRouteEnter(to, from, next) {
 		next(vm => {
-			vm.$router.referrer = from.path;
+			//	vm.$router.referrer = from.path;	// QueryStringを含まない
+			vm.$router.referrer = from.fullPath;
 		});
 	},
 	mounted() {
