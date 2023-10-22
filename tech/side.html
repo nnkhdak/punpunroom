@@ -74,10 +74,39 @@
 										<td></td>
 									</tr>
 									<tr>
+										<td>for each</td>
+										<td>colors</td>
+										<td>color</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>echo</td>
+										<td>${color}</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>end</td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+							<table class="side_cmd">
+								<caption>連想配列を作る</caption>
+								<tbody>
+									<tr>
+										<th>Command</th>
+										<th>Target</th>
+										<th>Value</th>
+										<th>Description</th>
+									</tr>
+									<tr>
 										<td>store json</td>
 										<td>{"name":"山田","age":12}</td>
 										<td>hash</td>
-										<td></td>
+										<td>"を'で誤らないように！！！</td>
 									</tr>
 									<tr>
 										<td>execute script</td>
@@ -89,6 +118,24 @@
 										<td>for each</td>
 										<td>keys</td>
 										<td>key</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>execute script</td>
+										<td>return ${hash}[${key}];</td>
+										<td>val</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>echo</td>
+										<td>${key}	${val}</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>end</td>
+										<td></td>
+										<td></td>
 										<td></td>
 									</tr>
 								</tbody>
