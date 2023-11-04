@@ -14,6 +14,11 @@
                 "href": "javascript.html"
             },
             {
+                "id": 13,
+                "name": "TypeScript",
+                "href": "typescript.html"
+            },
+            {
                 "id": 8,
                 "name": "Oracle",
                 "href": "oracle.html"

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<base href="../">
+	<link rel="stylesheet" type="text/css" href="assets/style.css" />
+</head>
+
+<body>
+	<noscript>
+		<p>JavaScriptがサポートされていないため表示できません。</p>
+	</noscript>
+	<header></header>
+	<main style="display: none;">
+		<div id="mainLeft"></div>
+		<div id="mainCenter">
+			<h2>JavaScript</h2>
+			<div>
+				<a class="button" href="javascript:openclose(true);">全てを開く</a>
+				<a class="button" href="javascript:openclose(false);">全てを閉じる</a>
+			</div>
+
+			<details open>
+				<summary>連想配列に型指定</summary>
+				<code>const hash: { [key: string]: any } = {};</code>
+			</details>
+
+			<details open>
+				<summary>FormDataを連想配列に変換</summary>
+				<code>const btn = document.querySelector('button');
+const form = btn.closest('form');
+const formData = new FormData(form);
+const hash: { [key: string]: any } = {};
+formData.forEach((value, key: string) => hash[key] = value);</code>
+			</details>
+
+		</div>
+		<div id="mainRight"></div>
+
+		<script type="text/javascript">
+			document.querySelectorAll('a').forEach(function (anchor) {
+				const href = anchor.getAttribute('href');
+				if (href?.length) {
+					return;
+				}
+
+				const target = anchor.getAttribute('target');
+				if (target?.length) {
+					if (target !== '_blank') {
+						return;
+					}
+
+					const text = anchor.innerText?.length ? anchor.innerText : anchor.textContent;
+					anchor.setAttribute('href', text);
+				}
+			});
+
+			function openclose(opn) {
+				document.querySelectorAll('details').forEach(function (details) {
+					if (opn) {
+						details.setAttribute('open', '');
+					} else {
+						details.removeAttribute('open');
+					}
+				});
+			}
+		</script>
+	</main>
+	<footer></footer>
+</body>
+<script src="assets/script.js"></script>
+
+</html>
