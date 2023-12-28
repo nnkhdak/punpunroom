@@ -1,6 +1,6 @@
 FROM php:7.2-apache
 RUN apt-get update  \
-  && docker-php-ext-install pdo pdo_mysql mbstring
+  && docker-php-ext-install pdo pdo_mysql mbstring mysqli
 
 WORKDIR /var/www/html
 
