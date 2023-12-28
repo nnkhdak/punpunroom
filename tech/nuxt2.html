@@ -31,6 +31,13 @@
 			</details>
 
 			<details open>
+				<summary>特定のページのみcssを適用したい</summary>
+				<code>&lt;style lang="scss" scoped&gt;
+	@import '~/assets/scss/style.scss';
+&lt;/style&gt;</code>
+			</details>
+
+			<details open>
 				<summary>要素がz-indexなどで重なった際のイベント停止</summary>
 				<code>&lt;div class="overlay" @click="clickCancel()"&gt;
 	&lt;div class="window" <span class="strong">@click.stop</span>&gt;

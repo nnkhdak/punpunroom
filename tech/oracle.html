@@ -65,6 +65,14 @@ WHERE
 				</li>
 				<li>
 					<details open>
+						<summary>接続数関連の設定を参照</summary>
+						<code>show parameter PROCESSES;
+show parameter SESSIONS;
+select * from v$license;</code>
+					</details>
+				</li>
+				<li>
+					<details open>
 						<summary>通算秒(エポック秒)</summary>
 						<code>select (<i>調べたいdate</i> - to_date('19700101', 'YYYYMMDD')) * 24 * 60 * 60 from dual</code>
 					</details>
