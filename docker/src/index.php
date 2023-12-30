@@ -1,37 +1,19 @@
 <?php
-echo 'helloworld';
+require_once('vendor/autoload.php');
+use dao\DaoFactory;
+use dao\Dao;
 
-$mysqli = new mysqli('db', 'root', 'pass', 'mysql');
-if($mysqli->connect_error) {
-    echo '接続失敗'.PHP_EOL;
-} else {
-    echo '接続成功'.PHP_EOL;
+$transaction = null;
+try {
+    $transaction = DaoFactory::newTransaction();
+
+    $dao = DaoFactory::newInstance('person');
+    $dto = array('id' => 1);
+    $dao->loadByKey($transaction, $dto);
+
+echo json_encode($dto);
+
+    $transaction->commit();
+} catch (\Exception $e) {
+    $transaction->rollback();
 }
-
-
-//ホスト名、データベース名、文字コードの３つを定義する
-$host = 'db';
-$db = 'mysql';
-$charset = 'utf8';
-$dsn = "mysql:host=$host; dbname=$db; charset=$charset";
-
-//ユーザー名、パスワード
-$user = 'root';
-$pass = 'pass';
-
- //オプション
- $options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-];
-
-try{
-
-    //上のデータを引数に入れて、PDOインスタンスを作成
-    $pdo = new PDO($dsn, $user, $pass, $options);
-
-}catch(PDOException $e){
-    echo $e->getMessage();
-}
-
