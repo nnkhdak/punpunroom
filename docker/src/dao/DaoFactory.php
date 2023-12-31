@@ -7,7 +7,7 @@ require_once('dao/Transaction.php');
 class DaoFactory {
 
 	public static function newInstance($keyword) {
-		return new \dao\mysql\Dao4MySQL();
+		return new \dao\mysql\Dao4MySQL('person');
 		return new PersonDao();
 	}
 

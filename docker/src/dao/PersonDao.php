@@ -12,4 +12,7 @@ class PersonDao implements Dao {
 		echo '<br/>' . PHP_EOL;
 		echo '<br/>' . PHP_EOL;
 	}
+
+	public function read($transaction, $dto) {
+	}
 }

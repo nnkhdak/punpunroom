@@ -11,6 +11,8 @@ try {
 	$dao->loadByKey($transaction, $dto);			// 主キーを用いてDTOにデータを読み込む
 
 echo json_encode($dto);
+echo PHP_EOL.'<br>';
+echo ($dao);
 
 	$transaction->commit();							// 正常終了したのでcommitする
 } catch (\Exception $e) {

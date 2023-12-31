@@ -10,10 +10,10 @@ use PDOException;
 
 class Transaction4MySQL extends TransactionPDOImpl implements \dao\Transaction {
 
-    public function __construct($auto = false) {
-        parent::__construct($auto);
-    }
-    
+	public function __construct($auto = false) {
+		parent::__construct($auto);
+	}
+	
 	protected function createPDO($auto) {
 		$host = 'db';
 		$db = 'test';
