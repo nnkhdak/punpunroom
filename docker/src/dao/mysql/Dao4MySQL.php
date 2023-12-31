@@ -45,6 +45,21 @@ class Dao4MySQL implements \dao\Dao {
 		$this->setVals($vals);
 	}
 
+	protected function createWhereClause($columns, $orMode = false) {
+		$result = '';
+		if (!empty($this->keys)) {
+			foreach ($this->keys as $key) {
+				$tmp = sprintf('%s = :%s', $key, $key);
+				if ($orMode) {
+					$tmp = sprintf('(0 = LENGTH( :%s ) OR %s )', $key, $tmp);
+				}
+				$result = sprintf('%s AND %s', $result, $tmp);
+			}
+			$result = preg_replace("/^\s*AND\s+/", 'WHERE ', $result);
+		}
+		return $result;
+	}
+
 	public function getKeys() {
 		return array_merge($this->keys);
 	}
@@ -60,10 +75,13 @@ class Dao4MySQL implements \dao\Dao {
 	public function loadByKey($transaction, &$dto) {
 		$this->analysis($transaction);
 
-		$sql = 'SELECT * FROM person WHERE id = 1';
-		$rows = $transaction->fetch($sql, array('id' => 1));
+		$where = $this->createWhereClause($this->keys, $dto);
+		$sql = sprintf('SELECT * FROM %s %s', $this->name, $where);
+		$rows = $transaction->fetch($sql, $dto);
 		if (empty($rows)) {
 			throw new \Exception('Not Found.', 404);
+		} else if (count($rows) !== 1) {
+			throw new \Exception('Logical', 500);
 		}
 		$row0 = $rows[0];
 		$dto = array_merge($dto, $row0);
@@ -71,6 +89,13 @@ class Dao4MySQL implements \dao\Dao {
 
 	public function read($transaction, $dto) {
 		$this->analysis($transaction);
+		$where = $this->createWhereClause($this->keys, $dto);
+		$sql = sprintf('SELECT * FROM %s %s', $this->name, $where);
+		$rows = $transaction->fetch($sql, $dto);
+		if (empty($rows)) {
+			throw new \Exception('Not Found.', 404);
+		}
+		return $rows;
 	}
 
 	public function setKeys($keys) {
