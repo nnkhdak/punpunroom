@@ -5,15 +5,14 @@ use dao\Dao;
 
 $transaction = null;
 try {
-    $transaction = DaoFactory::newTransaction();
-
-    $dao = DaoFactory::newInstance('person');
-    $dto = array('id' => 1);
-    $dao->loadByKey($transaction, $dto);
+	$transaction = DaoFactory::newTransaction();	// トランザクションを生成する
+	$dao = DaoFactory::newInstance('person');		// DAO(DataAccessObject)を生成する
+	$dto = array('id' => 1);						// DTO(DataTransferObject)を生成する
+	$dao->loadByKey($transaction, $dto);			// 主キーを用いてDTOにデータを読み込む
 
 echo json_encode($dto);
 
-    $transaction->commit();
+	$transaction->commit();							// 正常終了したのでcommitする
 } catch (\Exception $e) {
-    $transaction->rollback();
+	$transaction->rollback();						// 異常終了したのでrollbackする
 }
