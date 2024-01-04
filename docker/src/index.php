@@ -19,10 +19,14 @@ echo "\n<br>";
 echo json_encode($dto);
 echo "\n<br>";
 
-	$dto = array('key1' => 'aaa');					// DTO(DataTransferObject)を生成する
-	$dao->read($transaction, $dto);					// 主キーを用いてDTOにデータを読み込む
-echo json_encode($dto);
+	$dto = array('key1' => 'aaa', 'key2' => null);	// DTO(DataTransferObject)を生成する
+	$it = $dao->read($transaction, $dto);			// DTOを用いて検索する
+	while ($it->valid()) {
+		$row = $it->current();
+echo json_encode($row);
 echo "\n<br>";
+		$it->next();
+	}
 
 	$transaction->commit();							// 正常終了したのでcommitする
 } catch (\Exception $e) {

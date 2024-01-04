@@ -47,30 +47,33 @@ class TransactionPDOImpl implements \dao\Transaction {
 	}
 
 	protected function createPDOStatement($sql, $placeHolders) {
-		$statement = $this->pdo->prepare($sql);
+		$st = $this->pdo->prepare($sql);
 		if (!empty($placeHolders)) {
 			foreach($placeHolders as $key => $val) {
-				if (is_null($val) || gettype($val) === 'object') {
+				if (gettype($val) === 'object') {
 					continue;
 				}
 
-				$statement->bindValue(":$key", $val);
+				if (is_null($val)) {
+//					$st->bindValue(":$key", $val, PDO::PARAM_NULL);
+				} else {
+//					$st->bindValue(":$key", $val);
+				}
 			}
 		}
-		return $statement;
+		return $st;
 	}
 
 	public function exec($value, $placeHolders = null) {
 		throw new \Exception('Please Override!');
 	}
 
-	public function fetch($value, $placeHolders = null) {
+	public function fetch($value, $placeHolders = array()) {
 		$rows = null;
 		try {
-			$statement = $this->createPDOStatement($value, $placeHolders);
-			$statement->execute();
-			$rows = $statement->fetchAll(\PDO::FETCH_ASSOC);
-//			return $statement->getIterator();
+			$st = $this->createPDOStatement($value, $placeHolders);
+			$st->execute($placeHolders);
+			return $st->getIterator();
 		} catch (\Exception $e) {
 			throw $e;
 		}
