@@ -50,11 +50,11 @@ class TransactionPDOImpl implements \dao\Transaction {
 		$statement = $this->pdo->prepare($sql);
 		if (!empty($placeHolders)) {
 			foreach($placeHolders as $key => $val) {
-				$pattern = "/\\s+:$key(|\\s+)/";;
-				if (!preg_match($pattern, $sql)) {
+				if (is_null($val) || gettype($val) === 'object') {
 					continue;
 				}
-				$statement->bindValue($key, $val);
+
+				$statement->bindValue(":$key", $val);
 			}
 		}
 		return $statement;
@@ -70,7 +70,7 @@ class TransactionPDOImpl implements \dao\Transaction {
 			$statement = $this->createPDOStatement($value, $placeHolders);
 			$statement->execute();
 			$rows = $statement->fetchAll(\PDO::FETCH_ASSOC);
-			return $rows;
+//			return $statement->getIterator();
 		} catch (\Exception $e) {
 			throw $e;
 		}
