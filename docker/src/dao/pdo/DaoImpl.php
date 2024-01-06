@@ -1,6 +1,8 @@
 <?php
 namespace dao\pdo;
 
+use \Exception;
+
 class DaoImpl implements \dao\Dao {
 
 	private $keys = null;
@@ -20,11 +22,26 @@ class DaoImpl implements \dao\Dao {
 	}
 
 	public function analysis($transaction) {
-		throw new \Exception('Please Override!');
+		throw new Exception('Please Override!');
 	}
 
 	protected function createWhereClause($columns, $orMode = false) {
-		throw new \Exception('Please Override!');
+		throw new Exception('Please Override!');
+	}
+
+	protected function createWhereClauseByKey() {
+		$keys = $this->getKeys();
+		if (empty($keys)) {
+			throw new Exception('Please Override!');
+		}
+
+		$result = '';
+		foreach ($keys as $key) {
+			$tmp = sprintf('%s = :%s', $key, $key);
+			$result = sprintf('%s AND %s', $result, $tmp);
+		}
+		$result = preg_replace("/^\s*AND\s+/", 'WHERE ', $result);
+		return $result;
 	}
 
 	public function getKeys() {
@@ -42,8 +59,17 @@ class DaoImpl implements \dao\Dao {
 	public function loadByKey($transaction, &$dto) {
 		$this->analysis($transaction);
 
-		$where = $this->createWhereClause($this->keys, $dto);
-		$sql = sprintf('SELECT * FROM %s %s', $this->name, $where);
+		$w = $this->createWhereClauseByKey();
+		$n = $this->getName();
+		$sql = sprintf('SELECT * FROM %s %s', $n, $w);
+		$tmp = array();
+		foreach ($this->getKeys() as $key) {
+			if (!array_key_exists($key, $dto)) {
+				throw new Exception('Not Found.', 404);
+			}
+			$val = $dto[$key];
+			$tmp[$key] = $val;
+		}
 		$it = $transaction->fetch($sql, $dto);
 		if ($it->valid()) {
 			$row = $it->current();
@@ -53,18 +79,20 @@ class DaoImpl implements \dao\Dao {
 					$row = $it->current();
 					$it->next();
 				}
-				throw new \Exception('Logical', 500);
+				throw new Exception('Logical', 500);
 			}
 			$dto = array_merge($dto, $row);
 		} else {
-			throw new \Exception('Not Found.', 404);			
+			throw new Exception('Not Found.', 404);			
 		}
 	}
 
 	public function read($transaction, $dto) {
 		$this->analysis($transaction);
-		$where = $this->createWhereClause($this->keys, $dto);
-		$sql = sprintf('SELECT * FROM %s %s', $this->name, $where);
+		$c = array_merge($this->getKeys(), $this->getVals());
+		$w = $this->createWhereClause($c, $dto);
+		$n = $this->getName();
+		$sql = sprintf('SELECT * FROM %s %s', $n, $w);
 		return $transaction->fetch($sql, $dto);
 	}
 

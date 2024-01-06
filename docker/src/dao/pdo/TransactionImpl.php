@@ -3,6 +3,7 @@ namespace dao\pdo;
 
 require_once('dao/Transaction.php');
 
+use Exception;
 use PDO;
 use PDOException;
 
@@ -42,38 +43,51 @@ class TransactionImpl implements \dao\Transaction {
 	}
 
 	protected function createPDO($auto) {
-		throw new \Exception('Please Override!');
+		throw new Exception('Please Override!');
 	}
 
 	protected function createPDOStatement($sql, $placeHolders) {
 		$st = $this->pdo->prepare($sql);
-		if (!empty($placeHolders)) {
-			foreach($placeHolders as $key => $val) {
-				if (gettype($val) === 'object') {
-					continue;
-				}
+		if (empty($placeHolders)) {
+			return $st;
+		}
 
-				if (is_null($val)) {
-//					$st->bindValue(":$key", $val, PDO::PARAM_NULL);
-				} else {
-//					$st->bindValue(":$key", $val);
-				}
+		// 単語単位で配列を作成
+		$pattern = ",+()";
+		$pattern = preg_quote($pattern);
+		$pattern = sprintf('/[\s%s]+/', $pattern);
+		$pieces = preg_split($pattern, $sql);
+		$pieces = array_unique($pieces);
+
+		// placeHoldersの全件を繰り返す
+		foreach($placeHolders as $key => $val) {
+
+			// 単語単位の配列に含まれていないか判定
+			$tmp = sprintf(':%s', $key);
+			if (in_array($tmp, $pieces) !== true) {
+				continue;
+			}
+
+			if (is_null($val)) {
+				$st->bindValue($key, $val, PDO::PARAM_NULL);
+			} else {
+				$st->bindValue($key, $val);
 			}
 		}
 		return $st;
 	}
 
 	public function exec($value, $placeHolders = null) {
-		throw new \Exception('Please Override!');
+		throw new Exception('Please Override!');
 	}
 
 	public function fetch($value, $placeHolders = array()) {
 		$rows = null;
 		try {
 			$st = $this->createPDOStatement($value, $placeHolders);
-			$st->execute($placeHolders);
+			$st->execute();
 			return $st->getIterator();
-		} catch (\Exception $e) {
+		} catch (Exception $e) {
 			throw $e;
 		}
 		return $rows;

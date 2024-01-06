@@ -3,6 +3,8 @@ namespace dao\mysql;
 
 require_once('dao/pdo/DaoImpl.php');
 
+use \Exception;
+
 class DaoImpl extends \dao\pdo\DaoImpl implements \dao\Dao {
 
 	public function __construct($name) {
@@ -15,7 +17,7 @@ class DaoImpl extends \dao\pdo\DaoImpl implements \dao\Dao {
 		}
 
 		if (is_null($transaction)) {
-			throw new \Exception('is null', 500);
+			throw new Exception('is null', 500);
 		}
 
 		$keys = array();
