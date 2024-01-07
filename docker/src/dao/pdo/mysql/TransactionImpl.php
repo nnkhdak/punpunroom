@@ -1,7 +1,6 @@
 <?php
 namespace dao\pdo\mysql;
 
-$root = '..';
 require_once('dao/Transaction.php');
 require_once('dao/pdo/TransactionImpl.php');
 
