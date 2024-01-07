@@ -17,4 +17,8 @@ class PersonDao implements Dao {
 		$it = $obj->getIterator();
 		return $it;
 	}
+
+	public function save($transaction, $dto) {
+		throw new \Exception('Unsupported.', 500);		
+	}
 }

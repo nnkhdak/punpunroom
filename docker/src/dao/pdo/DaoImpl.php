@@ -25,7 +25,11 @@ class DaoImpl implements \dao\Dao {
 		throw new Exception('Please Override!');
 	}
 
-	protected function createWhereClause($columns, $orMode = false) {
+	protected function createSaveClause() {
+		throw new Exception('Please Override!');
+	}
+
+	protected function createWhereClause() {
 		throw new Exception('Please Override!');
 	}
 
@@ -94,6 +98,9 @@ class DaoImpl implements \dao\Dao {
 		$n = $this->getName();
 		$sql = sprintf('SELECT * FROM %s %s', $n, $w);
 		return $transaction->fetch($sql, $dto);
+	}
+	
+	public function save($transaction, $dto) {
 	}
 
 	public function setKeys($keys) {
