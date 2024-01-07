@@ -36,10 +36,16 @@ class DaoFactory {
 		if ($keyword === 'person') {
 			return new \dao\PersonDao();
 		}
-		return new \dao\mysql\DaoImpl($keyword);
+		return new \dao\pdo\mysql\DaoImpl($keyword);
 	}
 
 	public static function newTransaction($auto = false) {
-		return new \dao\mysql\TransactionImpl($auto);
+		return new \dao\pdo\mysql\TransactionImpl($auto);
+	}
+
+	private static function require_once($fqcn) {
+		$path = sprintf('%s.php', $fqcn);
+		$path = str_replace('\\', '/', $path);
+		require_once($path);
 	}
 }
