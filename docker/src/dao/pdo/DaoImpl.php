@@ -14,7 +14,7 @@ class DaoImpl implements \dao\Dao {
 	}
 
 	public function __toString() {
-		$c = __CLASS__;
+		$c = get_class($this);
 		$n = $this->getName();
 		$k = empty($this->keys) ? '' : json_encode($this->keys);
 		$v = empty($this->vals) ? '' : json_encode($this->vals);

@@ -1,1 +1,5 @@
-{"person":"dao\\PersonDao"}
+{
+    "person": "dao\\PersonDao",
+    "dao\\Transaction": "dao\\pdo\\mysql\\TransactionImpl",
+    "dao\\Dao": "dao\\pdo\\mysql\\DaoImpl"
+}
