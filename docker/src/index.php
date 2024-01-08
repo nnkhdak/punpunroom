@@ -14,12 +14,21 @@ try {
 	$actual = array($dto);
 	assertHelper($expected, $actual);
 
+	$expected1 = '{"id":1,"name":"aaa"}';
+	$expected2 = '{"id":2,"name":"bbb"}';
+	$expected3 = '{"id":3,"name":"ccc"}';
+	$expected9 = '{"id":9,"name":"aaa"}';
+/*
+	$dto = array();										// DTO(DataTransferObject)を生成する
+	$actual = $dao->read($transaction, $dto);			// DTOを用いて検索する
+	$expected = array($expected1, $expected2, $expected3, $expected9);
+	assertHelper($expected, $actual);
+*/
+
 	$dto = array('id' => null, 'name' => 'aaa');		// DTO(DataTransferObject)を生成する
 	$dto = array_merge($dto, array('age' => 'hehe'));	// 不要項目を追加する
 	$actual = $dao->read($transaction, $dto);			// DTOを用いて検索する
-	$expected1 = '{"id":1,"name":"aaa"}';
-	$expected2 = '{"id":9,"name":"aaa"}';
-	$expected = array($expected1, $expected2);
+	$expected = array($expected1, $expected9);
 	assertHelper($expected, $actual);
 
 	$dao = DaoFactory::newInstance('double_key');		// DAO(DataAccessObject)を生成する

@@ -48,32 +48,41 @@ class TransactionImpl implements \dao\Transaction {
 
 	protected function createPDOStatement($sql, $placeHolders) {
 		$st = $this->pdo->prepare($sql);
-		if (empty($placeHolders)) {
-			return $st;
-		}
 
 		// 単語単位で配列を作成
-		$pattern = ",+()";
+		$pattern = ",+()=";
 		$pattern = preg_quote($pattern);
 		$pattern = sprintf('/[\s%s]+/', $pattern);
 		$pieces = preg_split($pattern, $sql);
 		$pieces = array_unique($pieces);
 
-		// placeHoldersの全件を繰り返す
-		foreach($placeHolders as $key => $val) {
-
-			// 単語単位の配列に含まれていないか判定
-			$tmp = sprintf(':%s', $key);
-			if (in_array($tmp, $pieces) !== true) {
+		// SQL中のplaceHoldersの全件を繰り返す
+		foreach($pieces as $piece) {
+			if (!preg_match('/^:[_\-\w]+$/', $piece)) {
 				continue;
 			}
+			$st->bindValue($piece, null, PDO::PARAM_NULL);
+		}
 
-			if (is_null($val)) {
-				$st->bindValue($key, $val, PDO::PARAM_NULL);
-			} else {
-				$st->bindValue($key, $val);
+		if (!empty($placeHolders)) {
+
+			// DTO中のplaceHoldersの全件を繰り返す
+			foreach($placeHolders as $key => $val) {
+
+				// 単語単位の配列に含まれていないか判定
+				$tmp = sprintf(':%s', $key);
+				if (in_array($tmp, $pieces) !== true) {
+					continue;
+				}
+
+				if (is_null($val)) {
+					$st->bindValue($key, $val, PDO::PARAM_NULL);
+				} else {
+					$st->bindValue($key, $val);
+				}
 			}
 		}
+
 		return $st;
 	}
 

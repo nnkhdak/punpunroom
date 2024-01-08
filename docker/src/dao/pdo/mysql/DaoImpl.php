@@ -43,14 +43,13 @@ class DaoImpl extends \dao\pdo\DaoImpl implements \dao\Dao {
 
 	protected function createWhereClause() {
 		$result = '';
-		if (!empty($this->getKeys())) {
-			foreach ($this->getKeys() as $key) {
-				$tmp = sprintf('%s = :%s', $key, $key);
-				$tmp = sprintf("(0 = LENGTH(IFNULL(:%s, '')) OR %s )", $key, $tmp);
-				$result = sprintf('%s AND %s', $result, $tmp);
-			}
-			$result = preg_replace("/^\s*AND\s+/", 'WHERE ', $result);
+		$all = array_merge($this->getKeys(), $this->getVals());
+		foreach ($all as $key) {
+			$tmp = sprintf('%s = :%s', $key, $key);
+			$tmp = sprintf("(0 = LENGTH(IFNULL(:%s, '')) OR %s )", $key, $tmp);
+			$result = sprintf('%s AND %s', $result, $tmp);
 		}
+		$result = preg_replace("/^\s*AND\s+/", 'WHERE ', $result);
 		return $result;
 	}
 }
