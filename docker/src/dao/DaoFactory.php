@@ -30,10 +30,6 @@ class DaoFactory {
 			}
 		}
 
-		if ($keyword === 'person') {
-			return new \dao\PersonDao();
-		}
-
 		$fqcn = $map["dao\Dao"];
 		self::require_once($fqcn);
 		$impl = new $fqcn($keyword);
