@@ -93,8 +93,7 @@ class DaoImpl implements \dao\Dao {
 
 	public function read($transaction, $dto) {
 		$this->analysis($transaction);
-		$c = array_merge($this->getKeys(), $this->getVals());
-		$w = $this->createWhereClause($c, $dto);
+		$w = $this->createWhereClause();
 		$n = $this->getName();
 		$sql = sprintf('SELECT * FROM %s %s', $n, $w);
 		return $transaction->fetch($sql, $dto);
