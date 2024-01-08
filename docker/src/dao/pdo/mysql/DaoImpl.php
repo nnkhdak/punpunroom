@@ -38,7 +38,14 @@ class DaoImpl extends \dao\pdo\DaoImpl implements \dao\Dao {
 	}
 
 	protected function createSaveClause() {
-		throw new Exception('Please Override!');
+		$result = '';
+		$all = array_merge($this->getKeys(), $this->getVals());
+		foreach ($all as $key) {
+			$result = sprintf('%s , %s = :%s', $result, $key, $key);
+		}
+		$result = preg_replace("/^\s*,\s+/", '', $result);
+		$result = sprintf('INSERT %s SET %s ON DUPLICATE KEY UPDATE %s', $this->getName(), $result, $result);
+		return $result;
 	}
 
 	protected function createWhereClause() {

@@ -87,7 +87,15 @@ class TransactionImpl implements \dao\Transaction {
 	}
 
 	public function exec($value, $placeHolders = null) {
-		throw new Exception('Please Override!');
+		try {
+			$st = $this->createPDOStatement($value, $placeHolders);
+			if (!$st->execute()) {
+				return -1;
+			}
+			return $st->rowCount();
+		} catch (Exception $e) {
+			throw $e;
+		}
 	}
 
 	public function fetch($value, $placeHolders = array()) {

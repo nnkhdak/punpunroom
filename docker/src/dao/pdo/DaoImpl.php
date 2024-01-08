@@ -59,6 +59,23 @@ class DaoImpl implements \dao\Dao {
 		return $result;
 	}
 
+	public function delete($transaction, $dto) {
+		$this->analysis($transaction);
+
+		$w = $this->createWhereClauseByKey();
+		$n = $this->getName();
+		$sql = sprintf('DELETE FROM %s %s', $n, $w);
+		$tmp = array();
+		foreach ($this->getKeys() as $key) {
+			if (!array_key_exists($key, $dto)) {
+				throw new Exception('Not Found.', 404);
+			}
+			$val = $dto[$key];
+			$tmp[$key] = $val;
+		}
+		$transaction->exec($sql, $dto);
+	}
+
 	public function getKeys() {
 		return is_null($this->keys) ? null : array_merge($this->keys);
 	}
@@ -112,6 +129,9 @@ class DaoImpl implements \dao\Dao {
 	}
 	
 	public function save($transaction, $dto) {
+		$this->analysis($transaction);
+		$sql = $this->createSaveClause();
+		return $transaction->exec($sql, $dto);
 	}
 
 	public function setKeys($keys) {

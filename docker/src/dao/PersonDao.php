@@ -2,8 +2,13 @@
 namespace dao;
 
 use \ArrayObject;
+use \Exception;
 
 class PersonDao implements Dao {
+
+	public function delete($transaction, $dto) {		
+		throw new Exception('Unsupported.', 500);		
+	}
 
 	public function loadByKey($transaction, &$dto) {
 		$dto['name'] = 'bbb';
@@ -24,6 +29,6 @@ class PersonDao implements Dao {
 	}
 
 	public function save($transaction, $dto) {
-		throw new \Exception('Unsupported.', 500);		
+		throw new Exception('Unsupported.', 500);		
 	}
 }

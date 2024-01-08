@@ -8,6 +8,8 @@ try {
 	$transaction = DaoFactory::newTransaction();				// トランザクションを生成する
 
 	if (true) {
+		$sql = 'DELETE FROM person WHERE id = 999';
+		$transaction->exec($sql);
 
 		// loadByKeyのassert
 		require_once('dao/PersonDao.php');
@@ -46,6 +48,26 @@ try {
 		assertHelper($expected, $actual);
 
 		// saveのassert
+		$dto = array('id' => 999, 'name' => 'zzz');				// DTO(DataTransferObject)を生成する
+		$dao->save($transaction, $dto);							// DTOを用いて保存する
+		$expected = array('{"id":999,"name":"zzz"}');
+		$actual = array($dto);
+		assertHelper($expected, $actual);
+		$dto = array('id' => 999, 'name' => '@@@');				// DTO(DataTransferObject)を生成する
+		$dao->save($transaction, $dto);							// DTOを用いて保存する
+		$dto = array('id' => 999);								// DTO(DataTransferObject)を生成する
+		$dao->loadByKey($transaction, $dto);					// 主キーを用いてDTOにデータを読み込む
+		$expected = array('{"id":999,"name":"@@@"}');
+		$actual = array($dto);
+		assertHelper($expected, $actual);
+
+		// deleteのassert
+		$dto = array('id' => 999, 'name' => '@@@');				// DTO(DataTransferObject)を生成する
+		$dto = array_merge($dto, array('age' => 'hehe'));		// 不要項目を追加する
+		$dao->delete($transaction, $dto);						// DTOを用いて保存する
+		$dto = array(); 										// DTO(DataTransferObject)を生成する
+		$actual = $dao->read($transaction, $dto);				// DTOを用いて検索する
+		$expected = array($expected9, $expected3, $expected2, $expected1);
 	}
 
 	if (true) {
