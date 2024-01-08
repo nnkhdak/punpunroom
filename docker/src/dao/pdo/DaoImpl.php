@@ -25,6 +25,17 @@ class DaoImpl implements \dao\Dao {
 		throw new Exception('Please Override!');
 	}
 
+	protected function createOrderByClause() {
+		$keys = $this->getKeys();
+		$result = '';
+		foreach ($keys as $key) {
+			$tmp = sprintf('%s DESC', $key, $key);
+			$result = sprintf('%s , %s', $result, $tmp);
+		}
+		$result = preg_replace("/^\s*,\s+/", 'ORDER BY ', $result);
+		return $result;
+	}
+
 	protected function createSaveClause() {
 		throw new Exception('Please Override!');
 	}
@@ -95,7 +106,8 @@ class DaoImpl implements \dao\Dao {
 		$this->analysis($transaction);
 		$w = $this->createWhereClause();
 		$n = $this->getName();
-		$sql = sprintf('SELECT * FROM %s %s', $n, $w);
+		$o = $this->createOrderByClause();
+		$sql = sprintf('SELECT * FROM %s %s %s', $n, $w, $o);
 		return $transaction->fetch($sql, $dto);
 	}
 	

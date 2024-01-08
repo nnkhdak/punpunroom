@@ -6,6 +6,8 @@ use dao\Dao;
 $transaction = null;
 try {
 	$transaction = DaoFactory::newTransaction();		// トランザクションを生成する
+
+	// loadByKeyのassert
 	$dao = DaoFactory::newInstance('person');			// DAO(DataAccessObject)を生成する
 	$dto = array('id' => 2);							// DTO(DataTransferObject)を生成する
 	$dto = array_merge($dto, array('age' => 'hehe'));	// 不要項目を追加する
@@ -14,23 +16,24 @@ try {
 	$actual = array($dto);
 	assertHelper($expected, $actual);
 
+	// readのassert
 	$expected1 = '{"id":1,"name":"aaa"}';
 	$expected2 = '{"id":2,"name":"bbb"}';
 	$expected3 = '{"id":3,"name":"ccc"}';
 	$expected9 = '{"id":9,"name":"aaa"}';
-/*
 	$dto = array();										// DTO(DataTransferObject)を生成する
 	$actual = $dao->read($transaction, $dto);			// DTOを用いて検索する
-	$expected = array($expected1, $expected2, $expected3, $expected9);
+	$expected = array($expected9, $expected3, $expected2, $expected1);
 	assertHelper($expected, $actual);
-*/
 
+	// read(絞り込みあり)のassert
 	$dto = array('id' => null, 'name' => 'aaa');		// DTO(DataTransferObject)を生成する
 	$dto = array_merge($dto, array('age' => 'hehe'));	// 不要項目を追加する
 	$actual = $dao->read($transaction, $dto);			// DTOを用いて検索する
-	$expected = array($expected1, $expected9);
+	$expected = array($expected9, $expected1);
 	assertHelper($expected, $actual);
 
+	// loadByKeyのassert
 	$dao = DaoFactory::newInstance('double_key');		// DAO(DataAccessObject)を生成する
 	$dto = array('key1' => 'aaa', 'key2' => 1);			// DTO(DataTransferObject)を生成する
 	$dto = array_merge($dto, array('age' => 'hehe'));	// 不要項目を追加する
@@ -39,12 +42,21 @@ try {
 	$actual = array($dto);
 	assertHelper($expected, $actual);
 
+	// readのassert
+	$expected1 = '{"key1":"aaa","key2":1,"val1":"@aaa@","val2":111}';
+	$expected2 = '{"key1":"aaa","key2":2,"val1":"*aaa*","val2":222}';
+	$expected3 = '{"key1":"bbb","key2":1,"val1":"@bbb@","val2":222}';
+	$expected4 = '{"key1":"bbb","key2":2,"val1":"*bbb*","val2":333}';
+	$dto = array();										// DTO(DataTransferObject)を生成する
+	$actual = $dao->read($transaction, $dto);			// DTOを用いて検索する
+	$expected = array($expected4, $expected3, $expected2, $expected1);
+	assertHelper($expected, $actual);
+
+	// read(絞り込みあり)のassert
 	$dto = array('key1' => 'aaa', 'key2' => null);		// DTO(DataTransferObject)を生成する
 	$dto = array_merge($dto, array('age' => 'hehe'));	// 不要項目を追加する
 	$actual = $dao->read($transaction, $dto);			// DTOを用いて検索する
-	$expected1 = '{"key1":"aaa","key2":1,"val1":"@aaa@","val2":111}';
-	$expected2 = '{"key1":"aaa","key2":2,"val1":"*aaa*","val2":222}';
-	$expected = array($expected1, $expected2);
+	$expected = array($expected2, $expected1);
 	assertHelper($expected, $actual);
 
 	$transaction->commit();							// 正常終了したのでcommitする
