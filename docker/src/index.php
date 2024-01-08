@@ -2,7 +2,6 @@
 require_once('vendor/autoload.php');
 
 use dao\DaoFactory;
-use dao\Dao;
 
 $transaction = null;
 try {
@@ -11,7 +10,16 @@ try {
 	if (true) {
 
 		// loadByKeyのassert
-		$dao = DaoFactory::newInstance('person');				// DAO(DataAccessObject)を生成する
+		require_once('dao/PersonDao.php');
+		$dao = new \dao\PersonDao();							// DAO(DataAccessObject)を生成する
+		$dto = array('id' => 2);								// DTO(DataTransferObject)を生成する
+		$dto = array_merge($dto, array('age' => 'hehe'));		// 不要項目を追加する
+		$dao->loadByKey($transaction, $dto);					// 主キーを用いてDTOにデータを読み込む
+		$expected = array('{"id":2,"age":"hehe","name":"bbb"}');
+		$actual = array($dto);
+		assertHelper($expected, $actual);
+
+		// loadByKeyのassert
 		$dao = DaoFactory::newInstance('person');				// DAO(DataAccessObject)を生成する
 		$dto = array('id' => 2);								// DTO(DataTransferObject)を生成する
 		$dto = array_merge($dto, array('age' => 'hehe'));		// 不要項目を追加する
@@ -38,7 +46,6 @@ try {
 		assertHelper($expected, $actual);
 
 		// saveのassert
-		$dao = DaoFactory::newInstance('person');				// DAO(DataAccessObject)を生成する
 	}
 
 	if (true) {
