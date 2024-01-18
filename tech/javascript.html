@@ -105,7 +105,10 @@ const hash = Object.fromEntries(formData);</code>
 
 			<details open>
 				<summary>sleepをワンライナー</summary>
-				<code>const sleep = waitTime => new Promise(resolve => setTimeout(resolve, waitTime));</code>
+				<code>const sleep = waitTime => new Promise(resolve => setTimeout(resolve, waitTime));
+sleep(3000).then(() => {
+	console.log('hogehoge');
+});</code>
 			</details>
 
 			<details open>
