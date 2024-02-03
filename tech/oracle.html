@@ -189,6 +189,14 @@ FROM (
 				</li>
 				<li>
 					<details open>
+						<summary>シーケンスを進める</summary>
+						<code>ALTER SEQUENCE <i>シーケンス名</i> INCREMENT BY 1000 NOCACHE; // 指定したシーケンスで次といわれたら1000ずれる設定</code>
+						<code>SELECT <i>シーケンス名</i>.NEXTVAL FROM dual; // ずらす</code>
+						<code>ALTER SEQUENCE <i>シーケンス名</i> INCREMENT BY 1 CACHE 20; // 指定したシーケンスで次といわれたら1ずれる設定 cacheは不明</code>
+					</details>
+				</li>
+				<li>
+					<details open>
 						<summary>シノニムを表示</summary>
 						<code>SELECT * FROM all_synonyms;</code>
 						<code>SELECT * FROM user_synonyms;</code>
