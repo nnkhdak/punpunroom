@@ -7,17 +7,108 @@
     "id": "4e908145-dd33-46a9-8ecd-49f60d6ca5c7",
     "name": "個人_延長_クレジット",
     "commands": [{
-      "id": "d9dae9de-c83d-403b-b34e-6aa1cac046a2",
-      "comment": "個人ログイン",
+      "id": "f254ed9d-f6ca-4b39-9896-7f5e5344fcca",
+      "comment": "初期化",
       "command": "run",
-      "target": "_login",
+      "target": "_init",
       "targets": [],
       "value": ""
     }, {
-      "id": "01c272e3-40f9-4b8b-8cb0-4df061a05511",
-      "comment": "「個人でログインしクレジットで延長」を実施",
+      "id": "3da91e77-3381-431f-8d59-e0f002bb5385",
+      "comment": "「ログイン認証」を行う",
       "command": "run",
-      "target": "_individual_extend_credit",
+      "target": "_login_auth",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "505cb56e-018e-4a8b-af65-084dcf03df1c",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5bff6f7a-2dd4-4e62-8b8b-a1a514265fe8",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "fd6dea51-23a8-4818-9c44-9ec60006ef16",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e4e8e8ec-d859-4da6-85e6-b2de9f697a3a",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fbb3c4b2-d9bc-4d26-8c2a-6f8f36cd2eb5",
+      "comment": "「クレジット」で個人延長",
+      "command": "run",
+      "target": "___buy_extend_individual_credit",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ae2c5e1c-4714-454f-8bfa-6bfe880be7c8",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cf25df6b-799e-480c-bb15-68d4aecd8d6a",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版  申込完了",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "375e2a31-8bd7-44e9-9f59-09608cfef4a8",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f47d3d51-4095-464d-bab4-dbeae25f3eb9",
+      "comment": "「次へ」クリック",
+      "command": "click",
+      "target": "id=nextBtn",
+      "targets": [
+        ["id=nextBtn", "id"],
+        ["css=#nextBtn", "css:finder"],
+        ["xpath=//button[@id='nextBtn']", "xpath:attributes"],
+        ["xpath=//div[@id='__layout']/div/main/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'次へ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b177819b-f573-4e9a-a3a6-9a72f8f453b4",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e0da323b-c604-492e-8b61-08abd2805167",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "75604176-c19e-4687-af24-38724bd939a4",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
       "targets": [],
       "value": ""
     }]
@@ -265,7 +356,7 @@
       "id": "249b229d-ae08-4f08-a387-af3a4c8c73dd",
       "comment": "クレジットで個人購入(商品選択からGMOを経由し戻ってくるまで)",
       "command": "run",
-      "target": "_buy_apply_individual_credit",
+      "target": "___buy_apply_individual_credit",
       "targets": [],
       "value": ""
     }, {
@@ -5543,17 +5634,108 @@
     "id": "2287cb47-2166-48e3-8dad-d3630cb6a560",
     "name": "個人_延長_コンビニ",
     "commands": [{
-      "id": "baf053e2-ff35-4eb2-b964-0fa9aa996fe6",
-      "comment": "個人ログイン",
+      "id": "8f172e5b-48db-49f4-b04f-ae3321fd621a",
+      "comment": "初期化",
       "command": "run",
-      "target": "_login",
+      "target": "_init",
       "targets": [],
       "value": ""
     }, {
-      "id": "588e37ab-e96e-4170-8377-12f65d28bd98",
-      "comment": "「個人ログイン後からコンビニで延長」を実施",
+      "id": "80fb629d-b665-4f2a-96e9-8bdcd4f01a16",
+      "comment": "「ログイン認証」を行う",
       "command": "run",
-      "target": "_individual_extend_convenience",
+      "target": "_login_auth",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ffe0a51b-e5e0-42ed-8f30-ac8f653a352e",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0015b0a0-bf50-4a54-84dd-8185d8e67bcb",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "edeca2fc-38bd-4107-a7cc-c7dcafbe6729",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1a74836c-b389-4a3d-8be6-7a86454e96fe",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "13a7ae6e-6b43-46b9-a383-a978e618cbcd",
+      "comment": "「コンビニ」で個人延長",
+      "command": "run",
+      "target": "___buy_extend_individual_convenience",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dd054d6c-d521-42e9-9114-916a420a1f69",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a744abcb-a851-4591-8b7c-861e39dc3d59",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版  申込完了",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "11cf9802-410f-4c37-948f-2a73b627247c",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3062b7ef-7875-4049-a394-5910e453de06",
+      "comment": "「次へ」クリック",
+      "command": "click",
+      "target": "id=nextBtn",
+      "targets": [
+        ["id=nextBtn", "id"],
+        ["css=#nextBtn", "css:finder"],
+        ["xpath=//button[@id='nextBtn']", "xpath:attributes"],
+        ["xpath=//div[@id='__layout']/div/main/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'次へ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "73dba05a-b215-460f-b141-89fa96a831bf",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "95ccb6d2-6db3-4843-a797-3635f63fc6a6",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "d813afd6-455b-412f-9d8c-0ffd561f15b1",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
       "targets": [],
       "value": ""
     }]
@@ -17302,7 +17484,7 @@
       "command": "waitForElementNotPresent",
       "target": "css=.menu-bg",
       "targets": [],
-      "value": "10000"
+      "value": "3000"
     }, {
       "id": "b09d6463-6471-44f0-a80f-b6b4c3bcfd35",
       "comment": "",
@@ -22291,7 +22473,7 @@
       "id": "5a10cca0-3959-4f0f-9200-cfb8e628f1da",
       "comment": "「クレジット」で個人購入",
       "command": "run",
-      "target": "_buy_apply_individual_credit",
+      "target": "___buy_apply_individual_credit",
       "targets": [],
       "value": ""
     }, {
@@ -22417,7 +22599,7 @@
     }]
   }, {
     "id": "10ffe440-5ced-440b-b923-395b3dccfb77",
-    "name": "_buy_apply_individual_credit",
+    "name": "___buy_apply_individual_credit",
     "commands": [{
       "id": "80aa7a8d-7f34-49b3-8952-da977136f7f6",
       "comment": "",
@@ -24054,7 +24236,7 @@
       "id": "1e914384-fa01-41d5-b511-2f7e7b98b222",
       "comment": "「クレジット」で個人購入",
       "command": "run",
-      "target": "_buy_apply_individual_credit",
+      "target": "___buy_apply_individual_credit",
       "targets": [],
       "value": ""
     }]
@@ -25058,6 +25240,424 @@
       "comment": "「パスワード」に特化した精査",
       "command": "run",
       "target": "_validate_password",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "d8ec317d-55ba-4945-81ad-31527dbce306",
+    "name": "___buy_extend_individual_credit",
+    "commands": [{
+      "id": "53866161-5720-4f3f-8c52-c9a32529d71c",
+      "comment": "",
+      "command": "echo",
+      "target": "クレジットで個人延長(商品選択からGMOを経由し戻ってくるまで)function",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7000bfbb-3278-4594-8415-ab98b8d5c2f4",
+      "comment": "「支払い方法」を設定",
+      "command": "store",
+      "target": "credit",
+      "targets": [],
+      "value": "param1"
+    }, {
+      "id": "cf116800-ef0f-4929-b690-2c71bced4b7e",
+      "comment": "「画面で選択する延長する商品のロケータ」を設定",
+      "command": "store",
+      "target": "css=.select-purchase-item:nth-child(1) .button--dark",
+      "targets": [],
+      "value": "param2"
+    }, {
+      "id": "bd451217-4761-4987-8161-6784c19363dc",
+      "comment": "「画面で選択する延長する期間のロケータ」を設定",
+      "command": "store",
+      "target": "css=.m-productSelect_item:nth-child(1) .a-radioButton_label",
+      "targets": [],
+      "value": "param3"
+    }, {
+      "id": "c8d61ef8-02d1-412e-a608-cfad3ccf2c14",
+      "comment": "「個人延長するfunction」を呼び出す",
+      "command": "run",
+      "target": "___buy_extend_individual",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "740be845-013b-429e-8deb-41186828f03f",
+    "name": "___buy_extend_individual",
+    "commands": [{
+      "id": "11606acc-3f62-40d9-9914-9cb8c658513d",
+      "comment": "",
+      "command": "echo",
+      "target": "個人延長(商品選択からGMOを経由し戻ってくるまで)function",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b8ef2092-c348-4b0d-ab45-5c5df5a64651",
+      "comment": "",
+      "command": "echo",
+      "target": "param1 「${param1}」 支払い方法",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "147dfcc2-ed82-47f4-bb60-ce31b623f62b",
+      "comment": "",
+      "command": "echo",
+      "target": "param2 「${param2}」 画面で選択する延長する商品のロケータ",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "62cc7163-1ba5-42b5-b5c1-5173d53838d7",
+      "comment": "",
+      "command": "echo",
+      "target": "param3 「${param3}」 画面で選択する延長する期間のロケータ",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "10e58729-d2b2-4ce0-80b7-4fd8ea7146c3",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5a382c2e-0738-49be-aa15-9affe2b8886c",
+      "comment": "「利用教材切替」画面を開く",
+      "command": "run",
+      "target": "_open_purchases",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8d5f676b-2c55-4f65-b255-d7bf7113fc7b",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e10790ef-f4f7-436f-b8c5-bffda0f5fbe1",
+      "comment": "",
+      "command": "store",
+      "target": "${param1}",
+      "targets": [],
+      "value": "buy_extend_individual_param1"
+    }, {
+      "id": "f77f335a-af02-42ea-ba6f-1c1706395bc6",
+      "comment": "",
+      "command": "store",
+      "target": "${param2}",
+      "targets": [],
+      "value": "buy_extend_individual_param2"
+    }, {
+      "id": "7b65f211-81f4-4276-8b3f-5b8ac2d6835b",
+      "comment": "",
+      "command": "store",
+      "target": "${param3}",
+      "targets": [],
+      "value": "buy_extend_individual_param3"
+    }, {
+      "id": "ac5eb712-22db-4b6b-89e8-b7017e659f68",
+      "comment": "「支払い方法」により分岐 if",
+      "command": "if",
+      "target": "'credit' === ${buy_extend_individual_param1}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3adc62d5-e4b2-45de-af70-38b10be6645f",
+      "comment": "　「画面でクリックする支払い方法」を設定",
+      "command": "store",
+      "target": "#creditBtn",
+      "targets": [],
+      "value": "buy_extend_payment_method_locator"
+    }, {
+      "id": "a7ab70f2-f423-4a3d-9b41-bba09e989d5e",
+      "comment": "　「画面に表示される支払い方法」を設定",
+      "command": "store",
+      "target": "クレジットカード",
+      "targets": [],
+      "value": "buy_extend_payment_method_label"
+    }, {
+      "id": "ef485db2-1b42-4b6c-bf70-aec488bf9885",
+      "comment": "「支払い方法」により分岐 else",
+      "command": "elseIf",
+      "target": "'convenience' === ${buy_extend_individual_param1}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "01352fe8-fddd-4820-bb92-0193a4c87a38",
+      "comment": "　「画面でクリックする支払い方法」を設定",
+      "command": "store",
+      "target": "#convenienceBtn",
+      "targets": [],
+      "value": "buy_extend_payment_method_locator"
+    }, {
+      "id": "c56bac4f-b75a-474e-b3e4-d954ae1f5328",
+      "comment": "　「画面に表示される支払い方法」を設定",
+      "command": "store",
+      "target": "コンビニエンス",
+      "targets": [],
+      "value": "buy_extend_payment_method_label"
+    }, {
+      "id": "eec4c4f2-e730-45de-ba94-8a5773f2cb9d",
+      "comment": "「支払い方法」により分岐 else",
+      "command": "else",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e1ed382b-7839-4cfb-9291-53bd8188c116",
+      "comment": "",
+      "command": "fail",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d7eb127e-4890-4d24-9f19-af141519b579",
+      "comment": "「支払い方法」により分岐 end",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b21d5fca-02e6-4cc1-8f9d-f17fa8d8c397",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "67ac45e7-b34c-4501-b409-f873fcfbfe83",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "dc1c3387-f978-47c7-8056-17463691d94e",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "333e1e77-1dc8-4e90-a654-9a62d1416f46",
+      "comment": "",
+      "command": "echo",
+      "target": "${buy_extend_individual_param2}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d9d515b1-801f-4518-9428-7831a8c440c5",
+      "comment": "延長したい商品の「有効期限延長」ボタンをクリック",
+      "command": "click",
+      "target": "${buy_extend_individual_param2}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ca1d6a5a-e572-47b6-88a1-4c73ca0ce9f7",
+      "comment": "「次へ」ボタンをクリック",
+      "command": "click",
+      "target": "id=nextBtn",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5047c3f1-7881-4461-9f18-ee1677ee0147",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cf849a28-5659-4679-8c1a-4f68cfbbd96c",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版  期間延長",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "af82305b-8565-458c-b910-70cd43ee34d0",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1369ada3-444c-4bee-863b-9cfde63f8027",
+      "comment": "",
+      "command": "echo",
+      "target": "${buy_extend_individual_param3}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d2190182-2c89-4217-9e39-a4512e255e77",
+      "comment": "「延長する期間」のボタンをクリック",
+      "command": "click",
+      "target": "${buy_extend_individual_param3}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d81690f6-ed56-4842-9e00-e1d82628425e",
+      "comment": "「次へ」ボタンをクリック",
+      "command": "click",
+      "target": "id=nextBtn",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "338b7e63-c0ad-4feb-95c1-9f8453bf8fc6",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0d9d2299-ba40-4b84-8a1b-8d645108d790",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版  支払方法",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "f626d41e-d0a7-4a79-84ab-ef22018b9fde",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bd0850d6-3293-47f7-b3e5-9647675db697",
+      "comment": "「お支払い」ボタンをクリック",
+      "command": "click",
+      "target": "css=${buy_extend_payment_method_locator}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0129a025-568e-4842-84d1-723e27801fde",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bf2d7099-c450-419b-b5cf-d33eae0235f4",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版  内容確認",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "48becdc5-9563-46d2-822c-90ad29d79bd6",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "37baf077-8d80-4a9f-9ce0-83f3761cf8a6",
+      "comment": "画面に表示されている「支払い方法」をassert",
+      "command": "assertText",
+      "target": "id=payment_method",
+      "targets": [],
+      "value": "${buy_extend_payment_method_label}"
+    }, {
+      "id": "1e39e552-b733-4d15-9559-ee6919d67f8a",
+      "comment": "「この内容で送信」ボタンをクリック",
+      "command": "run",
+      "target": "_gmo_togo",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6864da37-383d-4554-8ff0-9c83bc34f0c6",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "631ed990-7299-441a-b335-5f72791160cb",
+      "comment": "「支払い方法」により分岐 if",
+      "command": "if",
+      "target": "'credit' === ${buy_extend_individual_param1}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9e910e5c-d9a3-4d7f-a25f-d43aa1043b85",
+      "comment": "　　一般的なGMO決済代行(クレジット)を行う",
+      "command": "run",
+      "target": "_buy_gmo_default_credit",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f4dd9f1d-7a3c-49f8-8181-0133d222a7d3",
+      "comment": "「支払い方法」により分岐 else",
+      "command": "elseIf",
+      "target": "'convenience' === ${buy_extend_individual_param1}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5d816d80-97f4-4ca3-88d9-1556b0ded098",
+      "comment": "　　一般的なGMO決済代行(コンビニ)を行う",
+      "command": "run",
+      "target": "_buy_gmo_default_convenience",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4a14a68c-46f1-4c9c-9bb0-94bb80212c29",
+      "comment": "「支払い方法」により分岐 else",
+      "command": "else",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "be9bc265-a5e6-4746-9f95-464bd52f23a0",
+      "comment": "",
+      "command": "fail",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dd6e7211-9233-4a0e-92c5-679afe589d3d",
+      "comment": "「支払い方法」により分岐 end",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "da6709e1-4cec-47a2-a4dc-f402b503aa64",
+    "name": "___buy_extend_individual_convenience",
+    "commands": [{
+      "id": "5d78cd70-475c-4f9f-934e-43a45c675486",
+      "comment": "",
+      "command": "echo",
+      "target": "コンビニで個人延長(商品選択からGMOを経由し戻ってくるまで)function",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "21b2de36-c61a-4199-9f76-cdb64760bf9e",
+      "comment": "「支払い方法」を設定",
+      "command": "store",
+      "target": "convenience",
+      "targets": [],
+      "value": "param1"
+    }, {
+      "id": "bd54aeef-0476-445c-a81e-fc04f2a01c7d",
+      "comment": "「画面で選択する延長する商品のロケータ」を設定",
+      "command": "store",
+      "target": "css=.select-purchase-item:nth-child(1) .button--dark",
+      "targets": [],
+      "value": "param2"
+    }, {
+      "id": "29978c41-2266-4e41-af0d-221a65fe6785",
+      "comment": "「画面で選択する延長する期間のロケータ」を設定",
+      "command": "store",
+      "target": "css=.m-productSelect_item:nth-child(1) .a-radioButton_label",
+      "targets": [],
+      "value": "param3"
+    }, {
+      "id": "5562d10b-7bf9-4615-9d20-33cde14c0b7a",
+      "comment": "「個人延長するfunction」を呼び出す",
+      "command": "run",
+      "target": "___buy_extend_individual",
       "targets": [],
       "value": ""
     }]
