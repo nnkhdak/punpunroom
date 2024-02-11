@@ -342,7 +342,7 @@
       "id": "249b229d-ae08-4f08-a387-af3a4c8c73dd",
       "comment": "クレジットで個人購入(商品選択からGMOを経由し戻ってくるまで)",
       "command": "run",
-      "target": "___buy_apply_individual_credit",
+      "target": "_buy_apply_individual_credit",
       "targets": [],
       "value": ""
     }, {
@@ -1221,7 +1221,7 @@
       "id": "7affac42-3e33-490c-9ba0-c47f23a06c1f",
       "comment": "クレジットで追加商品購入(商品選択からGMOを経由し戻ってくるまで)",
       "command": "run",
-      "target": "___buy_append_credit",
+      "target": "_buy_append_credit",
       "targets": [],
       "value": ""
     }, {
@@ -1857,7 +1857,7 @@
       "id": "b007ee89-910c-4703-aa80-19a4e0907527",
       "comment": "「個人購入するfunction」を呼び出す",
       "command": "run",
-      "target": "___buy_apply_individual",
+      "target": "_buy_apply_individual",
       "targets": [],
       "value": ""
     }, {
@@ -6188,7 +6188,7 @@
       "id": "d63a32d8-b022-4a8f-929a-1b63685faf1e",
       "comment": "「個人購入するfunction」を呼び出す",
       "command": "run",
-      "target": "___buy_apply_individual",
+      "target": "_buy_apply_individual",
       "targets": [],
       "value": ""
     }, {
@@ -6290,7 +6290,7 @@
       "id": "6d0a0017-eb12-485c-876a-0146ec9d8f89",
       "comment": "コンビニで追加商品購入(商品選択からGMOを経由し戻ってくるまで)",
       "command": "run",
-      "target": "___buy_append_convenience",
+      "target": "_buy_append_convenience",
       "targets": [],
       "value": ""
     }, {
@@ -12709,14 +12709,14 @@
       "id": "70fc04b7-ad0c-4267-ab3e-789a16d5baef",
       "comment": "「英ナビ！」でログアウト",
       "command": "run",
-      "target": "_logout_einavi",
+      "target": "__新NG_logout_einavi",
       "targets": [],
       "value": ""
     }, {
       "id": "cc409532-d8b3-4c4f-9b76-7b0be9c99b84",
       "comment": "「情報変更」を実施",
       "command": "run",
-      "target": "_info_change",
+      "target": "__新NG_info_change",
       "targets": [],
       "value": ""
     }]
@@ -12755,7 +12755,7 @@
       "id": "4a86264f-ffbe-4e85-951d-ea825946ec9e",
       "comment": "「情報変更」を実施",
       "command": "run",
-      "target": "_info_change",
+      "target": "__新NG_info_change",
       "targets": [],
       "value": ""
     }]
@@ -12794,7 +12794,7 @@
       "id": "480f5d74-9384-4a74-bf37-38dd027200db",
       "comment": "「情報変更」を実施",
       "command": "run",
-      "target": "_info_change",
+      "target": "__新NG_info_change",
       "targets": [],
       "value": ""
     }]
@@ -12833,20 +12833,20 @@
       "id": "55b02c9c-f2d0-4a22-913c-6dceac42ba60",
       "comment": "「英ナビ！」でログアウト",
       "command": "run",
-      "target": "_logout_einavi",
+      "target": "__新NG_logout_einavi",
       "targets": [],
       "value": ""
     }, {
       "id": "43e1cecc-e21c-4ec0-b7f9-e7347b32a153",
       "comment": "「情報変更」を実施",
       "command": "run",
-      "target": "_info_change",
+      "target": "__新NG_info_change",
       "targets": [],
       "value": ""
     }]
   }, {
     "id": "2550258a-9172-493c-8e71-6f0819f7694c",
-    "name": "_info_change",
+    "name": "__新NG_info_change",
     "commands": [{
       "id": "3256b78e-73b3-475f-a36b-3c648c5ce1cc",
       "comment": "",
@@ -12886,7 +12886,7 @@
       "id": "2cf8ec88-0e28-484b-9714-46baddbf4b5c",
       "comment": "「英ナビ！」でログアウト",
       "command": "run",
-      "target": "_logout_einavi",
+      "target": "__新NG_logout_einavi",
       "targets": [],
       "value": ""
     }, {
@@ -13747,10 +13747,24 @@
       ],
       "value": ""
     }, {
-      "id": "5a5a864d-a7cb-4b69-b2c6-f93c7755b885",
-      "comment": "待ち(function固有)",
-      "command": "pause",
-      "target": "${wait_timer}",
+      "id": "fc067ce3-ea1f-4fa1-9c89-117ec578ae43",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4e2f4121-9612-44f6-a2b8-3f2aabb87a81",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版 登録情報の変更",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "aabf308c-115f-415b-b323-63e1dc7605b0",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
       "targets": [],
       "value": ""
     }, {
@@ -13767,13 +13781,6 @@
       "target": "keys",
       "targets": [],
       "value": "key"
-    }, {
-      "id": "5eeb5af5-cf5f-4b23-9820-20a05adfb60e",
-      "comment": "　　「エラーメッセージ」を算出",
-      "command": "executeScript",
-      "target": "return ${map}[${key}];",
-      "targets": [],
-      "value": "text"
     }, {
       "id": "dcf859d9-59f1-47ff-b999-622b908cb32e",
       "comment": "　　待ち(function固有)",
@@ -13815,24 +13822,38 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "365cc28b-dbf2-4e8c-a307-0c609ead86a5",
-      "comment": "　　待ち(function固有)",
-      "command": "pause",
-      "target": "${wait_timer}",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "1927b9c4-4b2f-4e25-b046-a61656073e06",
+      "id": "3e53cf7c-7e09-4197-9cc8-ac84c807e38d",
       "comment": "",
-      "command": "echo",
-      "target": "値「${key}」 エラーメッセージ「${text}」",
+      "command": "",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
       "id": "5ce5b128-dca2-4b36-af04-ce2b78cb9491",
       "comment": "",
-      "command": "assertTitle",
+      "command": "store",
       "target": "英検Jr. オンライン版 登録情報の変更",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "3643f997-b856-44d8-8300-3c5e70ca849a",
+      "comment": "　　titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5eeb5af5-cf5f-4b23-9820-20a05adfb60e",
+      "comment": "　　「エラーメッセージ」を算出",
+      "command": "executeScript",
+      "target": "return ${map}[${key}];",
+      "targets": [],
+      "value": "text"
+    }, {
+      "id": "1927b9c4-4b2f-4e25-b046-a61656073e06",
+      "comment": "",
+      "command": "echo",
+      "target": "値「${key}」 エラーメッセージ「${text}」",
       "targets": [],
       "value": ""
     }, {
@@ -13888,24 +13909,24 @@
       ],
       "value": ""
     }, {
-      "id": "b69dde5e-01b0-45e7-8581-3928d57e1af8",
-      "comment": "　　待ち(function固有)",
-      "command": "pause",
-      "target": "${wait_timer}",
+      "id": "981340be-94ec-45b1-89fd-7df35321cebd",
+      "comment": "",
+      "command": "",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
       "id": "12a69402-15f6-4040-b98b-b392a25f601e",
       "comment": "",
-      "command": "assertTitle",
+      "command": "store",
       "target": "英検Jr. オンライン版 登録情報の変更",
       "targets": [],
-      "value": ""
+      "value": "title"
     }, {
-      "id": "20d4924e-fa01-4ffc-a999-3ffa3db5412f",
-      "comment": "　　待ち(function固有)",
-      "command": "pause",
-      "target": "${wait_timer}",
+      "id": "55ff8344-14f0-4afe-98fc-1b2fb268bde9",
+      "comment": "　　titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
       "targets": [],
       "value": ""
     }, {
@@ -13982,10 +14003,10 @@
       ],
       "value": ""
     }, {
-      "id": "d8e74ecf-248e-4e54-8da8-64d6a61269bd",
-      "comment": "　　待ち(function固有)",
-      "command": "pause",
-      "target": "${wait_timer}",
+      "id": "1e32c46a-6068-448c-8606-595f5487cba1",
+      "comment": "",
+      "command": "",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
@@ -13998,8 +14019,22 @@
     }, {
       "id": "e7f70323-157a-4180-8d52-3e25af8dc28b",
       "comment": "",
-      "command": "assertTitle",
+      "command": "store",
       "target": "英検Jr. オンライン版 登録情報の変更 確認",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "75482fb6-50c8-40d0-a02b-cdb2421465d7",
+      "comment": "　　titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "898cfc3b-a575-4e95-8626-666adfd4e66e",
+      "comment": "",
+      "command": "",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
@@ -14017,17 +14052,24 @@
       ],
       "value": ""
     }, {
-      "id": "ff9cfa21-6b33-4488-9bed-8e53351f34ec",
-      "comment": "　　待ち(function固有)",
-      "command": "pause",
-      "target": "${wait_timer}",
+      "id": "59c39e9a-2072-423b-80db-3530099f5e73",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版 登録情報の変更 完了",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "9bb4d698-8525-4109-9d68-f23e5a6b793d",
+      "comment": "　　titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
       "targets": [],
       "value": ""
     }, {
-      "id": "59c39e9a-2072-423b-80db-3530099f5e73",
+      "id": "2ebd3e0f-2f9b-46ed-bf9c-cdf9ad900c15",
       "comment": "",
-      "command": "assertTitle",
-      "target": "英検Jr. オンライン版 登録情報の変更 完了",
+      "command": "",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
@@ -14044,10 +14086,17 @@
       ],
       "value": ""
     }, {
-      "id": "17363556-3c81-4866-8a79-5e5c6d52f5a7",
-      "comment": "　　待ち(function固有)",
-      "command": "pause",
-      "target": "${wait_timer}",
+      "id": "004b4f95-1f8c-4271-b99d-e2e314c3e4c2",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "7fc26c21-cc3a-4153-a732-2a1bce0dfdc4",
+      "comment": "　　titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
       "targets": [],
       "value": ""
     }, {
@@ -14096,17 +14145,24 @@
       ],
       "value": ""
     }, {
-      "id": "bd79229f-6348-463d-a3c2-e7830969788e",
-      "comment": "待ち",
-      "command": "pause",
-      "target": "500",
+      "id": "ee1f0c1d-650e-45eb-99f7-5f628d32d138",
+      "comment": "",
+      "command": "",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
       "id": "80995dec-0f83-4c8a-9404-24876e8c49bb",
       "comment": "",
-      "command": "assertTitle",
+      "command": "store",
       "target": "英検Jr. オンライン版 登録情報の変更",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "b0c34ba6-2325-470f-b26e-a2cec10dcb88",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
       "targets": [],
       "value": ""
     }, {
@@ -14122,13 +14178,6 @@
         ["xpath=//div[4]/input", "xpath:position"]
       ],
       "value": "${pw}"
-    }, {
-      "id": "91fd4840-970e-4613-a9da-49a7deae7b62",
-      "comment": "待ち(function固有)",
-      "command": "pause",
-      "target": "${wait_timer}",
-      "targets": [],
-      "value": ""
     }, {
       "id": "1cedfd35-c392-426a-9da6-89c08e3765cd",
       "comment": "「パスワード確認」をタイピング",
@@ -14157,10 +14206,24 @@
       ],
       "value": ""
     }, {
-      "id": "9e7577ca-dd48-4a7c-93af-82defb7e88f2",
-      "comment": "待ち",
-      "command": "pause",
-      "target": "${redirect_wait}",
+      "id": "7a20855a-325e-478c-b4be-556ae5a66116",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a5f0a46f-809e-4bd7-9ae5-5d4c371dba81",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版 登録情報の変更 確認",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "ad95de22-2dd8-4ffc-8e87-3624a8c44caf",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
       "targets": [],
       "value": ""
     }, {
@@ -14178,17 +14241,66 @@
       ],
       "value": ""
     }, {
-      "id": "5022ad4f-4de0-4db0-a96e-bcc1d63dda96",
-      "comment": "待ち",
-      "command": "pause",
-      "target": "${redirect_wait}",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "ab4cf9ce-32fa-4157-a96f-d49c730fc275",
       "comment": "",
       "command": "",
       "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2faa1a52-cd6c-4c0e-a803-e224ff2fb7ea",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版 登録情報の変更 完了",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "6758a025-e288-4820-bf77-6c933a6370e2",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "04651393-3e09-4469-972b-2aa94c53e317",
+      "comment": "「次へ」ボタンをクリック",
+      "command": "click",
+      "target": "css=.a-button.sp-mb-17",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ab118403-bfb5-4302-8b06-2d0ab1fe881b",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "85610849-44eb-4382-8345-c731a814ff39",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "98a19a63-e2f4-4335-bfd9-43dc1e24ea62",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "394503e5-0c41-4b94-a01a-1e208fe6880e",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "77965278-a010-4624-aedf-47a9cb6920a4",
+      "comment": "上記で変更したパスワードで再ログイン可能かassert",
+      "command": "echo",
+      "target": "上記で変更したパスワードで再ログイン可能かassert",
       "targets": [],
       "value": ""
     }, {
@@ -14206,10 +14318,17 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "93281dd9-0c0a-421a-9e41-6c730a0d15f9",
-      "comment": "待ち",
-      "command": "pause",
-      "target": "${redirect_wait}",
+      "id": "d7039df6-a7b2-4ae6-84d1-22b15900364c",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "00e33f98-5547-468b-b0ad-a091e57086fe",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
       "targets": [],
       "value": ""
     }]
@@ -15762,17 +15881,17 @@
       ],
       "value": ""
     }, {
-      "id": "cb1d13bb-c7e3-4aea-ba1c-0af8dcc77f19",
-      "comment": "少し待つ",
-      "command": "pause",
-      "target": "500",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "443a58bd-c6d8-48d6-ae1a-2646f715eef5",
       "comment": "",
-      "command": "assertTitle",
+      "command": "store",
       "target": "英検Jr. オンライン版 登録情報の変更",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "fab92e43-ff57-4c24-9013-270db28b6519",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
       "targets": [],
       "value": ""
     }]
@@ -16696,7 +16815,7 @@
       "id": "63c4b4f8-785e-4d18-bb2b-25866d04524d",
       "comment": "英ナビ！でログイン中であるならログアウトする",
       "command": "run",
-      "target": "_logout_einavi",
+      "target": "__新NG_logout_einavi",
       "targets": [],
       "value": ""
     }, {
@@ -17415,7 +17534,7 @@
     }]
   }, {
     "id": "96d826b0-6b58-4fc6-af63-bcac82b37c43",
-    "name": "_logout_einavi",
+    "name": "__新NG_logout_einavi",
     "commands": [{
       "id": "22aa3e91-7515-47b4-9e18-5bdeaee597d1",
       "comment": "英ナビ！でログイン中であるならログアウトする",
@@ -22386,7 +22505,7 @@
       "id": "5a10cca0-3959-4f0f-9200-cfb8e628f1da",
       "comment": "「クレジット」で個人購入",
       "command": "run",
-      "target": "___buy_apply_individual_credit",
+      "target": "_buy_apply_individual_credit",
       "targets": [],
       "value": ""
     }, {
@@ -22512,7 +22631,7 @@
     }]
   }, {
     "id": "10ffe440-5ced-440b-b923-395b3dccfb77",
-    "name": "___buy_apply_individual_credit",
+    "name": "_buy_apply_individual_credit",
     "commands": [{
       "id": "80aa7a8d-7f34-49b3-8952-da977136f7f6",
       "comment": "",
@@ -22545,13 +22664,13 @@
       "id": "98019896-2edb-4989-b245-d3fb80722169",
       "comment": "「個人購入するfunction」を呼び出す",
       "command": "run",
-      "target": "___buy_apply_individual",
+      "target": "_buy_apply_individual",
       "targets": [],
       "value": ""
     }]
   }, {
     "id": "5a657c0f-1585-4826-96ed-3b39469cfd33",
-    "name": "___buy_apply_individual",
+    "name": "_buy_apply_individual",
     "commands": [{
       "id": "22fa2c3d-8336-4c53-b203-495f97cf8d9f",
       "comment": "",
@@ -24198,7 +24317,7 @@
       "id": "1e914384-fa01-41d5-b511-2f7e7b98b222",
       "comment": "「クレジット」で個人購入",
       "command": "run",
-      "target": "___buy_apply_individual_credit",
+      "target": "_buy_apply_individual_credit",
       "targets": [],
       "value": ""
     }]
@@ -24823,7 +24942,7 @@
       "id": "595743d5-1803-48ab-8f17-5e6b2bbcd756",
       "comment": "「個人購入するfunction」を呼び出す",
       "command": "run",
-      "target": "___buy_apply_individual",
+      "target": "_buy_apply_individual",
       "targets": [],
       "value": ""
     }]
@@ -24831,13 +24950,6 @@
     "id": "57ceb1ac-0467-4245-9089-f2e4a6ae11fa",
     "name": "__新OK_情報変更_双方に登録済_クーポン未使用",
     "commands": [{
-      "id": "57910f4c-e414-406b-9e8d-7e7d97b1bde7",
-      "comment": "",
-      "command": "fail",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "69dfe88c-1159-4708-8c2f-ae398173b1ba",
       "comment": "初期化",
       "command": "run",
@@ -24859,24 +24971,10 @@
       "targets": [],
       "value": "pw"
     }, {
-      "id": "84c9c1e5-1713-42b2-a180-b44ad0769e57",
-      "comment": "「英ナビ！で情報変更」を設定",
-      "command": "store",
-      "target": "einavi",
-      "targets": [],
-      "value": "mode"
-    }, {
-      "id": "2b9aa3b7-7513-4223-adda-1d2605c29ffe",
-      "comment": "「英ナビ！」でログアウト",
-      "command": "run",
-      "target": "_logout_einavi",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "3025c7a3-b291-4a1e-8216-437c9a8b55bb",
       "comment": "「情報変更」を実施",
       "command": "run",
-      "target": "_info_change",
+      "target": "__新OK_info_change",
       "targets": [],
       "value": ""
     }]
@@ -24884,13 +24982,6 @@
     "id": "250064d7-57c8-41ff-a695-1242c73b4e77",
     "name": "__新OK_情報変更_双方に登録済_特別クーポン使用",
     "commands": [{
-      "id": "a9c46b1c-3927-465d-a37c-99422127e653",
-      "comment": "",
-      "command": "fail",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "97efd9f0-545e-43c6-a6e4-7c6e2988ad96",
       "comment": "初期化",
       "command": "run",
@@ -24912,24 +25003,10 @@
       "targets": [],
       "value": "pw"
     }, {
-      "id": "359db539-1e98-4c54-92bc-86edfd053627",
-      "comment": "「英検Jr.で情報変更」を設定",
-      "command": "store",
-      "target": "eikenjr",
-      "targets": [],
-      "value": "mode"
-    }, {
-      "id": "e3543738-9482-43d6-8d77-19bfb314d1d0",
-      "comment": "「英ナビ！」でログアウト",
-      "command": "run",
-      "target": "_logout_einavi",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "d08e2158-ddd9-41ac-a8b5-16282b8ff80b",
       "comment": "「情報変更」を実施",
       "command": "run",
-      "target": "_info_change",
+      "target": "__新OK_info_change",
       "targets": [],
       "value": ""
     }]
@@ -24937,13 +25014,6 @@
     "id": "0031e8f5-9d90-4ca1-841a-333b7e62e598",
     "name": "__新OK_情報変更_双方に登録済_特別クーポン未使用",
     "commands": [{
-      "id": "869cd633-7948-4446-adae-1a3d01f563f0",
-      "comment": "",
-      "command": "fail",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "968c3943-a7ac-4b68-86a1-34bc98a6d25b",
       "comment": "初期化",
       "command": "run",
@@ -24965,17 +25035,10 @@
       "targets": [],
       "value": "pw"
     }, {
-      "id": "3ae342d3-f068-4899-b0e9-a715fe7c0cd8",
-      "comment": "「英ナビ！で情報変更」を設定",
-      "command": "store",
-      "target": "einavi",
-      "targets": [],
-      "value": "mode"
-    }, {
-      "id": "ba845902-3fc9-4385-b182-09e456810fcc",
+      "id": "0d104584-b1d4-4e36-84d5-4289a59e3bf6",
       "comment": "「情報変更」を実施",
       "command": "run",
-      "target": "_info_change",
+      "target": "__新OK_info_change",
       "targets": [],
       "value": ""
     }]
@@ -24983,13 +25046,6 @@
     "id": "b25aa547-6f43-4758-ab27-f95dfc4fd6be",
     "name": "__新OK_情報変更_精査_パスワード_特別クーポン使用",
     "commands": [{
-      "id": "c48a494c-0ee6-4b88-bb63-0fd50fba1dc6",
-      "comment": "",
-      "command": "fail",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "129ed1a2-f304-4cd1-9ad0-9cf60f1af859",
       "comment": "当テストで使用するユーザのパスワードをリセットする",
       "command": "open",
@@ -25029,13 +25085,6 @@
     "id": "6c81d92a-f169-4897-86d2-62b372ed3e38",
     "name": "__新OK_情報変更_英検Jr.のみ登録済",
     "commands": [{
-      "id": "826629c4-ca81-4dbe-804b-f6a9092f445b",
-      "comment": "",
-      "command": "fail",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "547eeb58-fa67-4b83-8bd6-86c6a9f215b7",
       "comment": "初期化",
       "command": "run",
@@ -25057,17 +25106,10 @@
       "targets": [],
       "value": "pw"
     }, {
-      "id": "deb50843-d80c-49c4-98c7-76e75f6cfe48",
-      "comment": "「英検Jr.で情報変更」を設定",
-      "command": "store",
-      "target": "eikenjr",
-      "targets": [],
-      "value": "mode"
-    }, {
       "id": "4ac91797-fa2a-4025-8f41-9ea7b54b6fd7",
       "comment": "「情報変更」を実施",
       "command": "run",
-      "target": "_info_change",
+      "target": "__新OK_info_change",
       "targets": [],
       "value": ""
     }]
@@ -25075,13 +25117,6 @@
     "id": "a1893a78-b3a5-4e76-9664-a7db455ca3d8",
     "name": "__新OK_情報変更_精査_メアド＋パスワード",
     "commands": [{
-      "id": "f4a67c73-8c44-47c4-a912-4dfae647fdc0",
-      "comment": "",
-      "command": "fail",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "1b3ad611-2c6a-42f5-b197-2d768a4df877",
       "comment": "初期化",
       "command": "run",
@@ -25163,13 +25198,6 @@
     "id": "55e88164-ed1c-4109-8be5-d54d9a3f9fe6",
     "name": "__新OK_情報変更_精査_パスワード_英検Jr.のみ登録済",
     "commands": [{
-      "id": "87122df8-1255-4422-a7a8-dbd9613f9cea",
-      "comment": "",
-      "command": "fail",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "84bd43cd-e6d6-4ea3-8b0b-4e6cc440ef52",
       "comment": "当テストで使用するユーザのパスワードをリセットする",
       "command": "open",
@@ -25625,7 +25653,7 @@
     }]
   }, {
     "id": "e3ce8349-1fc7-4c26-9f2d-c2ae68ee86ea",
-    "name": "___buy_append_credit",
+    "name": "_buy_append_credit",
     "commands": [{
       "id": "8908e091-8a3b-4a28-8450-f078b835145d",
       "comment": "",
@@ -25658,13 +25686,13 @@
       "id": "47506d10-0231-43d9-802d-3b04865f873d",
       "comment": "「個人購入するfunction」を呼び出す",
       "command": "run",
-      "target": "___buy_apply_individual",
+      "target": "_buy_apply_individual",
       "targets": [],
       "value": ""
     }]
   }, {
     "id": "c9b1f9c1-59d5-44df-a77c-55ca10f921b1",
-    "name": "___buy_append_convenience",
+    "name": "_buy_append_convenience",
     "commands": [{
       "id": "cd8bab18-3c66-445e-94e5-53476c2d40f5",
       "comment": "",
@@ -25697,7 +25725,206 @@
       "id": "5425b628-802b-4298-af4e-2710efb9abba",
       "comment": "「個人購入するfunction」を呼び出す",
       "command": "run",
-      "target": "___buy_apply_individual",
+      "target": "_buy_apply_individual",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "4d7a2dfd-ae33-4a38-9200-a0aeb79ff53e",
+    "name": "__新OK_info_change",
+    "commands": [{
+      "id": "b7e8e81d-e111-4f7a-a59f-52a8f7ea7b61",
+      "comment": "",
+      "command": "echo",
+      "target": "「登録情報の変更」を行うfunction",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e78cad5f-75ef-4e88-8363-65cc63af9bb3",
+      "comment": "",
+      "command": "echo",
+      "target": "パラメータ[id]\tログインID\t${id}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0c724aad-215b-4020-a8df-0e8de009285a",
+      "comment": "",
+      "command": "echo",
+      "target": "パラメータ[pw]\tログインID\t${pw}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "57aaad14-3e0f-44b3-9845-9afdb1ace2a6",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8168d571-3594-48e7-82d2-5e78dd3a7e2f",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f2232008-174b-4c0e-9eef-866df4ef462d",
+      "comment": "「ログイン認証」を行う",
+      "command": "run",
+      "target": "_login_auth",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0375cef0-e48c-4eb5-a6ec-90b1f5944ba6",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "695dde21-2d54-4d1a-b047-76e4e799fb0b",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "771188d9-fc34-4514-8dcd-15bf01335ace",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "85c7e86f-2798-44c8-9381-2a7288d11793",
+      "comment": "「登録情報の変更」を表示",
+      "command": "run",
+      "target": "_open_info",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e8f086ff-5a60-4659-b4ca-567b64b06a62",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b198d095-af2c-47fd-a741-c6c2c9238f6f",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [],
+      "value": "${pw}"
+    }, {
+      "id": "1c367009-7291-417d-8011-ad290be91a10",
+      "comment": "",
+      "command": "type",
+      "target": "name=password_confirm",
+      "targets": [],
+      "value": "${pw}"
+    }, {
+      "id": "0f49dc32-7310-443c-9706-7f05e4be9bf4",
+      "comment": "　「確認する」をクリック",
+      "command": "click",
+      "target": "id=nextBtn",
+      "targets": [
+        ["id=nextBtn", "id"],
+        ["css=#nextBtn", "css:finder"],
+        ["xpath=//button[@id='nextBtn']", "xpath:attributes"],
+        ["xpath=//div[@id='__layout']/div/main/form/div/div/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'確認する')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bc902541-9146-46fe-920f-559ecaca2b41",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c84dc2f4-a64e-4333-86e6-dc827db37d56",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版 登録情報の変更 確認",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "af9df075-668d-4d20-a897-f2ffbb64b4a1",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "53b92ced-d9a0-4c42-a805-cf4eb186652d",
+      "comment": "　「この内容で保存」をクリック",
+      "command": "click",
+      "target": "id=nextBtn",
+      "targets": [
+        ["id=nextBtn", "id"],
+        ["css=#nextBtn", "css:finder"],
+        ["xpath=//button[@id='nextBtn']", "xpath:attributes"],
+        ["xpath=//div[@id='__layout']/div/main/form/div/div/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'確認する')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4618119e-5d94-4aee-99a5-895254536395",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7f2b61f5-7d6f-4c53-ad26-5ebe85498235",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版 登録情報の変更 完了",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "f15a1c5b-1391-49b8-bf11-88f9b54412ae",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "47b62b14-4a23-4dcd-93ca-828620e91748",
+      "comment": "　「次へ」をクリック",
+      "command": "click",
+      "target": "css=.a-button",
+      "targets": [
+        ["css=.a-button", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//form[@id='sendNextForm']/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'次へ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d7e703df-1e26-4b3e-b7bf-da90e04ad48a",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ac87d7ad-b190-4f5a-8321-fa3cb80c2334",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "a80c987c-f0db-453e-acfd-8a740d3090bb",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
       "targets": [],
       "value": ""
     }]
@@ -25750,7 +25977,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["57ceb1ac-0467-4245-9089-f2e4a6ae11fa", "250064d7-57c8-41ff-a695-1242c73b4e77", "0031e8f5-9d90-4ca1-841a-333b7e62e598", "b25aa547-6f43-4758-ab27-f95dfc4fd6be", "55e88164-ed1c-4109-8be5-d54d9a3f9fe6", "a1893a78-b3a5-4e76-9664-a7db455ca3d8", "6c81d92a-f169-4897-86d2-62b372ed3e38", "e78ccc0f-c523-4191-9cd3-085c134f8be9", "be3142cc-3774-45b2-a302-29a63fcfa42c", "8f7821f1-1cbf-4a8d-8d77-6cace7650fa0", "40b324ea-1856-4d5c-9cf6-454da639704a", "04098b2e-fe07-4d22-a316-fcb7fae18cf5", "eb6f6e65-9418-4dd1-8e44-f3767b86a094", "c431399e-38c2-4d1b-ab46-446ef2a9d10f", "e53e88ac-58a9-4c38-a0c0-e403e564e2b4"]
+    "tests": ["57ceb1ac-0467-4245-9089-f2e4a6ae11fa", "250064d7-57c8-41ff-a695-1242c73b4e77", "0031e8f5-9d90-4ca1-841a-333b7e62e598", "6c81d92a-f169-4897-86d2-62b372ed3e38", "a1893a78-b3a5-4e76-9664-a7db455ca3d8", "b25aa547-6f43-4758-ab27-f95dfc4fd6be", "55e88164-ed1c-4109-8be5-d54d9a3f9fe6", "e78ccc0f-c523-4191-9cd3-085c134f8be9", "be3142cc-3774-45b2-a302-29a63fcfa42c", "8f7821f1-1cbf-4a8d-8d77-6cace7650fa0", "40b324ea-1856-4d5c-9cf6-454da639704a", "04098b2e-fe07-4d22-a316-fcb7fae18cf5", "eb6f6e65-9418-4dd1-8e44-f3767b86a094", "c431399e-38c2-4d1b-ab46-446ef2a9d10f", "e53e88ac-58a9-4c38-a0c0-e403e564e2b4"]
   }, {
     "id": "beb21fd0-3d35-444f-af34-a5cdf0035cf8",
     "name": "individualize",
