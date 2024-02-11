@@ -52,7 +52,7 @@
       "id": "fbb3c4b2-d9bc-4d26-8c2a-6f8f36cd2eb5",
       "comment": "「クレジット」で個人延長",
       "command": "run",
-      "target": "___buy_extend_individual_credit",
+      "target": "_buy_extend_individual_credit",
       "targets": [],
       "value": ""
     }, {
@@ -148,9 +148,16 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "55c5c24b-b91f-4c45-9993-5080948ae7c0",
+      "id": "7245153d-b0c4-4cad-822c-f10a76a96efb",
       "comment": "",
       "command": "run",
+      "target": "_login_auth",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "55c5c24b-b91f-4c45-9993-5080948ae7c0",
+      "comment": "",
+      "command": "//run",
       "target": "_login_only",
       "targets": [],
       "value": ""
@@ -326,27 +333,6 @@
       "value": ""
     }, {
       "id": "a8736075-0eb4-4210-ad04-4cfd2596148c",
-      "comment": "",
-      "command": "",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "8857ea7a-6370-4855-a139-1621c0cfbe52",
-      "comment": "",
-      "command": "store",
-      "target": "英検Jr. オンライン版  商品選択",
-      "targets": [],
-      "value": "title"
-    }, {
-      "id": "718d6d1c-0d49-483e-80c2-3d185ff24d30",
-      "comment": "titleタグが期待する値になるまで待つ",
-      "command": "run",
-      "target": "_assert_title",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "a0a38040-e9ec-4b3c-8a14-7705edef5f20",
       "comment": "",
       "command": "",
       "target": "",
@@ -1225,27 +1211,42 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "fe9a1acb-c331-4389-859b-9d56b212c053",
+      "id": "377c1082-e526-4bb9-8a18-ebded03fc12f",
       "comment": "",
-      "command": "assertTitle",
-      "target": "英検Jr. オンライン版 追加商品",
+      "command": "",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
-      "id": "52507a52-cc9a-4589-be6e-36d56b6df338",
-      "comment": "先頭の「商品」を選択",
-      "command": "click",
-      "target": "css=.a-selectButton_label",
-      "targets": [
-        ["id=AP000015Label", "id"],
-        ["css=#AP000015Label", "css:finder"],
-        ["xpath=//label[@id='AP000015Label']", "xpath:attributes"],
-        ["xpath=//div[@id='__layout']/div/main/div/form/div/div[2]/div/div[3]/div[2]/div/span/label", "xpath:idRelative"],
-        ["xpath=//span/label", "xpath:position"]
-      ],
+      "id": "7affac42-3e33-490c-9ba0-c47f23a06c1f",
+      "comment": "クレジットで追加商品購入(商品選択からGMOを経由し戻ってくるまで)",
+      "command": "run",
+      "target": "___buy_append_credit",
+      "targets": [],
       "value": ""
     }, {
-      "id": "00efd9fc-96fa-40ff-8f3b-c11cd7dec5f0",
+      "id": "a7fb6dfe-3ef3-439d-8b01-28dd8845a5e1",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d626844a-d39a-4733-a7ff-52e7887d315a",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版  申込完了",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "b6e7421b-6266-4cfb-ac4a-3820ff2118fd",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "137a2369-c74a-471a-8ab8-c85c32497c14",
       "comment": "「次へ」クリック",
       "command": "click",
       "target": "id=nextBtn",
@@ -1253,79 +1254,30 @@
         ["id=nextBtn", "id"],
         ["css=#nextBtn", "css:finder"],
         ["xpath=//button[@id='nextBtn']", "xpath:attributes"],
-        ["xpath=//div[@id='__layout']/div/main/div/div[5]/button[2]", "xpath:idRelative"],
-        ["xpath=//button[2]", "xpath:position"],
-        ["xpath=//button[contains(.,'次へ')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "06c4178a-e1bb-4b31-a0f0-0a3b2186bcc0",
-      "comment": "",
-      "command": "assertTitle",
-      "target": "英検Jr. オンライン版 支払方法",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "0061eb96-4f51-4fe6-af1b-f92d91426d97",
-      "comment": "クレジット「お支払い」クリック",
-      "command": "click",
-      "target": "id=creditBtn",
-      "targets": [
-        ["id=creditBtn", "id"],
-        ["css=#creditBtn", "css:finder"],
-        ["xpath=//button[@id='creditBtn']", "xpath:attributes"],
-        ["xpath=//div[@id='__layout']/div/main/div/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div[@id='__layout']/div/main/div/button", "xpath:idRelative"],
         ["xpath=//div/button", "xpath:position"],
-        ["xpath=//button[contains(.,'お支払い')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "68222937-ee6f-4538-a6cf-6790e1a56a68",
-      "comment": "",
-      "command": "assertTitle",
-      "target": "英検Jr. オンライン版 内容確認",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "ab038632-a6f0-460f-8a55-c02cbdaf029a",
-      "comment": "「この内容で送信」クリック",
-      "command": "run",
-      "target": "_gmo_togo",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "ef0941df-bbf0-40bb-a7e7-def3ad54dd26",
-      "comment": "クレジット購入",
-      "command": "run",
-      "target": "_gmo_credit",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "737d865d-0e85-40da-9f72-af500b6b63f7",
-      "comment": "GMOにて購入手続き完了",
-      "command": "run",
-      "target": "_gmo_next",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "d2d5676d-e0bd-4b2e-9e57-b0b5c56c436d",
-      "comment": "「次へ」クリック",
-      "command": "click",
-      "target": "id=nextBtn",
-      "targets": [
-        ["id=nextBtn", "id"],
-        ["css=#nextBtn", "css:finder"],
-        ["xpath=//button[@id='nextBtn']", "xpath:attributes"],
-        ["xpath=//div[@id='__layout']/div/main/div/div[5]/button[2]", "xpath:idRelative"],
-        ["xpath=//button[2]", "xpath:position"],
         ["xpath=//button[contains(.,'次へ')]", "xpath:innerText"]
       ],
+      "value": ""
+    }, {
+      "id": "ba1f9751-c4ac-4ca3-babe-e21b0d799c4c",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
       "value": ""
     }, {
       "id": "be6c7231-8a78-4a0a-a62a-07648bc9460a",
       "comment": "",
-      "command": "assertTitle",
+      "command": "store",
       "target": "英検Jr. オンライン版",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "c8a92c46-6a26-48b2-a298-b38222c4087c",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
       "targets": [],
       "value": ""
     }, {
@@ -1839,159 +1791,98 @@
       ],
       "value": ""
     }, {
-      "id": "8646dc48-5e29-4e96-9998-e728cf98e190",
+      "id": "c06299a9-d748-44e9-8cd4-e2dba1725e26",
       "comment": "",
-      "command": "assertTitle",
-      "target": "英検Jr. オンライン版",
+      "command": "",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
-      "id": "554d4913-b152-447f-bd03-cdb6569ebbb0",
+      "id": "762f2394-dd5c-48ba-98ba-cdbf3e7c32b1",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "97167baa-8e01-4ed0-b8b0-5ebe16ed0fd0",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e846537c-57e5-4908-9142-b0457d24d27e",
       "comment": "「商品購入はこちら」クリック",
       "command": "run",
       "target": "_click_apply",
       "targets": [],
       "value": ""
     }, {
-      "id": "5ad531f9-d70e-4ca6-9b2e-175dcadf1a29",
+      "id": "3ce119e7-5799-4dc4-b2d2-7102a133b1bc",
       "comment": "",
-      "command": "assertTitle",
-      "target": "英検Jr. オンライン版 商品選択",
+      "command": "",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
-      "id": "bcb43830-8d93-438e-9ba3-becd48cc1f5e",
-      "comment": "",
-      "command": "click",
-      "target": "id=AP000070Label",
-      "targets": [
-        ["id=AP000070Label", "id"],
-        ["css=#AP000070Label", "css:finder"],
-        ["xpath=//label[@id='AP000070Label']", "xpath:attributes"],
-        ["xpath=//div[@id='__layout']/div/main/div/form/div/div[2]/div/div[4]/div[2]/div/span/label", "xpath:idRelative"],
-        ["xpath=//div[4]/div[2]/div/span/label", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "dba4cbd9-dce9-4c5a-bf3b-83e8439f44f5",
-      "comment": "",
-      "command": "click",
-      "target": "id=AP000040Label",
+      "id": "2dfbec56-5e0e-460d-8e07-c91d2912213e",
+      "comment": "同時購入(商品一覧からGMOを経由し戻ってくるまで)",
+      "command": "echo",
+      "target": "同時購入(商品一覧からGMOを経由し戻ってくるまで)",
       "targets": [],
       "value": ""
     }, {
-      "id": "3f0c7665-8a5e-496f-941a-8093a22b5ee9",
-      "comment": "",
-      "command": "click",
-      "target": "id=AP000047Label",
-      "targets": [
-        ["id=AP000047Label", "id"],
-        ["css=#AP000047Label", "css:finder"],
-        ["xpath=//label[@id='AP000047Label']", "xpath:attributes"],
-        ["xpath=//div[@id='__layout']/div/main/div/form/div[3]/div[2]/div/div[3]/div[2]/div/span/label", "xpath:idRelative"],
-        ["xpath=//div[3]/div[2]/div/div[3]/div[2]/div/span/label", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "16cbe6ed-4d7c-4b6d-adf5-44b8e6c7cd86",
-      "comment": "「次へ」クリック",
-      "command": "click",
-      "target": "id=nextBtn",
-      "targets": [
-        ["id=nextBtn", "id"],
-        ["css=#nextBtn", "css:finder"],
-        ["xpath=//button[@id='nextBtn']", "xpath:attributes"],
-        ["xpath=//div[@id='__layout']/div/main/div/div[4]/button[2]", "xpath:idRelative"],
-        ["xpath=//button[2]", "xpath:position"],
-        ["xpath=//button[contains(.,'次へ')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "996a775c-2a82-4134-822b-de1d60b840dc",
-      "comment": "",
-      "command": "assertTitle",
-      "target": "英検Jr. オンライン版 追加商品",
+      "id": "492ca1a6-3704-417a-bf6b-8729851df2ef",
+      "comment": "「支払い方法」を設定",
+      "command": "store",
+      "target": "credit",
       "targets": [],
-      "value": ""
+      "value": "param1"
     }, {
-      "id": "1a5138e6-be95-4207-9c91-f3c2a0132e42",
-      "comment": "",
-      "command": "click",
-      "target": "id=AAP00001Label",
-      "targets": [
-        ["id=AAP00001Label", "id"],
-        ["css=#AAP00001Label", "css:finder"],
-        ["xpath=//label[@id='AAP00001Label']", "xpath:attributes"],
-        ["xpath=//div[@id='__layout']/div/main/div/div[3]/div[2]/div/div[2]/div/p[3]/span/span/label", "xpath:idRelative"],
-        ["xpath=//label", "xpath:position"],
-        ["xpath=//label[contains(.,'選択')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "1e131a7e-26c6-4f69-a869-fe727ee88334",
-      "comment": "「次へ」クリック",
-      "command": "click",
-      "target": "id=nextBtn",
-      "targets": [
-        ["id=nextBtn", "id"],
-        ["css=#nextBtn", "css:finder"],
-        ["xpath=//button[@id='nextBtn']", "xpath:attributes"],
-        ["xpath=//div[@id='__layout']/div/main/div/div[5]/button[2]", "xpath:idRelative"],
-        ["xpath=//button[2]", "xpath:position"],
-        ["xpath=//button[contains(.,'次へ')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "3970d6f1-2ca5-4f42-9f1f-d252dbb187e9",
-      "comment": "",
-      "command": "assertTitle",
-      "target": "英検Jr. オンライン版 支払方法",
+      "id": "b4c4b5d7-2c39-4d5d-b77c-487ad81e0a6f",
+      "comment": "「画面で選択する通常商品のロケータ一覧」を設定",
+      "command": "executeScript",
+      "target": "return [\"#AP000032Label\", \"#AP000038Label\", \"#AP000044Label\", \"#hoge\"]",
       "targets": [],
-      "value": ""
+      "value": "param2"
     }, {
-      "id": "b8db600f-92ab-42fe-93e3-aba62f4db699",
-      "comment": "クレジット「お支払い」クリック",
-      "command": "click",
-      "target": "id=creditBtn",
-      "targets": [
-        ["id=creditBtn", "id"],
-        ["css=#creditBtn", "css:finder"],
-        ["xpath=//button[@id='creditBtn']", "xpath:attributes"],
-        ["xpath=//div[@id='__layout']/div/main/div/div/div[2]/div/button", "xpath:idRelative"],
-        ["xpath=//div/button", "xpath:position"],
-        ["xpath=//button[contains(.,'お支払い')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "670b74f6-423c-4f82-8ceb-bd0545af9fb1",
-      "comment": "",
-      "command": "assertTitle",
-      "target": "英検Jr. オンライン版 内容確認",
+      "id": "fb990748-4a8f-49c7-ae6f-4563ba4f03fa",
+      "comment": "「画面で選択する追加商品のロケータ一覧」を設定",
+      "command": "executeScript",
+      "target": "return [\"#AAP00001Label\"];",
       "targets": [],
-      "value": ""
+      "value": "param3"
     }, {
-      "id": "a9d3ee36-f5d0-44fe-a637-20579d4f85a1",
-      "comment": "「この内容で送信」クリック",
+      "id": "b007ee89-910c-4703-aa80-19a4e0907527",
+      "comment": "「個人購入するfunction」を呼び出す",
       "command": "run",
-      "target": "_gmo_togo",
+      "target": "___buy_apply_individual",
       "targets": [],
       "value": ""
     }, {
-      "id": "92ec5128-da0d-4d42-a4f6-3491a1a60990",
-      "comment": "クレジット購入",
+      "id": "7d4803ee-675e-4ba2-b304-1afc4c6736e2",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4e48db4e-701c-424f-9072-115a616cfa65",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版  申込完了",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "978cc5f2-ea13-4f87-a52c-fe70a1936dc8",
+      "comment": "titleタグが期待する値になるまで待つ",
       "command": "run",
-      "target": "_gmo_credit",
+      "target": "_assert_title",
       "targets": [],
       "value": ""
     }, {
-      "id": "02f1e21b-5c9b-4617-864c-f5889bdc06b3",
-      "comment": "GMOにて購入手続き完了",
-      "command": "run",
-      "target": "_gmo_next",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "53c35338-95ae-43a8-83d1-2813f39c61c6",
+      "id": "df4a5bc0-d634-4353-932e-cf53005d9f0d",
       "comment": "「次へ」クリック",
       "command": "click",
       "target": "id=nextBtn",
@@ -2005,12 +1896,33 @@
       ],
       "value": ""
     }, {
-      "id": "c67a824c-8c0f-4082-8b83-32da82936fa2",
+      "id": "7fb9a267-cd12-4da3-b354-a78a404e4f33",
       "comment": "",
-      "command": "assertTitle",
-      "target": "英検Jr. オンライン版",
+      "command": "",
+      "target": "",
       "targets": [],
       "value": ""
+    }, {
+      "id": "53e590aa-96e4-423b-8427-e2c70fd25dc3",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "ed6f31a4-3a0d-4f1a-9a53-9ad737ccacba",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "aa9ee888-d845-46d8-859b-1376676e34f0",
+      "comment": "カードアルバムの名称が「カードアルバム」でない検証",
+      "command": "assertNotText",
+      "target": "css=.section--top-album h1",
+      "targets": [],
+      "value": "カードアルバム"
     }]
   }, {
     "id": "42140bfa-33f9-4b22-acc8-fd0931dea1ae",
@@ -2292,17 +2204,17 @@
       ],
       "value": ""
     }, {
-      "id": "0cc54695-21b3-4de9-954f-7426447527c8",
-      "comment": "待ち",
-      "command": "pause",
-      "target": "${redirect_wait}",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "fd7eeabf-edc7-43dd-8211-3f7f005b96dc",
       "comment": "",
-      "command": "assertTitle",
-      "target": "英検Jr. オンライン版 追加商品",
+      "command": "store",
+      "target": "英検Jr. オンライン版  追加商品",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "1691932d-776e-40da-b7fa-a6cd4611f972",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
       "targets": [],
       "value": ""
     }]
@@ -5679,7 +5591,7 @@
       "id": "13a7ae6e-6b43-46b9-a383-a978e618cbcd",
       "comment": "「コンビニ」で個人延長",
       "command": "run",
-      "target": "___buy_extend_individual_convenience",
+      "target": "_buy_extend_individual_convenience",
       "targets": [],
       "value": ""
     }, {
@@ -6245,10 +6157,38 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "d98e4ba9-e2ef-485d-8497-4eed7b719049",
-      "comment": "",
+      "id": "2317eb1b-7e5a-42a4-9d99-d898a91a0437",
+      "comment": "同時購入(商品一覧からGMOを経由し戻ってくるまで)",
+      "command": "echo",
+      "target": "同時購入(商品一覧からGMOを経由し戻ってくるまで)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7706e514-ac9b-4f79-93dd-9f00b1d83235",
+      "comment": "「支払い方法」を設定",
+      "command": "store",
+      "target": "convenience",
+      "targets": [],
+      "value": "param1"
+    }, {
+      "id": "ecfac900-af4b-4343-91ee-72fe0cbdef59",
+      "comment": "「画面で選択する通常商品のロケータ一覧」を設定",
+      "command": "executeScript",
+      "target": "return [\"#AP000032Label\", \"#AP000038Label\", \"#AP000044Label\", \"#hoge\"]",
+      "targets": [],
+      "value": "param2"
+    }, {
+      "id": "d7405e4f-ef9f-46e6-a315-e628263556b8",
+      "comment": "「画面で選択する追加商品のロケータ一覧」を設定",
+      "command": "executeScript",
+      "target": "return [\"#AAP00001Label\"];",
+      "targets": [],
+      "value": "param3"
+    }, {
+      "id": "d63a32d8-b022-4a8f-929a-1b63685faf1e",
+      "comment": "「個人購入するfunction」を呼び出す",
       "command": "run",
-      "target": "_buy_apply_individual_convenience",
+      "target": "___buy_apply_individual",
       "targets": [],
       "value": ""
     }, {
@@ -6307,6 +6247,13 @@
       "target": "_assert_title",
       "targets": [],
       "value": ""
+    }, {
+      "id": "97779570-16c8-4f30-8f93-66f81cc2b420",
+      "comment": "カードアルバムの名称が「カードアルバム」である検証",
+      "command": "assertText",
+      "target": "css=.section--top-album h1",
+      "targets": [],
+      "value": "カードアルバム"
     }]
   }, {
     "id": "e4166e2a-9571-4601-96ef-b61fc73b828c",
@@ -6333,27 +6280,42 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "7facbea9-96ab-4094-98b3-0f4298fea795",
+      "id": "fa7c87f6-2ce1-4d43-ab98-4538333cbf0f",
       "comment": "",
-      "command": "assertTitle",
-      "target": "英検Jr. オンライン版 追加商品",
+      "command": "",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
-      "id": "da938d5a-886c-4025-ae2b-f19c9e74f357",
-      "comment": "先頭の「商品」を選択",
-      "command": "click",
-      "target": "css=.a-selectButton_label",
-      "targets": [
-        ["id=AP000015Label", "id"],
-        ["css=#AP000015Label", "css:finder"],
-        ["xpath=//label[@id='AP000015Label']", "xpath:attributes"],
-        ["xpath=//div[@id='__layout']/div/main/div/form/div/div[2]/div/div[3]/div[2]/div/span/label", "xpath:idRelative"],
-        ["xpath=//span/label", "xpath:position"]
-      ],
+      "id": "6d0a0017-eb12-485c-876a-0146ec9d8f89",
+      "comment": "コンビニで追加商品購入(商品選択からGMOを経由し戻ってくるまで)",
+      "command": "run",
+      "target": "___buy_append_convenience",
+      "targets": [],
       "value": ""
     }, {
-      "id": "23f6f46d-1e8c-48e6-987e-116e56273546",
+      "id": "2439d28e-617f-46ed-a200-2f96bf630597",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "adeda381-c21d-473e-a320-3c50b6245c52",
+      "comment": "",
+      "command": "store",
+      "target": "英検Jr. オンライン版  申込完了",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "4d8a4bd0-042a-4a35-b046-f4da8c378043",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "971df0f2-0b24-451c-bb4a-fcb91d6f0041",
       "comment": "「次へ」クリック",
       "command": "click",
       "target": "id=nextBtn",
@@ -6361,83 +6323,34 @@
         ["id=nextBtn", "id"],
         ["css=#nextBtn", "css:finder"],
         ["xpath=//button[@id='nextBtn']", "xpath:attributes"],
-        ["xpath=//div[@id='__layout']/div/main/div/div[5]/button[2]", "xpath:idRelative"],
-        ["xpath=//button[2]", "xpath:position"],
-        ["xpath=//button[contains(.,'次へ')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "ac9c9b04-3088-44c9-b6b7-df2f4d956ca9",
-      "comment": "",
-      "command": "assertTitle",
-      "target": "英検Jr. オンライン版 支払方法",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "ed5cdb88-e579-40e8-91da-b39de438dd09",
-      "comment": "コンビニ「お支払い」クリック",
-      "command": "click",
-      "target": "id=convenienceBtn",
-      "targets": [
-        ["id=creditBtn", "id"],
-        ["css=#creditBtn", "css:finder"],
-        ["xpath=//button[@id='creditBtn']", "xpath:attributes"],
-        ["xpath=//div[@id='__layout']/div/main/div/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div[@id='__layout']/div/main/div/button", "xpath:idRelative"],
         ["xpath=//div/button", "xpath:position"],
-        ["xpath=//button[contains(.,'お支払い')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "77238224-d828-4748-b684-a6d4eb2e0368",
-      "comment": "",
-      "command": "assertTitle",
-      "target": "英検Jr. オンライン版 内容確認",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "2945b766-c7a3-4be3-b7bc-0be088859e63",
-      "comment": "「この内容で送信」クリック",
-      "command": "run",
-      "target": "_gmo_togo",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "e13b862d-0167-4565-b9df-5af93f05a524",
-      "comment": "コンビニ購入",
-      "command": "run",
-      "target": "_gmo_convenience",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "965ae27c-869c-4d2c-87df-32426ae88bea",
-      "comment": "GMOにて購入手続き完了",
-      "command": "run",
-      "target": "_gmo_next",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "8cefa59c-2bcd-4861-abe8-87ebcb7eaa51",
-      "comment": "「次へ」クリック",
-      "command": "click",
-      "target": "id=nextBtn",
-      "targets": [
-        ["id=nextBtn", "id"],
-        ["css=#nextBtn", "css:finder"],
-        ["xpath=//button[@id='nextBtn']", "xpath:attributes"],
-        ["xpath=//div[@id='__layout']/div/main/div/div[5]/button[2]", "xpath:idRelative"],
-        ["xpath=//button[2]", "xpath:position"],
         ["xpath=//button[contains(.,'次へ')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
-      "id": "0be9f43f-6fe5-4aca-8438-76ed413e68f3",
+      "id": "4b8c7a6e-d115-4ff8-96be-273c06a401da",
       "comment": "",
-      "command": "assertTitle",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2bbf34d9-923e-41a1-8891-b6bda551fbcc",
+      "comment": "",
+      "command": "store",
       "target": "英検Jr. オンライン版",
       "targets": [],
+      "value": "title"
+    }, {
+      "id": "3be1c71d-a0e5-4d21-81e2-c108f5ac04b6",
+      "comment": "titleタグが期待する値になるまで待つ",
+      "command": "run",
+      "target": "_assert_title",
+      "targets": [],
       "value": ""
     }, {
-      "id": "50c3dcea-6dda-42d1-aee2-44ed13317503",
+      "id": "b3c0eda0-53cf-423a-9851-d9b5c7514064",
       "comment": "カードアルバムの名称が「カードアルバム」である検証",
       "command": "assertText",
       "target": "css=.section--top-album h1",
@@ -22632,13 +22545,13 @@
       "id": "98019896-2edb-4989-b245-d3fb80722169",
       "comment": "「個人購入するfunction」を呼び出す",
       "command": "run",
-      "target": "_buy_apply_individual",
+      "target": "___buy_apply_individual",
       "targets": [],
       "value": ""
     }]
   }, {
     "id": "5a657c0f-1585-4826-96ed-3b39469cfd33",
-    "name": "_buy_apply_individual",
+    "name": "___buy_apply_individual",
     "commands": [{
       "id": "22fa2c3d-8336-4c53-b203-495f97cf8d9f",
       "comment": "",
@@ -22759,6 +22672,27 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "080e0ccf-bbdf-41a6-a97e-bb9982119aae",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${buy_apply_individual_param2}?.length > 0;",
+      "targets": [],
+      "value": "tmp"
+    }, {
+      "id": "ed1e7b15-c95b-44d9-bbad-fe6f369d2182",
+      "comment": "",
+      "command": "echo",
+      "target": "${tmp}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "382c2197-d012-46ad-ad91-a9e28f124515",
+      "comment": "通常商品を購入することを指定されているか判定",
+      "command": "if",
+      "target": "${tmp}",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "f3678da9-e334-410f-985d-8f4831d098cc",
       "comment": "",
       "command": "store",
@@ -22819,6 +22753,13 @@
       "comment": "「次へ」ボタンをクリック",
       "command": "click",
       "target": "id=nextBtn",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "be1d8c2b-2e76-47aa-ad5d-7cb48f7232f7",
+      "comment": "",
+      "command": "end",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
@@ -23135,7 +23076,7 @@
       "value": "5000"
     }, {
       "id": "621e0aec-100b-4539-8fda-d04fa6b41185",
-      "comment": "",
+      "comment": "支払い方法別で判定 if",
       "command": "if",
       "target": "'credit' === ${gmo_payment_method}",
       "targets": [],
@@ -23184,7 +23125,7 @@
       "value": "${gmo_credit_security}"
     }, {
       "id": "d795b670-8526-4abb-b8f0-bb601c836afc",
-      "comment": "",
+      "comment": "支払い方法別で判定 else if",
       "command": "elseIf",
       "target": "'convenience' === ${gmo_payment_method}",
       "targets": [],
@@ -23272,7 +23213,7 @@
       "value": "${gmo_mail}"
     }, {
       "id": "f53c5098-6531-4294-bd76-4d987e3642ed",
-      "comment": "",
+      "comment": "支払い方法別で判定 else",
       "command": "else",
       "target": "",
       "targets": [],
@@ -23286,7 +23227,7 @@
       "value": ""
     }, {
       "id": "2b01d58b-808b-42fc-9df8-3652af807943",
-      "comment": "",
+      "comment": "支払い方法別で判定 end",
       "command": "end",
       "target": "",
       "targets": [],
@@ -23392,6 +23333,27 @@
       "comment": "「サイトに戻る」ボタンをクリック",
       "command": "click",
       "target": "css=.un_sbt_deco",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4e4b0fd3-e482-4d81-a904-c7aafd7ae3ba",
+      "comment": "支払い方法別で判定 if credit",
+      "command": "if",
+      "target": "'credit' === ${gmo_payment_method}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "04020425-aba5-403c-bb6a-d79c3365dfd8",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cbdc8623-9da2-4923-a53e-0be230fc4709",
+      "comment": "支払い方法別で判定 end credit",
+      "command": "end",
+      "target": "",
       "targets": [],
       "value": ""
     }]
@@ -24332,7 +24294,7 @@
       "id": "beadd084-4cef-4b59-9d26-5dbc40b17a05",
       "comment": "「英ナビ！のみ登録者」によるログインのテスト",
       "command": "run",
-      "target": "___einavi_only_login",
+      "target": "_einavi_only_login",
       "targets": [],
       "value": ""
     }]
@@ -24364,7 +24326,7 @@
       "id": "fd369a71-e479-47f2-88c7-c02309bdb604",
       "comment": "「英ナビ！のみ登録者」によるログインのテスト",
       "command": "run",
-      "target": "___einavi_only_login",
+      "target": "_einavi_only_login",
       "targets": [],
       "value": ""
     }]
@@ -24382,7 +24344,7 @@
       "id": "f6e84fb5-45a0-4500-827c-f95585bde810",
       "comment": "「Z会会員様限定|特別登録優待ページ」を開く",
       "command": "run",
-      "target": "___open_zkai",
+      "target": "_open_zkai",
       "targets": [],
       "value": ""
     }]
@@ -24414,7 +24376,7 @@
       "id": "912ab197-4a1e-4d4d-bd24-2583e148d61e",
       "comment": "「英ナビ！のみ登録者」によるログインのテスト",
       "command": "run",
-      "target": "___einavi_only_login",
+      "target": "_einavi_only_login",
       "targets": [],
       "value": ""
     }]
@@ -24446,13 +24408,13 @@
       "id": "7984314d-7774-43ca-a44a-bfefe91e0fa9",
       "comment": "「英ナビ！のみ登録者」によるログインのテスト",
       "command": "run",
-      "target": "___einavi_only_login",
+      "target": "_einavi_only_login",
       "targets": [],
       "value": ""
     }]
   }, {
     "id": "55006812-e555-4b2d-831d-6b51f9960259",
-    "name": "___einavi_only_login",
+    "name": "_einavi_only_login",
     "commands": [{
       "id": "7a37800f-4b23-4736-be1a-91c109fe1f8e",
       "comment": "「ログインID」を設定",
@@ -24552,7 +24514,7 @@
       "id": "3e344955-bb69-4c08-b384-2ecec8c5afbf",
       "comment": "「Z会会員様限定|特別登録優待ページ」を開く",
       "command": "run",
-      "target": "___open_zkai",
+      "target": "_open_zkai",
       "targets": [],
       "value": ""
     }]
@@ -24570,7 +24532,7 @@
       "id": "ae1a9cd9-4d5b-49b9-a386-43e38bd1ad5d",
       "comment": "「Z会会員様限定|特別登録優待ページ」を開く",
       "command": "run",
-      "target": "___open_zkai",
+      "target": "_open_zkai",
       "targets": [],
       "value": ""
     }]
@@ -24588,7 +24550,7 @@
       "id": "a0513c64-f504-43a2-874f-68ba1fe76a3e",
       "comment": "「Z会会員様限定|特別登録優待ページ」を開く",
       "command": "run",
-      "target": "___open_zkai",
+      "target": "_open_zkai",
       "targets": [],
       "value": ""
     }]
@@ -24606,7 +24568,7 @@
       "id": "216a1dd7-0760-4154-ad78-ca11a722bf9f",
       "comment": "「Z会会員様限定|特別登録優待ページ」を開く",
       "command": "run",
-      "target": "___open_zkai",
+      "target": "_open_zkai",
       "targets": [],
       "value": ""
     }]
@@ -24624,13 +24586,13 @@
       "id": "5a1132eb-38f0-436f-a6f7-4f12acd9c676",
       "comment": "「Z会会員様限定|特別登録優待ページ」を開く",
       "command": "run",
-      "target": "___open_zkai",
+      "target": "_open_zkai",
       "targets": [],
       "value": ""
     }]
   }, {
     "id": "993bf0d6-9e4a-4f7e-8fed-aedecd6f40f0",
-    "name": "___open_zkai",
+    "name": "_open_zkai",
     "commands": [{
       "id": "4679d434-88dd-4e42-a3d0-69187860be86",
       "comment": "「Z会会員様限定|特別登録優待ページ」を開くfunction",
@@ -24723,7 +24685,7 @@
       "id": "0b6232e6-b314-4312-b4f4-0405b5b6969e",
       "comment": "「Z会会員様限定|特別登録優待ページ」を開く",
       "command": "run",
-      "target": "___open_zkai",
+      "target": "_open_zkai",
       "targets": [],
       "value": ""
     }]
@@ -24741,7 +24703,7 @@
       "id": "306cbf1a-ad0f-4348-b934-fbbf2fddfc57",
       "comment": "「Z会会員様限定|特別登録優待ページ」を開く",
       "command": "run",
-      "target": "___open_zkai",
+      "target": "_open_zkai",
       "targets": [],
       "value": ""
     }]
@@ -24861,7 +24823,7 @@
       "id": "595743d5-1803-48ab-8f17-5e6b2bbcd756",
       "comment": "「個人購入するfunction」を呼び出す",
       "command": "run",
-      "target": "_buy_apply_individual",
+      "target": "___buy_apply_individual",
       "targets": [],
       "value": ""
     }]
@@ -25245,7 +25207,7 @@
     }]
   }, {
     "id": "d8ec317d-55ba-4945-81ad-31527dbce306",
-    "name": "___buy_extend_individual_credit",
+    "name": "_buy_extend_individual_credit",
     "commands": [{
       "id": "53866161-5720-4f3f-8c52-c9a32529d71c",
       "comment": "",
@@ -25278,13 +25240,13 @@
       "id": "c8d61ef8-02d1-412e-a608-cfad3ccf2c14",
       "comment": "「個人延長するfunction」を呼び出す",
       "command": "run",
-      "target": "___buy_extend_individual",
+      "target": "_buy_extend_individual",
       "targets": [],
       "value": ""
     }]
   }, {
     "id": "740be845-013b-429e-8deb-41186828f03f",
-    "name": "___buy_extend_individual",
+    "name": "_buy_extend_individual",
     "commands": [{
       "id": "11606acc-3f62-40d9-9914-9cb8c658513d",
       "comment": "",
@@ -25624,7 +25586,7 @@
     }]
   }, {
     "id": "da6709e1-4cec-47a2-a4dc-f402b503aa64",
-    "name": "___buy_extend_individual_convenience",
+    "name": "_buy_extend_individual_convenience",
     "commands": [{
       "id": "5d78cd70-475c-4f9f-934e-43a45c675486",
       "comment": "",
@@ -25657,7 +25619,85 @@
       "id": "5562d10b-7bf9-4615-9d20-33cde14c0b7a",
       "comment": "「個人延長するfunction」を呼び出す",
       "command": "run",
-      "target": "___buy_extend_individual",
+      "target": "_buy_extend_individual",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "e3ce8349-1fc7-4c26-9f2d-c2ae68ee86ea",
+    "name": "___buy_append_credit",
+    "commands": [{
+      "id": "8908e091-8a3b-4a28-8450-f078b835145d",
+      "comment": "",
+      "command": "echo",
+      "target": "クレジットで追加商品購入(追加商品選択からGMOを経由し戻ってくるまで)function",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d1bed30c-6918-4fa8-b5d2-1bde265ede0e",
+      "comment": "「支払い方法」を設定",
+      "command": "store",
+      "target": "credit",
+      "targets": [],
+      "value": "param1"
+    }, {
+      "id": "deb8b654-6274-4fff-b4e4-73155734da33",
+      "comment": "「画面で選択する通常商品のロケータ一覧」を設定",
+      "command": "executeScript",
+      "target": "return \"\";",
+      "targets": [],
+      "value": "param2"
+    }, {
+      "id": "ebf9b952-5e58-47fb-8b2a-8121828f489a",
+      "comment": "「画面で選択する追加商品のロケータ一覧」を設定",
+      "command": "executeScript",
+      "target": "return [\"#AAP00001Label\"]",
+      "targets": [],
+      "value": "param3"
+    }, {
+      "id": "47506d10-0231-43d9-802d-3b04865f873d",
+      "comment": "「個人購入するfunction」を呼び出す",
+      "command": "run",
+      "target": "___buy_apply_individual",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "c9b1f9c1-59d5-44df-a77c-55ca10f921b1",
+    "name": "___buy_append_convenience",
+    "commands": [{
+      "id": "cd8bab18-3c66-445e-94e5-53476c2d40f5",
+      "comment": "",
+      "command": "echo",
+      "target": "クレジットで追加商品購入(追加商品選択からGMOを経由し戻ってくるまで)function",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "87a96c59-e7fa-42fd-b595-6edc81caf35b",
+      "comment": "「支払い方法」を設定",
+      "command": "store",
+      "target": "convenience",
+      "targets": [],
+      "value": "param1"
+    }, {
+      "id": "2adbf3cf-c892-4d7d-912d-ed72098fd1d3",
+      "comment": "「画面で選択する通常商品のロケータ一覧」を設定",
+      "command": "executeScript",
+      "target": "return \"\";",
+      "targets": [],
+      "value": "param2"
+    }, {
+      "id": "9d5c3611-a973-48c2-a763-d9b66ede9cd4",
+      "comment": "「画面で選択する追加商品のロケータ一覧」を設定",
+      "command": "executeScript",
+      "target": "return [\"#AAP00001Label\"]",
+      "targets": [],
+      "value": "param3"
+    }, {
+      "id": "5425b628-802b-4298-af4e-2710efb9abba",
+      "comment": "「個人購入するfunction」を呼び出す",
+      "command": "run",
+      "target": "___buy_apply_individual",
       "targets": [],
       "value": ""
     }]
@@ -25668,7 +25708,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["a7a5ae99-689d-4d8e-96d6-21ecb55ec4fb", "4e908145-dd33-46a9-8ecd-49f60d6ca5c7", "efd1acd3-0d4a-4eff-86a4-b87a7999a4bb", "e9475c8f-6ee3-4b3f-97f2-5e69336d9d7b", "069207d8-0b8c-4bb8-8b7a-9cc573c91017", "2287cb47-2166-48e3-8dad-d3630cb6a560", "e4166e2a-9571-4601-96ef-b61fc73b828c", "f6b7e80d-e254-459e-89c0-54985eae9a41", "889fe130-edb8-4fde-b9ca-cfff335b00df", "98976c3d-b3c0-4b45-8211-f75f2bb65f50", "89a40113-dbf1-49a0-ae38-8cff022bcbcf", "98160ede-36b1-42da-96f5-8f9cad0e7977", "be87cff8-7d4d-480e-90e4-14a46ae44e79", "ae3d2e05-52a3-438c-b495-1b391ed9769f", "cd90f1ae-ef20-46d8-8b15-1e2cf466f0fd", "ba0ddb68-4aae-4dc8-91db-a57a7edcb51a", "69ff6b0d-37c0-4183-a9c0-25936632f650", "8c211667-d90b-4ffb-8a9d-f432ac40e76c", "84f767ab-3408-417b-8571-678b8d2b4ad7", "45247407-bf1a-47af-8128-5806d4b87521", "3b6518f9-50bb-4981-bf8e-54f63b94dc8b", "bc0d92f1-4227-4eb8-a845-446e38daf425", "90adbc4d-e4f4-4055-a143-5a799a6877e7", "327a1c08-aab2-4401-85db-16f3003bfbc1", "f16d227c-2545-4f2b-9168-490e755b6659", "9037ac53-e080-477e-b7fe-3a9f63190c82", "12d34bdb-17dd-44b7-8b29-e573283771ab", "a622987c-01b2-47e2-a976-985592302f98", "0bb10857-7a16-4548-8e18-9b72ec6f1682", "8da62806-19fa-419d-8c52-d7d67cc75905", "266c0a79-ffe7-4b5c-8fb4-63dd847ea4d5", "bb57628b-dbc2-475a-9927-edf944c2a580", "92b5d1bb-72b0-4b69-a688-641d28732164", "39d31df1-728a-40dd-bef8-a35514806025", "44924564-61e6-435b-b061-0b64ff230fe0", "33a1b60d-d4f5-463b-9af3-2054243b630d", "ac5e7519-2e10-4d83-ae61-db01e0864924", "5050e9fb-3f01-4fde-bdc0-05f61f663341", "a877b6f1-53cc-44aa-94f9-633ab0fa60ce", "7c5aa411-1e4b-4428-bec0-901e0cc07683", "d1f8cc4d-b353-496e-a3a7-dd4b9ab0f206", "af5da180-b747-488f-8b12-afb05428f060", "4854fa6b-4d28-40b9-a537-beea47b030bf", "9c24f913-a16f-4866-9058-09e05736ff56", "1b8a788f-7e4b-4c83-afd3-b807c5b179f2", "b7d94599-2579-46ff-a57f-6adffd8dffe3", "0e384f90-b36c-4cfb-a1ec-4063cf6641d3", "e7c3509d-dd36-45cb-b62e-b8e353b2f93f", "0417a26f-70a4-4ddd-9bb5-366f9bf0c799", "e78ccc0f-c523-4191-9cd3-085c134f8be9", "ab438042-60f9-4694-b30b-42741de051c8", "d5e4f2f8-b631-42b4-835c-a4302ff17187", "8ff01f8c-a2d3-4576-974e-9fdf3c8ded34", "cc3bc9bb-969b-4df3-9f40-b2cd471771c5", "8e6e7f97-e32d-4887-951e-734d26e7e238", "2c5e0af9-9e85-435d-b0de-9a43c1275f1c", "12ff8877-00ea-4e90-baec-0b35df89a4b8", "9ea587ce-69dd-4841-ac27-1b69910936a7", "9b059380-18a4-4c56-82c8-ad727a226bba", "57ceb1ac-0467-4245-9089-f2e4a6ae11fa", "250064d7-57c8-41ff-a695-1242c73b4e77", "0031e8f5-9d90-4ca1-841a-333b7e62e598", "b25aa547-6f43-4758-ab27-f95dfc4fd6be", "55e88164-ed1c-4109-8be5-d54d9a3f9fe6", "a1893a78-b3a5-4e76-9664-a7db455ca3d8", "6c81d92a-f169-4897-86d2-62b372ed3e38", "d6e7bb7e-e4f2-42d6-99b6-d21465d954da", "e683e470-5005-4df5-b8f5-4e05dc0cb7f9", "08236780-f893-41de-a6ec-4acf5ff1b519", "e3eb9ad0-46a8-4e9e-9684-276cb914e030", "d7b3a3b0-a19e-4d05-9ab3-d99a6b12b668", "83f37430-c7b5-4479-97f3-220131469041", "9ea4b618-6cb2-4dd8-8ecf-0729658793af", "4e08f8a9-2099-40f2-9515-eb7b18a4813d", "f21bb6ee-288b-4cbf-bced-d30abfd541e8", "1696df57-0536-45e3-9d42-634b9a0ea5c1", "e19c09e1-7268-41b9-a856-e48080f161fc", "7023ecb2-b6f4-4e35-9f9f-9e7e70926ba7", "ead6b2df-9271-4fb3-b185-b1a0e0e3978f", "e56af092-f664-4b01-8059-7e7ee58533de", "65225597-8c6c-4236-96d6-d81ffebc530b", "6cfc94dd-d4d2-4f8c-98fa-924a0843d317", "e4dbfd64-2a8d-4b07-9c2d-7fb0d2d6ec69", "410c43fe-28bf-4898-9a36-e1460459c8c0", "71ae378a-7137-4b82-ba11-06ee8073c147", "729aa2ba-136b-47dc-af2c-954d1534bbfd", "5901fa3b-da62-42c7-8491-9e83f95690dc", "823685d0-c0f7-40dc-8c85-5503c36067a0", "a7c16604-e3c7-41c6-a03a-6b12a97eba6d", "d3e827af-225b-4bf9-8687-2778a3347781", "ac31f42d-d28b-4715-aed8-821efd4e1864", "552a3a83-baaf-446e-a958-eb59141efe4d", "5d6d9347-d8e5-4cb1-8874-0af3fa799450", "c12630d2-cf4b-41b9-be9d-ef427703d025", "d006169c-4865-47e8-b93d-823ac153f045", "6fe418c3-cc89-41bb-a7b1-1acfcaf69421", "985405cb-4df1-482f-9381-d1ad11385d87", "0dfadb6b-5d12-42e0-8f41-8647e6b2d3cd", "05fc6d1c-704f-4af4-8676-0cc66479b53a", "0f9784c2-10cd-4b03-8673-5c1548f86095", "8c40b547-6fd2-4d45-a969-979ea97c12c0", "0f1137ad-8599-4873-9242-54e4b8b4d887", "256e33ef-3194-4005-91ae-1143a13cbc82", "bfff7669-2963-4bfa-8f92-33c7a452969a", "c7687ad1-ff88-45dd-bff5-3691089fa08b", "f5f9d363-952c-4d60-ac7c-dd54a3a323f6", "3a7f469e-63be-43c8-92a6-d4f540128226", "977793d2-857d-4733-b66f-13e6e2f96224", "327fa043-358d-438c-868e-ff8dc8dc38ec", "4e3251cf-464b-40fa-80c9-c48bf48ddded", "be3142cc-3774-45b2-a302-29a63fcfa42c", "8f7821f1-1cbf-4a8d-8d77-6cace7650fa0", "40b324ea-1856-4d5c-9cf6-454da639704a", "04098b2e-fe07-4d22-a316-fcb7fae18cf5", "eb6f6e65-9418-4dd1-8e44-f3767b86a094", "c431399e-38c2-4d1b-ab46-446ef2a9d10f", "e53e88ac-58a9-4c38-a0c0-e403e564e2b4", "20caaf1d-c473-46e4-bbcb-5c23ca4883db", "ca353e7a-2f2c-4161-83f3-65c9e519dce0", "1adea376-0df4-4854-a61b-7b7b27351d64", "c3eabd26-732f-452a-8a14-5c785957be8c", "2b5b1ee8-df39-4170-817f-8c81ee535a0a", "28797528-fc4f-45b0-94df-13b4adfe8f7d", "4d2cda92-fe26-4206-a5ac-f1c2479f44ee", "f560e633-20b4-4050-bc41-ff6492bf7be3", "6c3a6305-5ed6-49df-b8cd-af73772b5c41", "8de513ca-7725-4248-8787-2df1dbe4d1c2", "97403f51-8637-45f0-886f-61a5fcefa77e", "df825b4e-f407-4bf7-9865-b487f15ad41d", "24304c21-c821-4394-ab37-bd4fa24d781f", "668cad8e-1d53-4ac5-8022-824a17917065"]
+    "tests": ["a7a5ae99-689d-4d8e-96d6-21ecb55ec4fb", "069207d8-0b8c-4bb8-8b7a-9cc573c91017", "4e908145-dd33-46a9-8ecd-49f60d6ca5c7", "2287cb47-2166-48e3-8dad-d3630cb6a560", "efd1acd3-0d4a-4eff-86a4-b87a7999a4bb", "e4166e2a-9571-4601-96ef-b61fc73b828c", "e9475c8f-6ee3-4b3f-97f2-5e69336d9d7b", "f6b7e80d-e254-459e-89c0-54985eae9a41", "889fe130-edb8-4fde-b9ca-cfff335b00df", "98976c3d-b3c0-4b45-8211-f75f2bb65f50", "89a40113-dbf1-49a0-ae38-8cff022bcbcf", "98160ede-36b1-42da-96f5-8f9cad0e7977", "be87cff8-7d4d-480e-90e4-14a46ae44e79", "ae3d2e05-52a3-438c-b495-1b391ed9769f", "cd90f1ae-ef20-46d8-8b15-1e2cf466f0fd", "ba0ddb68-4aae-4dc8-91db-a57a7edcb51a", "69ff6b0d-37c0-4183-a9c0-25936632f650", "8c211667-d90b-4ffb-8a9d-f432ac40e76c", "84f767ab-3408-417b-8571-678b8d2b4ad7", "45247407-bf1a-47af-8128-5806d4b87521", "3b6518f9-50bb-4981-bf8e-54f63b94dc8b", "bc0d92f1-4227-4eb8-a845-446e38daf425", "90adbc4d-e4f4-4055-a143-5a799a6877e7", "327a1c08-aab2-4401-85db-16f3003bfbc1", "f16d227c-2545-4f2b-9168-490e755b6659", "9037ac53-e080-477e-b7fe-3a9f63190c82", "12d34bdb-17dd-44b7-8b29-e573283771ab", "a622987c-01b2-47e2-a976-985592302f98", "0bb10857-7a16-4548-8e18-9b72ec6f1682", "8da62806-19fa-419d-8c52-d7d67cc75905", "266c0a79-ffe7-4b5c-8fb4-63dd847ea4d5", "bb57628b-dbc2-475a-9927-edf944c2a580", "92b5d1bb-72b0-4b69-a688-641d28732164", "39d31df1-728a-40dd-bef8-a35514806025", "44924564-61e6-435b-b061-0b64ff230fe0", "33a1b60d-d4f5-463b-9af3-2054243b630d", "ac5e7519-2e10-4d83-ae61-db01e0864924", "5050e9fb-3f01-4fde-bdc0-05f61f663341", "a877b6f1-53cc-44aa-94f9-633ab0fa60ce", "7c5aa411-1e4b-4428-bec0-901e0cc07683", "d1f8cc4d-b353-496e-a3a7-dd4b9ab0f206", "af5da180-b747-488f-8b12-afb05428f060", "4854fa6b-4d28-40b9-a537-beea47b030bf", "9c24f913-a16f-4866-9058-09e05736ff56", "1b8a788f-7e4b-4c83-afd3-b807c5b179f2", "b7d94599-2579-46ff-a57f-6adffd8dffe3", "0e384f90-b36c-4cfb-a1ec-4063cf6641d3", "e7c3509d-dd36-45cb-b62e-b8e353b2f93f", "0417a26f-70a4-4ddd-9bb5-366f9bf0c799", "e78ccc0f-c523-4191-9cd3-085c134f8be9", "ab438042-60f9-4694-b30b-42741de051c8", "d5e4f2f8-b631-42b4-835c-a4302ff17187", "8ff01f8c-a2d3-4576-974e-9fdf3c8ded34", "cc3bc9bb-969b-4df3-9f40-b2cd471771c5", "8e6e7f97-e32d-4887-951e-734d26e7e238", "2c5e0af9-9e85-435d-b0de-9a43c1275f1c", "12ff8877-00ea-4e90-baec-0b35df89a4b8", "9ea587ce-69dd-4841-ac27-1b69910936a7", "9b059380-18a4-4c56-82c8-ad727a226bba", "57ceb1ac-0467-4245-9089-f2e4a6ae11fa", "250064d7-57c8-41ff-a695-1242c73b4e77", "0031e8f5-9d90-4ca1-841a-333b7e62e598", "b25aa547-6f43-4758-ab27-f95dfc4fd6be", "55e88164-ed1c-4109-8be5-d54d9a3f9fe6", "a1893a78-b3a5-4e76-9664-a7db455ca3d8", "6c81d92a-f169-4897-86d2-62b372ed3e38", "d6e7bb7e-e4f2-42d6-99b6-d21465d954da", "e683e470-5005-4df5-b8f5-4e05dc0cb7f9", "08236780-f893-41de-a6ec-4acf5ff1b519", "e3eb9ad0-46a8-4e9e-9684-276cb914e030", "d7b3a3b0-a19e-4d05-9ab3-d99a6b12b668", "83f37430-c7b5-4479-97f3-220131469041", "9ea4b618-6cb2-4dd8-8ecf-0729658793af", "4e08f8a9-2099-40f2-9515-eb7b18a4813d", "f21bb6ee-288b-4cbf-bced-d30abfd541e8", "1696df57-0536-45e3-9d42-634b9a0ea5c1", "e19c09e1-7268-41b9-a856-e48080f161fc", "7023ecb2-b6f4-4e35-9f9f-9e7e70926ba7", "ead6b2df-9271-4fb3-b185-b1a0e0e3978f", "e56af092-f664-4b01-8059-7e7ee58533de", "65225597-8c6c-4236-96d6-d81ffebc530b", "6cfc94dd-d4d2-4f8c-98fa-924a0843d317", "e4dbfd64-2a8d-4b07-9c2d-7fb0d2d6ec69", "410c43fe-28bf-4898-9a36-e1460459c8c0", "71ae378a-7137-4b82-ba11-06ee8073c147", "729aa2ba-136b-47dc-af2c-954d1534bbfd", "5901fa3b-da62-42c7-8491-9e83f95690dc", "823685d0-c0f7-40dc-8c85-5503c36067a0", "a7c16604-e3c7-41c6-a03a-6b12a97eba6d", "d3e827af-225b-4bf9-8687-2778a3347781", "ac31f42d-d28b-4715-aed8-821efd4e1864", "552a3a83-baaf-446e-a958-eb59141efe4d", "5d6d9347-d8e5-4cb1-8874-0af3fa799450", "c12630d2-cf4b-41b9-be9d-ef427703d025", "d006169c-4865-47e8-b93d-823ac153f045", "6fe418c3-cc89-41bb-a7b1-1acfcaf69421", "985405cb-4df1-482f-9381-d1ad11385d87", "0dfadb6b-5d12-42e0-8f41-8647e6b2d3cd", "05fc6d1c-704f-4af4-8676-0cc66479b53a", "0f9784c2-10cd-4b03-8673-5c1548f86095", "8c40b547-6fd2-4d45-a969-979ea97c12c0", "0f1137ad-8599-4873-9242-54e4b8b4d887", "256e33ef-3194-4005-91ae-1143a13cbc82", "bfff7669-2963-4bfa-8f92-33c7a452969a", "c7687ad1-ff88-45dd-bff5-3691089fa08b", "f5f9d363-952c-4d60-ac7c-dd54a3a323f6", "3a7f469e-63be-43c8-92a6-d4f540128226", "977793d2-857d-4733-b66f-13e6e2f96224", "327fa043-358d-438c-868e-ff8dc8dc38ec", "4e3251cf-464b-40fa-80c9-c48bf48ddded", "be3142cc-3774-45b2-a302-29a63fcfa42c", "8f7821f1-1cbf-4a8d-8d77-6cace7650fa0", "40b324ea-1856-4d5c-9cf6-454da639704a", "04098b2e-fe07-4d22-a316-fcb7fae18cf5", "eb6f6e65-9418-4dd1-8e44-f3767b86a094", "c431399e-38c2-4d1b-ab46-446ef2a9d10f", "e53e88ac-58a9-4c38-a0c0-e403e564e2b4", "20caaf1d-c473-46e4-bbcb-5c23ca4883db", "ca353e7a-2f2c-4161-83f3-65c9e519dce0", "1adea376-0df4-4854-a61b-7b7b27351d64", "c3eabd26-732f-452a-8a14-5c785957be8c", "2b5b1ee8-df39-4170-817f-8c81ee535a0a", "28797528-fc4f-45b0-94df-13b4adfe8f7d", "4d2cda92-fe26-4206-a5ac-f1c2479f44ee", "f560e633-20b4-4050-bc41-ff6492bf7be3", "6c3a6305-5ed6-49df-b8cd-af73772b5c41", "8de513ca-7725-4248-8787-2df1dbe4d1c2", "97403f51-8637-45f0-886f-61a5fcefa77e", "df825b4e-f407-4bf7-9865-b487f15ad41d", "24304c21-c821-4394-ab37-bd4fa24d781f", "668cad8e-1d53-4ac5-8022-824a17917065"]
   }, {
     "id": "bb6a229e-e4cd-425f-abfe-0b54b65eb5db",
     "name": "nextprev",
@@ -25696,7 +25736,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["a7a5ae99-689d-4d8e-96d6-21ecb55ec4fb", "069207d8-0b8c-4bb8-8b7a-9cc573c91017", "4e908145-dd33-46a9-8ecd-49f60d6ca5c7", "2287cb47-2166-48e3-8dad-d3630cb6a560", "efd1acd3-0d4a-4eff-86a4-b87a7999a4bb", "e4166e2a-9571-4601-96ef-b61fc73b828c", "e9475c8f-6ee3-4b3f-97f2-5e69336d9d7b", "f6b7e80d-e254-459e-89c0-54985eae9a41"]
+    "tests": ["a7a5ae99-689d-4d8e-96d6-21ecb55ec4fb", "069207d8-0b8c-4bb8-8b7a-9cc573c91017", "4e908145-dd33-46a9-8ecd-49f60d6ca5c7", "2287cb47-2166-48e3-8dad-d3630cb6a560", "efd1acd3-0d4a-4eff-86a4-b87a7999a4bb", "e4166e2a-9571-4601-96ef-b61fc73b828c", "e9475c8f-6ee3-4b3f-97f2-5e69336d9d7b", "f6b7e80d-e254-459e-89c0-54985eae9a41", "889fe130-edb8-4fde-b9ca-cfff335b00df", "98976c3d-b3c0-4b45-8211-f75f2bb65f50"]
   }, {
     "id": "3900bc2f-0687-42a2-a83c-d5dc068081ac",
     "name": "deluxe_hasonly",
