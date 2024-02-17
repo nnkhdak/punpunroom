@@ -26,14 +26,6 @@
 			</div>
 
 			<details open>
-				<summary>FormDataを連想配列に変換</summary>
-				<code>const btn = document.querySelector('button');
-const form = btn.closest('form');
-const formData = new FormData(form);
-const hash = Object.fromEntries(formData);</code>
-			</details>
-
-			<details open>
 				<summary>URLをparseする</summary>
 				<code>var parse = new URL(location.href);</code>
 				<p>以下のような情報が取得できる</p>
@@ -78,6 +70,14 @@ const hash = Object.fromEntries(formData);</code>
 			</details>
 
 			<details open>
+				<summary>FormDataを連想配列に変換</summary>
+				<code>const btn = document.querySelector('button');
+const form = btn.closest('form');
+const formData = new FormData(form);
+const hash = Object.fromEntries(formData);</code>
+			</details>
+
+			<details open>
 				<summary>連想配列をQueryString化</summary>
 				<code>const str = new URLSearchParams({
 		foo: 'bar',
@@ -101,6 +101,23 @@ const hash = Object.fromEntries(formData);</code>
 			<details open>
 				<summary>連想配列のディープコピー</summary>
 				<code>var cloned = Object.assign({}, original);</code>
+			</details>
+
+			<details open>
+				<summary>連想配列をぐるぐる</summary>
+				<code>var object = {
+	key0: "value0", key1: "value1"
+};
+console.log(Object.keys(object)); // (2) ["key0", "key1"]
+console.log(Object.values(object)); // (2) ["value0", "value1"]
+
+Object.keys(object).forEach(key => {
+	console.log(key); // キーのみ出力
+});
+
+Object.values(object).forEach(value => {
+	console.log(value); // 値のみ出力
+});</code>
 			</details>
 
 			<details open>

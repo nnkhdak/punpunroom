@@ -30,10 +30,8 @@
 					<details open>
 						<summary>SQL Developer でプログレスバーの表示は10%あたりで固まった</summary>
 						<p>以下のファイルを消しました</p>
-						<code>ls -l ~/.sqldeveloper/system21.2.1.204.1703/system_cache/var/cache
-(中略)
--rw-r--r--  1 xxxxxx  staff  1915907111  18 7 17:04 all-resources.dat
-(後略)</code>
+						<code>ls -l ~/.sqldeveloper/system21.2.1.204.1703/system_cache/var/cache/all-resources.dat
+-rw-r--r--  1 xxxxxx  staff  1915907111  18 7 17:04 all-resources.dat</code>
 						<p>参考URL：
 						<address>https://qiita.com/terumejp/items/51802f5e2e82341e5bcb</address>
 						</p>
@@ -185,6 +183,14 @@ FROM (
 					<details open>
 						<summary>テーブル構造を表示</summary>
 						<code>DESC <i><strong>table_name</strong></i>;</code>
+					</details>
+				</li>
+				<li>
+					<details open>
+						<summary>シーケンスを進める</summary>
+						<code>ALTER SEQUENCE <i>シーケンス名</i> INCREMENT BY 1000 NOCACHE; // 指定したシーケンスで次といわれたら1000ずれる設定</code>
+						<code>SELECT <i>シーケンス名</i>.NEXTVAL FROM dual; // ずらす</code>
+						<code>ALTER SEQUENCE <i>シーケンス名</i> INCREMENT BY 1 CACHE 20; // 指定したシーケンスで次といわれたら1ずれる設定 cacheは不明</code>
 					</details>
 				</li>
 				<li>
