@@ -54,7 +54,7 @@
 				<details open>
 					<summary>IDEでのファイルアップロード</summary>
 					<p>拡張機能の設定で「ファイルの URL へのアクセスを許可する」をONにする。</p>
-					<table class="side_cmd">
+					<table class="side_cmd list">
 						<caption>
 							input type=file の例
 						</caption>
@@ -63,16 +63,18 @@
 								<th>Command</th>
 								<th>Target</th>
 								<th>Value</th>
+								<th>Description</th>
 							</tr>
 							<tr>
 								<td>type</td>
 								<td>ロケータ</td>
 								<td>C:\hehe.txt (のようにファイルパス)</td>
+								<td></td>
 							</tr>
 						</tbody>
 					</table>
 					<details>
-						<summary>参考画像</summary>
+						<summary style="color:red;">参考画像</summary>
 						<img src="/punpunroom/tech/side_upload.png" width="80%" />
 					</details>
 				</details>
@@ -80,7 +82,7 @@
 				<details open>
 					<summary>コマンドいろいろ</summary>
 					<ul>
-						<table class="side_cmd">
+						<table class="side_cmd list">
 							<caption>
 								配列を作る
 							</caption>
@@ -117,7 +119,7 @@
 								</tr>
 							</tbody>
 						</table>
-						<table class="side_cmd">
+						<table class="side_cmd list">
 							<caption>
 								連想配列を作る
 							</caption>
@@ -166,7 +168,7 @@
 								</tr>
 							</tbody>
 						</table>
-						<table class="side_cmd">
+						<table class="side_cmd list">
 							<caption>
 								JavaScriptのconfirmでOKをクリック
 							</caption>
@@ -203,7 +205,7 @@
 								</tr>
 							</tbody>
 						</table>
-						<table class="side_cmd">
+						<table class="side_cmd list">
 							<caption>
 								radioを選択なし状態に
 							</caption>
@@ -243,7 +245,7 @@
 								</tr>
 							</tbody>
 						</table>
-						<table class="side_cmd">
+						<table class="side_cmd list">
 							<caption>
 								radioで選択肢にない値にする
 							</caption>
@@ -283,7 +285,7 @@
 								</tr>
 							</tbody>
 						</table>
-						<table class="side_cmd">
+						<table class="side_cmd list">
 							<caption>
 								selectで選択肢にない値にする
 							</caption>
@@ -317,7 +319,7 @@
 								</tr>
 							</tbody>
 						</table>
-						<table class="side_cmd">
+						<table class="side_cmd list">
 							<caption>
 								年月日
 							</caption>
@@ -326,15 +328,17 @@
 									<th>Command</th>
 									<th>Target</th>
 									<th>Value</th>
+									<th>Description</th>
 								</tr>
 								<tr>
 									<td>execute script</td>
 									<td>var now = new Date(); return now.getFullYear() + ('0' + (1 + now.getMonth())).slice(-2) + ('0' + now.getDate()).slice(-2);</td>
 									<td>tmp</td>
+									<td></td>
 								</tr>
 							</tbody>
 						</table>
-						<table class="side_cmd">
+						<table class="side_cmd list">
 							<caption>
 								年月日時分秒
 							</caption>
@@ -343,15 +347,17 @@
 									<th>Command</th>
 									<th>Target</th>
 									<th>Value</th>
+									<th>Description</th>
 								</tr>
 								<tr>
 									<td>execute script</td>
 									<td>const date = new Date(); const year = date.getFullYear(); const month = (date.getMonth() + 1).toString().padStart(2, '0'); const day = date.getDate().toString().padStart(2, '0'); const hour = date.getHours().toString().padStart(2, '0'); const minute = date.getMinutes().toString().padStart(2, '0'); const second = date.getSeconds().toString().padStart(2, '0'); return `${year}-${month}-${day} ${hour}:${minute}:${second}`;</td>
 									<td>tmp</td>
+									<td></td>
 								</tr>
 							</tbody>
 						</table>
-						<table class="side_cmd">
+						<table class="side_cmd list">
 							<caption>
 								ユニーク数値
 							</caption>
@@ -360,15 +366,17 @@
 									<th>Command</th>
 									<th>Target</th>
 									<th>Value</th>
+									<th>Description</th>
 								</tr>
 								<tr>
 									<td>execute script</td>
 									<td>return (new Date().getTime() + '000000000000').substring(2,10);</td>
 									<td>tmp</td>
+									<td></td>
 								</tr>
 							</tbody>
 						</table>
-						<table class="side_cmd">
+						<table class="side_cmd list">
 							<caption>
 								タイトルが変わるまでのClick&Wait
 							</caption>
@@ -377,20 +385,24 @@
 									<th>Command</th>
 									<th>Target</th>
 									<th>Value</th>
+									<th>Description</th>
 								</tr>
 								<tr>
 									<td>store title</td>
 									<td></td>
 									<td>tmp</td>
+									<td></td>
 								</tr>
 								<tr>
 									<td>click</td>
 									<td>ロケータ</td>
 									<td></td>
+									<td></td>
 								</tr>
 								<tr>
 									<td>wait for element not present</td>
 									<td>xpath=//*[text()='${tmp}']</td>
+									<td></td>
 									<td></td>
 								</tr>
 							</tbody>
