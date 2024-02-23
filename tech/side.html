@@ -53,309 +53,336 @@
 				<a class="button" href="javascript:openclose(false);">全てを閉じる</a>
 			</div>
 
+			<details open>
+				<summary>ファイルアップロード</summary>
+				<ul>
+					<li>
+						<span>IDEでのファイルアップロード</span>
+						<p>拡張機能の設定で「ファイルの URL へのアクセスを許可する」をONにする。</p>
+						<img src="side_upload.png" />
+						<table class="side_cmd">
+							<caption>input type=file の例</caption>
+							<tbody>
+								<tr>
+									<th>Command</th>
+									<th>Target</th>
+									<th>Value</th>
+								</tr>
+								<tr>
+									<td>type</td>
+									<td>ロケータ</td>
+									<td>C:\hehe.txt (のようにファイルパス)</td>
+								</tr>
+							</tbody>
+						</table>
+					</li>
+				</ul>
+			</details>
+
+			<details open>
+				<summary>コマンドいろいろ</summary>
+				<ul>
+					<table class="side_cmd">
+						<caption>配列を作る</caption>
+						<tbody>
+							<tr>
+								<th>Command</th>
+								<th>Target</th>
+								<th>Value</th>
+								<th>Description</th>
+							</tr>
+							<tr>
+								<td>execute script</td>
+								<td>return ["red", "blue", "yellow"]</td>
+								<td>colors</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>for each</td>
+								<td>colors</td>
+								<td>color</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>echo</td>
+								<td>${color}</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>end</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="side_cmd">
+						<caption>連想配列を作る</caption>
+						<tbody>
+							<tr>
+								<th>Command</th>
+								<th>Target</th>
+								<th>Value</th>
+								<th>Description</th>
+							</tr>
+							<tr>
+								<td>store json</td>
+								<td>{"name":"山田","age":12}</td>
+								<td>hash</td>
+								<td>"を'で誤らないように！！！</td>
+							</tr>
+							<tr>
+								<td>execute script</td>
+								<td>return Object.keys(${hash});</td>
+								<td>keys</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>for each</td>
+								<td>keys</td>
+								<td>key</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>execute script</td>
+								<td>return ${hash}[${key}];</td>
+								<td>val</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>echo</td>
+								<td>${key}	${val}</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>end</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="side_cmd">
+						<caption>JavaScriptのconfirmでOKをクリック</caption>
+						<tbody>
+							<tr>
+								<th>Command</th>
+								<th>Target</th>
+								<th>Value</th>
+								<th>Description</th>
+							</tr>
+							<tr>
+								<td>choose ok on next confirmation</td>
+								<td></td>
+								<td></td>
+								<td>まだconfirmが表示されていない状態で「OK」をクリックすることを予約</td>
+							</tr>
+							<tr>
+								<td>webdriver choose ok on visible confirmation</td>
+								<td></td>
+								<td></td>
+								<td>もうconfirmが表示されている状態で「OK」をクリックする？</td>
+							</tr>
+							<tr>
+								<td>click</td>
+								<td>XXXXXXXX</td>
+								<td></td>
+								<td>これをクリックするとconfirmが表示されるやつ</td>
+							</tr>
+							<tr>
+								<td>assert confirmation</td>
+								<td>テキスト</td>
+								<td></td>
+								<td>メッセージをassertできるらしいが成功したことはない</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="side_cmd">
+						<caption>radioを選択なし状態に</caption>
+						<tbody>
+							<tr>
+								<th>Command</th>
+								<th>Target</th>
+								<th>Value</th>
+								<th>Description</th>
+							</tr>
+							<tr>
+								<td>store value</td>
+								<td>css=input[name=sex]:checked</td>
+								<td>keep</td>
+								<td>値をとっておく</td>
+							</tr>
+							<tr>
+								<td>uncheck</td>
+								<td>id=sex1</td>
+								<td></td>
+								<td>チェックをはずす</td>
+							</tr>
+							<tr>
+								<td>uncheck</td>
+								<td>id=sex2</td>
+								<td></td>
+								<td>ぜんぶをはずす</td>
+							</tr>
+							<tr>
+								<td colspan="4">やりたいことやる</td>
+							</tr>
+							<tr>
+								<td>click</td>
+								<td>css=[name='sex'][value='${keep}']</td>
+								<td></td>
+								<td>値を元に戻す</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="side_cmd">
+						<caption>radioで選択肢にない値にする</caption>
+						<tbody>
+							<tr>
+								<th>Command</th>
+								<th>Target</th>
+								<th>Value</th>
+								<th>Description</th>
+							</tr>
+							<tr>
+								<td>store value</td>
+								<td>css=input[name=sex]:checked</td>
+								<td>keep</td>
+								<td>値をとっておく</td>
+							</tr>
+							<tr>
+								<td>type</td>
+								<td>css=input[name=sex]:checked</td>
+								<td>99</td>
+								<td>チェックされているinputの値を99に変更</td>
+							</tr>
+							<tr>
+								<td>uncheck</td>
+								<td>id=sex2</td>
+								<td></td>
+								<td>ぜんぶをはずす</td>
+							</tr>
+							<tr>
+								<td colspan="4">やりたいことやる</td>
+							</tr>
+							<tr>
+								<td>type</td>
+								<td>css=input[name=sex]:checked</td>
+								<td>${keep}</td>
+								<td>値を元に戻す</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="side_cmd">
+						<caption>selectで選択肢にない値にする</caption>
+						<tbody>
+							<tr>
+								<th>Command</th>
+								<th>Target</th>
+								<th>Value</th>
+								<th>Description</th>
+							</tr>
+							<tr>
+								<td>store value</td>
+								<td>css=select[name=prefecture_code]</td>
+								<td>keep</td>
+								<td>値をとっておく</td>
+							</tr>
+							<tr>
+								<td>execute script</td>
+								<td>document.querySelector("#prefecture_code option:<span style="color:red;">checked</span>").value = '99';</td>
+								<td></td>
+								<td>値を変更する(selectedではなくchecked)</td>
+							</tr>
+							<tr>
+								<td colspan="4">やりたいことやる</td>
+							</tr>
+							<tr>
+								<td>execute script</td>
+								<td>document.querySelector("#prefecture_code option:checked").value = <span style="color:red;">${keep}</span>;</td>
+								<td></td>
+								<td>値を元に戻す(''でかこまない)</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="side_cmd">
+						<caption>年月日</caption>
+						<tbody>
+							<tr>
+								<th>Command</th>
+								<th>Target</th>
+								<th>Value</th>
+							</tr>
+							<tr>
+								<td>execute script</td>
+								<td>var now = new Date(); return now.getFullYear() + ('0' + (1 +
+									now.getMonth())).slice(-2) + ('0' + now.getDate()).slice(-2);</td>
+								<td>tmp</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="side_cmd">
+						<caption>年月日時分秒</caption>
+						<tbody>
+							<tr>
+								<th>Command</th>
+								<th>Target</th>
+								<th>Value</th>
+							</tr>
+							<tr>
+								<td>execute script</td>
+								<td>const date = new Date(); const year = date.getFullYear(); const month = (date.getMonth() + 1).toString().padStart(2, '0'); const day = date.getDate().toString().padStart(2, '0'); const hour = date.getHours().toString().padStart(2, '0'); const minute = date.getMinutes().toString().padStart(2, '0'); const second = date.getSeconds().toString().padStart(2, '0'); return `${year}-${month}-${day} ${hour}:${minute}:${second}`;</td>
+								<td>tmp</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="side_cmd">
+						<caption>ユニーク数値</caption>
+						<tbody>
+							<tr>
+								<th>Command</th>
+								<th>Target</th>
+								<th>Value</th>
+							</tr>
+							<tr>
+								<td>execute script</td>
+								<td>return (new Date().getTime() + '000000000000').substring(2,10);</td>
+								<td>tmp</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="side_cmd">
+						<caption>タイトルが変わるまでのClick&Wait</caption>
+						<tbody>
+							<tr>
+								<th>Command</th>
+								<th>Target</th>
+								<th>Value</th>
+							</tr>
+							<tr>
+								<td>store title</td>
+								<td></td>
+								<td>tmp</td>
+							</tr>
+							<tr>
+								<td>click</td>
+								<td>ロケータ</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>wait for element not present</td>
+								<td>xpath=//*[text()='${tmp}']</td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</ul>
+			</details>
+
 			<ul>
 				<li>
-					<details open>
-						<summary>コマンドいろいろ</summary>
-						<ul>
-							<table class="side_cmd">
-								<caption>配列を作る</caption>
-								<tbody>
-									<tr>
-										<th>Command</th>
-										<th>Target</th>
-										<th>Value</th>
-										<th>Description</th>
-									</tr>
-									<tr>
-										<td>execute script</td>
-										<td>return ["red", "blue", "yellow"]</td>
-										<td>colors</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>for each</td>
-										<td>colors</td>
-										<td>color</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>echo</td>
-										<td>${color}</td>
-										<td></td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>end</td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
-								</tbody>
-							</table>
-							<table class="side_cmd">
-								<caption>連想配列を作る</caption>
-								<tbody>
-									<tr>
-										<th>Command</th>
-										<th>Target</th>
-										<th>Value</th>
-										<th>Description</th>
-									</tr>
-									<tr>
-										<td>store json</td>
-										<td>{"name":"山田","age":12}</td>
-										<td>hash</td>
-										<td>"を'で誤らないように！！！</td>
-									</tr>
-									<tr>
-										<td>execute script</td>
-										<td>return Object.keys(${hash});</td>
-										<td>keys</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>for each</td>
-										<td>keys</td>
-										<td>key</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>execute script</td>
-										<td>return ${hash}[${key}];</td>
-										<td>val</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>echo</td>
-										<td>${key}	${val}</td>
-										<td></td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>end</td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
-								</tbody>
-							</table>
-							<table class="side_cmd">
-								<caption>JavaScriptのconfirmでOKをクリック</caption>
-								<tbody>
-									<tr>
-										<th>Command</th>
-										<th>Target</th>
-										<th>Value</th>
-										<th>Description</th>
-									</tr>
-									<tr>
-										<td>choose ok on next confirmation</td>
-										<td></td>
-										<td></td>
-										<td>まだconfirmが表示されていない状態で「OK」をクリックすることを予約</td>
-									</tr>
-									<tr>
-										<td>webdriver choose ok on visible confirmation</td>
-										<td></td>
-										<td></td>
-										<td>もうconfirmが表示されている状態で「OK」をクリックする？</td>
-									</tr>
-									<tr>
-										<td>click</td>
-										<td>XXXXXXXX</td>
-										<td></td>
-										<td>これをクリックするとconfirmが表示されるやつ</td>
-									</tr>
-									<tr>
-										<td>assert confirmation</td>
-										<td>テキスト</td>
-										<td></td>
-										<td>メッセージをassertできるらしいが成功したことはない</td>
-									</tr>
-								</tbody>
-							</table>
-							<table class="side_cmd">
-								<caption>radioを選択なし状態に</caption>
-								<tbody>
-									<tr>
-										<th>Command</th>
-										<th>Target</th>
-										<th>Value</th>
-										<th>Description</th>
-									</tr>
-									<tr>
-										<td>store value</td>
-										<td>css=input[name=sex]:checked</td>
-										<td>keep</td>
-										<td>値をとっておく</td>
-									</tr>
-									<tr>
-										<td>uncheck</td>
-										<td>id=sex1</td>
-										<td></td>
-										<td>チェックをはずす</td>
-									</tr>
-									<tr>
-										<td>uncheck</td>
-										<td>id=sex2</td>
-										<td></td>
-										<td>ぜんぶをはずす</td>
-									</tr>
-									<tr>
-										<td colspan="4">やりたいことやる</td>
-									</tr>
-									<tr>
-										<td>click</td>
-										<td>css=[name='sex'][value='${keep}']</td>
-										<td></td>
-										<td>値を元に戻す</td>
-									</tr>
-								</tbody>
-							</table>
-							<table class="side_cmd">
-								<caption>radioで選択肢にない値にする</caption>
-								<tbody>
-									<tr>
-										<th>Command</th>
-										<th>Target</th>
-										<th>Value</th>
-										<th>Description</th>
-									</tr>
-									<tr>
-										<td>store value</td>
-										<td>css=input[name=sex]:checked</td>
-										<td>keep</td>
-										<td>値をとっておく</td>
-									</tr>
-									<tr>
-										<td>type</td>
-										<td>css=input[name=sex]:checked</td>
-										<td>99</td>
-										<td>チェックされているinputの値を99に変更</td>
-									</tr>
-									<tr>
-										<td>uncheck</td>
-										<td>id=sex2</td>
-										<td></td>
-										<td>ぜんぶをはずす</td>
-									</tr>
-									<tr>
-										<td colspan="4">やりたいことやる</td>
-									</tr>
-									<tr>
-										<td>type</td>
-										<td>css=input[name=sex]:checked</td>
-										<td>${keep}</td>
-										<td>値を元に戻す</td>
-									</tr>
-								</tbody>
-							</table>
-							<table class="side_cmd">
-								<caption>selectで選択肢にない値にする</caption>
-								<tbody>
-									<tr>
-										<th>Command</th>
-										<th>Target</th>
-										<th>Value</th>
-										<th>Description</th>
-									</tr>
-									<tr>
-										<td>store value</td>
-										<td>css=select[name=prefecture_code]</td>
-										<td>keep</td>
-										<td>値をとっておく</td>
-									</tr>
-									<tr>
-										<td>execute script</td>
-										<td>document.querySelector("#prefecture_code option:<span style="color:red;">checked</span>").value = '99';</td>
-										<td></td>
-										<td>値を変更する(selectedではなくchecked)</td>
-									</tr>
-									<tr>
-										<td colspan="4">やりたいことやる</td>
-									</tr>
-									<tr>
-										<td>execute script</td>
-										<td>document.querySelector("#prefecture_code option:checked").value = <span style="color:red;">${keep}</span>;</td>
-										<td></td>
-										<td>値を元に戻す(''でかこまない)</td>
-									</tr>
-								</tbody>
-							</table>
-							<table class="side_cmd">
-								<caption>年月日</caption>
-								<tbody>
-									<tr>
-										<th>Command</th>
-										<th>Target</th>
-										<th>Value</th>
-									</tr>
-									<tr>
-										<td>execute script</td>
-										<td>var now = new Date(); return now.getFullYear() + ('0' + (1 +
-											now.getMonth())).slice(-2) + ('0' + now.getDate()).slice(-2);</td>
-										<td>tmp</td>
-									</tr>
-								</tbody>
-							</table>
-							<table class="side_cmd">
-								<caption>年月日時分秒</caption>
-								<tbody>
-									<tr>
-										<th>Command</th>
-										<th>Target</th>
-										<th>Value</th>
-									</tr>
-									<tr>
-										<td>execute script</td>
-										<td>const date = new Date(); const year = date.getFullYear(); const month = (date.getMonth() + 1).toString().padStart(2, '0'); const day = date.getDate().toString().padStart(2, '0'); const hour = date.getHours().toString().padStart(2, '0'); const minute = date.getMinutes().toString().padStart(2, '0'); const second = date.getSeconds().toString().padStart(2, '0'); return `${year}-${month}-${day} ${hour}:${minute}:${second}`;</td>
-										<td>tmp</td>
-									</tr>
-								</tbody>
-							</table>
-							<table class="side_cmd">
-								<caption>ユニーク数値</caption>
-								<tbody>
-									<tr>
-										<th>Command</th>
-										<th>Target</th>
-										<th>Value</th>
-									</tr>
-									<tr>
-										<td>execute script</td>
-										<td>return (new Date().getTime() + '000000000000').substring(2,10);</td>
-										<td>tmp</td>
-									</tr>
-								</tbody>
-							</table>
-							<table class="side_cmd">
-								<caption>タイトルが変わるまでのClick&Wait</caption>
-								<tbody>
-									<tr>
-										<th>Command</th>
-										<th>Target</th>
-										<th>Value</th>
-									</tr>
-									<tr>
-										<td>store title</td>
-										<td></td>
-										<td>tmp</td>
-									</tr>
-									<tr>
-										<td>click</td>
-										<td>ロケータ</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>wait for element not present</td>
-										<td>xpath=//*[text()='${tmp}']</td>
-										<td></td>
-									</tr>
-								</tbody>
-							</table>
-						</ul>
-					</details>
 				</li>
 				<li>
 					<details open>
@@ -443,30 +470,6 @@
 					</details>
 				</li>
 				<li>
-					<details open>
-						<summary>その他</summary>
-						<ul>
-							<li>
-								<span>IDEでのファイルアップロード</span>
-								<p>拡張機能の設定で「ファイルの URL へのアクセスを許可する」をONにする。</p>
-								<table class="side_cmd">
-									<caption>input type=file の例</caption>
-									<tbody>
-										<tr>
-											<th>Command</th>
-											<th>Target</th>
-											<th>Value</th>
-										</tr>
-										<tr>
-											<td>type</td>
-											<td>ロケータ</td>
-											<td>C:\hehe.txt (のようにファイルパス)</td>
-										</tr>
-									</tbody>
-								</table>
-							</li>
-						</ul>
-					</details>
 				</li>
 			</ul>
 		</div>
