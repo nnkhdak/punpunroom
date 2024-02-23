@@ -152,6 +152,12 @@ let array3 = array1.concat(array2);</code>
 			</details>
 
 			<details open>
+				<summary>今日の日付をワンライナー</summary>
+				<code>// sv-SEロケールはYYYY-MM-DD形式の日付文字列を戻す
+new Date().toLocaleDateString('sv-SE');</code>
+			</details>
+
+			<details open>
 				<summary>fetchでstatusコードとresponseボディを返す</summary>
 				<code>fetch(url, opt)
 .then(function(response) {
