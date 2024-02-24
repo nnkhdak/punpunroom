@@ -121,6 +121,14 @@ Object.values(object).forEach(value => {
 			</details>
 
 			<details open>
+				<summary>連想配列のキー存在チェック</summary>
+				<code>var hash = {'hogehoge': 1234}
+if (options.hogehoge) {}
+if (options['hogehoge']) {}
+</code>
+			</details>
+
+			<details open>
 				<summary>sleepをワンライナー</summary>
 				<code>const sleep = waitTime => new Promise(resolve => setTimeout(resolve, waitTime));
 sleep(3000).then(() => {
@@ -228,6 +236,14 @@ targetNode.parentNode.replaceChild(newNode, targetNode);</code>
 	var clone = ele.cloneNode(false);
 	ele.parentNode.replaceChild(clone, ele);
 });</code>
+			</details>
+
+			<details open>
+				<summary>現在紐づいているイベントを全削除</summary>
+				<code>var btn = document.querySelector(...);
+var cloned = btn.cloneNode(true);
+btn.replaceWith(cloned);
+			</code>
 			</details>
 
 			<details open>
