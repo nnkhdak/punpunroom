@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body {
+				background: pink;
+			}
+			.tabs {
+				margin: 0;
+			}
+			.tabarea .tabs li {
+				display: inline-block;
+				max-width: 150px;
+				width: 15%;
+				list-style: none;
+				text-align: center;
+				padding: 5px;
+				border-top-left-radius: 5px;
+				border-top-right-radius: 5px;
+			}
+			.color1 {
+				background: tomato;
+			}
+			.color2 {
+				background: skyblue;
+			}
+			.color3 {
+				background: yellow;
+			}
+			.color4 {
+				background: yellowgreen;
+			}
+			.tabarea input[type='radio'] {
+				display: none;
+			}
+			.tabarea .tab {
+				display: none;
+				min-height: 300px;
+				padding: 10px;
+				border-radius: 5px;
+			}
+			.tabarea input:checked + .tab {
+				display: block;
+			}
+			.tabarea code {
+				white-space: pre;
+			}
+		</style>
+	</head>
+	<body>
+		<noscript>
+			<p>JavaScriptがサポートされていないため表示できません。</p>
+		</noscript>
+		<header></header>
+		<main>
+			<div class="tabarea">
+				<ul class="tabs">
+					<li class="color1"><label id="01lv_label" for="01lv">1Lv呪文</label></li>
+					<li class="color2"><label id="03lv_label" for="03lv">3Lvキャラ</label></li>
+					<li class="color3"><label id="06lv_label" for="06lv">6Lvキャラ</label></li>
+					<li class="color4"><label id="12lv_label" for="12lv">12Lvキャラ</label></li>
+				</ul>
+				<input type="radio" name="tab" value="01lv" id="01lv" />
+				<div class="tab color1">1</div>
+				<input type="radio" name="tab" value="03lv" id="03lv" checked />
+				<div class="tab color2">
+					<pre><p>ストーム・セントリ見習い</p>
+ハーフエルフ、中型の人型生物(エルフ)
+スワッシュバックラー3
+ヒット・ダイス：3d10+12 (hp 33)
+イニシアチブ：+3
+移動速度：30フィート
+アーマー・クラス：17 ([敏]+3, 鎧+4), 接触13, 立ちすくみ14
+基本攻撃/組み付き：+3/+5
+攻撃：高品質のスパイクト・アーマー=+7(1d6+4);ジャヴェリン=+6(1d6+4)
+特殊攻撃：
+その他の特殊能力：スリープに完全耐性, 心術呪文・効果のセーヴに+2[種], エルフの血, スパイダークライム(擬呪) 1/day, 技の冴え(変則), 夜目,
+セーヴ：頑健+6, 反応+4, 意志+0
+能力値：[筋]14, [敏]16, [耐]16, [知]14, [判]8, [魅]8
+技能：〈隠れ身〉+6, 〈軽業〉+11, 〈視認〉+2, 〈忍び足〉+6, 〈知識：神秘学〉+3, 〈跳躍〉+9, 〈平衡感覚〉+10
+特技：《強化版追加ｈｐ》《最下級ドラゴンマーク》《武器の妙技》
+主な装備：レイピア,ミスラル製シャツ</pre>
+				</div>
+				<input type="radio" name="tab" value="06lv" id="06lv" />
+				<div class="tab color3">6</div>
+				<input type="radio" name="tab" value="12lv" id="12lv" />
+				<div class="tab color4">12</div>
+			</div>
+		</main>
+		<footer></footer>
+	</body>
+	<script src="assets/script.js"></script>
+</html>
