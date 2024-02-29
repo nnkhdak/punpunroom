@@ -9,7 +9,8 @@
 .tabarea .tab {
 	display: none;
 	padding: 5px;
-	border-radius: 0px 5px 5px 5px;
+	border-radius: 5px;
+	border-top-left-radius: 0px;
 }
 
 .tabarea li {
@@ -22,7 +23,6 @@
 .tabarea label {
 	display: inline-block;
 	width: 100%;
-	border-width: 1px 1px 0px 1px;
 	border-top-left-radius: 7px;
 	border-top-right-radius: 7px;
 }
