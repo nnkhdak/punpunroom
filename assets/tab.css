@@ -34,3 +34,16 @@
 .tabarea > input:checked + .tab {
 	display: block;
 }
+
+.tabarea .color1 {
+	background: tomato;
+}
+.tabarea .color2 {
+	background: skyblue;
+}
+.tabarea .color3 {
+	background: yellow;
+}
+.tabarea .color4 {
+	background: yellowgreen;
+}
