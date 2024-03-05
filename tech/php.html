@@ -25,56 +25,48 @@
 				<a class="button" href="javascript:openclose(false);">全てを閉じる</a>
 			</div>
 
-			<ol>
-				<li>
-					<details open>
-						<summary>文字列型日付の型変換</summary>
-						<code>$on = '20230102030405';
+			<details open>
+				<summary>文字列型日付の型変換</summary>
+				<code>$on = '20230102030405';
 $on = date_parse_from_format('YmdHis', $on);
 $on = sprintf('%04d/%02d/%02d %02d:%02d:%02d'
-	,	$on['year']
-	,	$on['month']
-	,	$on['day']
-	,	$on['hour']
-	,	$on['minute']
-	,	$on['second']
-	);</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>URL エンコードされたクエリ文字列を生成する</summary>
-						<code>http_build_query</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>連想配列のキーを小文字にする</summary>
-						<code>$row = array_change_key_case($row, CASE_LOWER);</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>連続する空白文字(改行なども含む)を1つのスペースに置き換える</summary>
-						<code>trim(preg_replace("/[ \r\n\t]+/", ' ', 文字列));</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>2021/04/25 12:34:56</summary>
-						<code>date('Y/m/d H:i:s');</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>15日前でフォーマット指定</summary>
-						<code>date('YmdHis', strtotime('-15 day'))</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>私の好きな例外メッセージ</summary>
-						<code>$msg = $e->getCode(); $msg = sprintf('%s%s: %s in %s:%d %s%s%s%s', get_class($e), empty($msg) ? '' : "($msg)", $e->getMessage(), $e->getFile(), $e->getLine(), PHP_EOL, 'Stack trace:', PHP_EOL, $e->getTraceAsString());
+,	$on['year']
+,	$on['month']
+,	$on['day']
+,	$on['hour']
+,	$on['minute']
+,	$on['second']
+);</code>
+			</details>
+
+			<details open>
+				<summary>URL エンコードされたクエリ文字列を生成する</summary>
+				<code>http_build_query</code>
+			</details>
+
+			<details open>
+				<summary>連想配列のキーを小文字にする</summary>
+				<code>$row = array_change_key_case($row, CASE_LOWER);</code>
+			</details>
+
+			<details open>
+				<summary>連続する空白文字(改行なども含む)を1つのスペースに置き換える</summary>
+				<code>trim(preg_replace("/[ \r\n\t]+/", ' ', 文字列));</code>
+			</details>
+
+			<details open>
+				<summary>2021/04/25 12:34:56</summary>
+				<code>date('Y/m/d H:i:s');</code>
+			</details>
+
+			<details open>
+				<summary>15日前でフォーマット指定</summary>
+				<code>date('YmdHis', strtotime('-15 day'))</code>
+			</details>
+
+			<details open>
+				<summary>私の好きな例外メッセージ</summary>
+				<code>$msg = $e->getCode(); $msg = sprintf('%s%s: %s in %s:%d %s%s%s%s', get_class($e), empty($msg) ? '' : "($msg)", $e->getMessage(), $e->getFile(), $e->getLine(), PHP_EOL, 'Stack trace:', PHP_EOL, $e->getTraceAsString());
 
 とか
 
@@ -88,98 +80,94 @@ $msg = json_encode(array(
 	,	'trace'		=> explode("\n", $e->getTraceAsString())
 	));
 </code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>array_filterのcallbackにパラメータを渡す</summary>
-						<code>$rows = array_filter($rows, function($row) use ($by) {
+			</details>
+
+			<details open>
+				<summary>array_filterのcallbackにパラメータを渡す</summary>
+				<code>$rows = array_filter($rows, function($row) use ($by) {
 	return $row['by'] == $by;
 });</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>ファイルに値を書き込む</summary>
-						<code>$s = 'hehe';
+			</details>
+
+			<details open>
+				<summary>ファイルに値を書き込む</summary>
+				<code>$s = 'hehe';
 $h = fopen('/var/log/log_' . date('Ymd') . '.txt'  , 'a');
 fwrite($h, $s);
 fclose($h);</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>クラスの定義済みfunctionを知る</summary>
-						<code>get_class_methods('クラス名');</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>ダブルクオートの文字列連結中にfunctionの実行結果を混ぜる</summary>
-						<code>$msg = "$msg\t{$e->getCode()}\t{$e->getMessage()}";</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>クラスが定義(読み込まれていない場合も)されているか判定</summary>
-						<code>class_exists</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>ファイルの先頭の方にいれるとFatalエラーとかでるようになるかも</summary>
-						<code>error_reporting(E_ALL);</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>ファイルの拡張子をhtmlでPHPコードを埋め込みたい(.htaccess)</summary>
-						<code>&lt;FilesMatch "\.html$"&gt;
+			</details>
+
+			<details open>
+				<summary>配列の差分</summary>
+				<code>array_diff</code>
+			</details>
+
+			<details open>
+				<summary>配列の共通項</summary>
+				<code>array_intersect</code>
+			</details>
+
+			<details open>
+				<summary>クラスの定義済みfunctionを知る</summary>
+				<code>get_class_methods('クラス名');</code>
+			</details>
+
+			<details open>
+				<summary>ダブルクオートの文字列連結中にfunctionの実行結果を混ぜる</summary>
+				<code>$msg = "$msg\t{$e->getCode()}\t{$e->getMessage()}";</code>
+			</details>
+
+			<details open>
+				<summary>クラスが定義(読み込まれていない場合も)されているか判定</summary>
+				<code>class_exists</code>
+			</details>
+
+			<details open>
+				<summary>ファイルの先頭の方にいれるとFatalエラーとかでるようになるかも</summary>
+				<code>error_reporting(E_ALL);</code>
+			</details>
+
+			<details open>
+				<summary>ファイルの拡張子をhtmlでPHPコードを埋め込みたい(.htaccess)</summary>
+				<code>&lt;FilesMatch "\.html$"&gt;
 	AddType application/x-httpd-php .html
 &lt;/FilesMatch&gt;</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>smartyでscriptタグ</summary>
-						<code>{literal}
+			</details>
+
+			<details open>
+				<summary>smartyでscriptタグ</summary>
+				<code>{literal}
 	&lt;script&gt;
 		alert();
 	&lt;/script&gt;
 {/literal}
 </code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>smartyで { や } のエスケープ</summary>
-						<code>{ldelim},{rdelim}</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>smartyでjson_encode</summary>
-						<code>{$sv.hensuu|@json_encode</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>PHPの構文チェック</summary>
-						<code>php -l ファイル名</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>ヒアドキュメント</summary>
-						<code>const SQL = &lt;&lt;&lt;'EOT'
+			</details>
+
+			<details open>
+				<summary>smartyで { や } のエスケープ</summary>
+				<code>{ldelim},{rdelim}</code>
+			</details>
+
+			<details open>
+				<summary>smartyでjson_encode</summary>
+				<code>{$sv.hensuu|@json_encode</code>
+			</details>
+
+			<details open>
+				<summary>PHPの構文チェック</summary>
+				<code>php -l ファイル名</code>
+			</details>
+
+			<details open>
+				<summary>ヒアドキュメント</summary>
+				<code>const SQL = &lt;&lt;&lt;'EOT'
 SELECT
 	*
 FROM
 	dual
 EOT;</code>
-					</details>
-				</li>
-			</ol>
+			</details>
 		</div>
 		<div id="mainRight"></div>
 	</main>
