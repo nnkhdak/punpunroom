@@ -25,131 +25,117 @@
 				<a class="button" href="javascript:openclose(false);">全てを閉じる</a>
 			</div>
 
-			<ul>
-				<li>
-					<details open>
-						<summary>grepでファイル名が不要</summary>
-						<code>grep -h "検索したい文字" *.txt</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>当ディレクトリ以下のDS_Storeファイルを削除する</summary>
-						<code>find . -name ".DS_Store" -delete</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>稼働中のプロセスをツリー形式で参照する</summary>
-						<code>pstree -a</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>ファイルの内容をつかってぐるぐる</summary>
-						<code>for i in $(cat ファイルパス); do echo $i done</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>特定のポートを使用しているアプリを止める</summary>
-						<code>netstat -aon | find "[探したいポート番号]" taskkill /f /pid [終了させたいPID]</code>
-						<code>netstat -aon | find "3001"</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>改行コードの違いを表示しないdiff(とbashrcに書くとき)</summary>
-						<code>diff --strip-trailing-cr foo.txt bar.txt</code>
-						<code>function diffcr() { command diff --strip-trailing-cr $1 $2 }</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>当日日付のログファイルなどをtail</summary>
-						<code>tail -f /tmp/log_`date '+%Y%m%d'`.txt</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>ls -la 結果のうちスペース区切りで8番目を抜き出す</summary>
-						<code>ls -la | awk '{print $8}'</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>ls -la 結果のうちスペース区切りで8番目を抜き出し、コロンの前を抜き出す</summary>
-						<code>ls -la | awk '{print $8}' | awk -F ":" '{print $1}'</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>ディレクトリ内のファイルの拡張子名を取得</summary>
-						<code>find $PWD -type f | grep -F . | awk -F. '{print $NF}' | sort | uniq</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>ディレクトリ内のファイルの拡張子名を取得 その２</summary>
-						<code>find $PWD -type f | grep -F . | awk -F. '{print $NF}' | sort | uniq</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>特定の拡張子のファイルを削除する</summary>
-						<code>find ディレクトリパス -name "*.txt" -type f | xargs rm</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>検索したいワードを含む行を対象とし、*.txtをスペース区切りの3番目のフィールドを取得</summary>
-						<code>grep -h 検索したいワード /ディレクトリ名/*.txt | awk '{print $3}' | sort | uniq</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>ヒアドキュメントでパイプ</summary>
-						<code>( cat &lt;&lt; EOS aaaa bbbb cccc aaaa dddd bbbb EOS ) | sort | uniq</code>
-						<input type="hidden" value="https://www.it-swarm.dev/ja/shell/%E3%83%92%E3%82%A2%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88%E3%82%84%E7%8C%AB%E3%81%A8%E7%B5%84%E3%81%BF%E5%90%88%E3%82%8F%E3%81%9B%E3%81%A6%E5%87%BA%E5%8A%9B%E3%83%AA%E3%83%80%E3%82%A4%E3%83%AC%E3%82%AF%E3%83%88%E3%82%92%E3%81%A9%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F/956745954/" />
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>ヒアドキュメントでコマンドを連続実行</summary>
-						<code>sftp -oPort=22 -oIdentityFile=hoge hoge@hogehoge.com &lt;&lt; EOS cd /tmp put foo quit EOS</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>crontab内で日付</summary>
-						<code>$(date "+\%Y\%m\%d")</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>標準出力もエラー出力も同じところにリダイレクト</summary>
-						<code><i>foo</i> &gt; <i>bar.log</i> 2&gt;&amp;1</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>echoで改行を出力したい</summary>
-						<code>echo -n -e "\n"</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>exportのついていないkey=value形式のファイルを環境変数として読み込みたい</summary>
-						<code>export $(cat $KEYVALUE_FILE | grep -v "#" | xargs)</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>ディスク使用量を知りたい</summary>
-						<code>du -hc</code>
-					</details>
-				</li>
-			</ul>
+			<details>
+				<summary>とあるディレクトリ内のファイルの所有権とパーミッションをそろえる</summary>
+				<code>pwd
+find . -type f | sudo xargs chown <i>ユーザ名</ii>:<i>グループ名</ii>
+find . -type d | sudo xargs chown <i>ユーザ名</ii>:<i>グループ名</ii>
+find . -type d | xargs chmod 775
+find . -type f | xargs chmod 666</code>
+			</details>
+
+			<details>
+				<summary>grepでファイル名が不要</summary>
+				<code>grep -h "検索したい文字" *.txt</code>
+			</details>
+
+			<details>
+				<summary>当ディレクトリ以下のDS_Storeファイルを削除する</summary>
+				<code>find . -name ".DS_Store" -delete</code>
+			</details>
+
+			<details>
+				<summary>稼働中のプロセスをツリー形式で参照する</summary>
+				<code>pstree -a</code>
+			</details>
+
+			<details>
+				<summary>ファイルの内容をつかってぐるぐる</summary>
+				<code>for i in $(cat ファイルパス); do echo $i done</code>
+			</details>
+
+			<details>
+				<summary>特定のポートを使用しているアプリを止める</summary>
+				<code>netstat -aon | find "[探したいポート番号]" taskkill /f /pid [終了させたいPID]</code>
+				<code>netstat -aon | find "3001"</code>
+			</details>
+
+			<details>
+				<summary>改行コードの違いを表示しないdiff(とbashrcに書くとき)</summary>
+				<code>diff --strip-trailing-cr foo.txt bar.txt</code>
+				<code>function diffcr() { command diff --strip-trailing-cr $1 $2 }</code>
+			</details>
+
+			<details>
+				<summary>当日日付のログファイルなどをtail</summary>
+				<code>tail -f /tmp/log_`date '+%Y%m%d'`.txt</code>
+			</details>
+
+			<details>
+				<summary>ls -la 結果のうちスペース区切りで8番目を抜き出す</summary>
+				<code>ls -la | awk '{print $8}'</code>
+			</details>
+
+			<details>
+				<summary>ls -la 結果のうちスペース区切りで8番目を抜き出し、コロンの前を抜き出す</summary>
+				<code>ls -la | awk '{print $8}' | awk -F ":" '{print $1}'</code>
+			</details>
+
+			<details>
+				<summary>ディレクトリ内のファイルの拡張子名を取得</summary>
+				<code>find $PWD -type f | grep -F . | awk -F. '{print $NF}' | sort | uniq</code>
+			</details>
+
+			<details>
+				<summary>ディレクトリ内のファイルの拡張子名を取得 その２</summary>
+				<code>find $PWD -type f | grep -F . | awk -F. '{print $NF}' | sort | uniq</code>
+			</details>
+
+			<details>
+				<summary>特定の拡張子のファイルを削除する</summary>
+				<code>find ディレクトリパス -name "*.txt" -type f | xargs rm</code>
+			</details>
+
+			<details>
+				<summary>検索したいワードを含む行を対象とし、*.txtをスペース区切りの3番目のフィールドを取得</summary>
+				<code>grep -h 検索したいワード /ディレクトリ名/*.txt | awk '{print $3}' | sort | uniq</code>
+			</details>
+
+			<details>
+				<summary>ヒアドキュメントでパイプ</summary>
+				<code>( cat &lt;&lt; EOS aaaa bbbb cccc aaaa dddd bbbb EOS ) | sort | uniq</code>
+				<input type="hidden" value="https://www.it-swarm.dev/ja/shell/%E3%83%92%E3%82%A2%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88%E3%82%84%E7%8C%AB%E3%81%A8%E7%B5%84%E3%81%BF%E5%90%88%E3%82%8F%E3%81%9B%E3%81%A6%E5%87%BA%E5%8A%9B%E3%83%AA%E3%83%80%E3%82%A4%E3%83%AC%E3%82%AF%E3%83%88%E3%82%92%E3%81%A9%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F/956745954/" />
+			</details>
+
+			<details>
+				<summary>ヒアドキュメントでコマンドを連続実行</summary>
+				<code>sftp -oPort=22 -oIdentityFile=hoge hoge@hogehoge.com &lt;&lt; EOS cd /tmp put foo quit EOS</code>
+			</details>
+
+			<details>
+				<summary>crontab内で日付</summary>
+				<code>$(date "+\%Y\%m\%d")</code>
+			</details>
+
+			<details>
+				<summary>標準出力もエラー出力も同じところにリダイレクト</summary>
+				<code><i>foo</i> &gt; <i>bar.log</i> 2&gt;&amp;1</code>
+			</details>
+
+			<details>
+				<summary>echoで改行を出力したい</summary>
+				<code>echo -n -e "\n"</code>
+			</details>
+
+			<details>
+				<summary>exportのついていないkey=value形式のファイルを環境変数として読み込みたい</summary>
+				<code>export $(cat $KEYVALUE_FILE | grep -v "#" | xargs)</code>
+			</details>
+
+			<details>
+				<summary>ディスク使用量を知りたい</summary>
+				<code>du -hc</code>
+			</details>
 		</div>
 		<div id="mainRight"></div>
 	</main>
