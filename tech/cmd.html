@@ -61,6 +61,11 @@ find . -type f | xargs chmod 666</code>
 			</details>
 
 			<details open>
+				<summary>ディレクトリのdiff(差分のみも同時に)</summary>
+				<code>diff -rq directory1 directory2</code>
+			</details>
+
+			<details open>
 				<summary>改行コードの違いを表示しないdiff(とbashrcに書くとき)</summary>
 				<code>diff --strip-trailing-cr foo.txt bar.txt</code>
 				<code>function diffcr() { command diff --strip-trailing-cr $1 $2 }</code>
