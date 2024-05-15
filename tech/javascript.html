@@ -78,6 +78,29 @@ const hash = Object.fromEntries(formData);</code>
 			</details>
 
 			<details open>
+				<summary>FormDataを連想配列に変換(nameが重複している場合)</summary>
+				<code>const btn = document.querySelector('button');
+const form = btn.closest('form');
+const formData = new FormData(form);
+const hash = {};
+for (const pair of formData.entries()) {
+	const k = pair[0];
+	const v = pair[1];
+	if (k in hash) {
+		if (hash[k] instanceof Array) {
+		} else {
+			const first = hash[k];
+			hash[k] = [];
+			hash[k].push(first);
+		}
+		hash[k].push(v);
+	} else {
+		hash[k] = v;
+	}
+}</code>
+			</details>
+
+			<details open>
 				<summary>連想配列をQueryString化</summary>
 				<code>const str = new URLSearchParams({
 		foo: 'bar',
