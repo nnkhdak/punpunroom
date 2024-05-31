@@ -173,9 +173,17 @@ let array3 = array1.concat(array2);</code>
 
 			<details open>
 				<summary>配列の空白を削除</summary>
-				<code>let array1 = [1, 2];
-let array2 = array1.filter(v => v);
-let array3 = array1.filter(v => !!v);</code>
+				<code>array1 = [1, 2, "", null];
+array2 = array1.filter(v => v);
+array3 = array1.filter(v => !!v);</code>
+			</details>
+
+			<details open>
+				<summary>配列の差分</summary>
+				<code>array1 = [1, 2, 3, 4, 5, 6];
+array2 = [1, 2, 3, 4];
+array3 = array1.filter(i => array2.indexOf(i) == -1)
+console.log(array3); // [5, 6]</code>
 			</details>
 
 			<details open>
