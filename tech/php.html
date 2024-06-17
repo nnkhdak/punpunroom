@@ -98,13 +98,22 @@ fclose($h);</code>
 			</details>
 
 			<details open>
-				<summary>配列の差分</summary>
-				<code>array_diff</code>
+				<summary>配列の共通項</summary>
+				<code>$target = array('a', 'b', 'c', 'd', 'e');
+$result = array_diff($target, array('c', 'e'));
+$result = array_values($result);</code>
 			</details>
 
 			<details open>
-				<summary>配列の共通項</summary>
-				<code>array_intersect</code>
+				<summary>連想配列のキーの共通項</summary>
+				<code>$array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
+					$array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
+					var_dump(<span style="color:red;">array_intersect_key</span>($array1, $array2));
+
+array(2) {
+	["blue"]=>int(1)
+	["green"]=>int(3)
+}</code>
 			</details>
 
 			<details open>
