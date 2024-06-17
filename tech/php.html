@@ -105,6 +105,13 @@ $result = array_values($result);</code>
 			</details>
 
 			<details open>
+				<summary>配列からemptyを除外</summary>
+				<code>$array1 = array('a', '', false, 0);
+$array2 = array_filter($array1);</code>
+$array2 = array_values($array2);
+			</details>
+
+			<details open>
 				<summary>連想配列のキーの共通項</summary>
 				<code>$array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
 $array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
