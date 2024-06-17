@@ -107,13 +107,15 @@ $result = array_values($result);</code>
 			<details open>
 				<summary>連想配列のキーの共通項</summary>
 				<code>$array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
-					$array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
-					var_dump(<span style="color:red;">array_intersect_key</span>($array1, $array2));
+$array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
+$tmp = array_intersect_key($array1, $array2);</code>
+			</details>
 
-array(2) {
-	["blue"]=>int(1)
-	["green"]=>int(3)
-}</code>
+			<details open>
+				<summary>連想配列から特定のキーのみ取り出す</summary>
+				<code>$array1 = array('blue' => 1, 'red' => 2, 'green' => 3, 'purple' => 4);
+$array2 = array('green', 'blue', 'yellow', 'cyan');
+$tmp = array_intersect_key($array1, array_flip($array2));</code>
 			</details>
 
 			<details open>
