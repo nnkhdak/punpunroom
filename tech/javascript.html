@@ -25,54 +25,7 @@
 				<a class="button" href="javascript:openclose(false);">全てを閉じる</a>
 			</div>
 
-			<details open>
-				<summary>Null 合体代入 (??=)</summary>
-				<p>Null 合体代入 (x ??= y) 演算子は、x が nullish (null または undefined) である場合にのみ代入を行います。</p>
-				<code>const a = { duration: 50 };
-
-a.speed ??= 25;
-console.log(a.speed);
-// Expected output: 25
-
-a.duration ??= 10;
-console.log(a.duration);
-// Expected output: 50</code>
-				<p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment" target="_blank">mdn web docs より引用</a></p>
-			</details>
-
-			<details open>
-				<summary>Null 合体演算子 (??)</summary>
-				<p>左辺が null または undefined の場合に右の値を返し、それ以外の場合に左の値を返します。</p>
-				<code>const foo = null ?? 'default string';
-console.log(foo);
-// Expected output: "default string"
-
-const baz = 0 ?? 42;
-console.log(baz);
-// Expected output: 0</code>
-				<p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing" target="_blank">mdn web docs より引用</a></p>
-			</details>
-
-			<details open>
-				<summary>オプショナルチェーン (?.)</summary>
-				<p>参照が nullish (null または undefined) の場合にエラーとなるのではなく、式が短絡され undefined が返される。</p>
-				<code>const adventurer = {
-	name: 'Alice',
-	cat: {
-		name: 'Dinah',
-	},
-};
-
-const dogName = adventurer.dog?.name;
-console.log(dogName);
-// Expected output: undefined
-
-console.log(adventurer.someNonExistentMethod?.());
-// Expected output: undefined</code>
-				<p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Optional_chaining" target="_blank">mdn web docs より引用</a></p>
-			</details>
-
-			<details open>
+			<details>
 				<summary>URLをparseする</summary>
 				<code>var parse = new URL(location.href);</code>
 				<p>以下のような情報が取得できる</p>
@@ -111,12 +64,12 @@ console.log(adventurer.someNonExistentMethod?.());
 				<p>https://qiita.com/ovrmrw/items/1c1564481c4ca9cc4351</p>
 			</details>
 
-			<details open>
+			<details>
 				<summary>QueryStringを連想配列化</summary>
 				<code>const hash = Object.fromEntries(new URLSearchParams(location.search).entries());</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>FormDataを連想配列に変換</summary>
 				<code>const btn = document.querySelector('button');
 const form = btn.closest('form');
@@ -124,7 +77,7 @@ const formData = new FormData(form);
 const hash = Object.fromEntries(formData);</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>FormDataを連想配列に変換(nameが重複している場合)</summary>
 				<code>const btn = document.querySelector('button');
 const form = btn.closest('form');
@@ -147,7 +100,7 @@ for (const pair of formData.entries()) {
 }</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>連想配列をQueryString化</summary>
 				<code>const queryString = new URLSearchParams({
 		foo: 'bar',
@@ -158,22 +111,22 @@ for (const pair of formData.entries()) {
 				<p>先頭の?は付加されないので自身で追加すること</p>
 			</details>
 
-			<details open>
+			<details>
 				<summary>連想配列かどうか</summary>
 				<code>return ((value instanceof Object) && !(value instanceof Array)) ? true : false;</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>連想配列の長さ</summary>
 				<code>Object.keys(value).length;</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>連想配列のディープコピー</summary>
 				<code>var cloned = Object.assign({}, original);</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>連想配列をぐるぐる</summary>
 				<code>var object = {
 	key0: "value0", key1: "value1"
@@ -190,14 +143,14 @@ Object.values(object).forEach(value => {
 });</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>連想配列のキー存在チェック</summary>
 				<code>var hash = {'hogehoge': 1234}
 if ('hogehoge' in options) {}
 </code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>sleepをワンライナー</summary>
 				<code>const sleep = waitTime => new Promise(resolve => setTimeout(resolve, waitTime));
 sleep(3000).then(() => {
@@ -205,27 +158,27 @@ sleep(3000).then(() => {
 });</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>配列の末尾に追加</summary>
 				<code>const result = [];
 result.push(1);</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>配列を結合</summary>
 				<code>let array1 = [1, 2];
 let array2 = [3, 4];
 let array3 = array1.concat(array2);</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>配列の空白を削除</summary>
 				<code>array1 = [1, 2, "", null];
 array2 = array1.filter(v => v);
 array3 = array1.filter(v => !!v);</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>配列の差分</summary>
 				<code>array1 = [1, 2, 3, 4, 5, 6];
 array2 = [1, 2, 3, 4];
@@ -233,28 +186,28 @@ array3 = array1.filter(i => array2.indexOf(i) == -1)
 console.log(array3); // [5, 6]</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>文字列を配列として繰り返す</summary>
 				<code>Array(10).fill('abc')</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>文字列をユニーク</summary>
 				<code>Array.from(new Set(配列));</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>今日の日付をワンライナー</summary>
 				<code>// sv-SEロケールはYYYY-MM-DD形式の日付文字列を戻す
 new Date().toLocaleDateString('sv-SE');</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>バックスラッシュを置き換える</summary>
 				<code>"abc".replace("\\xA5", '円'); </code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>fetchでstatusコードとresponseボディを返す</summary>
 				<code>fetch(url, opt)
 .then(function(response) {
@@ -272,7 +225,7 @@ new Date().toLocaleDateString('sv-SE');</code>
 });</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>fetchでダウンロード</summary>
 				<code>fetch("http://example.com/ExportExcel", {
 	method: 'GET',
@@ -292,12 +245,12 @@ new Date().toLocaleDateString('sv-SE');</code>
 	});</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>エラーでメッセージとコードを送信</summary>
 				<code>throw new Error('ErrorMessage',{ cause: 404 });</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>ヒアドキュメント</summary>
 				<code>const HERE = `
 SELECT
@@ -307,27 +260,85 @@ FROM
 `;</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>数値か判定</summary>
 				<code>(typeof value === 'number' && isFinite(value)</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>タグをまるまる置き換える</summary>
 				<code>var targetNode = document.getElementById('hoge');
 var newNode = document.createElement('div');
 targetNode.parentNode.replaceChild(newNode, targetNode);</code>
 			</details>
 
-			<details open>
-				<summary>タグ内の子要素を削除</summary>
-				<code>document.querySelectorAll('header').forEach((ele) => {
-	var clone = ele.cloneNode(false);
-	ele.parentNode.replaceChild(clone, ele);
-});</code>
+			<details>
+				<summary>checkboxの親要素にonclickが入っていてcheckboxが期待通りに動作しない</summary>
+				<code>&lt;td onclick="toggle(event)"&gt;
+	&lt;input type="checkbox" /&gt;
+&lt;/td&gt;
+				</code>
+				<code>function toggle(event) {
+	if ('checkbox' !== event.target.type) {
+		event.currentTarget.querySelector('*[type=checkbox]')?.click();	
+	}
+}</code>
 			</details>
 
-			<details open>
+			<details>
+				<summary>タグ内の子要素を削除</summary>
+				<code>const ele = document.getElementById(......);
+while(ele.firstChild){
+	ele.removeChild(ele.firstChild);
+}</code>
+			</details>
+
+			<details>
+				<summary>Null 合体代入 (??=)</summary>
+				<p>Null 合体代入 (x ??= y) 演算子は、x が nullish (null または undefined) である場合にのみ代入を行います。<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment" target="_blank">mdn web docs より引用</a></p>
+				<code>const a = { duration: 50 };
+
+a.speed ??= 25;
+console.log(a.speed);
+// Expected output: 25
+
+a.duration ??= 10;
+console.log(a.duration);
+// Expected output: 50</code>
+			</details>
+
+			<details>
+				<summary>Null 合体演算子 (??)</summary>
+				<p>左辺が null または undefined の場合に右の値を返し、それ以外の場合に左の値を返します。<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing" target="_blank">mdn web docs より引用</a></p>
+				<code>const foo = null ?? 'default string';
+console.log(foo);
+// Expected output: "default string"
+
+const baz = 0 ?? 42;
+console.log(baz);
+// Expected output: 0</code>
+			</details>
+
+			<details>
+				<summary>オプショナルチェーン (?.)</summary>
+				<p>参照が nullish (null または undefined) の場合にエラーとなるのではなく、式が短絡され undefined が返される。</p>
+				<code>const adventurer = {
+	name: 'Alice',
+	cat: {
+		name: 'Dinah',
+	},
+};
+
+const dogName = adventurer.dog?.name;
+console.log(dogName);
+// Expected output: undefined
+
+console.log(adventurer.someNonExistentMethod?.());
+// Expected output: undefined</code>
+				<p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Optional_chaining" target="_blank">mdn web docs より引用</a></p>
+			</details>
+
+			<details>
 				<summary>現在紐づいているイベントを全削除</summary>
 				<code>var btn = document.querySelector(...);
 var cloned = btn.cloneNode(true);
@@ -335,7 +346,7 @@ btn.replaceWith(cloned);
 			</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>現在ブラウザのUserAgent</summary>
 				<code>document.write(navigator.userAgent);</code>
 				<script>
@@ -343,7 +354,7 @@ btn.replaceWith(cloned);
 				</script>
 			</details>
 
-			<details open>
+			<details>
 				<summary>現在ブラウザのnavigator.appName</summary>
 				<code>document.write(navigator.appName);</code>
 				<script>
@@ -351,7 +362,7 @@ btn.replaceWith(cloned);
 				</script>
 			</details>
 
-			<details open>
+			<details>
 				<summary>現在ブラウザのnavigator.appVersion</summary>
 				<code>document.write(navigator.appVersion);</code>
 				<script>
@@ -359,7 +370,7 @@ btn.replaceWith(cloned);
 				</script>
 			</details>
 
-			<details open>
+			<details>
 				<summary>ウェーブダッシュ</summary>
 				<code>String.fromCharCode(0x301C);</code>
 				<script>
@@ -367,7 +378,7 @@ btn.replaceWith(cloned);
 				</script>
 			</details>
 
-			<details open>
+			<details>
 				<summary>copyrightなど</summary>
 				<code>&amp;copy;</code>
 			</details>
