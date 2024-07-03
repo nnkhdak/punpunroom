@@ -26,6 +26,53 @@
 			</div>
 
 			<details open>
+				<summary>Null 合体代入 (??=)</summary>
+				<p>Null 合体代入 (x ??= y) 演算子は、x が nullish (null または undefined) である場合にのみ代入を行います。</p>
+				<code>const a = { duration: 50 };
+
+a.speed ??= 25;
+console.log(a.speed);
+// Expected output: 25
+
+a.duration ??= 10;
+console.log(a.duration);
+// Expected output: 50</code>
+				<p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment" target="_blank">mdn web docs より引用</a></p>
+			</details>
+
+			<details open>
+				<summary>Null 合体演算子 (??)</summary>
+				<p>左辺が null または undefined の場合に右の値を返し、それ以外の場合に左の値を返します。</p>
+				<code>const foo = null ?? 'default string';
+console.log(foo);
+// Expected output: "default string"
+
+const baz = 0 ?? 42;
+console.log(baz);
+// Expected output: 0</code>
+				<p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing" target="_blank">mdn web docs より引用</a></p>
+			</details>
+
+			<details open>
+				<summary>オプショナルチェーン (?.)</summary>
+				<p>参照が nullish (null または undefined) の場合にエラーとなるのではなく、式が短絡され undefined が返される。</p>
+				<code>const adventurer = {
+	name: 'Alice',
+	cat: {
+		name: 'Dinah',
+	},
+};
+
+const dogName = adventurer.dog?.name;
+console.log(dogName);
+// Expected output: undefined
+
+console.log(adventurer.someNonExistentMethod?.());
+// Expected output: undefined</code>
+				<p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Optional_chaining" target="_blank">mdn web docs より引用</a></p>
+			</details>
+
+			<details open>
 				<summary>URLをparseする</summary>
 				<code>var parse = new URL(location.href);</code>
 				<p>以下のような情報が取得できる</p>
