@@ -339,6 +339,12 @@ console.log(adventurer.someNonExistentMethod?.());
 			</details>
 
 			<details>
+				<summary>アンカータグをクリックさせない</summary>
+				<code>const btn = document.querySelector(...);
+btn.setAttribute('onclick', 'return false;');</code>
+			</details>
+
+			<details>
 				<summary>現在紐づいているイベントを全削除</summary>
 				<code>var btn = document.querySelector(...);
 var cloned = btn.cloneNode(true);
