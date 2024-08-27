@@ -28,7 +28,7 @@
 			<ul>
 				<li>
 					<span>ブランチ</span>
-					<details open>
+					<details>
 						<summary>操作を取り消したい</summary>
 						git reflog で一覧表示
 						<code>nnkhdak@mypc project % git reflog
@@ -48,85 +48,90 @@ b9ee3f88 (origin/feature/xxxx, feature/xxxx) HEAD@{10}: merge master: Merge made
 HEAD is now at <strong>b93e178b</strong> Merge pull request #163 from nnkhdak/origin/staging</code>
 						git log や git reflog で確認
 					</details>
-					<details open>
+					<details>
 						<summary>githubでソース表示時に行数をハイライト</summary>
 						<code>https://....../../../ファイル名#L123</code>
 						<code>https://....../../../ファイル名#L123-234</code>
 					</details>
-					<details open>
+					<details>
 						<summary>変更のあったファイルだけの差分</summary>
 						<code>git diff upstream/master --diff-filter=M (Dだと削除差分、Rだとリネーム差分)</code>
 					</details>
-					<details open>
+					<details>
 						<summary>タグを打つ</summary>
 						<code>git tag -a <i>tagname</i> <i>commit</i>
 git push origin <i>tagname</i></code>
 					</details>
-					<details open>
+					<details>
 						<summary>ローカルブランチを削除</summary>
 						<code>git branch -d <i>ブランチ名</i></code>
 					</details>
-					<details open>
+					<details>
 						<summary>リモート追跡ブランチを全削除</summary>
 						<code>git fetch -p
 git remote prune origin</code>
 					</details>
-					<details open>
+					<details>
 						<summary>直前のコミットを取り消す</summary>
 						<code>git reset --soft HEAD^</code>
 					</details>
-					<details open>
+					<details>
+						<summary>git pull で毎回 origin master をつけなければならない</summary>
+						<p>git pull するとこうしたらいいよ、的なメッセージが表示されるはず。↓はその例</p>
+						<code>git branch --set-upstream-to=origin/master master</code>
+					</details>
+					<details>
 						<summary>clone</summary>
 						<code>git clone https://github.com/リポジトリ名</code>
 					</details>
-					<details open>
+					<details>
 						<summary>ディレクトリを指定してclone</summary>
 						<code>git clone https://github.com/リポジトリ名 ディレクトリ名</code>
 					</details>
-					<details open>
+					<details>
 						<summary>ブランチをclone</summary>
 						<code>git clone -b <i>ブランチ名</i> --single-branch https://github.com/リポジトリ名 .</code>
 					</details>
-					<details open>
+					<details>
 						<summary>ブランチを作成しつつ変更＆push</summary>
 						<code>git checkout -b <i>ブランチ名</i>
 git push --set-upstream origin <i>ブランチ名</i></code>
 					</details>
-					<details open>
+					<details>
 						<summary>commitとpush</summary>
 						<code>git add -A
 git commit
 git push</code>
 					</details>
-					<details open>
+					<details>
 						<summary>ブランチの変更</summary>
 						<code>git fetch && git checkout <i>branchname</i></code>
 					</details>
-					<details open>
+					<details>
 						<summary>ローカルの状態をキレイにする</summary>
 						<code>git clean -df</code>
 					</details>
-					<details open>
+					<details>
 						<summary>現在のブランチ名を表示</summary>
 						<code>git branch --contains=HEAD</code>
 					</details>
-					<details open>
+					<details>
 						<summary>実行権限の付与、除外</summary>
 						<code>git update-index --add --chmod=+x <i>filename</i>
 git update-index --add --chmod=-x <i>filename</i></code>
 					</details>
-					<details open>
+					<details>
 						<summary>git add を取り消す</summary>
 						<code>git reset HEAD</code>
 					</details>
-					<details open>
+					<details>
 						<summary>ブランチ同士の比較</summary>
 						<code>git diff ブランチA..ブランチB</code>
 					</details>
 				</li>
 				<li>
 					<span>その他</span>
-					<details open>
+					<details>
 						<summary>空ディレクトリに.gitkeepを置く</summary>
 						<code>cd <i>置きたいディレクトリのルート</i>
 find . -type d -name .git -prune -o -type d -empty -exec touch {}/.gitkeep \;</code>
