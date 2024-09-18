@@ -50,6 +50,13 @@ $on = sprintf('%04d/%02d/%02d %02d:%02d:%02d'
 			</details>
 
 			<details open>
+				<summary>キーが配列になっていて値がnullの連想配列を生成する</summary>
+				<code>$keys = array('aaa', 'bbb', 'ccc');
+$vals = array_fill(0, count($keys), null);
+$hash = array_combine($keys, $vals);</code>
+			</details>
+
+			<details open>
 				<summary>連続する空白文字(改行なども含む)を1つのスペースに置き換える</summary>
 				<code>trim(preg_replace("/[ \r\n\t]+/", ' ', 文字列));</code>
 			</details>
