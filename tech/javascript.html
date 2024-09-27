@@ -113,7 +113,8 @@ for (const pair of formData.entries()) {
 
 			<details>
 				<summary>連想配列かどうか</summary>
-				<code>return ((value instanceof Object) && !(value instanceof Array)) ? true : false;</code>
+				<code>return (typeof value === 'object' && value !== null && !Array.isArray(value)) ? true : false;</code>
+				<code><s>return ((value instanceof Object) && !(value instanceof Array)) ? true : false;</s></code>
 			</details>
 
 			<details>
