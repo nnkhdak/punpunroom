@@ -28,8 +28,12 @@
 			<ul>
 				<li>
 					<details open>
-						<summary>起動</summary>
+						<summary>起動(必要なら生成も)</summary>
 						<code>docker compose up -d</code>
+					</details>
+					<details open>
+						<summary>停止</summary>
+						<code>docker compose stop</code>
 					</details>
 					<details open>
 						<summary>削除</summary>
@@ -38,7 +42,7 @@
 					<details open>
 						<summary>再ビルド</summary>
 						<code>docker compose up -d —build</code>
-						または
+						<p>または</p>
 						<code>docker compose build
 docker compose up -d</code>
 					</details>
