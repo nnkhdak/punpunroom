@@ -36,15 +36,14 @@
 						<code>docker compose down</code>
 					</details>
 					<details open>
-						<summary>コンテナへbash</summary>
-						<code>docker compose exec <i>services名</i> bash</code>
+						<summary>再ビルド</summary>
+						<code>docker compose up -d —build</code>
+						<code>docker compose build
+docker compose up -d</code>
 					</details>
 					<details open>
-						<summary>削除</summary>
-						<code>docker exec -it <i>コンテナ名</i> bash</code>
-					</details>
-					<details open>
-						<summary>the input device is not a TTY. If you are using mintty, try prefixing the command with 'winpty'</summary>
+						<summary>winpty</summary>
+						<p>the input device is not a TTY. If you are using mintty, try prefixing the command with 'winpty' と表示された</p>
 						<code>exec winpty bash</code>
 					</details>
 				</li>
@@ -55,16 +54,13 @@
 						<code>docker run --rm -it <i>imagename</i> bash</code>
 					</details>
 					<details open>
-						<summary>起動しているコンテナにbash</summary>
-						<code>docker ps -a</code>
-						<code>docker exec -it <i>CONTAINER ID</i> bash</code>
+						<summary>コンテナへbash</summary>
+						<code>docker compose exec <i>services名</i> bash</code>
 					</details>
-				</li>
-				<li>
-					<span>イメージ関連</span>
 					<details open>
-						<summary>イメージの作成</summary>
-						<code>docker build -t <i>imagename</i> <i>Dockerfileの場所</i></code>
+						<summary>起動しているコンテナにbash</summary>
+						<code>docker ps -a
+docker exec -it <i>CONTAINER ID</i> bash</code>
 					</details>
 				</li>
 				<li>
