@@ -65,7 +65,21 @@ WHERE
 				<code>SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY());</code>
 				<p>を直後に実行することで前記のPLANが参照できる。「TABLE ACCESS FULL」のようになっているところが改善ポイント</p>
 				<a href="https://cosol.jp/knowledge/knowledge_post/sql-execution-plan-table-access-full/">参考にしたページ</a>
-			</details>
+				<p>その後統計情報の収集を行うとよいです。以下はマニュアル</p>
+				<code>ANALYZE {TABLE|INDEX|CLUSTER|OBJECT} object_name
+COMPUTE STATISTICS [FOR [COLUMN] column_name ...]
+[SAMPLE [n] PERCENT]
+[ESTIMATE STATISTICS];</code>
+				<p>以下は具体例</p>
+				<code>-- 表の統計情報を収集
+ANALYZE TABLE employees COMPUTE STATISTICS;
+
+-- 特定のカラムの統計情報を収集
+ANALYZE TABLE employees COMPUTE STATISTICS FOR column_name;
+
+-- サンプルデータに基づいて統計情報を推定
+ANALYZE TABLE employees ESTIMATE STATISTICS 10 PERCENT;</code>
+				</details>
 
 			<details open>
 				<summary>接続数関連の設定を参照</summary>
