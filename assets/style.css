@@ -14,7 +14,6 @@ h2 {
 }
 h2 + * {
     text-align: right;
-    margin-bottom: 1em;
 }
 .button {
     background: white;
@@ -29,7 +28,7 @@ h2 + * {
     color: white;
 }
 details {
-    margin-bottom: 1em;
+    margin-top: 1em;
 }
 details > :not(summary) {
     margin-left: 10px;
