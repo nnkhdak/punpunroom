@@ -67,9 +67,9 @@ WHERE
 				<a href="https://cosol.jp/knowledge/knowledge_post/sql-execution-plan-table-access-full/">参考にしたページ</a>
 				<p>その後統計情報の収集を行うとよいです。以下はマニュアル</p>
 				<code>ANALYZE {TABLE|INDEX|CLUSTER|OBJECT} object_name
-COMPUTE STATISTICS [FOR [COLUMN] column_name ...]
-[SAMPLE [n] PERCENT]
-[ESTIMATE STATISTICS];</code>
+		COMPUTE STATISTICS [FOR [COLUMN] column_name ...]
+		[SAMPLE [n] PERCENT]
+		[ESTIMATE STATISTICS];</code>
 				<p>以下は具体例</p>
 				<code>-- 表の統計情報を収集
 ANALYZE TABLE employees COMPUTE STATISTICS;

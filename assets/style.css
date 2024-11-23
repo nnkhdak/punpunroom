@@ -38,6 +38,7 @@ code {
     background: pink;
     color: black;
     white-space: pre-wrap;
+    padding: 0.5em;
 }
 
 .strong {
