@@ -25,22 +25,19 @@
 				<a class="button" href="javascript:openclose(false);">全てを閉じる</a>
 			</div>
 
-			<ul>
-				<li>
-					<details open>
-						<summary>SQL Developer でプログレスバーの表示は10%あたりで固まった</summary>
-						<p>以下のファイルを消しました</p>
-						<code>ls -l ~/.sqldeveloper/system21.2.1.204.1703/system_cache/var/cache/all-resources.dat
+			<details open>
+				<summary>SQL Developer でプログレスバーの表示は10%あたりで固まった</summary>
+				<p>以下のファイルを消しました</p>
+				<code>ls -l ~/.sqldeveloper/system21.2.1.204.1703/system_cache/var/cache/all-resources.dat
 -rw-r--r--  1 xxxxxx  staff  1915907111  18 7 17:04 all-resources.dat</code>
-						<p>参考URL：
-						<address>https://qiita.com/terumejp/items/51802f5e2e82341e5bcb</address>
-						</p>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>10秒以上のスロークエリ</summary>
-						<code>SELECT DISTINCT
+				<p>参考URL：
+				<address>https://qiita.com/terumejp/items/51802f5e2e82341e5bcb</address>
+				</p>
+			</details>
+
+			<details open>
+				<summary>10秒以上のスロークエリ</summary>
+				<code>SELECT DISTINCT
 	s.sid
 ,	s.SERIAL#
 ,	s.status
@@ -59,26 +56,32 @@ FROM
 ,	v$sql     q
 WHERE
 	s.sql_id = q.sql_id AND s.last_call_et > 10</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>接続数関連の設定を参照</summary>
-						<code>show parameter PROCESSES;
+			</details>
+
+			<details open>
+				<summary>速度改善のために</summary>
+				<code>EXPLAIN PLAN FOR SELECT * FROM dual;</code>
+				<p>のように調査したいSQLの前に「EXPLAIN PLAN FOR」をつけて実行する。</p>
+				<code>SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY());</code>
+				<p>を直後に実行することで前記のPLANが参照できる。「TABLE ACCESS FULL」のようになっているところが改善ポイント</p>
+				<a href="https://cosol.jp/knowledge/knowledge_post/sql-execution-plan-table-access-full/">参考にしたページ</a>
+			</details>
+
+			<details open>
+				<summary>接続数関連の設定を参照</summary>
+				<code>show parameter PROCESSES;
 show parameter SESSIONS;
 select * from v$license;</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>通算秒(エポック秒)</summary>
-						<code>select (<i>調べたいdate</i> - to_date('19700101', 'YYYYMMDD')) * 24 * 60 * 60 from dual</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>自分のテーブルにMERGE</summary>
-						<code>MERGE INTO <i>テーブル名</i> USING dual
+			</details>
+
+			<details open>
+				<summary>通算秒(エポック秒)</summary>
+				<code>select (<i>調べたいdate</i> - to_date('19700101', 'YYYYMMDD')) * 24 * 60 * 60 from dual</code>
+			</details>
+
+			<details open>
+				<summary>自分のテーブルにMERGE</summary>
+				<code>MERGE INTO <i>テーブル名</i> USING dual
 ON <strong>(</strong><i>項目</i> = <i>値</i><strong>)</strong>
 WHEN MATCHED THEN UPDATE SET
 	項目1</i> = <i>値1</i>
@@ -90,12 +93,11 @@ WHEN NOT MATCHED THEN INSERT (
 	<i>値1</i>
 ,	<i>値2</i>
 )</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>Select結果を使ってUPDATE(Mergeを使う)</summary>
-						<code>MERGE INTO
+			</details>
+
+			<details open>
+				<summary>Select結果を使ってUPDATE(Mergeを使う)</summary>
+				<code>MERGE INTO
 	更新したいテーブル名 t0
 USING (
 	SELECT
@@ -114,19 +116,17 @@ WHEN MATCHED THEN UPDATE
 SET
 	  更新する項目1 = 取得する項目1
 	, 更新する項目2 = 取得する項目2</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>まとめて複数INSERTを書く</summary>
-						<code>INSERT ALL
+			</details>
+
+			<details open>
+				<summary>まとめて複数INSERTを書く</summary>
+				<code>INSERT ALL
 INTO <i><strong>table_name</strong></i> (<i><strong>項目１</strong></i>,<i><strong>項目２</strong></i>) VALUES (<i><strong>値１</strong></i>,<i><strong>値２</strong></i>)
 INTO <i><strong>table_name</strong></i> (<i><strong>項目１</strong></i>,<i><strong>項目２</strong></i>) VALUES (<i><strong>値１</strong></i>,<i><strong>値２</strong></i>)
 INTO <i><strong>table_name</strong></i> (<i><strong>項目１</strong></i>,<i><strong>項目２</strong></i>) VALUES (<i><strong>値１</strong></i>,<i><strong>値２</strong></i>)
 SELECT * FROM DUAL;</code>
 					</details>
-				</li>
-				<li>
+
 					<details open>
 						<summary>カンマ区切りを行にする</summary>
 						<code>SELECT
@@ -146,71 +146,61 @@ FROM (
 	CONNECT BY
 		instr(t1.nums, ',', 1, level - 1) > 0
 ) t2</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>日付フォーマット</summary>
-						<code>TO_CHAR(CURRENT_DATE, 'YYYY/MM/DD HH24:MI:SS')</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>テーブル構造が同じテーブルを作成＆データのコピー</summary>
-						<code>CREATE TABLE <i><strong>新table_name</strong></i> AS SELECT * FROM <i><strong>旧table_name</strong></i></code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>テーブルの完全削除</summary>
-						<code>DROP TABLE <i><strong>table_name</strong></i> CASCADE CONSTRAINTS PURGE;</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>?件数の架空のテーブルをSELECT</summary>
-						<code>SELECT <strong>LEVEL</strong> AS lv FROM DUAL <strong>CONNECT BY LEVEL</strong> &lt;= 3;</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>テーブル名を表示</summary>
-						<code>SELECT <strong>table_name</strong> FROM all_tables ORDER BY <strong>table_name</strong>;</code>
-						<code>SELECT <strong>table_name</strong> FROM user_tables ORDER BY <strong>table_name</strong>;</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>テーブル構造を表示</summary>
-						<code>DESC <i><strong>table_name</strong></i>;</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>シーケンスを進める</summary>
-						<code>ALTER SEQUENCE <i>シーケンス名</i> INCREMENT BY 1000 NOCACHE; // 指定したシーケンスで次といわれたら1000ずれる設定</code>
-						<code>SELECT <i>シーケンス名</i>.NEXTVAL FROM dual; // ずらす</code>
-						<code>ALTER SEQUENCE <i>シーケンス名</i> INCREMENT BY 1 CACHE 20; // 指定したシーケンスで次といわれたら1ずれる設定 cacheは不明</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>シノニムを表示</summary>
-						<code>SELECT * FROM all_synonyms;</code>
-						<code>SELECT * FROM user_synonyms;</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>sqlplusで接続</summary>
-						<code>sqlplus <i>ユーザ名</i>@<i>サーバ名</i></code>
-						<code>sqlplus <i>ユーザ名</i>@<i><strong>net_service_name</strong></i></code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>tnsnames.ora</summary>
-						<code><i><strong>net_service_name</strong></i> =
+			</details>
+
+			<details open>
+				<summary>日付フォーマット</summary>
+				<code>TO_CHAR(CURRENT_DATE, 'YYYY/MM/DD HH24:MI:SS')</code>
+			</details>
+
+			<details open>
+				<summary>テーブル構造が同じテーブルを作成＆データのコピー</summary>
+				<code>CREATE TABLE <i><strong>新table_name</strong></i> AS SELECT * FROM <i><strong>旧table_name</strong></i></code>
+			</details>
+
+			<details open>
+				<summary>テーブルの完全削除</summary>
+				<code>DROP TABLE <i><strong>table_name</strong></i> CASCADE CONSTRAINTS PURGE;</code>
+			</details>
+
+			<details open>
+				<summary>?件数の架空のテーブルをSELECT</summary>
+				<code>SELECT <strong>LEVEL</strong> AS lv FROM DUAL <strong>CONNECT BY LEVEL</strong> &lt;= 3;</code>
+			</details>
+
+			<details open>
+				<summary>テーブル名を表示</summary>
+				<code>SELECT <strong>table_name</strong> FROM all_tables ORDER BY <strong>table_name</strong>;</code>
+				<code>SELECT <strong>table_name</strong> FROM user_tables ORDER BY <strong>table_name</strong>;</code>
+			</details>
+
+			<details open>
+				<summary>テーブル構造を表示</summary>
+				<code>DESC <i><strong>table_name</strong></i>;</code>
+			</details>
+
+			<details open>
+				<summary>シーケンスを進める</summary>
+				<code>ALTER SEQUENCE <i>シーケンス名</i> INCREMENT BY 1000 NOCACHE; // 指定したシーケンスで次といわれたら1000ずれる設定</code>
+				<code>SELECT <i>シーケンス名</i>.NEXTVAL FROM dual; // ずらす</code>
+				<code>ALTER SEQUENCE <i>シーケンス名</i> INCREMENT BY 1 CACHE 20; // 指定したシーケンスで次といわれたら1ずれる設定 cacheは不明</code>
+			</details>
+
+			<details open>
+				<summary>シノニムを表示</summary>
+				<code>SELECT * FROM all_synonyms;</code>
+				<code>SELECT * FROM user_synonyms;</code>
+			</details>
+
+			<details open>
+				<summary>sqlplusで接続</summary>
+				<code>sqlplus <i>ユーザ名</i>@<i>サーバ名</i></code>
+				<code>sqlplus <i>ユーザ名</i>@<i><strong>net_service_name</strong></i></code>
+			</details>
+
+			<details open>
+				<summary>tnsnames.ora</summary>
+				<code><i><strong>net_service_name</strong></i> =
 (DESCRIPTION =
 (ADDRESS = (PROTOCOL = TCP)(HOST = myserver.mycompany.com)(PORT = 1521))
 (CONNECT_DATA =
@@ -218,39 +208,35 @@ FROM (
   (SERVICE_NAME = orcl)
 )
 )</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>tnsnames.oraに複数回定義する</summary>
-						<code><i><strong>net_service_name1</strong></i> =
+			</details>
+
+			<details open>
+				<summary>tnsnames.oraに複数回定義する</summary>
+				<code><i><strong>net_service_name1</strong></i> =
 (DESCRIPTION = ......)
 <i><strong>net_service_name2</strong></i> =
 (DESCRIPTION = ......)</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>折り返し行？を設定</summary>
-						<code>SET LINE <i>行数</i>;</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>SQL Developer</summary>
-						<code>メニューバー ＞ ツール ＞ プリファレンスを選択
+			</details>
+
+			<details open>
+				<summary>折り返し行？を設定</summary>
+				<code>SET LINE <i>行数</i>;</code>
+			</details>
+
+			<details open>
+				<summary>SQL Developer</summary>
+				<code>メニューバー ＞ ツール ＞ プリファレンスを選択
 プリファレンスダイアログ　＞　データベース　＞　オブジェクト・ビューアを選択
 「データベース：オブジェクト・ビューア」　＞　「オブジェクト・ビューア・ウィンドウの自動固定」にチェックを入れる</code>
 						<code>メニューバー ＞ ツール ＞ プリファレンスを選択
 プリファレンスダイアログ　＞　データベース　＞　オブジェクト・ビューアを選択
 「データベース：オブジェクト・ビューア」　＞　「シングル・クリックでオブジェクトをオープン」のチェックをはずす</code>
-					</details>
-				</li>
-				<li>
-					<details open>
-						<summary>AmazonLinux2にインストールし設定</summary>
-						/etc/environmentに以下を追記
-						<code>LANG=ja_JP.UTF-8
+			</details>
+
+			<details open>
+				<summary>AmazonLinux2にインストールし設定</summary>
+				/etc/environmentに以下を追記
+				<code>LANG=ja_JP.UTF-8
 NLS_LANG=Japanese_Japan.AL32UTF8
 ENVIRONMENT=development<strong> &lt;- これは違う目的</strong></code>
 						<br />
@@ -263,9 +249,7 @@ export PATH=$PATH:$LD_LIBRARY_PATH</code>
 						httpd.service(コレで保存すると/etc/systemd/system/httpd.service.d/override.confに保存したときと同じ扱い)
 						<code>[Service]
 EnvironmentFile=/etc/environment</code>
-					</details>
-				</li>
-			</ul>
+			</details>
 		</div>
 		<div id="mainRight"></div>
 	</main>
