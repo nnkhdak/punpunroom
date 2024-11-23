@@ -4,9 +4,24 @@
         "name": "tech",
         "child": [
             {
-                "id": 1,
-                "name": "SeleniumIDE",
-                "href": "side.html"
+                "id": 5,
+                "name": "Command",
+                "href": "cmd.html"
+            },
+            {
+                "id": 4,
+                "name": "CSS",
+                "href": "css.html"
+            },
+            {
+                "id": 3,
+                "name": "Docker",
+                "href": "docker.html"
+            },
+            {
+                "id": 6,
+                "name": "git",
+                "href": "git.html"
             },
             {
                 "id": 2,
@@ -14,9 +29,9 @@
                 "href": "javascript.html"
             },
             {
-                "id": 13,
-                "name": "TypeScript",
-                "href": "typescript.html"
+                "id": 12,
+                "name": "Nuxt.js(version2)",
+                "href": "nuxt2.html"
             },
             {
                 "id": 8,
@@ -34,29 +49,14 @@
                 "href": "php-fpm.html"
             },
             {
-                "id": 4,
-                "name": "CSS",
-                "href": "css.html"
+                "id": 1,
+                "name": "SeleniumIDE",
+                "href": "side.html"
             },
             {
-                "id": 3,
-                "name": "Docker",
-                "href": "docker.html"
-            },
-            {
-                "id": 12,
-                "name": "Nuxt.js(version2)",
-                "href": "nuxt2.html"
-            },
-            {
-                "id": 5,
-                "name": "Command",
-                "href": "cmd.html"
-            },
-            {
-                "id": 6,
-                "name": "git",
-                "href": "git.html"
+                "id": 13,
+                "name": "TypeScript",
+                "href": "typescript.html"
             },
             {
                 "id": 9,
