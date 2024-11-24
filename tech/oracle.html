@@ -25,7 +25,7 @@
 				<a class="button" href="javascript:openclose(false);">全てを閉じる</a>
 			</div>
 
-			<details open>
+			<details>
 				<summary>SQL Developer でプログレスバーの表示は10%あたりで固まった</summary>
 				<p>以下のファイルを消しました</p>
 				<code>ls -l ~/.sqldeveloper/system21.2.1.204.1703/system_cache/var/cache/all-resources.dat
@@ -35,7 +35,7 @@
 				</p>
 			</details>
 
-			<details open>
+			<details>
 				<summary>10秒以上のスロークエリ</summary>
 				<code>SELECT DISTINCT
 	s.sid
@@ -58,7 +58,7 @@ WHERE
 	s.sql_id = q.sql_id AND s.last_call_et > 10</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>速度改善のために</summary>
 				<code>EXPLAIN PLAN FOR SELECT * FROM dual;</code>
 				<p>のように調査したいSQLの前に「EXPLAIN PLAN FOR」をつけて実行する。</p>
@@ -81,19 +81,24 @@ ANALYZE TABLE employees COMPUTE STATISTICS FOR column_name;
 ANALYZE TABLE employees ESTIMATE STATISTICS 10 PERCENT;</code>
 				</details>
 
-			<details open>
+			<details>
 				<summary>接続数関連の設定を参照</summary>
 				<code>show parameter PROCESSES;
 show parameter SESSIONS;
 select * from v$license;</code>
 			</details>
 
-			<details open>
+			<details>
+				<summary>文字列を数値化</summary>
+				<code>SELECT to_number('123') AS num, '456' AS str FROM dual</code>
+			</details>
+
+			<details>
 				<summary>通算秒(エポック秒)</summary>
 				<code>select (<i>調べたいdate</i> - to_date('19700101', 'YYYYMMDD')) * 24 * 60 * 60 from dual</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>自分のテーブルにMERGE</summary>
 				<code>MERGE INTO <i>テーブル名</i> USING dual
 ON <strong>(</strong><i>項目</i> = <i>値</i><strong>)</strong>
@@ -109,7 +114,7 @@ WHEN NOT MATCHED THEN INSERT (
 )</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>Select結果を使ってUPDATE(Mergeを使う)</summary>
 				<code>MERGE INTO
 	更新したいテーブル名 t0
@@ -132,7 +137,7 @@ SET
 	, 更新する項目2 = 取得する項目2</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>まとめて複数INSERTを書く</summary>
 				<code>INSERT ALL
 INTO <i><strong>table_name</strong></i> (<i><strong>項目１</strong></i>,<i><strong>項目２</strong></i>) VALUES (<i><strong>値１</strong></i>,<i><strong>値２</strong></i>)
@@ -141,7 +146,7 @@ INTO <i><strong>table_name</strong></i> (<i><strong>項目１</strong></i>,<i><s
 SELECT * FROM DUAL;</code>
 					</details>
 
-					<details open>
+					<details>
 						<summary>カンマ区切りを行にする</summary>
 						<code>SELECT
 	regexp_substr(t1.nums, '[^,]+', 1, t2.arr_num) AS val
@@ -162,57 +167,57 @@ FROM (
 ) t2</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>日付フォーマット</summary>
 				<code>TO_CHAR(CURRENT_DATE, 'YYYY/MM/DD HH24:MI:SS')</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>テーブル構造が同じテーブルを作成＆データのコピー</summary>
 				<code>CREATE TABLE <i><strong>新table_name</strong></i> AS SELECT * FROM <i><strong>旧table_name</strong></i></code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>テーブルの完全削除</summary>
 				<code>DROP TABLE <i><strong>table_name</strong></i> CASCADE CONSTRAINTS PURGE;</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>?件数の架空のテーブルをSELECT</summary>
 				<code>SELECT <strong>LEVEL</strong> AS lv FROM DUAL <strong>CONNECT BY LEVEL</strong> &lt;= 3;</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>テーブル名を表示</summary>
 				<code>SELECT <strong>table_name</strong> FROM all_tables ORDER BY <strong>table_name</strong>;</code>
 				<code>SELECT <strong>table_name</strong> FROM user_tables ORDER BY <strong>table_name</strong>;</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>テーブル構造を表示</summary>
 				<code>DESC <i><strong>table_name</strong></i>;</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>シーケンスを進める</summary>
 				<code>ALTER SEQUENCE <i>シーケンス名</i> INCREMENT BY 1000 NOCACHE; // 指定したシーケンスで次といわれたら1000ずれる設定</code>
 				<code>SELECT <i>シーケンス名</i>.NEXTVAL FROM dual; // ずらす</code>
 				<code>ALTER SEQUENCE <i>シーケンス名</i> INCREMENT BY 1 CACHE 20; // 指定したシーケンスで次といわれたら1ずれる設定 cacheは不明</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>シノニムを表示</summary>
 				<code>SELECT * FROM all_synonyms;</code>
 				<code>SELECT * FROM user_synonyms;</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>sqlplusで接続</summary>
 				<code>sqlplus <i>ユーザ名</i>@<i>サーバ名</i></code>
 				<code>sqlplus <i>ユーザ名</i>@<i><strong>net_service_name</strong></i></code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>tnsnames.ora</summary>
 				<code><i><strong>net_service_name</strong></i> =
 (DESCRIPTION =
@@ -224,7 +229,7 @@ FROM (
 )</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>tnsnames.oraに複数回定義する</summary>
 				<code><i><strong>net_service_name1</strong></i> =
 (DESCRIPTION = ......)
@@ -232,12 +237,12 @@ FROM (
 (DESCRIPTION = ......)</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>折り返し行？を設定</summary>
 				<code>SET LINE <i>行数</i>;</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>SQL Developer</summary>
 				<code>メニューバー ＞ ツール ＞ プリファレンスを選択
 プリファレンスダイアログ　＞　データベース　＞　オブジェクト・ビューアを選択
@@ -247,7 +252,7 @@ FROM (
 「データベース：オブジェクト・ビューア」　＞　「シングル・クリックでオブジェクトをオープン」のチェックをはずす</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>AmazonLinux2にインストールし設定</summary>
 				/etc/environmentに以下を追記
 				<code>LANG=ja_JP.UTF-8
