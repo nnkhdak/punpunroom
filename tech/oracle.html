@@ -56,6 +56,8 @@ FROM
 ,	v$sql     q
 WHERE
 	s.sql_id = q.sql_id AND s.last_call_et > 10</code>
+				<p>そして停止(ただしroot権限が必要ぽい)</p>
+				<code>ALTER SYSTEM KILL SESSION 'SID,SERIAL#';</code>
 			</details>
 
 			<details>
