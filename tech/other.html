@@ -35,12 +35,30 @@
 			</details>
 
 			<details>
+				<summary>Windows11で右クリックを変更</summary>
+				<ol>
+					<li>右クリックを昔風に
+						reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
+					</li>
+					<li>	
+						右クリックを標準設定に戻す
+						reg.exe delete "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}" /f
+					</li>
+				</ol>
+			</details>
+
+			<details>
+				<summary>Windows11で高速スタートアップをやめると早くなる</summary>
+				<p>コントロールパネル &gt; ハードウェアとサウンド &gt; 電源オプション &gt; システム設定 &gt; 高速スタートアップを有効にする(現在利用可能ではない設定を変更します)</p>
+			</details>
+
+			<details>
 				<summary>Windows10でoggファイルの操作が遅い</summary>
 				<ol>
 					<li>WindowsPowerShell (管理者)を起動</li>
 					<li>Get-AppxPackage *Microsoft.WebMediaExtensions* | remove-appxpackage</li>
 				</ol>
-			</details>
+			</details>			
 
 			<details>
 				<summary>Windows10でバッテリの寿命</summary>
