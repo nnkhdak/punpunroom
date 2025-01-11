@@ -1,0 +1,48 @@
+services:
+ mysql:
+  container_name: mysql
+  image: mysql:8.4
+  command:
+   - /bin/bash
+   - -c
+   - |
+    chmod 644 /etc/mysql/conf.d/my.cnf
+    /usr/local/bin/docker-entrypoint.sh mysqld --user=mysql --console
+  environment:
+   MYSQL_ROOT_PASSWORD: password
+   MYSQL_DATABASE: test
+   MYSQL_USER: user
+   MYSQL_PASSWORD: pass
+   TZ: Asia/Tokyo
+  volumes:
+   - ./docker/mysql/init:/docker-entrypoint-initdb.d
+   - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+   - ./docker/mysql/db:/var/lib/mysql
+  ports:
+   - '3306:3306'
+ oracle:
+  container_name: oracle
+  image: container-registry.oracle.com/database/free:latest
+  ports:
+   - '1521:1521'
+  volumes:
+   - ./docker/oracle/init/:/opt/oracle/scripts/startup
+   - ./docker/oracle/db:/opt/oracle/oradata
+  environment:
+   - NLS_LANG=JAPANESE_JAPAN.AL32UTF8
+   - NLS_LANGUAGE=JAPANESE
+   # - NLS_DATE_FORMAT=YYYY-MM-DD
+   # - NLS_TIMESTAMP_FORMAT=YYYY-MM-DD HH24:MI:SS
+   - ORACLE_PWD=password
+ php:
+  container_name: php
+  build:
+   context: ./docker/php
+   dockerfile: Dockerfile
+  volumes:
+   - .:/var/www
+   - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+  ports:
+   - '80:80'
+  depends_on:
+   - mysql
