@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<title>たいとる</title>
+		<meta data-n-head="1" charset="utf-8" />
+		<meta data-n-head="1" data-hid="viewport" name="viewport" content="width=device-width,initial-scale=1" />
+		<meta data-n-head="1" data-hid="description" name="description" content="" />
+		<link data-n-head="1" rel="icon" type="image/x-icon" href="favicon.ico" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				background: #f0f7ff;
+			}
+			body > .header {
+				height: 100px;
+				background: white;
+				border-bottom: 1px solid #dcdfe8;
+			}
+			body > .main {
+				min-height: calc(100vh - 100px - 1px - 1px - 250px);
+			}
+			body > .footer {
+				height: 250px;
+				background: white;
+				border-top: 1px solid #dcdfe8;
+			}
+			body > * > * {
+				max-width: 1280px;
+				min-width: 640px;
+				margin: 0 auto;
+				padding: 5px;
+			}
+			header {
+				display: flex;
+				justify-content: space-between;
+			}
+			header > * > * {
+				display: inline-block;
+				width: fit-content;
+				text-align: center;
+				vertical-align: middle;
+				line-height: calc(100px - 5px - 5px);
+			}
+			header .left a {
+				line-height: initial;
+			}
+			header .right {
+				padding-top: 15px;
+			}
+			header .button--square {
+				margin-right: 10px;
+			}
+			body > .menu-bg {
+				min-height: calc(100vh - 100px - 1px);
+				background: black;
+				z-index: 100;
+			}
+			body > .menu {
+				min-height: calc(200px);
+				position: absolute;
+				top: 110px;
+				right: 20px;
+				background: red;
+				z-index: 200;
+			}
+
+			.button--dark {
+				color: #fff;
+				background-color: #142169;
+			}
+			.button--square {
+				display: inline-block;
+				width: 60px;
+				height: 60px;
+				border-radius: 12px;
+				border: #142169;
+				cursor: pointer;
+			}
+			.button--square svg {
+				width: 40px;
+				height: 40px;
+				cursor: pointer;
+			}
+			a.button--square svg {
+				padding-top: 8px;
+			}
+
+			#menuOpen,
+			#menuOpen + .header button .opened,
+			#menuOpen + * + * + * + .menu-bg,
+			#menuOpen + * + * + * + .menu {
+				display: none;
+			}
+			#menuOpen + .header,
+			#menuOpen + * + .main,
+			#menuOpen + * + * + .footer {
+				display: block;
+			}
+			#menuOpen + .header button .closed {
+				display: inline;
+			}
+
+			#menuOpen:checked + .header button .closed {
+				display: none;
+			}
+			#menuOpen:checked + .header button .opened {
+				display: inline;
+			}
+			#menuOpen:checked + * + * + * + .menu-bg,
+			#menuOpen:checked + * + * + * + .menu {
+				display: block;
+			}
+			#menuOpen:checked + * + .main,
+			#menuOpen:checked + * + * + .footer {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="checkbox" id="menuOpen" />
+		<div class="header">
+			<header>
+				<div class="left">
+					<a href="#"><img id="logo" src="jtop_01.png" /></a>
+					<p class="user_name">のなか ひであき さん</p>
+				</div>
+				<div class="center"></div>
+				<div class="right">
+					<button class="button--square button--dark">
+						<label class="closed" for="menuOpen">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+								<path fill="#fff" d="M0 2h40v3H0zM0 12h40v3H0zM0 22h40v3H0z"></path>
+								<text x="2" y="40" font-size="12" fill="#fff">MENU</text>
+							</svg>
+						</label>
+						<label class="opened" for="menuOpen">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+								<path fill="#fff" d="M8 21.213L29.213 0l2.122 2.121L10.12 23.334z"></path>
+								<path fill="#fff" d="M10.121 0l21.213 21.213-2.121 2.122L8 2.12z"></path>
+								<text y="40" font-size="12" fill="#fff">CLOSE</text>
+							</svg>
+						</label>
+					</button>
+					<a class="button--square button--dark">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+							<path d="M29.948 12.742l.023-.028L14.995 0 .023 12.714l.024.028h-.052v16.8h30v-16.8zm-12.361 13.8h-5.174v-5.5h5.174zm3 0v-8.5H9.413v8.5H2.995V14.127l12-10.191 12 10.192v12.414z" fill="#fff"></path>
+						</svg>
+					</a>
+				</div>
+			</header>
+		</div>
+		<div class="main">
+			<main>main</main>
+		</div>
+		<div class="footer"><footer>footer</footer></div>
+		<div class="menu-bg"></div>
+		<div class="menu">
+			aaaa<br />
+			aaaa<br />
+			aaaa<br />
+			aaaa<br />
+		</div>
+	</body>
+</html>
