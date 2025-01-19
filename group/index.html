@@ -36,6 +36,7 @@
 			header {
 				display: flex;
 				justify-content: space-between;
+				position: relative;
 			}
 			header > * > * {
 				display: inline-block;
@@ -58,7 +59,7 @@
 				background: black;
 				z-index: 100;
 			}
-			body > .menu {
+			body .menu {
 				min-height: calc(200px);
 				position: absolute;
 				top: 110px;
@@ -91,7 +92,7 @@
 			#menuOpen,
 			#menuOpen + .header button .opened,
 			#menuOpen + * + * + * + .menu-bg,
-			#menuOpen + * + * + * + .menu {
+			#menuOpen + .header .menu {
 				display: none;
 			}
 			#menuOpen + .header,
@@ -110,7 +111,7 @@
 				display: inline;
 			}
 			#menuOpen:checked + * + * + * + .menu-bg,
-			#menuOpen:checked + * + * + * + .menu {
+			#menuOpen:checked + .header .menu {
 				display: block;
 			}
 			#menuOpen:checked + * + .main,
@@ -150,6 +151,26 @@
 						</svg>
 					</a>
 				</div>
+				<ul class="menu">
+					<li><a href="/eikenjr/exam/select/" class="menu_item menu_item--link">利用教材切替</a></li>
+					<li><a href="/eikenjr/exam/guardian/" class="menu_item menu_item--link">おうちのかた(テスト実施はこちら)</a></li>
+					<li><a href="/eikenjr/member/info" class="menu_item menu_item--link">登録情報の変更</a></li>
+					<li><a href="/eikenjr/guest/seeyou" class="menu_item menu_item--link">ログアウト</a></li>
+					<li><a href="/online/faq" target="new_window" class="menu_item menu_item--link">お問い合わせ</a></li>
+					<li class="logos">
+						<a href="/eikenjr/guest/redirect?logout&amp;next=https%3A%2F%2Fwww.eiken.or.jp%2Feiken-junior%2Findex.html"><img src="/eikenjr/exam/_nuxt/img/jtop_01.0d0dcd8.png" srcset="/eikenjr/exam/_nuxt/img/jtop_01.0d0dcd8.png 1x, /eikenjr/exam/_nuxt/img/jtop_01@2x.21f9b8f.png 2x" alt="英検Jr." /></a>
+					</li>
+					<li>
+						<button class="button--text menu_close">
+							とじる<svg xmlns="http://www.w3.org/2000/svg" width="16.264" height="16.264" viewBox="0 0 16.264 16.264">
+								<g fill="#18182f">
+									<path d="M0 2.121L2.121 0l14.142 14.142-2.12 2.121z"></path>
+									<path d="M2.121 16.264L0 14.143 14.142 0l2.121 2.12z"></path>
+								</g>
+							</svg>
+						</button>
+					</li>
+				</ul>
 			</header>
 		</div>
 		<div class="main">
@@ -157,11 +178,5 @@
 		</div>
 		<div class="footer"><footer>footer</footer></div>
 		<div class="menu-bg"></div>
-		<div class="menu">
-			aaaa<br />
-			aaaa<br />
-			aaaa<br />
-			aaaa<br />
-		</div>
 	</body>
 </html>
