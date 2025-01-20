@@ -64,13 +64,14 @@
 			}
 			header .container menu {
 				min-width: 300px;
-				min-height: calc(200px);
+				height: fit-content;
 				position: absolute;
 				top: 120px;
 				right: 5px;
+				padding: 30px;
 				background: white;
 				z-index: 100;
-				border-radius: 20px;
+				border-radius: 30px;
 			}
 			header .container menu:before {
 				position: absolute;
@@ -82,6 +83,26 @@
 				border-bottom: 11px solid #18182f;
 				border-right: 6px solid transparent;
 				border-left: 6px solid transparent;
+			}
+			header .container menu ul li:not(:last-child) {
+				list-style: none;
+				height: 3em;
+				line-height: 3em;
+			}
+			header .container menu ul li:not(:last-child) {
+				border-bottom: 1px solid silver;
+			}
+			header .container menu ul a {
+				display: inline-block;
+				width: 100%;
+				text-decoration: none;
+			}
+			header .container menu ul a,
+			header .container menu ul a:link,
+			header .container menu ul a:visited,
+			header .container menu ul a:hover,
+			header .container menu ul a:active {
+				color: black;
 			}
 
 			.button--dark {
@@ -153,13 +174,11 @@
 				</div>
 				<menu>
 					<ul class="menu">
-						<li><a href="/eikenjr/exam/select/" class="menu_item menu_item--link">利用教材切替</a></li>
-						<li><a href="/eikenjr/exam/guardian/" class="menu_item menu_item--link">おうちのかた(テスト実施はこちら)</a></li>
-						<li><a href="/eikenjr/member/info" class="menu_item menu_item--link">登録情報の変更</a></li>
-						<li><a href="/eikenjr/guest/seeyou" class="menu_item menu_item--link">ログアウト</a></li>
-						<li><a href="/online/faq" target="new_window" class="menu_item menu_item--link">お問い合わせ</a></li>
+						<li><a href="./index.html" class="menu_item menu_item--link">登録情報の変更</a></li>
+						<li><a href="./index.html" class="menu_item menu_item--link">ログアウト</a></li>
+						<li><a href="./index.html" class="menu_item menu_item--link" target="new_window">お問い合わせ</a></li>
 						<li class="logos">
-							<a href="/eikenjr/guest/redirect?logout&amp;next=https%3A%2F%2Fwww.eiken.or.jp%2Feiken-junior%2Findex.html"><img src="/eikenjr/exam/_nuxt/img/jtop_01.0d0dcd8.png" srcset="/eikenjr/exam/_nuxt/img/jtop_01.0d0dcd8.png 1x, /eikenjr/exam/_nuxt/img/jtop_01@2x.21f9b8f.png 2x" alt="英検Jr." /></a>
+							<a href="./index.html"><img src="jtop_01.png" alt="画像名称" /></a>
 						</li>
 						<li>
 							<button class="button--text menu_close">
