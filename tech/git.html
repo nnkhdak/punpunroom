@@ -54,6 +54,11 @@ HEAD is now at <strong>b93e178b</strong> Merge pull request #163 from nnkhdak/or
 						<code>https://....../../../ファイル名#L123-234</code>
 					</details>
 					<details>
+						<summary>改行コード設定の参照と変更</summary>
+						<code>git config --local -l | grep core.autocrlf
+git config --local core.autocrlf input</code>
+					</details>
+					<details>
 						<summary>パーミッション変更</summary>
 						<code>git ls-files -s <i>ファイル名</i>
 git update-index --chmod=+x <i>ファイル名</i></code>
