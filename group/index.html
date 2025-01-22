@@ -54,10 +54,10 @@
 			}
 			header .container .right {
 				margin-top: 15px;
+				padding-right: 5px;
 				float: right;
 				width: 200px;
 				text-align: right;
-				border: 0px solid red;
 			}
 			header .container {
 				position: relative;
@@ -67,11 +67,12 @@
 				height: fit-content;
 				position: absolute;
 				top: 120px;
-				right: 5px;
+				right: 10px;
 				padding: 30px;
 				background: white;
 				z-index: 100;
 				border-radius: 30px;
+				font-size: 18px;
 			}
 			header .container menu:before {
 				position: absolute;
@@ -84,7 +85,8 @@
 				border-right: 6px solid transparent;
 				border-left: 6px solid transparent;
 			}
-			header .container menu ul li:not(:last-child) {
+			header .container menu ul li {
+				position: relative;
 				list-style: none;
 				height: 3em;
 				line-height: 3em;
@@ -96,6 +98,7 @@
 				display: inline-block;
 				width: 100%;
 				text-decoration: none;
+				text-indent: 1em;
 			}
 			header .container menu ul a,
 			header .container menu ul a:link,
@@ -103,6 +106,52 @@
 			header .container menu ul a:hover,
 			header .container menu ul a:active {
 				color: black;
+			}
+			.menu_item--link:before {
+				position: absolute;
+				top: 25px;
+				right: 23px;
+				z-index: 10;
+				display: block;
+				content: '';
+				width: 7px;
+				height: 7px;
+				border-top: 2px solid #fff;
+				border-right: 2px solid #fff;
+				transform: rotate(45deg);
+			}
+			.menu_item--link:after {
+				position: absolute;
+				top: 16px;
+				right: 12px;
+				display: block;
+				content: '';
+				width: 26px;
+				height: 26px;
+				background-color: #142169;
+				box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.16);
+				border-radius: 100%;
+			}
+			header .container menu ul li.logos {
+				width: 100%;
+				height: fit-content;
+			}
+			header .container menu ul li.logos a {
+				display: block;
+				margin: 0 auto;
+				padding: 40px 0px 5px;
+				width: fit-content;
+			}
+			header .container menu ul li.close {
+				text-align: center;
+				padding-top: 20px;
+			}
+			header .container menu ul li.close label {
+				cursor: pointer;
+			}
+			header .container menu ul li.close label > * {
+				display: inline-block;
+				vertical-align: middle;
 			}
 
 			.button--dark {
@@ -180,15 +229,27 @@
 						<li class="logos">
 							<a href="./index.html"><img src="jtop_01.png" alt="画像名称" /></a>
 						</li>
-						<li>
-							<button class="button--text menu_close">
-								とじる<svg xmlns="http://www.w3.org/2000/svg" width="16.264" height="16.264" viewBox="0 0 16.264 16.264">
+						<li class="close">
+							<label for="menuOpen">
+								<span>とじる</span>
+								<!--
+								とじる
+										-->
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
 									<g fill="#18182f">
 										<path d="M0 2.121L2.121 0l14.142 14.142-2.12 2.121z"></path>
 										<path d="M2.121 16.264L0 14.143 14.142 0l2.121 2.12z"></path>
 									</g>
 								</svg>
-							</button>
+								<!--
+								<svg xmlns="http://www.w3.org/2000/svg" width="16.264" height="16.264" viewBox="0 0 16.264 16.264">
+									<g fill="#18182f">
+										<path d="M0 2.121L2.121 0l14.142 14.142-2.12 2.121z"></path>
+										<path d="M2.121 16.264L0 14.143 14.142 0l2.121 2.12z"></path>
+									</g>
+								</svg>
+								-->
+							</label>
 						</li>
 					</ul>
 				</menu>
