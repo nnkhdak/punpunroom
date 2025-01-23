@@ -14,6 +14,13 @@
 			body {
 				background: #f0f7ff;
 			}
+			a {
+				text-decoration: none;
+			}
+			li {
+				list-style: none;
+			}
+
 			#menuOpen,
 			header .opened,
 			header menu,
@@ -26,10 +33,11 @@
 				border-bottom: 1px solid #dcdfe8;
 			}
 			main {
-				min-height: calc(100vh - 100px - 1px - 1px - 250px);
+				min-height: calc(100vh - 100px - 1px - 1px - 60px - 254px);
 			}
 			footer {
-				height: 250px;
+				min-height: 200px;
+				margin-top: 60px;
 				background: white;
 				border-top: 1px solid #dcdfe8;
 			}
@@ -41,9 +49,12 @@
 			main > *,
 			footer > * {
 				max-width: 800px;
-				min-width: 640px;
+				min-width: 384px;
 				margin: 0 auto;
 				padding: 5px;
+			}
+			header .container {
+				position: relative;
 			}
 			header .container > * {
 				height: calc(100px - 5px - 5px);
@@ -52,6 +63,10 @@
 			header .container .left {
 				float: left;
 			}
+			header .container .left > * {
+				display: inline-block;
+				vertical-align: middle;
+			}
 			header .container .right {
 				margin-top: 15px;
 				padding-right: 5px;
@@ -59,11 +74,13 @@
 				width: 200px;
 				text-align: right;
 			}
-			header .container {
-				position: relative;
+			header .container .user_name {
+				font-size: 20px;
+				margin-left: 30px;
+				margin-bottom: 40px;
 			}
 			header .container menu {
-				min-width: 300px;
+				min-width: 400px;
 				height: fit-content;
 				position: absolute;
 				top: 120px;
@@ -87,7 +104,6 @@
 			}
 			header .container menu ul li {
 				position: relative;
-				list-style: none;
 				height: 3em;
 				line-height: 3em;
 			}
@@ -154,9 +170,70 @@
 				vertical-align: middle;
 			}
 
+			footer .container {
+				position: relative;
+				padding-top: 40px;
+				padding-bottom: 28px;
+			}
+			footer .container .footer-text {
+				margin-bottom: 24px;
+				height: 12px;
+				font-size: 12px;
+			}
+			footer .container .footer-links {
+				display: flex;
+				margin-bottom: 40px;
+				font-size: 12px;
+			}
+			footer .container .footer-links li {
+				margin-right: 32px;
+			}
+			footer .container .footer-logo {
+				display: flex;
+				margin-bottom: 40px;
+			}
+			footer .container .footer-logo a {
+				height: 40px;
+			}
+			footer .container .footer-copy {
+				display: block;
+				width: 100%;
+				font-size: 10px;
+				height: 10px;
+			}
+			footer .container .to-top {
+				position: absolute;
+				top: -61px;
+				right: 0;
+				width: 178px;
+				height: 61px;
+				background-size: contain;
+				background-image: url(to-top.png);
+			}
+
+			.link--dotted {
+				display: inline-block;
+				line-height: 1.3;
+				color: #18182f;
+				border-bottom: 2px dotted #ed3232;
+			}
+			.button--totop {
+				position: absolute;
+				top: 24px;
+				left: 55px;
+				padding-top: 8px;
+			}
+			.button--circle {
+				width: 64px;
+				height: 64px;
+				border-radius: 100%;
+			}
 			.button--dark {
 				color: #fff;
 				background-color: #142169;
+			}
+			.button--dark:hover {
+				background-color: #ed3232;
 			}
 			.button--square {
 				display: inline-block;
@@ -165,16 +242,14 @@
 				border-radius: 12px;
 				border: #142169;
 				cursor: pointer;
+				margin-left: 10px;
 			}
 			.button--square svg {
 				width: 40px;
 				height: 40px;
 				cursor: pointer;
 			}
-			header .button--square {
-				margin-left: 10px;
-			}
-			header a.button--square svg {
+			a.button--square svg {
 				padding-top: 8px;
 				padding-right: 10px;
 			}
@@ -192,11 +267,11 @@
 		</style>
 	</head>
 	<body>
-		<input type="checkbox" id="menuOpen" checked />
+		<input type="checkbox" id="menuOpen" />
 		<header>
 			<div class="container">
 				<div class="left">
-					<a href="#"><img id="logo" src="jtop_01.png" /></a>
+					<a href="#"><img id="logo" src="logo.png" /></a>
 					<span class="user_name">のなか ひであき さん</span>
 				</div>
 				<div class="right">
@@ -232,23 +307,12 @@
 						<li class="close">
 							<label for="menuOpen">
 								<span>とじる</span>
-								<!--
-								とじる
-										-->
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
 									<g fill="#18182f">
 										<path d="M0 2.121L2.121 0l14.142 14.142-2.12 2.121z"></path>
 										<path d="M2.121 16.264L0 14.143 14.142 0l2.121 2.12z"></path>
 									</g>
 								</svg>
-								<!--
-								<svg xmlns="http://www.w3.org/2000/svg" width="16.264" height="16.264" viewBox="0 0 16.264 16.264">
-									<g fill="#18182f">
-										<path d="M0 2.121L2.121 0l14.142 14.142-2.12 2.121z"></path>
-										<path d="M2.121 16.264L0 14.143 14.142 0l2.121 2.12z"></path>
-									</g>
-								</svg>
-								-->
 							</label>
 						</li>
 					</ul>
@@ -256,10 +320,69 @@
 			</div>
 		</header>
 		<main>
-			<div class="container">main</div>
+			<div class="container">
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+				main
+				<hr />
+			</div>
 		</main>
 		<footer>
-			<div class="container">footer</div>
+			<div class="container">
+				<p class="footer-text">このサイトは、株式会社？？？？？？が？？？？？？の実施にあたり運用管理・利用しています。</p>
+				<ul class="footer-links">
+					<li><a href="#" target="_blank" class="link--dotted">「利用規約」ならびに「個人情報の取り扱いについて」</a></li>
+					<li><a href="#" target="_blank" class="link--dotted">「特定商取引に関する法律」に基づく表示</a></li>
+					<li><a href="#" target="_blank" class="link--dotted">個人情報保護方針</a></li>
+				</ul>
+				<div class="footer-logo">
+					<a href="#" target="_blank"><img src="company.png" alt="会社ロゴ" /></a>
+				</div>
+				<small class="footer-copy">Copyright &comp; The Japan Institute for Educational Measurement, Inc. All Rights Reserved.</small>
+				<div class="to-top">
+					<button class="button--totop button--circle button--dark">
+						<svg xmlns="http://www.w3.org/2000/svg" width="28.285" height="28.285" viewBox="0 0 28.285 28.285"><path d="M0 14.142L14.142 0l14.142 14.142-2.121 2.121-12.021-12.02-12.02 12.02z" fill="#fff"></path></svg>
+					</button>
+				</div>
+			</div>
 		</footer>
 		<label class="menu-bg" for="menuOpen"></label>
 	</body>
