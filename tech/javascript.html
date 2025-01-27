@@ -160,6 +160,12 @@ sleep(3000).then(() => {
 			</details>
 
 			<details>
+				<summary>querySelectorAllした要素から値を取得 のワンライナー</summary>
+				<code>const ele = documente.getElementByID(????);
+const values = [...ele.querySelectorAll('input')].map(row => row.value);</code>
+			</details>
+
+			<details>
 				<summary>配列の末尾に追加</summary>
 				<code>const result = [];
 result.push(1);</code>
