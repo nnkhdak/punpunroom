@@ -204,6 +204,13 @@ console.log(array3); // [5, 6]</code>
 			</details>
 
 			<details>
+				<summary>本来のイベントをとめたい</summary>
+				<code>$('#myLink').click(function(event) {
+	event.preventDefault(); // リンクの遷移を阻止
+});</code>
+			</details>
+
+			<details>
 				<summary>今日の日付をワンライナー</summary>
 				<code>// sv-SEロケールはYYYY-MM-DD形式の日付文字列を戻す
 new Date().toLocaleDateString('sv-SE');</code>
