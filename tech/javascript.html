@@ -157,6 +157,11 @@ if ('hogehoge' in options) {}
 sleep(3000).then(() => {
 	console.log('hogehoge');
 });</code>
+				応用編
+				<code>fetch('xxx').then(data => {})</code>
+				は
+				<code>fetch('xxx').then((d) => {return sleep(3000).then(() => d)}).then(data => {})</code>
+				にできる
 			</details>
 
 			<details>
