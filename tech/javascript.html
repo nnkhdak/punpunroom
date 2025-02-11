@@ -161,7 +161,7 @@ sleep(3000).then(() => {
 				応用編(デバッグ時に意図的に待つ)
 				<code>fetch('xxx').then(data => {console.log(data);})</code>
 				は
-				<code>fetch('xxx').then(d => {return sleep(3000).then(() => d)}).then(data => {console.log(data);})</code>
+				<code>fetch('xxx')<span style="color: red;">.then(d => {return sleep(3000).then(() => d)})</span>.then(data => {console.log(data);})</code>
 				にできる
 			</details>
 
