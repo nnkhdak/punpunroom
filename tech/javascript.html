@@ -157,10 +157,11 @@ if ('hogehoge' in options) {}
 sleep(3000).then(() => {
 	console.log('hogehoge');
 });</code>
+
 				応用編(デバッグ時に意図的に待つ)
-				<code>fetch('xxx').then(data => {})</code>
+				<code>fetch('xxx').then(data => {console.log(data);})</code>
 				は
-				<code>fetch('xxx').then(d => {return sleep(3000).then(() => d)}).then(data => {})</code>
+				<code>fetch('xxx').then(d => {return sleep(3000).then(() => d)}).then(data => {console.log(data);})</code>
 				にできる
 			</details>
 
