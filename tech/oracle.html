@@ -91,6 +91,11 @@ select * from v$license;</code>
 			</details>
 
 			<details>
+				<summary>複数行の値を連結して1つの文字列として返す</summary>
+				<code>LISTAGG(連結したい列名, '区切り文字') WITHIN GROUP (ORDER BY 並び替え列名)</code>
+			</details>
+
+			<details>
 				<summary>文字列を数値化</summary>
 				<code>SELECT to_number('123') AS num, '456' AS str FROM dual</code>
 			</details>
