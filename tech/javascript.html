@@ -228,6 +228,11 @@ const formattedDate = `${year}-${month}-${day}`;</code>
 			</details>
 
 			<details>
+				<summary>今日の日時をワンライナー</summary>
+				<code>const now = new Date().toISOString().replace(/[^0-9]/g, '');</code>
+			</details>
+
+			<details>
 				<summary>バックスラッシュを置き換える</summary>
 				<code>"abc".replace("\\xA5", '円'); </code>
 			</details>
