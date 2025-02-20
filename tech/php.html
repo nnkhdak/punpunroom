@@ -40,8 +40,14 @@ $on = sprintf('%04d/%02d/%02d %02d:%02d:%02d'
 			</details>
 
 			<details open>
-				<summary>URL エンコードされたクエリ文字列を生成する</summary>
-				<code>http_build_query</code>
+				<summary>連想配列をQueryString化</summary>
+				<code>$queryString = http_build_query([
+	'name' => 'ABC',
+	'age' => 123,
+	'city' => 'Tokyo',
+	'hobbies' => ['reading', 'traveling']
+]);</code>
+				<p>先頭の?は付加されないので自身で追加すること</p>
 			</details>
 
 			<details open>

@@ -103,11 +103,11 @@ for (const pair of formData.entries()) {
 			<details>
 				<summary>連想配列をQueryString化</summary>
 				<code>const queryString = new URLSearchParams({
-		foo: 'bar',
-		baz: 'boom',
-		cow: 'milk',
-		php: 'hypertext processor'
-	}).toString();</code>
+	name: 'ABC',
+	age: 123,
+	city: 'Tokyo',
+	hobbies: ['reading', 'traveling']
+}).toString();</code>
 				<p>先頭の?は付加されないので自身で追加すること</p>
 			</details>
 
