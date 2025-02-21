@@ -27,41 +27,37 @@
 
 			<details>
 				<summary>URLをparseする</summary>
-				<code>var parse = new URL(location.href);</code>
+				<code>const href = "https://user:pass@example.com:8080/pathname?search=test#hash";
+const parse = new URL(href);
+
+console.log("href:", parse.href);
+console.log("protocol:", parse.protocol);
+console.log("username:", parse.username);
+console.log("password:", parse.password);
+console.log("host:", parse.host);
+console.log("hostname:", parse.hostname);
+console.log("port:", parse.port);
+console.log("pathname:", parse.pathname);
+console.log("search:", parse.search);
+console.log("searchParams:", JSON.stringify([...parse.searchParams.entries()]));
+console.log("hash:", parse.hash);
+console.log("origin:", parse.origin);
+</code>
 				<p>以下のような情報が取得できる</p>
-				<table>
-					<thead>
-						<tr>
-							<th>host</th>
-							<td>www.hogehoge.com</td>
-						</tr>
-						<tr>
-							<th>hostname</th>
-							<td>www.hogehoge.com</td>
-						</tr>
-						<tr>
-							<th>href</th>
-							<td>https://www.hogehoge.com/abcd.html?name=abc&age=123</td>
-						</tr>
-						<tr>
-							<th>origin</th>
-							<td>https://www.hogehoge.com</td>
-						</tr>
-						<tr>
-							<th>pathname</th>
-							<td>/abcd.html</td>
-						</tr>
-						<tr>
-							<th>protocol</th>
-							<td>https:</td>
-						</tr>
-						<tr>
-							<th>search</th>
-							<td>?name=abc&age=123</td>
-						</tr>
-					</thead>
-				</table>
-				<p>https://qiita.com/ovrmrw/items/1c1564481c4ca9cc4351</p>
+				<code>
+href: https://user:pass@example.com:8080/pathname?search=test#hash
+protocol: https:
+username: user
+password: pass
+host: example.com:8080
+hostname: example.com
+port: 8080
+pathname: /aaa/bbb.html
+search: ?name=abc&age=123
+searchParams: [["name","abc"],["age","123"]]
+hash: #hash
+origin: https://example.com:8080
+				</code>
 			</details>
 
 			<details>
