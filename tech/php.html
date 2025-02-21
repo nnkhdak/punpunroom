@@ -25,7 +25,7 @@
 				<a class="button" href="javascript:openclose(false);">全てを閉じる</a>
 			</div>
 
-			<details open>
+			<details>
 				<summary>文字列型日付の型変換</summary>
 				<code>$on = '20230102030405';
 $on = date_parse_from_format('YmdHis', $on);
@@ -39,7 +39,23 @@ $on = sprintf('%04d/%02d/%02d %02d:%02d:%02d'
 );</code>
 			</details>
 
-			<details open>
+			<details>
+				<summary>URLをparseする</summary>
+				<code>$url = "https://www.hogehoge.com/abc/def.html?name=abc&age=123#zzz";
+$parsedUrl = parse_url($url);
+print_r($parsedUrl);</code>
+				<p>以下のような情報が取得できる</p>
+				<code>Array
+(
+	[scheme] => https
+	[host] => www.hogehoge.com
+	[path] => /abc/def.html
+	[query] => name=abc&age=123
+	[fragment] => zzz
+)</code>
+			</details>
+
+			<details>
 				<summary>連想配列をQueryString化</summary>
 				<code>$queryString = http_build_query([
 	'name' => 'ABC',
@@ -50,34 +66,34 @@ $on = sprintf('%04d/%02d/%02d %02d:%02d:%02d'
 				<p>先頭の?は付加されないので自身で追加すること</p>
 			</details>
 
-			<details open>
+			<details>
 				<summary>連想配列のキーを小文字にする</summary>
 				<code>$row = array_change_key_case($row, CASE_LOWER);</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>キーが配列になっていて値がnullの連想配列を生成する</summary>
 				<code>$keys = array('aaa', 'bbb', 'ccc');
 $vals = array_fill(0, count($keys), null);
 $hash = array_combine($keys, $vals);</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>連続する空白文字(改行なども含む)を1つのスペースに置き換える</summary>
 				<code>trim(preg_replace("/[ \r\n\t]+/", ' ', 文字列));</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>2021/04/25 12:34:56</summary>
 				<code>date('Y/m/d H:i:s');</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>15日前でフォーマット指定</summary>
 				<code>date('YmdHis', strtotime('-15 day'))</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>私の好きな例外メッセージ</summary>
 				<code>$msg = $e->getCode(); $msg = sprintf('%s%s: %s in %s:%d %s%s%s%s', get_class($e), empty($msg) ? '' : "($msg)", $e->getMessage(), $e->getFile(), $e->getLine(), PHP_EOL, 'Stack trace:', PHP_EOL, $e->getTraceAsString());
 
@@ -95,14 +111,14 @@ $msg = json_encode(array(
 </code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>array_filterのcallbackにパラメータを渡す</summary>
 				<code>$rows = array_filter($rows, function($row) use ($by) {
 	return $row['by'] == $by;
 });</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>ファイルに値を書き込む</summary>
 				<code>$s = 'hehe';
 $h = fopen('/var/log/log_' . date('Ymd') . '.txt'  , 'a');
@@ -110,67 +126,67 @@ fwrite($h, $s);
 fclose($h);</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>配列の共通項</summary>
 				<code>$target = array('a', 'b', 'c', 'd', 'e');
 $result = array_diff($target, array('c', 'e'));
 $result = array_values($result);</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>配列からemptyを除外</summary>
 				<code>$array1 = array('a', '', false, 0);
 $array2 = array_filter($array1);
 $array2 = array_values($array2);</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>連想配列のキーの共通項</summary>
 				<code>$array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
 $array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
 $tmp = array_intersect_key($array1, $array2);</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>連想配列から特定のキーのみ取り出す</summary>
 				<code>$array1 = array('blue' => 1, 'red' => 2, 'green' => 3, 'purple' => 4);
 $array2 = array('green', 'blue', 'yellow', 'cyan');
 $tmp = array_intersect_key($array1, array_flip($array2));</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>functionのuse</summary>
 				<code>use function pascalize;</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>クラスの定義済みfunctionを知る</summary>
 				<code>get_class_methods('クラス名');</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>ダブルクオートの文字列連結中にfunctionの実行結果を混ぜる</summary>
 				<code>$msg = "$msg\t{$e->getCode()}\t{$e->getMessage()}";</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>クラスが定義(読み込まれていない場合も)されているか判定</summary>
 				<code>class_exists</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>ファイルの先頭の方にいれるとFatalエラーとかでるようになるかも</summary>
 				<code>error_reporting(E_ALL);</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>ファイルの拡張子をhtmlでPHPコードを埋め込みたい(.htaccess)</summary>
 				<code>&lt;FilesMatch "\.html$"&gt;
 	AddType application/x-httpd-php .html
 &lt;/FilesMatch&gt;</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>smartyでscriptタグ</summary>
 				<code>{literal}
 	&lt;script&gt;
@@ -180,22 +196,22 @@ $tmp = array_intersect_key($array1, array_flip($array2));</code>
 </code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>smartyで { や } のエスケープ</summary>
 				<code>{ldelim},{rdelim}</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>smartyでjson_encode</summary>
 				<code>{$sv.hensuu|@json_encode</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>PHPの構文チェック</summary>
 				<code>php -l ファイル名</code>
 			</details>
 
-			<details open>
+			<details>
 				<summary>ヒアドキュメント</summary>
 				<code>const SQL = &lt;&lt;&lt;'EOT'
 SELECT
