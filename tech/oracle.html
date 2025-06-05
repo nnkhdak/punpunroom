@@ -81,7 +81,18 @@ ANALYZE TABLE employees COMPUTE STATISTICS FOR column_name;
 
 -- サンプルデータに基づいて統計情報を推定
 ANALYZE TABLE employees ESTIMATE STATISTICS 10 PERCENT;</code>
-				</details>
+			</details>
+
+			<details>
+				<summary>日付フォーマット</summary>
+				<code>SELECT
+	to_timestamp(	'2025/01/23 12:34:56.789012',	'YYYY/MM/DD HH24:MI:SS.FF6')	AS val1,
+	to_date(		'2025/01/23 12:34:56',			'YYYY/MM/DD HH24:MI:SS')		AS val2,
+	to_char(current_timestamp,	'YYYY/MM/DD HH24:MI:SS.FF6')						AS val3,
+	to_char(current_date,		'YYYY/MM/DD HH24:MI:SS')							AS val4
+FROM
+	dual</code>
+			</details>
 
 			<details>
 				<summary>接続数関連の設定を参照</summary>
@@ -172,11 +183,6 @@ FROM (
 	CONNECT BY
 		instr(t1.nums, ',', 1, level - 1) > 0
 ) t2</code>
-			</details>
-
-			<details>
-				<summary>日付フォーマット</summary>
-				<code>TO_CHAR(CURRENT_DATE, 'YYYY/MM/DD HH24:MI:SS')</code>
 			</details>
 
 			<details>
