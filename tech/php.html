@@ -72,10 +72,38 @@ print_r($parsedUrl);</code>
 			</details>
 
 			<details>
+				<summary>連想配列のキーの共通項</summary>
+				<code>$array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
+$array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
+$tmp = array_intersect_key($array1, $array2);</code>
+			</details>
+
+			<details>
+				<summary>連想配列から特定のキーのみ取り出す</summary>
+				<code>$array1 = array('blue' => 1, 'red' => 2, 'green' => 3, 'purple' => 4);
+$array2 = array('green', 'blue', 'yellow', 'cyan');
+$tmp = array_intersect_key($array1, array_flip($array2));</code>
+			</details>
+
+			<details>
 				<summary>キーが配列になっていて値がnullの連想配列を生成する</summary>
 				<code>$keys = array('aaa', 'bbb', 'ccc');
 $vals = array_fill(0, count($keys), null);
 $hash = array_combine($keys, $vals);</code>
+			</details>
+
+			<details>
+				<summary>配列の共通項</summary>
+				<code>$target = array('a', 'b', 'c', 'd', 'e');
+$result = array_diff($target, array('c', 'e'));
+$result = array_values($result);</code>
+			</details>
+
+			<details>
+				<summary>配列からemptyを除外</summary>
+				<code>$array1 = array('a', '', false, 0);
+$array2 = array_filter($array1);
+$array2 = array_values($array2);</code>
 			</details>
 
 			<details>
@@ -124,34 +152,6 @@ $msg = json_encode(array(
 $h = fopen('/var/log/log_' . date('Ymd') . '.txt'  , 'a');
 fwrite($h, $s);
 fclose($h);</code>
-			</details>
-
-			<details>
-				<summary>配列の共通項</summary>
-				<code>$target = array('a', 'b', 'c', 'd', 'e');
-$result = array_diff($target, array('c', 'e'));
-$result = array_values($result);</code>
-			</details>
-
-			<details>
-				<summary>配列からemptyを除外</summary>
-				<code>$array1 = array('a', '', false, 0);
-$array2 = array_filter($array1);
-$array2 = array_values($array2);</code>
-			</details>
-
-			<details>
-				<summary>連想配列のキーの共通項</summary>
-				<code>$array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
-$array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
-$tmp = array_intersect_key($array1, $array2);</code>
-			</details>
-
-			<details>
-				<summary>連想配列から特定のキーのみ取り出す</summary>
-				<code>$array1 = array('blue' => 1, 'red' => 2, 'green' => 3, 'purple' => 4);
-$array2 = array('green', 'blue', 'yellow', 'cyan');
-$tmp = array_intersect_key($array1, array_flip($array2));</code>
 			</details>
 
 			<details>
