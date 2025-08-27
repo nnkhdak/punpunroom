@@ -148,6 +148,16 @@ if ('hogehoge' in options) {}
 			</details>
 
 			<details>
+				<summary>連想配列でキーを指定しキーと値を抜き出す</summary>
+				<code>const obj = { a: 1, b: 2, c: 3, d: 4 };
+const keys = ["a", "c"];
+const result = Object.fromEntries(
+  keys.map(key => [key, obj[key]])
+);
+console.log(result); // { a: 1, c: 3 }</code>
+			</details>
+
+			<details>
 				<summary>sleepをワンライナー</summary>
 				<code>const sleep = waitTime => new Promise(resolve => setTimeout(resolve, waitTime));
 sleep(3000).then(() => {
