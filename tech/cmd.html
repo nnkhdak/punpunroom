@@ -40,6 +40,18 @@ find . -type f | xargs chmod 666</code>
 			</details>
 
 			<details open>
+				<summary>aaaディレクトリ内の相対パスを利用し../bbbにコピーしたい</summary>
+				<code>cd aaa
+rsync -R \
+database/migrations/20250123.sql \
+html/script/common.js \
+html/style/common.css \
+php/Const.php \
+php/member/Account.php \
+../bbb</code>
+			</details>
+
+			<details open>
 				<summary>当ディレクトリ以下のDS_Storeファイルを削除する</summary>
 				<code>find . -name ".DS_Store" -delete</code>
 			</details>
