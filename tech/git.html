@@ -24,10 +24,14 @@
 				<a class="button" href="javascript:openclose(true);">全てを開く</a>
 				<a class="button" href="javascript:openclose(false);">全てを閉じる</a>
 			</div>
-
 			<ul>
 				<li>
 					<span>ブランチ</span>
+					<details>
+						<summary>改行コードをLFにしたい</summary>
+						グローバル設定 (あなたのコンピューター上のすべてのGitリポジトリに適用)
+						<code>git config --global core.autocrlf input</code>
+					</details>
 					<details>
 						<summary>操作を取り消したい</summary>
 						git reflog で一覧表示
