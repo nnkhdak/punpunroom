@@ -84,6 +84,16 @@ ANALYZE TABLE employees ESTIMATE STATISTICS 10 PERCENT;</code>
 			</details>
 
 			<details>
+				<summary>シーケンス(順序)</summary>
+				<p>LAST_NUMBER は「次に払い出される値（NEXTVAL）」を表します。</p>
+				<p>LAST_NUMBER を直接UPDATEして変えることはできません。</p>
+				<p>以下のようなことを行うか、シーケンスを DROP → CREATE して START WITH を指定し再作成します。最下段のINCREMENTを戻し忘れないように注意！</p>
+				<code>ALTER SEQUENCE seq_name INCREMENT BY -1;
+SELECT seq_name.NEXTVAL FROM dual;
+ALTER SEQUENCE seq_name INCREMENT BY 1;</code>
+			</details>
+
+			<details>
 				<summary>日付フォーマット</summary>
 				<code>SELECT
 	to_timestamp(	'2025/01/23 12:34:56.789012',	'YYYY/MM/DD HH24:MI:SS.FF6')	AS val1,
