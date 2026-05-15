@@ -1,0 +1,40 @@
+services:
+ mysql:
+  container_name: mysql
+  image: mysql:8.4
+  command:
+   - /bin/bash
+   - -c
+   - |
+    chmod 644 /etc/mysql/conf.d/my.cnf
+    /usr/local/bin/docker-entrypoint.sh mysqld --user=mysql --console
+  environment:
+   MYSQL_ROOT_PASSWORD: password
+   MYSQL_DATABASE: test
+   MYSQL_USER: user
+   MYSQL_PASSWORD: pass
+   TZ: Asia/Tokyo
+  volumes:
+   - ./docker/mysql/init:/docker-entrypoint-initdb.d
+   - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+   - ./docker/mysql/data:/var/lib/mysql
+  ports:
+   - '3306:3306'
+  networks:
+   - punpunroom
+ php:
+  container_name: php
+  build:
+   context: ./docker/php
+   dockerfile: Dockerfile
+  volumes:
+   - .:/var/www
+  ports:
+   - '80:80'
+  depends_on:
+   - mysql
+  networks:
+   - punpunroom
+networks:
+ punpunroom:
+  driver: bridge
