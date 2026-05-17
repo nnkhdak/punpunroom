@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Models\Code;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Validation\Rule;
 
 class CodeController extends Controller
@@ -28,18 +29,32 @@ class CodeController extends Controller
     }
 
     /**
+     * codeType指定で連想配列取得（key: code, value: name）
+     * GET /api/codes/{codeType}
+     */
+    public function listByType(string $codeType): JsonResponse
+    {
+        $items = Code::where('code_type', $codeType)
+            ->orderBy('sort_order')
+            ->get()
+            ->mapWithKeys(fn(Code $item): array => [(int) $item->code => $item->name]);
+
+        return response()->json($items);
+    }
+
+    /**
      * 1件取得
      * GET /api/codes/{codeType}/{code}
      */
-    public function show(string $codeType, int $code): JsonResponse
+    public function show(string $codeType, int $code): Response
     {
         $item = Code::where('code_type', $codeType)->where('code', $code)->first();
 
         if ($item === null) {
-            return response()->json(['message' => 'Not found.'], 404);
+            return response('', 404);
         }
 
-        return response()->json($item);
+        return response($item->name)->header('Content-Type', 'text/plain; charset=utf-8');
     }
 
     /**
