@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>組織一覧</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; background: #f5f5f5; color: #333; }
+    header { background: #2c6fad; color: #fff; padding: 16px 24px; display: flex; align-items: center; gap: 16px; }
+    header h1 { font-size: 1.2rem; font-weight: bold; }
+    header a { color: #cde; font-size: .85rem; text-decoration: none; }
+    header a:hover { text-decoration: underline; }
+    main { max-width: 900px; margin: 32px auto; padding: 0 16px; }
+    .toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .toolbar .condition { font-size: .85rem; color: #666; }
+    .toolbar .count { font-size: .85rem; color: #555; }
+    .card { background: #fff; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,.1); overflow: hidden; }
+    table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    thead th {
+      background: #2c6fad; color: #fff; padding: 11px 14px;
+      text-align: left; white-space: nowrap;
+    }
+    tbody tr:nth-child(even) { background: #f9f9f9; }
+    tbody tr:hover { background: #eef4fc; }
+    tbody td { padding: 10px 14px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .badge-active   { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: .78rem; background: #d4edda; color: #155724; }
+    .badge-inactive { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: .78rem; background: #f8d7da; color: #721c24; }
+    .empty { text-align: center; padding: 48px; color: #999; }
+    .loading { text-align: center; padding: 48px; color: #999; }
+    .error-msg { text-align: center; padding: 48px; color: #c00; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>組織管理</h1>
+    <a href="organizations-search.html">← 検索条件を変更</a>
+  </header>
+  <main>
+    <div class="toolbar">
+      <div class="condition" id="conditionLabel"></div>
+      <div class="count" id="countLabel"></div>
+    </div>
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>会社名</th>
+            <th>代表者</th>
+            <th>電話番号</th>
+            <th>メール</th>
+            <th>都道府県</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <tr><td colspan="7" class="loading">読み込み中…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script>
+    const API_BASE = '/api/organizations';
+
+    // URLパラメーターから検索条件を取得
+    const urlParams  = new URLSearchParams(location.search);
+    const filterName  = urlParams.get('name')  || '';
+    const filterPhone = urlParams.get('phone') || '';
+
+    // 検索条件ラベル
+    const condParts = [];
+    if (filterName)  condParts.push('会社名：' + filterName);
+    if (filterPhone) condParts.push('電話番号：' + filterPhone);
+    document.getElementById('conditionLabel').textContent =
+      condParts.length ? '検索条件　' + condParts.join('　/　') : '（条件なし — 全件表示）';
+
+    async function load() {
+      const tbody = document.getElementById('tableBody');
+      try {
+        const params = new URLSearchParams();
+        if (filterName)  params.set('name',  filterName);
+        if (filterPhone) params.set('phone', filterPhone);
+
+        const url = API_BASE + (params.toString() ? '?' + params.toString() : '');
+        const res = await fetch(url, { headers: { Accept: 'application/json' } });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+
+        document.getElementById('countLabel').textContent = data.length + '件';
+
+        if (data.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="7" class="empty">該当する組織がありません</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = data.map(o => `
+          <tr>
+            <td>${esc(o.id)}</td>
+            <td>
+              <strong>${esc(o.name)}</strong>
+              ${o.name_kana ? '<br><small style="color:#888">' + esc(o.name_kana) + '</small>' : ''}
+            </td>
+            <td>${esc(o.representative_label ?? '—')}</td>
+            <td>${esc(o.phone || '—')}</td>
+            <td>${esc(o.email || '—')}</td>
+            <td>${esc(o.city || '—')}</td>
+            <td>${statusBadge(o.status)}</td>
+          </tr>
+        `).join('');
+      } catch (err) {
+        tbody.innerHTML = '<tr><td colspan="7" class="error-msg">データの取得に失敗しました（' + esc(err.message) + '）</td></tr>';
+      }
+    }
+
+    function statusBadge(status) {
+      return status === 1
+        ? '<span class="badge-active">有効</span>'
+        : '<span class="badge-inactive">無効</span>';
+    }
+
+    function esc(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    load();
+  </script>
+</body>
+</html>
